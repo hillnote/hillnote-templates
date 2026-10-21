@@ -1,0 +1,686 @@
+{
+  "formatVersion": 1,
+  "generatedAt": "2026-10-21T03:22:53.093Z",
+  "templates": [
+    {
+      "id": "hello-hillnote",
+      "version": "1.0.0",
+      "name": "Hello from Hillnote",
+      "tagline": "A guided tour of everything a Hillnote workspace can do.",
+      "description": "Start here if you are new to Hillnote. A short welcome page walks you through the basics, then a task database of four first steps gets you set up: download a local model, create your first workspace and file, and connect your tools.\n\nThe rest of the workspace is a reference you can come back to: everything pages can do, a slide deck, a free-form canvas, databases with board and calendar views, publishing and sync, plus a complete formatting guide.",
+      "setups": [],
+      "tags": [
+        "starter",
+        "tour",
+        "reference"
+      ],
+      "featured": true,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "A guided tour of Hillnote: a welcome page, four first steps, and a reference for every file format.",
+      "color": "blue",
+      "dateAnchor": null,
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/hello-hillnote/media/icon.webp",
+      "heroUrl": null,
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 4,
+        "databases": 1,
+        "sheets": 0,
+        "slides": 1,
+        "canvases": 1,
+        "moodboards": 0,
+        "tools": 0,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 0
+      },
+      "plugins": [],
+      "tools": [],
+      "sourceHash": "01e0df8940e4a71dabde70a8c5bdb9a7723f38113777ce904e8534b59a268326",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/hello-hillnote-v1.0.0/hello-hillnote-1.0.0.zip",
+      "sha256": "d9edfe5b3b634a0847fcc62a34c92673720a2a546695a671dd7b2662509bbca1",
+      "sizeBytes": 12933011,
+      "repoPath": "templates/hello-hillnote",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "product-hq",
+      "version": "1.0.0",
+      "name": "Product HQ",
+      "tagline": "Strategy, discovery, a RICE-ranked roadmap and specs, all in one place.",
+      "description": "A complete operating system for a product team, shown through a worked example: Lumen, a fictional analytics product planning its next quarter. Strategy sits at the top (vision, OKRs, personas), customer evidence underneath it (a feedback database and interview notes), and a roadmap ranked by RICE that you can see as a board, a timeline, a ranked table or an impact-versus-effort matrix.\n\nDelivery pages turn the roadmap into shipped work: a filled-in PRD, a launch plan and release notes, plus blank templates to duplicate. A weekly product review and a quarterly roadmap deck keep everyone honest.\n\nThree AI recipes draft PRDs, write the Monday status digest and cluster new feedback into themes. Two tools come with it: a priority matrix that lets you move initiatives between Now, Next and Later, and a market-sizing calculator.",
+      "setups": [
+        "product"
+      ],
+      "tags": [
+        "product",
+        "roadmap",
+        "prd",
+        "okrs",
+        "feedback",
+        "rice",
+        "planning"
+      ],
+      "featured": true,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Product team workspace: vision and OKRs, a customer feedback database, a RICE-ranked roadmap (board, timeline, matrix), PRDs, launch plans, release notes and a weekly review.",
+      "color": "blue",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/product-hq/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/product-hq/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 12,
+        "databases": 2,
+        "sheets": 0,
+        "slides": 1,
+        "canvases": 0,
+        "moodboards": 0,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "market-sizing",
+          "externalHosts": []
+        },
+        {
+          "name": "priority-matrix",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "088bd14a46398a3f9e8708fb710c6cff12ffdb20886ce16a2edfc27357d0a85d",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/product-hq-v1.0.0/product-hq-1.0.0.zip",
+      "sha256": "c9aa7ab4579f6fa13d980fda02a39c89c6b4bae378c4ed30f437a5d72bce041c",
+      "sizeBytes": 91925,
+      "repoPath": "templates/product-hq",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "writers-studio",
+      "version": "1.0.0",
+      "name": "Writer's Studio",
+      "tagline": "Ideas, outlines, drafts and published pieces in one calm place, with a style guide and editing passes built in.",
+      "description": "A home for a working writer, shown through a worked example: Nell Ashby, a fictional essayist who sends a fortnightly newsletter and is halfway through a book of essays about repair. Ideas land on the Desk, get promoted to pieces, and move through a pipeline from outline to published, with word counts and a progress formula tracking every draft.\n\nEvery piece is a real page: an outline, a draft excerpt and a scratch space for the messy bits, linked to the research behind it. A commonplace book tags quotes by topic, reading notes sit beside it, and the Craft section holds a style guide, a four-pass editing checklist, structure cheat-sheets and a publishing checklist.\n\nThree AI recipes line-edit a passage against your style guide, write headline options and turn rough notes into an outline. Two tools come with it: a word sprint timer that logs words straight to a piece, and a readability check for anything you paste in.",
+      "setups": [
+        "writing"
+      ],
+      "tags": [
+        "writing",
+        "essays",
+        "newsletter",
+        "book",
+        "editing",
+        "publishing",
+        "drafts"
+      ],
+      "featured": true,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "Short public-domain quotations from Henry David Thoreau (Walden), John Ruskin (Unto This Last) and William Morris (The Beauty of Life). Everything else is original.",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Writing workspace: an ideas inbox, a pieces pipeline (board, calendar, table) with word-count progress, a commonplace book and reading notes, a style guide, editing and publishing checklists, and outline templates.",
+      "color": "sage",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/writers-studio/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/writers-studio/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 11,
+        "databases": 3,
+        "sheets": 0,
+        "slides": 0,
+        "canvases": 0,
+        "moodboards": 0,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "readability-check",
+          "externalHosts": []
+        },
+        {
+          "name": "word-sprint",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "639b01e91c93173557c097d49a16f99bcf4c140ebff40ab1e923e6e8624d2569",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/writers-studio-v1.0.0/writers-studio-1.0.0.zip",
+      "sha256": "62445220c9e79cc41df3f2486fcf9470f97abbe93f4d12972b955b1a1758f1d6",
+      "sizeBytes": 130445,
+      "repoPath": "templates/writers-studio",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "creator-studio",
+      "version": "1.0.0",
+      "name": "Creator Studio",
+      "tagline": "Bank ideas, script videos in beats, run a content calendar and keep sponsors in one place, from idea to upload.",
+      "description": "A studio for a one-person channel, shown through a worked example: Small Kitchen Science, a fictional cooking-science channel with a weekly newsletter. Every idea is banked with a hook and a score, every video gets a script written in beats (what you say, what we see, how long), and a content calendar walks each piece from Idea to Published across YouTube, Shorts, TikTok, Instagram and the newsletter.\n\nTwo finished scripts show the method, a channel strategy sets out the pillars, hook formulas and title rules, and a brand board, a media kit deck and a sponsors sheet keep the business side next to the work. The weekly newsletter row repeats itself.\n\nThree AI recipes punch up a hook, repurpose a long video into a Short, a carousel and a newsletter section, and write title ideas. Two tools come with it: a teleprompter with mirror mode and a runtime estimate, and a title and thumbnail-text checker that previews truncation on every platform.",
+      "setups": [
+        "creator"
+      ],
+      "tags": [
+        "creator",
+        "youtube",
+        "content calendar",
+        "scripts",
+        "shorts",
+        "sponsors",
+        "newsletter"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Creator workspace: a scored idea bank, a content calendar (calendar, board, table) with a repeating newsletter, scripts in beats, a channel strategy, a brand board, a media kit deck and a sponsors sheet.",
+      "color": "coral",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/creator-studio/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/creator-studio/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 8,
+        "databases": 2,
+        "sheets": 1,
+        "slides": 1,
+        "canvases": 0,
+        "moodboards": 1,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "teleprompter",
+          "externalHosts": []
+        },
+        {
+          "name": "title-checker",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "9f34be55c26ec6bdd0dba18d37d63fbddbf839616006d333717a9aa040d4bfa0",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/creator-studio-v1.0.0/creator-studio-1.0.0.zip",
+      "sha256": "c0039a164f6dfe0fa059dc308e72205856f48d48a7988a579139efdf849b4118",
+      "sizeBytes": 115770,
+      "repoPath": "templates/creator-studio",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "design-studio",
+      "version": "1.0.0",
+      "name": "Design Studio",
+      "tagline": "Brief, moodboard, design system, UX copy and critiques in one place, ready for Figma over MCP.",
+      "description": "A design team's whole loop in plain files, shown through a worked example: Fernway, a fictional plant-care app halfway through its v3 refresh. A short project brief sits at the top, a moodboard and annotated references explore the direction, and the system turns it into decisions: colour tokens with real contrast ratios, a type scale, voice and microcopy rules, a Components database with a Figma link per component and a UX copy sheet with character limits.\n\nReview keeps it honest: a feedback log from crits and usability tests, a design QA checklist and a design review deck. Creative brief and critique templates are ready to duplicate.\n\nThree AI recipes run a structured critique, write UI copy inside its limits and turn the brief into a handoff spec. Two tools come with it: a WCAG contrast checker and a type scale generator that copies CSS variables. Connect Claude to Figma and Hillnote over MCP and the brief travels with every frame it builds.",
+      "setups": [
+        "design"
+      ],
+      "tags": [
+        "design",
+        "design-system",
+        "moodboard",
+        "figma",
+        "ux-writing",
+        "critique",
+        "accessibility"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Design team workspace: project brief, moodboard and references, colour and type tokens, voice rules, a Components database, a UX copy sheet, a feedback log, QA checklist and review deck.",
+      "color": "orchid",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/design-studio/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/design-studio/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 9,
+        "databases": 2,
+        "sheets": 1,
+        "slides": 1,
+        "canvases": 0,
+        "moodboards": 1,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "contrast-checker",
+          "externalHosts": []
+        },
+        {
+          "name": "type-scale",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "695475c42ec1a617b6746f2e4dd58b9f82ef698c3cf80d6cb201fd3f6c1f1d8c",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/design-studio-v1.0.0/design-studio-1.0.0.zip",
+      "sha256": "c649d611f2cfcb557bf8c5bb000c2f0c18c0e7e41e85561fa1bbbb16a410b3ec",
+      "sizeBytes": 114518,
+      "repoPath": "templates/design-studio",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "dungeon-masters-codex",
+      "version": "1.0.0",
+      "name": "Dungeon Master's Codex",
+      "tagline": "A living campaign bible: NPCs, places, monsters, loot, quests and sessions, all linked, with dice and initiative tools.",
+      "description": "Everything a game master juggles, in one linked workspace that works with 5e or any d20 game. It comes with a worked example: The Shattered Coast, an original nautical-gothic setting where a great lighthouse is failing, ships are vanishing and bells ring under the sea. Every NPC, place, quest and monster is filled in, so you can read session 2 tonight and see how the pieces connect before you build your own.\n\nThe campaign bible, lore and factions sit at the top. NPCs are the hub, with voice, secrets, faction and attitude, shown as a gallery, a board by faction or a table. Places, monsters with compact stat blocks, magic items and quests have their own databases, all tied together with links, and the region map is a board where every place is a card that opens its notes. Sessions run on a calendar with a weekly prep reminder, a filled-in recap and prep, a session-zero deck with lines and veils, and a DM screen.\n\nThree AI recipes voice any NPC in character, spin side quests from your own lore and turn session notes into a recap. Two tools work on a phone at the table: a dice roller with advantage and roll history, and an initiative tracker with hit points, conditions and rounds.",
+      "setups": [
+        "dungeon-master"
+      ],
+      "tags": [
+        "ttrpg",
+        "dungeon master",
+        "campaign",
+        "worldbuilding",
+        "d20",
+        "npcs",
+        "dice"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Game master workspace: campaign bible, lore and factions, linked NPC, place, monster, item and quest databases, a region map board, a session calendar with recap and prep, a session-zero deck, and dice and initiative tools.",
+      "color": "wine",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/dungeon-masters-codex/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/dungeon-masters-codex/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 9,
+        "databases": 6,
+        "sheets": 0,
+        "slides": 1,
+        "canvases": 0,
+        "moodboards": 1,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "dice-roller",
+          "externalHosts": []
+        },
+        {
+          "name": "initiative-tracker",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "67e86e857e9f2a208c12d0ccffc02a38ad86338854d8727b0cdd9b9bf3e97112",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/dungeon-masters-codex-v1.0.0/dungeon-masters-codex-1.0.0.zip",
+      "sha256": "cb156ae0dfd0ae338fe441d5c1cf0ddf81a57a2b5813263a380dbc97430fa174",
+      "sizeBytes": 174339,
+      "repoPath": "templates/dungeon-masters-codex",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "engineering-hub",
+      "version": "1.0.0",
+      "name": "Engineering Hub",
+      "tagline": "Specs, RFCs, ADRs, a sprint board and runbooks as plain files, right beside your code and your coding agent.",
+      "description": "An engineering team's workspace, shown through a worked example: Atlas API, the public geocoding and places API of a fictional company, run by a six-person platform team in the middle of a sprint. They are shipping rate limiting and recovering from a latency incident, so every page and view already has something real in it.\n\nSpecs come first: an architecture overview with diagrams and SLOs, an RFC for rate limiting and a glossary whose terms other pages link to directly. A Tickets database runs the sprint as a board, a current-sprint list, a bug queue and a points chart, and an ADR log records why things are the way they are. Runbooks cover deploys, incident response, on-call and the changelog, with a filled-in blameless postmortem and blank templates for design docs, ADRs and postmortems.\n\nThree AI recipes write the daily standup, draft ADRs and turn an incident timeline into a postmortem. Two tools come with it: a changelog drafter that turns done tickets into release notes, and an incident log that keeps a timestamped timeline while you fight the fire. Point Claude Code or Cursor at the folder and they read the same specs you do.",
+      "setups": [
+        "code"
+      ],
+      "tags": [
+        "engineering",
+        "specs",
+        "adr",
+        "rfc",
+        "sprints",
+        "runbooks",
+        "incidents",
+        "changelog"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Engineering team workspace: architecture overview, RFCs and a linked glossary, a sprint ticket board with a changelog view, an ADR log, deploy and incident runbooks, a sample postmortem and design-doc templates.",
+      "color": "indigo",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/engineering-hub/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/engineering-hub/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 13,
+        "databases": 2,
+        "sheets": 0,
+        "slides": 1,
+        "canvases": 0,
+        "moodboards": 0,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "changelog-drafter",
+          "externalHosts": []
+        },
+        {
+          "name": "incident-log",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "dd8c9e91f3a87064e8d62832afeac77e87fbea4c2396cd0cacc8f362f90ecbf8",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/engineering-hub-v1.0.0/engineering-hub-1.0.0.zip",
+      "sha256": "2b8a9f296020ec0d029a29c14076cfa8abb3b9b9153c2aff8ea963d1c36e1a61",
+      "sizeBytes": 132162,
+      "repoPath": "templates/engineering-hub",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "marketing-hub",
+      "version": "1.0.0",
+      "name": "Marketing Hub",
+      "tagline": "Research, messaging, campaigns with budgets and pacing, a content calendar and weekly reporting in one workspace.",
+      "description": "A marketing team's workspace, shown through a worked example: the Q4 launch of Cobalt CRM, a fictional CRM for agencies, and its new automation feature. Research comes first: an ideal customer profile with personas, a messaging house every headline is checked against, and a competitors database you can see as a table or by threat level.\n\nA campaigns database holds every campaign with its goal, channels, owner, budget and spend, a pacing formula and cost per trial, on a timeline, a board and a budget-by-channel chart. A filled-in launch brief ties it together, the content calendar carries drafted copy with typed status, channel and owner, and a weekly metrics sheet and a recap deck close the loop.\n\nThree AI recipes draft a campaign brief, repurpose a post for other channels and write the weekly report. Two tools come with it: a UTM builder that keeps your link history and naming conventions, and a character counter for every channel's limits.",
+      "setups": [
+        "marketing"
+      ],
+      "tags": [
+        "marketing",
+        "campaigns",
+        "content calendar",
+        "messaging",
+        "launch",
+        "utm",
+        "reporting"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Marketing workspace: ICP and personas, a messaging house, competitors, a campaigns database (timeline, board, budget chart) with pacing, a launch brief, a content calendar, weekly metrics and a recap deck.",
+      "color": "marigold",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/marketing-hub/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/marketing-hub/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 6,
+        "databases": 3,
+        "sheets": 1,
+        "slides": 1,
+        "canvases": 0,
+        "moodboards": 0,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "channel-counter",
+          "externalHosts": []
+        },
+        {
+          "name": "utm-builder",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "d80d0694c09ba1e2d89b5319a373db4a29068ccda3d684c3980d5d6ef0eb2191",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/marketing-hub-v1.0.0/marketing-hub-1.0.0.zip",
+      "sha256": "565a7660034badf98d51ea40dbd640ad0cf15efb551bded7971ce100d4e6fafd",
+      "sizeBytes": 114123,
+      "repoPath": "templates/marketing-hub",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "research-lab",
+      "version": "1.0.0",
+      "name": "Research Lab",
+      "tagline": "Sources, claims and themes in one linked workspace, from research question to literature review draft.",
+      "description": "A workspace for a research project, from the first question to the first draft. It comes with a worked example: a fictional study of urban community gardens and neighbourhood wellbeing, with every source clearly labelled as an invented sample. The question, scope and search log sit at the top. Every source you find becomes one row in a Sources database, with reading notes, topics, a reading status and a ready-made citation.\n\nFindings are broken into single claims in a Claims and evidence database. Each claim links to its source and is marked as supporting or contradicting the working hypothesis. A synthesis matrix, a themes-and-gaps page, a concept map board and a literature review draft turn those claims into an argument. An interview guide, a codebook sheet and a filled-in interview note cover the qualitative side.\n\nThree AI recipes synthesize themes, critique a source and find the gaps in your evidence. Two tools come with it: a citation formatter that turns any source row into APA 7, MLA 9, Chicago and BibTeX, and a sample size calculator for surveys.",
+      "setups": [
+        "research"
+      ],
+      "tags": [
+        "research",
+        "literature review",
+        "citations",
+        "synthesis",
+        "interviews",
+        "thesis",
+        "academic"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Research workspace: question and scope, a search log, a Sources database with reading notes and citations, a Claims and evidence database, a codebook, themes and gaps, a concept map and a literature review draft.",
+      "color": "teal",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/research-lab/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/research-lab/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 10,
+        "databases": 2,
+        "sheets": 1,
+        "slides": 0,
+        "canvases": 0,
+        "moodboards": 1,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "citation-formatter",
+          "externalHosts": []
+        },
+        {
+          "name": "sample-size",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "b26e9aefd60d857646eb7d502e15efe21191f13b701d9955301933ddbf6e1722",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/research-lab-v1.0.0/research-lab-1.0.0.zip",
+      "sha256": "b673952859983a2505225268fa2e7e58846262f754bb49d984724943d691846c",
+      "sizeBytes": 149005,
+      "repoPath": "templates/research-lab",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "solo-builder-hq",
+      "version": "1.0.0",
+      "name": "Solo Builder HQ",
+      "tagline": "Take one product from idea to launch on your own: lean canvas, build board, launch kit and the money, in one folder.",
+      "description": "A workspace for building a product on your own, shown through a worked example: Harbor, a fictional invoicing app for freelancers, taken by one person from idea to launch in ten weeks. Strategy comes first (a lean canvas, assumptions ranked by risk, competitor notes and a customer interviews database), then the build: an MVP spec with the user flow, the tech stack and a build board you can open as a board, a roadmap, this week's list or a calendar.\n\nLaunch pages hold the checklist, landing page copy, announcement drafts and a short pitch deck. Operations keeps a Money sheet for revenue, costs and MRR, and a brand board with the palette, type and voice.\n\nEverything is plain markdown, so Claude Code or Cursor can read the spec and move cards in the same folder over MCP. Three AI recipes pressure-test the idea, run the Friday ship review and draft landing copy in your customers' own words. Two tools come with it: a runway calculator and an MRR goal planner.",
+      "setups": [
+        "solo-builder"
+      ],
+      "tags": [
+        "solo-founder",
+        "indie-hacker",
+        "lean-canvas",
+        "mvp",
+        "launch",
+        "roadmap",
+        "mrr",
+        "bootstrapping"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Solo founder workspace: lean canvas, ranked assumptions, an interview log, MVP spec, a build board (board, roadmap, this week, calendar), launch checklist and copy, a pitch deck, a money sheet and a brand board.",
+      "color": "tangerine",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/solo-builder-hq/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/solo-builder-hq/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 14,
+        "databases": 2,
+        "sheets": 1,
+        "slides": 1,
+        "canvases": 0,
+        "moodboards": 1,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "mrr-goal-planner",
+          "externalHosts": []
+        },
+        {
+          "name": "runway-calculator",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "7e8fe73cafc1e6dd3e42a8be0415bb647222eb3b12fa82f73f605a51c764e240",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/solo-builder-hq-v1.0.0/solo-builder-hq-1.0.0.zip",
+      "sha256": "67c50f7542443c7a4f0686c784379aa4405314c5643839b578305b3454dfd1b6",
+      "sizeBytes": 126033,
+      "repoPath": "templates/solo-builder-hq",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    },
+    {
+      "id": "training-log",
+      "version": "1.0.0",
+      "name": "Training Log",
+      "tagline": "Plan the week, log every set and run, and see your progress charted, with a 12-week 10k and strength block filled in.",
+      "description": "A training workspace for people who run and lift. It comes with a worked example: a 12-week block aimed at a sub-50-minute 10k while keeping strength, shown in week 7, so the calendar, the logs and the charts already have something in them. The plan sets out the goals, the block structure, deload weeks and the rules for progressing, from 80/20 running to adding weight on the bar.\n\nSessions are the hub: a weekly template of recurring sessions that reset every Monday, shown as a week board, a calendar, a log and charts of training load and easy-versus-hard time. A lift log charts estimated one-rep maxes and weekly volume with formula columns, an exercise library holds cues for every movement, and a body metrics sheet tracks weight, sleep and resting heart rate beside a nutrition page with your protein target.\n\nThree AI recipes write the weekly review, adjust the plan when life gets in the way and check whether you need a deload. Two tools come with it: an interval timer with beeps and saved presets, and a one-rep max and plate calculator. Not medical advice: check with a professional before starting a new programme.",
+      "setups": [
+        "fitness"
+      ],
+      "tags": [
+        "fitness",
+        "running",
+        "strength",
+        "training log",
+        "10k",
+        "workouts",
+        "health"
+      ],
+      "featured": false,
+      "author": {
+        "name": "Hillnote",
+        "url": "https://hillnote.com"
+      },
+      "license": "MIT",
+      "credits": "",
+      "minAppVersion": null,
+      "open": "documents/Start here.md",
+      "overview": "Training workspace: a 12-week plan, recurring weekly sessions on a board and calendar, a lift log with estimated 1RM and volume charts, an exercise library, body metrics, nutrition and weekly check-ins.",
+      "color": "emerald",
+      "dateAnchor": "2026-11-02",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/training-log/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/training-log/media/hero.webp",
+      "screenshotUrls": [],
+      "includes": {
+        "documents": 7,
+        "databases": 3,
+        "sheets": 1,
+        "slides": 0,
+        "canvases": 0,
+        "moodboards": 0,
+        "tools": 2,
+        "plugins": 0,
+        "libraries": 0,
+        "recipes": 3
+      },
+      "plugins": [],
+      "tools": [
+        {
+          "name": "interval-timer",
+          "externalHosts": []
+        },
+        {
+          "name": "one-rep-max",
+          "externalHosts": []
+        }
+      ],
+      "sourceHash": "533bcb8342fa46a0c4cb8d98620b6ef60d663037324ce2679baa95f0c1450589",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/training-log-v1.0.0/training-log-1.0.0.zip",
+      "sha256": "094d8d4d034e611a83758f5a0f82e475922332e97d1c6aa98ff871d8aec34d6f",
+      "sizeBytes": 108222,
+      "repoPath": "templates/training-log",
+      "releasedAt": "2026-10-21T03:22:53.093Z"
+    }
+  ]
+}
