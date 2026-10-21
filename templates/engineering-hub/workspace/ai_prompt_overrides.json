@@ -1,0 +1,44 @@
+{
+  "overrides": [
+    {
+      "id": "standup",
+      "when_user_asks_about": "a daily standup update for the current sprint",
+      "override_instructions": "Write today's standup for the current sprint. Read the Sprint plan for the sprint goal and the committed tickets, then read the Tickets database (documents/Work/Tickets) for the current sprint. Group by Owner. For each person, three short lines: what moved to Done or In review since the last working day, what is In progress, and anything blocked or at risk (no movement in two days, an unchecked acceptance criterion marked as waiting, or an open question in the ticket body). Name tickets exactly as they are titled. End with one line on the sprint goal (on track, at risk, or off track, and why) and the points left: the sum of Estimate minus the sum of Done points for the sprint. No filler and no praise.",
+      "required_documents": [
+        "documents/Work/Sprint plan.md"
+      ],
+      "optional_documents": [
+        "documents/Runbooks/On-call.md"
+      ],
+      "output_format": "One short block per person, then a one-line sprint status with the points left"
+    },
+    {
+      "id": "draft_adr",
+      "when_user_asks_about": "writing an architecture decision record for a technical decision",
+      "override_instructions": "Draft an architecture decision record for the decision the user describes, or for the RFC or design doc on the current page. Read the Architecture overview and the existing rows of the ADRs database (documents/Decisions/ADRs): number the new record next in sequence, link any ADR it supersedes or depends on, and use the Glossary's terms. Follow the ADR template's headings exactly. Context states the forces and the numbers. Decision is one paragraph in the active voice (\"We will...\"). Consequences are honest: good, bad and neutral. Alternatives considered each say why not. Status is Proposed. If something is unknown, put it under Open questions instead of inventing it. Keep it under 600 words.",
+      "required_documents": [
+        "documents/Templates/ADR template.md",
+        "documents/Specs/Architecture overview.md"
+      ],
+      "optional_documents": [
+        "documents/Specs/Glossary.md",
+        "documents/Specs/RFC-001 Rate limiting.md"
+      ],
+      "output_format": "A new ADR in markdown, with frontmatter for the ADRs database (status: Proposed, area, deciders), ready to save as a row in documents/Decisions/ADRs"
+    },
+    {
+      "id": "postmortem",
+      "when_user_asks_about": "writing a postmortem after an incident",
+      "override_instructions": "Write a blameless postmortem for the incident the user names. Use the timeline they paste from the Incident log tool as the only source of times and events; never invent an event or a time. Read Incident response for the severity levels and roles, and the Places search latency postmortem as the model for depth and tone. Check the Changelog for releases shortly before the incident, and the Tickets database (documents/Work/Tickets) for related bugs. Follow the Postmortem template's headings. Describe systems and decisions, never blame people: write 'the deploy', not a person's name. The five whys must end at a system cause. Every action item gets an owner, a priority from P0 to P3 and a suggested ticket title.",
+      "required_documents": [
+        "documents/Templates/Postmortem template.md",
+        "documents/Runbooks/Incident response.md"
+      ],
+      "optional_documents": [
+        "documents/Runbooks/Postmortem - Places search latency.md",
+        "documents/Runbooks/Changelog.md"
+      ],
+      "output_format": "A complete postmortem in markdown using the template's headings, with an action-item table ready to turn into tickets"
+    }
+  ]
+}

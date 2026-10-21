@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#8A2BE2;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#8A2BE2;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>Initiative tracker</title>
+<style>
+  .round { font-variant-numeric: tabular-nums; }
+  .toolbar .grow { margin-inline-start: auto; }
+  .add { display: grid; grid-template-columns: minmax(120px, 2fr) repeat(4, minmax(60px, 1fr)) minmax(90px, 1fr) auto; gap: 8px; align-items: end; }
+  @media (max-width: 640px) { .add { grid-template-columns: 1fr 1fr 1fr; } .add .name { grid-column: 1 / -1; } }
+  .quick { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+  .quick select { width: auto; max-width: 100%; }
+  .quick input { width: 64px; }
+  .quick .grow { margin-inline-start: auto; }
+  .order { margin-top: 12px; }
+  .fighter { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); margin-bottom: 8px; }
+  .fighter.current { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary); background: color-mix(in srgb, var(--primary) 7%, var(--card)); }
+  .fighter.down { opacity: .55; }
+  .fighter.down .who strong { text-decoration: line-through; }
+  .fighter input.init { text-align: center; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .who { min-width: 0; }
+  .who strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .meta { font-size: 12px; color: var(--muted-foreground); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .bar { height: 6px; border-radius: 3px; background: var(--muted); overflow: hidden; margin: 6px 0 4px; }
+  .bar span { display: block; height: 100%; background: var(--success); }
+  .bar.low span { background: var(--warning); }
+  .bar.crit span { background: var(--destructive); }
+  .conds { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .conds .badge { cursor: pointer; }
+  .controls { display: grid; grid-template-columns: 56px auto auto; gap: 4px; align-items: center; }
+  .controls input { padding: 5px 6px; text-align: center; }
+  .controls select { grid-column: 1 / -1; padding: 4px 6px; font-size: 12px; }
+  .remove { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Initiative</strong>
+  <span class="badge badge-info round" id="round">Round 1</span>
+  <span class="muted" id="whose"></span>
+  <span class="grow"></span>
+  <button class="btn-sm" id="prev" aria-label="Previous turn">Back</button>
+  <button class="btn-sm btn-primary" id="next">Next turn</button>
+</div>
+
+<form class="card add" id="add">
+  <div class="field name"><label for="a-name">Name</label><input id="a-name" placeholder="Brinewight" required></div>
+  <div class="field"><label for="a-init">Initiative</label><input id="a-init" type="number" placeholder="roll"></div>
+  <div class="field"><label for="a-mod">Init bonus</label><input id="a-mod" type="number" value="0"></div>
+  <div class="field"><label for="a-hp">HP</label><input id="a-hp" type="number" min="0"></div>
+  <div class="field"><label for="a-ac">AC</label><input id="a-ac" type="number" min="0"></div>
+  <div class="field"><label for="a-side">Side</label><select id="a-side"><option value="foe">Monster</option><option value="pc">Character</option><option value="ally">Ally</option></select></div>
+  <button class="btn-primary" type="submit">Add</button>
+</form>
+
+<div class="quick">
+  <button class="btn-sm" id="add-party">Add the party</button>
+  <button class="btn-sm btn-ghost" id="save-party">Save characters as the party</button>
+  <span id="bestiary" hidden>
+    <select id="b-pick" aria-label="Monster from the bestiary"></select>
+    <input id="b-count" type="number" min="1" max="12" value="1" aria-label="How many">
+    <button class="btn-sm" id="b-add">Add from bestiary</button>
+  </span>
+  <span class="grow"></span>
+  <button class="btn-sm btn-ghost" id="clear-foes">Clear monsters</button>
+  <button class="btn-sm btn-ghost" id="reset">New encounter</button>
+</div>
+
+<div class="order" id="order"></div>
+<p class="muted" id="note" role="status"></p>
+
+<script>
+(function () {
+  var CONDITIONS = ['Blinded', 'Charmed', 'Concentrating', 'Deafened', 'Exhausted', 'Frightened', 'Grappled', 'Incapacitated', 'Invisible', 'Paralysed', 'Poisoned', 'Prone', 'Restrained', 'Stunned', 'Unconscious'];
+  var DEFAULT_PARTY = [
+    { name: 'Wren', mod: 4, hp: 21, ac: 15 },
+    { name: 'Brakka', mod: 1, hp: 31, ac: 16 },
+    { name: 'Ilse', mod: 0, hp: 24, ac: 18 },
+    { name: 'Tamsin', mod: 2, hp: 17, ac: 12 }
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var state = { round: 1, current: null, list: [] };
+  var bestiary = [];
+
+  function d20() {
+    if (window.crypto && crypto.getRandomValues) {
+      var b = new Uint32Array(1);
+      do { crypto.getRandomValues(b); } while (b[0] >= 4294967280);
+      return (b[0] % 20) + 1;
+    }
+    return Math.floor(Math.random() * 20) + 1;
+  }
+  function uid() { return 'c' + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
+  function num(v) { var n = Number(v); return v === '' || v == null || !Number.isFinite(n) ? null : n; }
+  function save() { store.set('encounter', state); }
+  function isDown(c) { return c.side === 'foe' && c.max != null && c.hp != null && c.hp <= 0; }
+
+  function sorted() {
+    var rank = { pc: 0, ally: 1, foe: 2 };
+    return state.list.slice().sort(function (a, b) {
+      var ai = a.init == null ? -Infinity : a.init;
+      var bi = b.init == null ? -Infinity : b.init;
+      if (bi !== ai) return bi - ai;
+      if ((b.mod || 0) !== (a.mod || 0)) return (b.mod || 0) - (a.mod || 0);
+      if (rank[a.side] !== rank[b.side]) return rank[a.side] - rank[b.side];
+      return String(a.name).localeCompare(String(b.name));
+    });
+  }
+
+  function add(entry) {
+    var init = num(entry.init);
+    var mod = num(entry.mod) || 0;
+    state.list.push({
+      id: uid(), name: entry.name, side: entry.side || 'foe', mod: mod,
+      init: init == null && entry.roll !== false ? d20() + mod : init,
+      hp: num(entry.hp), max: num(entry.hp), ac: num(entry.ac), cond: []
+    });
+  }
+
+  function step(dir) {
+    var order = sorted().filter(function (c) { return !isDown(c) && c.init != null; });
+    if (!order.length) { say('Give someone an initiative first.'); return; }
+    var idx = order.findIndex(function (c) { return c.id === state.current; });
+    if (idx < 0) { state.current = order[0].id; save(); render(); return; }
+    var next = idx + dir;
+    if (next >= order.length) { next = 0; state.round += 1; }
+    if (next < 0) {
+      if (state.round > 1) { next = order.length - 1; state.round -= 1; } else next = 0;
+    }
+    state.current = order[next].id;
+    save();
+    render();
+  }
+
+  function say(msg) { $('note').textContent = msg; }
+
+  function render() {
+    $('round').textContent = 'Round ' + state.round;
+    var order = sorted();
+    var cur = state.list.find(function (c) { return c.id === state.current; });
+    $('whose').textContent = cur ? cur.name + '’s turn' : (order.length ? 'Press Next turn to start' : '');
+    if (!order.length) {
+      $('order').innerHTML = '<div class="empty-state">No one in the fight yet. Add the party, then the monsters. Leave initiative blank to roll it for them.</div>';
+      return;
+    }
+    $('order').innerHTML = order.map(function (c) {
+      var pct = c.max ? Math.max(0, Math.min(100, Math.round(c.hp / c.max * 100))) : 0;
+      var barClass = pct <= 25 ? 'bar crit' : pct <= 50 ? 'bar low' : 'bar';
+      var side = c.side === 'pc' ? 'Character' : c.side === 'ally' ? 'Ally' : 'Monster';
+      return '<div class="fighter' + (c.id === state.current ? ' current' : '') + (isDown(c) ? ' down' : '') + '" data-id="' + esc(c.id) + '">' +
+        '<input class="init" type="number" value="' + (c.init == null ? '' : c.init) + '" data-act="init" aria-label="Initiative for ' + esc(c.name) + '" placeholder="?">' +
+        '<div class="who"><strong>' + esc(c.name) + '</strong>' +
+          '<div class="meta"><span>' + side + '</span>' + (c.ac != null ? '<span>AC ' + c.ac + '</span>' : '') + (c.max != null ? '<span>HP ' + c.hp + ' / ' + c.max + '</span>' : '') + '</div>' +
+          (c.max != null ? '<div class="' + barClass + '"><span style="width:' + pct + '%"></span></div>' : '') +
+          '<div class="conds">' + c.cond.map(function (k) { return '<span class="badge badge-warning" data-act="uncond" data-cond="' + esc(k) + '" title="Click to remove">' + esc(k) + ' ×</span>'; }).join('') + '</div>' +
+        '</div>' +
+        '<div class="controls">' +
+          '<input type="number" min="0" placeholder="0" data-act="amount" aria-label="Amount">' +
+          '<button class="btn-sm" data-act="dmg">Hit</button><button class="btn-sm" data-act="heal">Heal</button>' +
+          '<select data-act="cond" aria-label="Add a condition"><option value="">+ Condition</option>' + CONDITIONS.filter(function (k) { return c.cond.indexOf(k) < 0; }).map(function (k) { return '<option>' + k + '</option>'; }).join('') + '</select>' +
+          '<button class="btn-sm btn-ghost remove" data-act="remove">Remove</button>' +
+        '</div></div>';
+    }).join('');
+  }
+
+  $('add').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = $('a-name').value.trim();
+    if (!name) return;
+    add({ name: name, init: $('a-init').value, mod: $('a-mod').value, hp: $('a-hp').value, ac: $('a-ac').value, side: $('a-side').value });
+    $('a-name').value = ''; $('a-init').value = ''; $('a-hp').value = ''; $('a-ac').value = '';
+    save(); render();
+    $('a-name').focus();
+  });
+
+  $('order').addEventListener('click', function (e) {
+    var act = e.target.getAttribute && e.target.getAttribute('data-act');
+    var row = e.target.closest && e.target.closest('.fighter');
+    if (!act || !row) return;
+    var c = state.list.find(function (x) { return x.id === row.getAttribute('data-id'); });
+    if (!c) return;
+    if (act === 'dmg' || act === 'heal') {
+      var amt = num(row.querySelector('[data-act="amount"]').value);
+      if (!amt) return;
+      if (c.max == null) { c.max = 0; c.hp = 0; }
+      c.hp = act === 'dmg' ? c.hp - amt : Math.min(c.max || c.hp + amt, c.hp + amt);
+      c.hp = Math.max(0, c.hp);
+      if (c.hp <= 0 && c.side !== 'foe' && c.cond.indexOf('Unconscious') < 0) c.cond.push('Unconscious');
+      if (c.hp > 0) c.cond = c.cond.filter(function (k) { return k !== 'Unconscious'; });
+    } else if (act === 'uncond') {
+      c.cond = c.cond.filter(function (k) { return k !== e.target.getAttribute('data-cond'); });
+    } else if (act === 'remove') {
+      state.list = state.list.filter(function (x) { return x.id !== c.id; });
+      if (state.current === c.id) state.current = null;
+    } else return;
+    save(); render();
+  });
+
+  $('order').addEventListener('change', function (e) {
+    var act = e.target.getAttribute && e.target.getAttribute('data-act');
+    var row = e.target.closest && e.target.closest('.fighter');
+    if (!row) return;
+    var c = state.list.find(function (x) { return x.id === row.getAttribute('data-id'); });
+    if (!c) return;
+    if (act === 'init') { c.init = num(e.target.value); save(); render(); }
+    if (act === 'cond' && e.target.value) { c.cond.push(e.target.value); save(); render(); }
+  });
+
+  $('next').addEventListener('click', function () { step(1); });
+  $('prev').addEventListener('click', function () { step(-1); });
+  $('add-party').addEventListener('click', function () {
+    var party = store.get('party', DEFAULT_PARTY);
+    var have = state.list.map(function (c) { return c.name; });
+    party.filter(function (p) { return have.indexOf(p.name) < 0; }).forEach(function (p) { add({ name: p.name, mod: p.mod, hp: p.hp, ac: p.ac, side: 'pc', roll: false }); });
+    save(); render();
+    say('Party added. Type in each player’s initiative roll.');
+  });
+  $('save-party').addEventListener('click', function () {
+    var pcs = state.list.filter(function (c) { return c.side === 'pc'; }).map(function (c) { return { name: c.name, mod: c.mod || 0, hp: c.max, ac: c.ac }; });
+    if (!pcs.length) return say('Add the characters first, then save them as the party.');
+    store.set('party', pcs);
+    say('Saved ' + pcs.length + ' characters as the party.');
+  });
+  $('clear-foes').addEventListener('click', function () {
+    state.list = state.list.filter(function (c) { return c.side !== 'foe'; });
+    if (!state.list.some(function (c) { return c.id === state.current; })) state.current = null;
+    save(); render();
+  });
+  $('reset').addEventListener('click', function () {
+    state = { round: 1, current: null, list: state.list.filter(function (c) { return c.side === 'pc'; }).map(function (c) { return Object.assign({}, c, { init: null, hp: c.max, cond: [] }); }) };
+    save(); render();
+    say('New encounter: the party is kept at full HP, monsters cleared.');
+  });
+  $('b-add').addEventListener('click', function () {
+    var m = bestiary[Number($('b-pick').value)];
+    if (!m) return;
+    var n = Math.max(1, Math.min(12, Number($('b-count').value) || 1));
+    for (var i = 1; i <= n; i++) add({ name: n > 1 ? m.title + ' ' + i : m.title, hp: m.hp, ac: m.ac, side: 'foe' });
+    save(); render();
+  });
+
+  async function loadBestiary() {
+    if (!window.hillnote || typeof hillnote.database !== 'function') return;
+    try {
+      var src = await hillnote.database('Monsters');
+      var rows = await src.rows({ limit: 200 });
+      bestiary = rows.filter(function (r) { return r.title; }).sort(function (a, b) { return (Number(a.cr) || 0) - (Number(b.cr) || 0); });
+      if (!bestiary.length) return;
+      $('b-pick').innerHTML = bestiary.map(function (r, i) {
+        return '<option value="' + i + '">' + esc(r.title) + (r.cr != null ? ' (CR ' + esc(r.cr) + ')' : '') + '</option>';
+      }).join('');
+      $('bestiary').hidden = false;
+    } catch (err) {
+      bestiary = [];
+    }
+  }
+
+  async function start() {
+    if (window.hillnote) await hillnote.ready();
+    var saved = store.get('encounter', null);
+    if (saved && Array.isArray(saved.list)) state = { round: saved.round || 1, current: saved.current || null, list: saved.list };
+    render();
+    loadBestiary();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

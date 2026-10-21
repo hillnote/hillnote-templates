@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "stage",
+      "name": "Stage",
+      "type": "status",
+      "options": [
+        "Draft",
+        "Working",
+        "Final"
+      ],
+      "optionColors": {
+        "Draft": "gray",
+        "Working": "amber",
+        "Final": "emerald"
+      },
+      "optionStates": {
+        "Draft": "normal",
+        "Working": "normal",
+        "Final": "done"
+      }
+    },
+    {
+      "id": "confidence",
+      "name": "Confidence",
+      "type": "select",
+      "options": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "optionColors": {
+        "Low": "rose",
+        "Medium": "amber",
+        "High": "emerald"
+      }
+    }
+  ]
+}

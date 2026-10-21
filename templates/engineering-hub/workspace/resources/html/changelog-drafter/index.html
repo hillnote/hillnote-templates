@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#0047AB;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#0047AB;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog drafter</title>
+<style>
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; align-items: end; }
+  .check { display: flex; align-items: center; gap: 6px; color: var(--foreground); font-size: 13px; }
+  .group + .group { margin-top: 12px; }
+  .group h4 { margin-bottom: 4px; }
+  .entry { display: flex; align-items: baseline; gap: 8px; padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .entry:last-child { border-bottom: none; }
+  .entry .title { flex: 1; min-width: 0; }
+  .entry .pr { font-variant-numeric: tabular-nums; color: var(--muted-foreground); font-size: 12px; white-space: nowrap; }
+  .out-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .out-head h3 { margin: 0; }
+  .out-head .status { margin-inline-start: auto; font-size: 12px; color: var(--muted-foreground); }
+  textarea.output { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; min-height: 220px; }
+  .note { font-size: 12px; color: var(--muted-foreground); margin: 8px 0 0; }
+  main.stack { gap: 14px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Changelog drafter</strong>
+  <span class="badge" id="count">0 done</span>
+</div>
+
+<div id="empty" class="empty-state" hidden></div>
+
+<main class="stack" id="main" hidden>
+  <section class="card" aria-label="Options">
+    <div class="controls">
+      <div class="field"><label for="sprint">Sprint</label><select id="sprint"></select></div>
+      <div class="field"><label for="version">Version</label><input id="version" placeholder="e.g. v2.14.0" autocomplete="off"></div>
+      <label class="check"><input type="checkbox" id="owners"> Credit owners</label>
+    </div>
+    <p class="note">Done tickets are grouped by Type: Feature → Added, Chore → Changed, Bug → Fixed, Docs → Docs. PR numbers come from the PR column.</p>
+  </section>
+
+  <section class="card" aria-label="Done tickets" id="groups"></section>
+
+  <section class="card" aria-label="Markdown">
+    <div class="out-head">
+      <h3>Markdown</h3>
+      <span class="status" id="status" role="status"></span>
+      <button class="btn-primary btn-sm" id="copy">Copy markdown</button>
+    </div>
+    <textarea class="output" id="output" readonly aria-label="Changelog markdown"></textarea>
+    <p class="note">Paste it under a new heading on the Changelog page, then rewrite each line for the people calling your API.</p>
+  </section>
+</main>
+
+<script>
+(function () {
+  var GROUPS = [
+    { key: 'Added', types: ['feature', 'feat', 'enhancement'] },
+    { key: 'Changed', types: ['chore', 'change', 'refactor', 'task'] },
+    { key: 'Fixed', types: ['bug', 'fix', 'bugfix'] },
+    { key: 'Docs', types: ['docs', 'doc', 'documentation'] }
+  ];
+  var ALL = '__all__';
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var source = null;
+  var rows = [];
+  var columns = [];
+  var doneStates = ['Done'];
+  var statusTimer = null;
+
+  function showEmpty(message) {
+    $('main').hidden = true;
+    $('empty').hidden = false;
+    $('empty').textContent = message;
+  }
+
+  function text(v) {
+    if (v == null) return '';
+    if (Array.isArray(v)) return v.join(', ');
+    return String(v);
+  }
+
+  function findColumn(test) {
+    for (var i = 0; i < columns.length; i++) if (test(columns[i])) return columns[i];
+    return null;
+  }
+
+  function colId(name, type) {
+    var c = findColumn(function (c) { return String(c.name || '').toLowerCase() === name; }) ||
+            findColumn(function (c) { return String(c.id || '').toLowerCase() === name; }) ||
+            (type ? findColumn(function (c) { return c.type === type; }) : null);
+    return c ? c.id : name;
+  }
+
+  function readDoneStates() {
+    var status = findColumn(function (c) { return c.type === 'status'; });
+    if (status && status.optionStates) {
+      var list = Object.keys(status.optionStates).filter(function (k) { return status.optionStates[k] === 'done'; });
+      if (list.length) return list;
+    }
+    return ['Done'];
+  }
+
+  function naturalCompare(a, b) { return String(a).localeCompare(String(b), undefined, { numeric: true }); }
+
+  function isDone(r) { return doneStates.indexOf(text(r[colId('status', 'status')])) !== -1; }
+
+  function sprints() {
+    var key = colId('sprint');
+    var seen = {};
+    rows.forEach(function (r) { var s = text(r[key]); if (s) seen[s] = true; });
+    return Object.keys(seen).sort(naturalCompare);
+  }
+
+  function defaultSprint(list) {
+    var key = colId('sprint');
+    var withDone = list.filter(function (s) { return rows.some(function (r) { return text(r[key]) === s && isDone(r); }); });
+    return withDone.length ? withDone[withDone.length - 1] : (list.length ? list[list.length - 1] : ALL);
+  }
+
+  function groupFor(type) {
+    var t = String(type || '').toLowerCase();
+    for (var i = 0; i < GROUPS.length; i++) if (GROUPS[i].types.indexOf(t) !== -1) return GROUPS[i].key;
+    return 'Other';
+  }
+
+  function prLabel(url) {
+    var u = text(url).trim();
+    if (!u) return '';
+    var m = /\/pull\/(\d+)/.exec(u) || /\/merge_requests\/(\d+)/.exec(u);
+    return m ? '#' + m[1] : u;
+  }
+
+  function cleanTitle(s) { return text(s).trim().replace(/\.$/, ''); }
+
+  function selected() {
+    var sprint = $('sprint').value;
+    var key = colId('sprint');
+    return rows.filter(function (r) { return isDone(r) && (sprint === ALL || text(r[key]) === sprint); });
+  }
+
+  function grouped(list) {
+    var typeKey = colId('type');
+    var out = {};
+    list.forEach(function (r) {
+      var g = groupFor(r[typeKey]);
+      (out[g] = out[g] || []).push(r);
+    });
+    Object.keys(out).forEach(function (g) { out[g].sort(function (a, b) { return naturalCompare(cleanTitle(a.title), cleanTitle(b.title)); }); });
+    return out;
+  }
+
+  function order() { return GROUPS.map(function (g) { return g.key; }).concat(['Other']); }
+
+  function markdown(groups) {
+    var version = $('version').value.trim();
+    var sprint = $('sprint').value;
+    var owners = $('owners').checked;
+    var prKey = colId('pr', 'url');
+    var ownerKey = colId('owner');
+    var heading = '## ' + (version || 'Unreleased') + (sprint !== ALL ? ' (' + sprint + ')' : '');
+    var parts = [heading];
+    order().forEach(function (g) {
+      if (!groups[g] || !groups[g].length) return;
+      parts.push('');
+      parts.push('### ' + g);
+      parts.push('');
+      groups[g].forEach(function (r) {
+        var line = '- ' + cleanTitle(r.title);
+        var p = prLabel(r[prKey]);
+        if (p) line += p.charAt(0) === '#' ? ' (' + p + ')' : ' ([PR](' + p + '))';
+        if (owners && text(r[ownerKey])) line += ', ' + text(r[ownerKey]);
+        parts.push(line);
+      });
+    });
+    return parts.join('\n') + '\n';
+  }
+
+  function render() {
+    if (!rows.length) return showEmpty('No tickets yet. Add rows to the Tickets database and move a few to Done to draft a changelog.');
+    $('empty').hidden = true;
+    $('main').hidden = false;
+
+    var list = sprints();
+    var current = $('sprint').value || store.get('sprint', '');
+    if (current !== ALL && list.indexOf(current) === -1) current = defaultSprint(list);
+    $('sprint').innerHTML = '<option value="' + ALL + '">All sprints</option>' + list.map(function (s) {
+      return '<option value="' + esc(s) + '">' + esc(s) + '</option>';
+    }).join('');
+    $('sprint').value = current;
+
+    var done = selected();
+    $('count').textContent = done.length === 1 ? '1 done' : done.length + ' done';
+    var groups = grouped(done);
+    var prKey = colId('pr', 'url');
+
+    if (!done.length) {
+      var where = $('sprint').value === ALL ? 'any sprint' : $('sprint').value;
+      $('groups').innerHTML = '<div class="empty-state">No done tickets in ' + esc(where) + ' yet.<br><span style="font-size:12px">Move tickets to Done, or pick another sprint.</span></div>';
+      $('output').value = '';
+      $('copy').disabled = true;
+      return;
+    }
+
+    $('groups').innerHTML = order().filter(function (g) { return groups[g] && groups[g].length; }).map(function (g) {
+      return '<div class="group"><h4>' + esc(g) + ' · ' + groups[g].length + '</h4>' + groups[g].map(function (r) {
+        var p = prLabel(r[prKey]);
+        return '<div class="entry"><span class="title">' + esc(cleanTitle(r.title)) + '</span>' +
+          (p ? '<span class="pr">' + esc(p.charAt(0) === '#' ? p : 'PR') + '</span>' : '<span class="badge badge-warning">no PR</span>') + '</div>';
+      }).join('') + '</div>';
+    }).join('');
+    $('output').value = markdown(groups);
+    $('copy').disabled = false;
+  }
+
+  function flash(message) {
+    $('status').textContent = message;
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(function () { $('status').textContent = ''; }, 2600);
+  }
+
+  function copyText(value) {
+    function fallback() {
+      var ok = false;
+      var ta = document.createElement('textarea');
+      ta.value = value;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) flash('Copied');
+      else { $('output').focus(); $('output').select(); flash('Selected: press Cmd+C or Ctrl+C to copy'); }
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () { flash('Copied'); }, fallback);
+        return;
+      }
+    } catch (e) { /* fall through */ }
+    fallback();
+  }
+
+  async function load() {
+    try {
+      columns = (await Promise.resolve(source.columns ? source.columns() : [])) || [];
+    } catch (e) { columns = []; }
+    doneStates = readDoneStates();
+    try {
+      rows = await source.rows({ limit: 2000, ignoreView: true });
+    } catch (err) {
+      return showEmpty('Could not read the tickets: ' + (err && err.message ? err.message : err));
+    }
+    render();
+  }
+
+  $('sprint').addEventListener('change', function () { store.set('sprint', $('sprint').value); render(); });
+  $('version').addEventListener('input', function () { store.set('version', $('version').value); $('output').value = selected().length ? markdown(grouped(selected())) : ''; });
+  $('owners').addEventListener('change', function () { store.set('owners', $('owners').checked); render(); });
+  $('copy').addEventListener('click', function () { if ($('output').value) copyText($('output').value); });
+
+  async function start() {
+    if (!window.hillnote) return showEmpty('Open this tool inside Hillnote, as the Changelog view of the Tickets database or embedded on the Changelog page.');
+    await hillnote.ready();
+    try {
+      source = await hillnote.data();
+    } catch (err) {
+      source = null;
+    }
+    if (!source) return showEmpty('Use this tool as a view on a tickets database with Status, Type, Sprint and PR columns.');
+    $('version').value = store.get('version', '');
+    $('owners').checked = !!store.get('owners', false);
+    if (source.onChange) source.onChange(load);
+    load();
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

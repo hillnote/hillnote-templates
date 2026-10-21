@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "brief_stage",
+      "name": "Brief stage",
+      "type": "status",
+      "options": [
+        "Draft",
+        "In review",
+        "Approved",
+        "Wrapped"
+      ],
+      "optionColors": {
+        "Draft": "gray",
+        "In review": "amber",
+        "Approved": "blue",
+        "Wrapped": "emerald"
+      },
+      "optionStates": {
+        "Draft": "normal",
+        "In review": "normal",
+        "Approved": "normal",
+        "Wrapped": "done"
+      }
+    },
+    {
+      "id": "owner",
+      "name": "Owner",
+      "type": "text"
+    }
+  ]
+}

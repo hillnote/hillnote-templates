@@ -1,0 +1,17 @@
+{
+  "name": "utm-builder",
+  "description": "Tagged campaign links with consistent naming, filled from a campaign row, with a saved link history",
+  "glyph": "🔗",
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Campaigns",
+      "path": "Campaigns/Campaigns",
+      "primary": true
+    }
+  ],
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ]
+}

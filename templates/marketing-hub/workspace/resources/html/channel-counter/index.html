@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#4B0082;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#4B0082;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>Channel character counter</title>
+<style>
+  textarea { min-height: 120px; font-size: 14px; line-height: 1.5; }
+  .totals { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted-foreground); margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .channels .list-item { cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; }
+  .channels .list-item.selected { background: color-mix(in srgb, var(--primary) 10%, transparent); }
+  .channels .name { font-weight: 550; }
+  .channels .name small { display: block; font-weight: 400; font-size: 12px; color: var(--muted-foreground); }
+  .channels .num { font-variant-numeric: tabular-nums; font-size: 12px; text-align: end; align-self: center; }
+  .meter { grid-column: 1 / -1; height: 4px; border-radius: 999px; background: var(--muted); overflow: hidden; }
+  .meter span { display: block; height: 100%; border-radius: inherit; }
+  .fill-success { background: var(--success); }
+  .fill-warning { background: var(--warning); }
+  .fill-danger { background: var(--destructive); }
+  .preview { font-size: 14px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; background: var(--card); }
+  .preview .over { background: color-mix(in srgb, var(--destructive) 16%, transparent); color: var(--destructive); }
+  .preview .hidden-part { color: var(--muted-foreground); opacity: .55; }
+  .preview .fold { display: inline-block; margin: 0 4px; font-size: 12px; font-weight: 600; color: var(--muted-foreground); }
+  .preview-head { justify-content: space-between; flex-wrap: wrap; margin-bottom: 8px; }
+  .preview-head h4 { margin: 0; }
+  .note { font-size: 12px; color: var(--muted-foreground); margin: 8px 0 0; }
+  section + section { margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Channel character counter</strong>
+  <span class="badge" id="summary">Paste some copy</span>
+</div>
+
+<section class="card">
+  <label for="text">Copy</label>
+  <textarea id="text" placeholder="Paste a post, a headline, a subject line or a meta description."></textarea>
+  <div class="totals" id="totals"></div>
+</section>
+
+<div class="empty-state" id="empty">Type or paste copy to see how it fits each channel, where it gets cut off, and how much to trim.</div>
+
+<div id="results" hidden>
+  <section class="card channels">
+    <h4>Channels</h4>
+    <div class="list" id="channels"></div>
+  </section>
+
+  <section class="card">
+    <div class="row preview-head"><h4 id="previewTitle">Preview</h4><span class="badge" id="previewBadge"></span></div>
+    <div class="preview" id="preview"></div>
+    <p class="note" id="previewNote"></p>
+  </section>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { try { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); } catch (e) { return d; } },
+    set: function (k, v) { try { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; } catch (e) { /* ignore */ } }
+  };
+
+  // limit = hard or recommended maximum; fold = roughly where the platform cuts the text off in a feed or a result.
+  // Platforms change these from time to time, so they are guides rather than guarantees.
+  var CHANNELS = [
+    { id: 'x', name: 'X post', limit: 280, count: 'x', note: 'Links count as 23 characters; most emoji and CJK characters count as 2.' },
+    { id: 'linkedin', name: 'LinkedIn post', limit: 3000, fold: 210, note: 'Roughly the first 210 characters show before "see more"; fewer on phones.' },
+    { id: 'linkedin-ad', name: 'LinkedIn ad intro text', limit: 600, fold: 150, note: 'Keep the point inside the first 150 characters; the rest is truncated in the feed.' },
+    { id: 'instagram', name: 'Instagram caption', limit: 2200, fold: 125, note: 'About 125 characters show before "more".' },
+    { id: 'gads-headline', name: 'Google Ads headline', limit: 30, note: 'Each headline is 30 characters at most.' },
+    { id: 'gads-desc', name: 'Google Ads description', limit: 90, note: 'Each description is 90 characters at most.' },
+    { id: 'meta-title', name: 'Search title', limit: 60, note: 'Search results cut titles at around 60 characters.' },
+    { id: 'meta-desc', name: 'Meta description', limit: 155, note: 'Search results show about 155 characters of the description.' },
+    { id: 'subject', name: 'Email subject line', limit: 50, fold: 40, note: 'Phones show about 40 characters; desktop inboxes about 60.' },
+    { id: 'preheader', name: 'Email preview text', limit: 90, note: 'The line after the subject; about 90 characters show.' },
+    { id: 'producthunt', name: 'Product Hunt tagline', limit: 60, note: 'Taglines are capped at 60 characters.' },
+    { id: 'youtube', name: 'YouTube title', limit: 100, fold: 70, note: 'Hard limit 100; search shows about 70.' }
+  ];
+  var URL_RE = /(?:https?:\/\/|www\.)[^\s]+/gi;
+
+  var selected = 'x';
+
+  var graphemes = function (s) { return Array.from(s || ''); };
+  function weightX(s) {
+    var urls = 0;
+    var rest = String(s || '').replace(URL_RE, function () { urls++; return ''; });
+    var w = 0;
+    graphemes(rest).forEach(function (ch) {
+      var cp = ch.codePointAt(0);
+      var light = cp <= 4351 || (cp >= 8192 && cp <= 8205) || (cp >= 8208 && cp <= 8223) || (cp >= 8242 && cp <= 8247);
+      w += light ? 1 : 2;
+    });
+    return w + urls * 23;
+  }
+  function lengthFor(ch, text) { return ch.count === 'x' ? weightX(text) : graphemes(text).length; }
+  function state(ch, len) {
+    if (len > ch.limit) return 'danger';
+    if (ch.fold && len > ch.fold) return 'warning';
+    if (len > ch.limit * 0.9) return 'warning';
+    return 'success';
+  }
+  function verdict(ch, len) {
+    if (len > ch.limit) return 'Over by ' + (len - ch.limit);
+    if (ch.fold && len > ch.fold) return 'Cut at ' + ch.fold;
+    return (ch.limit - len) + ' left';
+  }
+
+  function render() {
+    var text = $('text').value;
+    var trimmed = text.trim();
+    $('empty').hidden = !!trimmed;
+    $('results').hidden = !trimmed;
+    var words = (text.match(/\S+/g) || []).length;
+    var lines = text ? text.split(/\n/).length : 0;
+    $('totals').innerHTML = trimmed ? '<span>' + graphemes(text).length + ' characters</span><span>' + words + ' words</span><span>' + lines + (lines === 1 ? ' line' : ' lines') + '</span>' : '';
+    store.set('text', text.slice(0, 20000));
+    if (!trimmed) { $('summary').textContent = 'Paste some copy'; $('summary').className = 'badge'; return; }
+
+    var fits = 0;
+    $('channels').innerHTML = CHANNELS.map(function (ch) {
+      var len = lengthFor(ch, text);
+      var st = state(ch, len);
+      if (len <= ch.limit) fits++;
+      var pct = Math.min(100, len / ch.limit * 100);
+      return '<div class="list-item' + (ch.id === selected ? ' selected' : '') + '" data-id="' + ch.id + '" role="button" tabindex="0">' +
+        '<div class="name">' + esc(ch.name) + '<small>' + len + ' of ' + ch.limit + (ch.fold ? ', cut at about ' + ch.fold : '') + '</small></div>' +
+        '<div class="num"><span class="badge badge-' + st + '">' + esc(verdict(ch, len)) + '</span></div>' +
+        '<div class="meter"><span class="fill-' + st + '" style="width:' + pct.toFixed(1) + '%"></span></div></div>';
+    }).join('');
+    $('summary').textContent = 'Fits ' + fits + ' of ' + CHANNELS.length + ' channels';
+    $('summary').className = 'badge ' + (fits === CHANNELS.length ? 'badge-success' : (fits >= CHANNELS.length / 2 ? 'badge-info' : 'badge-warning'));
+    renderPreview(text);
+  }
+
+  // Index into the string where the visible count reaches n (X weights links and wide characters).
+  function cutIndex(ch, text, n) {
+    var chars = graphemes(text);
+    if (ch.count !== 'x') return chars.slice(0, n).join('').length;
+    var out = 0, used = 0, i = 0, s = String(text);
+    var urls = [];
+    s.replace(URL_RE, function (m, offset) { urls.push([offset, offset + m.length]); return m; });
+    while (i < s.length) {
+      var u = urls.find(function (r) { return r[0] === i; });
+      if (u) { if (used + 23 > n) break; used += 23; i = u[1]; out = i; continue; }
+      var ch1 = String.fromCodePoint(s.codePointAt(i));
+      var cp = ch1.codePointAt(0);
+      var light = cp <= 4351 || (cp >= 8192 && cp <= 8205) || (cp >= 8208 && cp <= 8223) || (cp >= 8242 && cp <= 8247);
+      var w = light ? 1 : 2;
+      if (used + w > n) break;
+      used += w;
+      i += ch1.length;
+      out = i;
+    }
+    return out;
+  }
+
+  function renderPreview(text) {
+    var ch = CHANNELS.find(function (c) { return c.id === selected; }) || CHANNELS[0];
+    var len = lengthFor(ch, text);
+    $('previewTitle').textContent = ch.name;
+    $('previewBadge').textContent = verdict(ch, len);
+    $('previewBadge').className = 'badge badge-' + state(ch, len);
+    var html;
+    if (len > ch.limit) {
+      var at = cutIndex(ch, text, ch.limit);
+      html = esc(text.slice(0, at)) + '<span class="over">' + esc(text.slice(at)) + '</span>';
+    } else if (ch.fold && len > ch.fold) {
+      var f = cutIndex(ch, text, ch.fold);
+      html = esc(text.slice(0, f)) + '<span class="fold">… see more</span><span class="hidden-part">' + esc(text.slice(f)) + '</span>';
+    } else {
+      html = esc(text);
+    }
+    $('preview').innerHTML = html;
+    $('previewNote').textContent = ch.note;
+  }
+
+  function choose(id) {
+    selected = id;
+    store.set('selected', id);
+    render();
+  }
+
+  $('text').addEventListener('input', render);
+  $('channels').addEventListener('click', function (e) {
+    var item = e.target.closest ? e.target.closest('[data-id]') : null;
+    if (item) choose(item.getAttribute('data-id'));
+  });
+  $('channels').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    var item = e.target.closest ? e.target.closest('[data-id]') : null;
+    if (item) choose(item.getAttribute('data-id'));
+  });
+
+  async function start() {
+    if (window.hillnote) { try { await hillnote.ready(); } catch (e) { /* render anyway */ } }
+    var saved = store.get('selected', 'x');
+    if (CHANNELS.some(function (c) { return c.id === saved; })) selected = saved;
+    $('text').value = store.get('text', '') || '';
+    render();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

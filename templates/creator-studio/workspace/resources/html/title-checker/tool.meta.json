@@ -1,0 +1,17 @@
+{
+  "name": "title-checker",
+  "description": "Title and thumbnail-text lengths for every platform, with truncation previews and the calendar's titles",
+  "glyph": "🔤",
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Content calendar",
+      "path": "Production/Content calendar",
+      "primary": true
+    }
+  ],
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Question and scope",
+      "path": "documents/Question/Question and scope.md",
+      "type": "document",
+      "emoji": "🎯",
+      "position": 0
+    },
+    {
+      "name": "Research plan",
+      "path": "documents/Question/Research plan.md",
+      "type": "document",
+      "emoji": "🗺️",
+      "position": 1
+    },
+    {
+      "name": "Search log",
+      "path": "documents/Question/Search log.md",
+      "type": "document",
+      "emoji": "🔎",
+      "position": 2
+    },
+    {
+      "name": "Interview guide",
+      "path": "documents/Question/Interview guide.md",
+      "type": "document",
+      "emoji": "🎙️",
+      "position": 3
+    },
+    {
+      "name": "Interview notes - P04",
+      "path": "documents/Findings/Interview notes - P04.md",
+      "type": "document",
+      "emoji": "🗣️",
+      "position": 1
+    },
+    {
+      "name": "Themes and gaps",
+      "path": "documents/Synthesis/Themes and gaps.md",
+      "type": "document",
+      "emoji": "🧵",
+      "position": 0
+    },
+    {
+      "name": "Literature review draft",
+      "path": "documents/Synthesis/Literature review draft.md",
+      "type": "document",
+      "emoji": "✍️",
+      "position": 1
+    },
+    {
+      "name": "Concept map",
+      "path": "documents/Synthesis/Concept map.moodboard.md",
+      "type": "document",
+      "emoji": "🕸️",
+      "position": 2
+    },
+    {
+      "name": "Source notes",
+      "path": "documents/Templates/Source notes.md",
+      "type": "document",
+      "emoji": "📄",
+      "position": 0
+    },
+    {
+      "name": "Interview notes",
+      "path": "documents/Templates/Interview notes.md",
+      "type": "document",
+      "emoji": "🗒️",
+      "position": 1
+    }
+  ],
+  "folders": [
+    {
+      "name": "Question",
+      "path": "documents/Question",
+      "type": "folder",
+      "position": 1,
+      "pinned": false
+    },
+    {
+      "name": "Sources",
+      "path": "documents/Sources",
+      "type": "folder",
+      "position": 2,
+      "pinned": false
+    },
+    {
+      "name": "Findings",
+      "path": "documents/Findings",
+      "type": "folder",
+      "position": 3,
+      "pinned": false
+    },
+    {
+      "name": "Synthesis",
+      "path": "documents/Synthesis",
+      "type": "folder",
+      "position": 4,
+      "pinned": false
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false
+    },
+    {
+      "name": "Codebook",
+      "path": "documents/Question/Codebook",
+      "type": "folder",
+      "position": 4,
+      "pinned": false
+    },
+    {
+      "name": "Sources",
+      "path": "documents/Sources/Sources",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    },
+    {
+      "name": "Claims and evidence",
+      "path": "documents/Findings/Claims and evidence",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    }
+  ]
+}

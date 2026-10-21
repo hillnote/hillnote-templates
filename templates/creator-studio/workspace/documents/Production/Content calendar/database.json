@@ -1,0 +1,169 @@
+{
+  "name": "Content calendar",
+  "folderKind": "calendar-database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Content",
+      "type": "title",
+      "width": 280
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Idea",
+        "Scripting",
+        "Filming",
+        "Editing",
+        "Scheduled",
+        "Published"
+      ],
+      "optionColors": {
+        "Idea": "gray",
+        "Scripting": "blue",
+        "Filming": "purple",
+        "Editing": "amber",
+        "Scheduled": "teal",
+        "Published": "emerald"
+      },
+      "optionStates": {
+        "Idea": "normal",
+        "Scripting": "normal",
+        "Filming": "normal",
+        "Editing": "normal",
+        "Scheduled": "normal",
+        "Published": "done"
+      },
+      "defaultValue": "Idea"
+    },
+    {
+      "id": "format",
+      "name": "Format",
+      "type": "select",
+      "options": [
+        "Long video",
+        "Short",
+        "Newsletter",
+        "Carousel"
+      ],
+      "optionColors": {
+        "Long video": "red",
+        "Short": "pink",
+        "Newsletter": "teal",
+        "Carousel": "purple"
+      }
+    },
+    {
+      "id": "platforms",
+      "name": "Platforms",
+      "type": "multiselect",
+      "options": [
+        "YouTube",
+        "Shorts",
+        "TikTok",
+        "Instagram",
+        "Newsletter"
+      ],
+      "optionColors": {
+        "YouTube": "red",
+        "Shorts": "rose",
+        "TikTok": "darkGray",
+        "Instagram": "pink",
+        "Newsletter": "teal"
+      },
+      "width": 220
+    },
+    {
+      "id": "pillar",
+      "name": "Pillar",
+      "type": "select",
+      "options": [
+        "Myth or fact",
+        "Why it works",
+        "Try this at home",
+        "Kitchen gear"
+      ],
+      "optionColors": {
+        "Myth or fact": "rose",
+        "Why it works": "blue",
+        "Try this at home": "lime",
+        "Kitchen gear": "amber"
+      }
+    },
+    {
+      "id": "publish_date",
+      "name": "Publish date",
+      "type": "date"
+    },
+    {
+      "id": "thumbnail_text",
+      "name": "Thumbnail text",
+      "type": "text",
+      "width": 160
+    },
+    {
+      "id": "repeat",
+      "name": "Repeat",
+      "type": "recurring"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Calendar",
+      "type": "calendar",
+      "dateColumn": "publish_date",
+      "colorByColumn": "pillar",
+      "calendarViewMode": "dayGridMonth",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "board",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "publish_date",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "publish_date",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "titles",
+      "name": "Title check",
+      "type": "tool",
+      "toolPath": "resources/html/title-checker/index.html",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "pillars",
+      "name": "By pillar",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "pillar",
+      "aggregation": "count",
+      "splitColumn": "format",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

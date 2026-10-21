@@ -1,0 +1,134 @@
+{
+  "name": "Quests",
+  "folderKind": "goals",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Quest",
+      "type": "title",
+      "width": 240
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Rumor",
+        "Active",
+        "Complete",
+        "Failed"
+      ],
+      "optionColors": {
+        "Rumor": "gray",
+        "Active": "amber",
+        "Complete": "emerald",
+        "Failed": "red"
+      },
+      "optionStates": {
+        "Rumor": "normal",
+        "Active": "normal",
+        "Complete": "done",
+        "Failed": "archive"
+      },
+      "defaultValue": "Rumor"
+    },
+    {
+      "id": "kind",
+      "name": "Kind",
+      "type": "select",
+      "options": [
+        "Main",
+        "Side",
+        "Personal"
+      ],
+      "optionColors": {
+        "Main": "purple",
+        "Side": "blue",
+        "Personal": "pink"
+      },
+      "width": 110
+    },
+    {
+      "id": "giver",
+      "name": "Given by",
+      "type": "text",
+      "width": 180
+    },
+    {
+      "id": "location",
+      "name": "Where",
+      "type": "select",
+      "options": [
+        "Lanternfall",
+        "Saltmarrow",
+        "Cinder Quay",
+        "The Lantern Spire",
+        "The Sunken Stair",
+        "The Drowned Wood"
+      ],
+      "optionColors": {
+        "Lanternfall": "blue",
+        "Saltmarrow": "lime",
+        "Cinder Quay": "brown",
+        "The Lantern Spire": "purple",
+        "The Sunken Stair": "red",
+        "The Drowned Wood": "emerald"
+      },
+      "width": 170
+    },
+    {
+      "id": "reward",
+      "name": "Reward",
+      "type": "text",
+      "width": 240
+    },
+    {
+      "id": "level",
+      "name": "Suggested level",
+      "type": "number",
+      "width": 120
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "level",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "kind",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "kind",
+      "name": "By kind",
+      "type": "kanban",
+      "groupBy": "kind",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "notEquals",
+          "value": "Failed"
+        }
+      ],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

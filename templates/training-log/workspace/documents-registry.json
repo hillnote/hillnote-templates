@@ -1,0 +1,119 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Training plan",
+      "path": "documents/Plan/Training plan.md",
+      "type": "document",
+      "emoji": "🗺️",
+      "position": 0
+    },
+    {
+      "name": "Nutrition",
+      "path": "documents/Body/Nutrition.md",
+      "type": "document",
+      "emoji": "🥗",
+      "position": 1
+    },
+    {
+      "name": "Week 6 check-in",
+      "path": "documents/Review/Week 6 check-in.md",
+      "type": "document",
+      "emoji": "✅",
+      "position": 0
+    },
+    {
+      "name": "PR board",
+      "path": "documents/Review/PR board.md",
+      "type": "document",
+      "emoji": "🏆",
+      "position": 1
+    },
+    {
+      "name": "Weekly check-in",
+      "path": "documents/Templates/Weekly check-in.md",
+      "type": "document",
+      "emoji": "📋",
+      "position": 0
+    },
+    {
+      "name": "Strength session",
+      "path": "documents/Templates/Strength session.md",
+      "type": "document",
+      "emoji": "🏋️",
+      "position": 1
+    }
+  ],
+  "folders": [
+    {
+      "name": "Plan",
+      "path": "documents/Plan",
+      "type": "folder",
+      "position": 1,
+      "pinned": false
+    },
+    {
+      "name": "Log",
+      "path": "documents/Log",
+      "type": "folder",
+      "position": 2,
+      "pinned": false
+    },
+    {
+      "name": "Body",
+      "path": "documents/Body",
+      "type": "folder",
+      "position": 3,
+      "pinned": false
+    },
+    {
+      "name": "Review",
+      "path": "documents/Review",
+      "type": "folder",
+      "position": 4,
+      "pinned": false
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false
+    },
+    {
+      "name": "Sessions",
+      "path": "documents/Plan/Sessions",
+      "type": "folder",
+      "position": 1,
+      "pinned": false
+    },
+    {
+      "name": "Lift log",
+      "path": "documents/Log/Lift log",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    },
+    {
+      "name": "Exercise library",
+      "path": "documents/Log/Exercise library",
+      "type": "folder",
+      "position": 1,
+      "pinned": false
+    },
+    {
+      "name": "Body metrics",
+      "path": "documents/Body/Body metrics",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    }
+  ]
+}

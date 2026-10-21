@@ -1,0 +1,148 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Project brief",
+      "path": "documents/Briefs/Project brief.md",
+      "type": "document",
+      "emoji": "📋",
+      "position": 0
+    },
+    {
+      "name": "Fernway moodboard",
+      "path": "documents/Exploration/Fernway moodboard.moodboard.md",
+      "type": "document",
+      "emoji": "🌿",
+      "position": 0
+    },
+    {
+      "name": "References",
+      "path": "documents/Exploration/References.md",
+      "type": "document",
+      "emoji": "📚",
+      "position": 1
+    },
+    {
+      "name": "Colors",
+      "path": "documents/System/Colors.md",
+      "type": "document",
+      "emoji": "🎨",
+      "position": 0
+    },
+    {
+      "name": "Typography",
+      "path": "documents/System/Typography.md",
+      "type": "document",
+      "emoji": "🔤",
+      "position": 1
+    },
+    {
+      "name": "Voice and microcopy",
+      "path": "documents/System/Voice and microcopy.md",
+      "type": "document",
+      "emoji": "💬",
+      "position": 2
+    },
+    {
+      "name": "Design QA checklist",
+      "path": "documents/Review/Design QA checklist.md",
+      "type": "document",
+      "emoji": "✅",
+      "position": 1
+    },
+    {
+      "name": "Design review",
+      "path": "documents/Review/Design review.slides.md",
+      "type": "document",
+      "emoji": "🎤",
+      "position": 2
+    },
+    {
+      "name": "Creative brief template",
+      "path": "documents/Templates/Creative brief template.md",
+      "type": "document",
+      "emoji": "📝",
+      "position": 0
+    },
+    {
+      "name": "Critique notes template",
+      "path": "documents/Templates/Critique notes template.md",
+      "type": "document",
+      "emoji": "🗣️",
+      "position": 1
+    }
+  ],
+  "folders": [
+    {
+      "name": "Briefs",
+      "path": "documents/Briefs",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "📋"
+    },
+    {
+      "name": "Exploration",
+      "path": "documents/Exploration",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "🔭"
+    },
+    {
+      "name": "System",
+      "path": "documents/System",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "🧩"
+    },
+    {
+      "name": "Review",
+      "path": "documents/Review",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "🔍"
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false,
+      "emoji": "🗂️"
+    },
+    {
+      "name": "Components",
+      "path": "documents/System/Components",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "🧩"
+    },
+    {
+      "name": "UX copy",
+      "path": "documents/System/UX copy",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "✍️"
+    },
+    {
+      "name": "Feedback log",
+      "path": "documents/Review/Feedback log",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "📥"
+    }
+  ]
+}

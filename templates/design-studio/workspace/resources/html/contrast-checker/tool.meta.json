@@ -1,0 +1,11 @@
+{
+  "name": "contrast-checker",
+  "description": "WCAG contrast for two colours, with the nearest passing text colour and saved pairs",
+  "glyph": "🌗",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

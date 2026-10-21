@@ -1,0 +1,47 @@
+{
+  "overrides": [
+    {
+      "id": "critique",
+      "when_user_asks_about": "a design critique or review of a screen, flow or component",
+      "override_instructions": "Run a structured design critique of the screen, flow or component the user names (or the one on the current page). Start from the Project brief: name the goal this work serves and judge it against that goal, the audience and the constraints, not against taste. Check it against every section of the Design QA checklist and against Voice and microcopy, and read its row in the Components database (documents/System/Components) plus any open rows about it in the Feedback log (documents/Review/Feedback log). Follow the Critique notes template's headings. Say what is working before what isn't. Ask questions before suggesting. Tag every suggestion Blocker, Major, Minor or Polish, matching the Feedback log's Severity options, and cite the checklist line or brief goal behind it. Anything about contrast must quote a ratio and the 4.5:1 / 3:1 thresholds. Never invent research findings; if evidence is missing, add it under Questions.",
+      "required_documents": [
+        "documents/Briefs/Project brief.md",
+        "documents/Review/Design QA checklist.md",
+        "documents/System/Voice and microcopy.md"
+      ],
+      "optional_documents": [
+        "documents/Templates/Critique notes template.md",
+        "documents/System/Colors.md",
+        "documents/System/Typography.md"
+      ],
+      "output_format": "Critique notes using the template's headings: goal check table, what's working, questions, prioritised suggestions with severity tags, I like / I wish / What if, actions"
+    },
+    {
+      "id": "microcopy",
+      "when_user_asks_about": "writing, rewriting or reviewing UI copy, button labels, notifications, errors or empty states",
+      "override_instructions": "Write or rewrite UI copy following Voice and microcopy exactly: calm, specific, kind, honest about uncertainty, brief; no exclamation marks, no guilt, sentence case, verb-first buttons. Read the UX copy sheet (documents/System/UX copy). For each string the user asks about (or every row with status Draft if they ask for a review), respect its Limit column as a hard character ceiling and keep the same Screen and Element. Reuse labels that already exist in the sheet for the same action. Give up to three options per string, best first, each with its exact character count against the limit, and one line on why the first option wins. Flag any existing string that breaks a rule or its limit. Never change a string's meaning; if the intent is unclear, ask.",
+      "required_documents": [
+        "documents/System/Voice and microcopy.md"
+      ],
+      "optional_documents": [
+        "documents/Briefs/Project brief.md"
+      ],
+      "output_format": "A table: Screen | Element | Option | Characters / limit | Note, then a short list of flagged existing strings"
+    },
+    {
+      "id": "brief_to_spec",
+      "when_user_asks_about": "turning the project brief into a design or handoff spec, or preparing context for building frames in Figma",
+      "override_instructions": "Turn the Project brief into a design spec that a designer, an engineer or Claude working in Figma over MCP can build from. Read every row of the Components database (documents/System/Components) and the UX copy sheet (documents/System/UX copy). For each screen implied by the brief's goals, list: the goal it serves, the components it uses (by their exact row names and status), their states, the tokens from Colors and the type roles from Typography, every string with its limit, and the accessibility requirements from the brief's constraints. Call out components that are still Exploring or In design as risks, and any string still in Draft. End with a short build request the user can paste when asking Claude to create the frames in Figma. Do not invent tokens, components or copy that aren't in the workspace; list gaps under Open questions.",
+      "required_documents": [
+        "documents/Briefs/Project brief.md",
+        "documents/System/Colors.md",
+        "documents/System/Typography.md"
+      ],
+      "optional_documents": [
+        "documents/System/Voice and microcopy.md",
+        "documents/Review/Design QA checklist.md"
+      ],
+      "output_format": "A markdown spec: one section per screen (goal, components, states, tokens, type, copy, accessibility), then risks, open questions and a paste-ready Figma build request"
+    }
+  ]
+}

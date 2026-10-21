@@ -1,0 +1,147 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Vision and strategy",
+      "path": "documents/Strategy/Vision and strategy.md",
+      "type": "document",
+      "emoji": "🔭",
+      "position": 0
+    },
+    {
+      "name": "OKRs",
+      "path": "documents/Strategy/OKRs.md",
+      "type": "document",
+      "emoji": "🎯",
+      "position": 1
+    },
+    {
+      "name": "Personas",
+      "path": "documents/Strategy/Personas.md",
+      "type": "document",
+      "emoji": "🧑‍💼",
+      "position": 2
+    },
+    {
+      "name": "Customer interview - Brightwater Logistics",
+      "path": "documents/Discovery/Customer interview - Brightwater Logistics.md",
+      "type": "document",
+      "emoji": "🎙️",
+      "position": 1
+    },
+    {
+      "name": "Weekly product review",
+      "path": "documents/Planning/Weekly product review.md",
+      "type": "document",
+      "emoji": "🗓️",
+      "position": 1
+    },
+    {
+      "name": "Quarterly roadmap review",
+      "path": "documents/Planning/Quarterly roadmap review.slides.md",
+      "type": "document",
+      "emoji": "🎤",
+      "position": 2
+    },
+    {
+      "name": "PRD - Saved dashboards",
+      "path": "documents/Delivery/PRD - Saved dashboards.md",
+      "type": "document",
+      "emoji": "📝",
+      "position": 0
+    },
+    {
+      "name": "Launch plan - Saved dashboards",
+      "path": "documents/Delivery/Launch plan - Saved dashboards.md",
+      "type": "document",
+      "emoji": "🚀",
+      "position": 1
+    },
+    {
+      "name": "Release notes",
+      "path": "documents/Delivery/Release notes.md",
+      "type": "document",
+      "emoji": "📣",
+      "position": 2
+    },
+    {
+      "name": "PRD template",
+      "path": "documents/Templates/PRD template.md",
+      "type": "document",
+      "emoji": "📄",
+      "position": 0
+    },
+    {
+      "name": "Launch plan template",
+      "path": "documents/Templates/Launch plan template.md",
+      "type": "document",
+      "emoji": "🗒️",
+      "position": 1
+    },
+    {
+      "name": "Status digest template",
+      "path": "documents/Templates/Status digest template.md",
+      "type": "document",
+      "emoji": "📰",
+      "position": 2
+    }
+  ],
+  "folders": [
+    {
+      "name": "Strategy",
+      "path": "documents/Strategy",
+      "type": "folder",
+      "position": 1,
+      "pinned": false
+    },
+    {
+      "name": "Discovery",
+      "path": "documents/Discovery",
+      "type": "folder",
+      "position": 2,
+      "pinned": false
+    },
+    {
+      "name": "Planning",
+      "path": "documents/Planning",
+      "type": "folder",
+      "position": 3,
+      "pinned": false
+    },
+    {
+      "name": "Delivery",
+      "path": "documents/Delivery",
+      "type": "folder",
+      "position": 4,
+      "pinned": false
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false
+    },
+    {
+      "name": "Feedback",
+      "path": "documents/Discovery/Feedback",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    },
+    {
+      "name": "Roadmap",
+      "path": "documents/Planning/Roadmap",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    }
+  ]
+}

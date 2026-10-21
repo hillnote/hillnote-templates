@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "contrast-checker",
+      "description": "WCAG contrast for two colours, with the nearest passing text colour and saved pairs",
+      "glyph": "🌗",
+      "color": "violet",
+      "entryPath": "resources/html/contrast-checker/index.html"
+    },
+    {
+      "name": "type-scale",
+      "description": "A modular type scale from a base size and ratio, with a preview and copyable CSS variables",
+      "glyph": "🔠",
+      "color": "teal",
+      "entryPath": "resources/html/type-scale/index.html"
+    }
+  ]
+}

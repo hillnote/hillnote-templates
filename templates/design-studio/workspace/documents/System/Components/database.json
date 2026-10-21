@@ -1,0 +1,158 @@
+{
+  "name": "Components",
+  "folderKind": "database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Component",
+      "type": "title",
+      "width": 220
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Exploring",
+        "In design",
+        "Ready for dev",
+        "Shipped"
+      ],
+      "optionColors": {
+        "Exploring": "purple",
+        "In design": "amber",
+        "Ready for dev": "blue",
+        "Shipped": "emerald"
+      },
+      "optionStates": {
+        "Exploring": "normal",
+        "In design": "normal",
+        "Ready for dev": "normal",
+        "Shipped": "done"
+      },
+      "defaultValue": "Exploring"
+    },
+    {
+      "id": "category",
+      "name": "Category",
+      "type": "select",
+      "options": [
+        "Action",
+        "Input",
+        "Navigation",
+        "Feedback",
+        "Content"
+      ],
+      "optionColors": {
+        "Action": "pink",
+        "Input": "cyan",
+        "Navigation": "teal",
+        "Feedback": "orange",
+        "Content": "lime"
+      }
+    },
+    {
+      "id": "platform",
+      "name": "Platform",
+      "type": "multiselect",
+      "options": [
+        "iOS",
+        "Android",
+        "Web"
+      ],
+      "optionColors": {
+        "iOS": "darkGray",
+        "Android": "emerald",
+        "Web": "blue"
+      }
+    },
+    {
+      "id": "owner",
+      "name": "Owner",
+      "type": "text",
+      "width": 140
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "type": "url",
+      "width": 160
+    },
+    {
+      "id": "reviewed",
+      "name": "Last reviewed",
+      "type": "date"
+    },
+    {
+      "id": "since_review",
+      "name": "Days since review",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "DAYS(TODAY(), {Last reviewed})",
+      "resultType": "number",
+      "width": 130
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Gallery",
+      "type": "gallery",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "category",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "board",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "reviewed",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "title",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "name": "Needs review",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "notEquals",
+          "value": "Exploring"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "since_review",
+          "direction": "desc"
+        }
+      ],
+      "hiddenColumns": [
+        "figma",
+        "category"
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

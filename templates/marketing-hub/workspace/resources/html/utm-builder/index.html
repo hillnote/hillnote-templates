@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#008080;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#008080;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>UTM builder</title>
+<style>
+  .presets { display: flex; flex-wrap: wrap; gap: 6px; }
+  .presets button[aria-pressed="true"] { background: color-mix(in srgb, var(--primary) 14%, var(--card)); border-color: var(--primary); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .field small { font-size: 11px; color: var(--muted-foreground); }
+  .hints { margin: 0; padding-inline-start: 18px; font-size: 12px; color: var(--warning); }
+  .result { border: 1px dashed var(--border); border-radius: var(--radius); padding: 10px; background: var(--muted); }
+  .result code { display: block; background: transparent; padding: 0; font-size: 12px; line-height: 1.5; word-break: break-all; color: var(--foreground); }
+  .result .placeholder { color: var(--muted-foreground); font-size: 13px; }
+  .result .row { margin-top: 10px; flex-wrap: wrap; }
+  .status { font-size: 12px; color: var(--muted-foreground); min-height: 1em; margin: 6px 0 0; }
+  .status.ok { color: var(--success); }
+  .status.err { color: var(--destructive); }
+  .history-head { justify-content: space-between; flex-wrap: wrap; margin-bottom: 8px; }
+  .history-head h4 { margin: 0; }
+  .history-head input { width: auto; flex: 1; min-width: 120px; max-width: 220px; }
+  .history .list-item { flex-direction: column; align-items: stretch; gap: 4px; }
+  .history .link { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; word-break: break-all; }
+  .history .tags { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+  .history .when { font-size: 11px; color: var(--muted-foreground); margin-inline-start: auto; }
+  .history .actions { display: flex; gap: 4px; }
+  section + section { margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>UTM builder</strong>
+  <span class="badge" id="count">No links yet</span>
+</div>
+
+<section class="card stack">
+  <div class="field" id="pickField">
+    <label for="pick">Campaign</label>
+    <select id="pick"></select>
+  </div>
+  <div class="empty-state" id="pickEmpty" hidden></div>
+
+  <div class="field">
+    <label for="url">Page address</label>
+    <input id="url" inputmode="url" autocomplete="off" placeholder="cobalt.example.com/pricing">
+  </div>
+
+  <div>
+    <label>Where the link goes out</label>
+    <div class="presets" id="presets" role="group" aria-label="Channel presets"></div>
+  </div>
+
+  <div class="grid">
+    <div class="field"><label for="source">Source</label><input id="source" placeholder="linkedin"><small>Where the click happens</small></div>
+    <div class="field"><label for="medium">Medium</label><input id="medium" placeholder="paid-social"><small>The kind of channel</small></div>
+    <div class="field"><label for="campaign">Campaign</label><input id="campaign" placeholder="q4-launch"><small>One name per campaign</small></div>
+    <div class="field"><label for="content">Content</label><input id="content" placeholder="founder-video"><small>Optional: the creative or link</small></div>
+    <div class="field"><label for="term">Term</label><input id="term" placeholder="crm for agencies"><small>Optional: the paid keyword</small></div>
+  </div>
+  <ul class="hints" id="hints" hidden></ul>
+
+  <div class="result">
+    <code id="link"></code>
+    <div class="row">
+      <button class="btn-primary" id="copy" disabled>Copy link</button>
+      <button id="save" disabled>Save</button>
+      <button class="btn-ghost" id="clear">Clear</button>
+    </div>
+    <p class="status" id="status" role="status"></p>
+  </div>
+</section>
+
+<section class="card history">
+  <div class="row history-head">
+    <h4>Link history</h4>
+    <input id="filter" placeholder="Filter links" aria-label="Filter links">
+    <button class="btn-sm btn-ghost" id="csv">Copy as CSV</button>
+  </div>
+  <div class="list" id="history"></div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { try { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); } catch (e) { return d; } },
+    set: function (k, v) { try { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; } catch (e) { /* ignore */ } }
+  };
+  var FIELDS = ['url', 'source', 'medium', 'campaign', 'content', 'term'];
+  var MAX_HISTORY = 100;
+  var PRESETS = [
+    { id: 'linkedin-ads', label: 'LinkedIn ads', source: 'linkedin', medium: 'paid-social' },
+    { id: 'linkedin', label: 'LinkedIn post', source: 'linkedin', medium: 'organic-social' },
+    { id: 'google', label: 'Google Ads', source: 'google', medium: 'cpc' },
+    { id: 'newsletter', label: 'Newsletter', source: 'newsletter', medium: 'email' },
+    { id: 'partner', label: 'Partner', source: '', medium: 'referral' },
+    { id: 'producthunt', label: 'Product Hunt', source: 'producthunt', medium: 'referral' },
+    { id: 'webinar', label: 'Webinar', source: 'webinar', medium: 'event' }
+  ];
+  // Lead channel (Campaigns database) → preset.
+  var CHANNEL_PRESET = { 'paid social': 'linkedin-ads', 'search': 'google', 'email': 'newsletter', 'partners': 'partner', 'community': 'producthunt', 'events': 'webinar', 'content': 'linkedin' };
+
+  var source = null;
+  var rows = [];
+  var cols = { utm: 'utm_campaign', lead: 'lead_channel' };
+  var history = [];
+
+  function slug(v) {
+    return String(v || '').trim().toLowerCase().replace(/&/g, ' and ').replace(/[\s_/]+/g, '-').replace(/[^a-z0-9.\-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  }
+  function values() {
+    var v = {};
+    FIELDS.forEach(function (f) { v[f] = $(f).value; });
+    return v;
+  }
+
+  function build(v) {
+    var base = String(v.url || '').trim();
+    if (!base) return { error: 'Add the page address the link should open.' };
+    if (!/^[a-z][a-z0-9+.\-]*:/i.test(base)) base = 'https://' + base;
+    var u;
+    try { u = new URL(base); } catch (e) { return { error: 'That doesn\'t look like a web address.' }; }
+    if (!/^https?:$/.test(u.protocol) || u.hostname.indexOf('.') < 0) return { error: 'Use a full web address, such as cobalt.example.com/pricing.' };
+    var params = [['utm_source', slug(v.source)], ['utm_medium', slug(v.medium)], ['utm_campaign', slug(v.campaign)], ['utm_term', String(v.term || '').trim().toLowerCase()], ['utm_content', slug(v.content)]];
+    if (!params[0][1] || !params[1][1] || !params[2][1]) return { error: 'Add a source, a medium and a campaign to build the link.' };
+    params.forEach(function (p) { u.searchParams.delete(p[0]); });
+    params.forEach(function (p) { if (p[1]) u.searchParams.set(p[0], p[1]); });
+    return { link: u.toString(), tags: { source: params[0][1], medium: params[1][1], campaign: params[2][1], term: params[3][1], content: params[4][1] } };
+  }
+
+  function hints(v) {
+    var out = [];
+    ['source', 'medium', 'campaign', 'content'].forEach(function (f) {
+      var raw = String(v[f] || '').trim();
+      if (raw && raw !== slug(raw)) out.push('"' + raw + '" becomes "' + slug(raw) + '": tags are lowercase with hyphens, so reports never split one source in two.');
+    });
+    if (/^(email|social|cpc|paid)$/i.test(String(v.source || '').trim())) out.push('Source is where the click happens (linkedin, newsletter). "' + v.source.trim() + '" sounds like a medium.');
+    if (/^(linkedin|google|facebook|newsletter)$/i.test(String(v.medium || '').trim())) out.push('Medium is the kind of channel (paid-social, cpc, email). "' + v.medium.trim() + '" sounds like a source.');
+    return out;
+  }
+
+  var current = null;
+  function render() {
+    var v = values();
+    var r = build(v);
+    current = r.link ? r : null;
+    if (r.link) {
+      $('link').textContent = r.link;
+      $('link').className = '';
+    } else {
+      $('link').textContent = r.error;
+      $('link').className = 'placeholder';
+    }
+    $('copy').disabled = !r.link;
+    $('save').disabled = !r.link;
+    var h = hints(v);
+    $('hints').hidden = !h.length;
+    $('hints').innerHTML = h.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+    Array.prototype.forEach.call($('presets').children, function (b) {
+      var p = PRESETS.find(function (x) { return x.id === b.getAttribute('data-preset'); });
+      b.setAttribute('aria-pressed', String(!!p && slug(v.source) === p.source && slug(v.medium) === p.medium && !!p.source));
+    });
+    store.set('form', v);
+  }
+
+  function say(text, kind) { $('status').textContent = text || ''; $('status').className = 'status' + (kind ? ' ' + kind : ''); }
+
+  async function copyText(text) {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(text); return true; }
+    } catch (e) { /* fall through to the selection fallback */ }
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand && document.execCommand('copy');
+      document.body.removeChild(ta);
+      return !!ok;
+    } catch (e) { return false; }
+  }
+
+  function remember(r) {
+    var pick = rows.find(function (x) { return x.id === $('pick').value; });
+    history = history.filter(function (h) { return h.link !== r.link; });
+    history.unshift({ link: r.link, tags: r.tags, at: Date.now(), campaignRow: pick ? pick.title : '' });
+    history = history.slice(0, MAX_HISTORY);
+    store.set('history', history);
+    renderHistory();
+  }
+
+  function renderHistory() {
+    $('count').textContent = history.length ? history.length + (history.length === 1 ? ' saved link' : ' saved links') : 'No links yet';
+    var q = $('filter').value.trim().toLowerCase();
+    var list = history.map(function (h, i) { return { h: h, i: i }; }).filter(function (x) {
+      return !q || (x.h.link + ' ' + (x.h.campaignRow || '')).toLowerCase().indexOf(q) >= 0;
+    });
+    if (!history.length) {
+      $('history').innerHTML = '<div class="empty-state">Links you copy or save land here, so everyone reuses the same tags instead of inventing new ones.</div>';
+      return;
+    }
+    if (!list.length) { $('history').innerHTML = '<div class="empty-state">No saved link matches that filter.</div>'; return; }
+    $('history').innerHTML = list.slice(0, 40).map(function (x) {
+      var t = x.h.tags || {};
+      var tags = ['source', 'medium', 'campaign', 'content', 'term'].filter(function (k) { return t[k]; }).map(function (k) {
+        return '<span class="badge' + (k === 'campaign' ? ' badge-info' : '') + '" title="utm_' + k + '">' + esc(t[k]) + '</span>';
+      }).join('');
+      var when = new Date(x.h.at).toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
+      return '<div class="list-item"><div class="link">' + esc(x.h.link) + '</div>' +
+        '<div class="tags">' + tags + '<span class="when">' + esc((x.h.campaignRow ? x.h.campaignRow + ' · ' : '') + when) + '</span></div>' +
+        '<div class="actions"><button class="btn-sm" data-copy="' + x.i + '">Copy</button><button class="btn-sm btn-ghost" data-use="' + x.i + '">Use again</button>' +
+        '<button class="btn-sm btn-ghost" data-remove="' + x.i + '">Remove</button></div></div>';
+    }).join('');
+  }
+
+  function applyPreset(id) {
+    var p = PRESETS.find(function (x) { return x.id === id; });
+    if (!p) return;
+    $('source').value = p.source;
+    $('medium').value = p.medium;
+    if (!p.source) $('source').focus();
+    render();
+  }
+
+  // ---------------------------------------------------------------- campaigns
+  function renderPicker() {
+    if (!source) {
+      $('pickField').hidden = true;
+      $('pickEmpty').hidden = false;
+      $('pickEmpty').textContent = 'Open this tool as the UTM links view of the Campaigns database to fill the tags from a campaign. Typing them by hand works too.';
+      return;
+    }
+    $('pickField').hidden = false;
+    $('pickEmpty').hidden = rows.length > 0;
+    if (!rows.length) $('pickEmpty').textContent = 'No campaigns yet. Add one to the Campaigns database, or type the tags by hand.';
+    var keep = $('pick').value || store.get('pick', '');
+    $('pick').innerHTML = '<option value="">Type the tags by hand</option>' + rows.map(function (r) {
+      var tag = r[cols.utm] || slug(r.title);
+      return '<option value="' + esc(r.id) + '">' + esc(r.title + ' (' + tag + ')') + '</option>';
+    }).join('');
+    if (rows.some(function (r) { return r.id === keep; })) $('pick').value = keep;
+  }
+
+  function pickCampaign() {
+    var r = rows.find(function (x) { return x.id === $('pick').value; });
+    store.set('pick', $('pick').value);
+    if (!r) return render();
+    $('campaign').value = r[cols.utm] || slug(r.title);
+    var lead = String(r[cols.lead] || '').toLowerCase();
+    if (CHANNEL_PRESET[lead]) applyPreset(CHANNEL_PRESET[lead]);
+    else render();
+    say('Tags filled from ' + r.title + '. Add the content tag for the creative.', '');
+  }
+
+  async function loadRows() {
+    try {
+      rows = (await source.rows({ limit: 500 })).filter(function (r) { return r.status !== 'Done'; });
+    } catch (err) {
+      rows = [];
+      say('Could not read the campaigns: ' + (err && err.message ? err.message : err), 'err');
+    }
+    renderPicker();
+  }
+
+  async function detectColumns() {
+    try {
+      var list = await Promise.resolve(typeof source.columns === 'function' ? source.columns() : []);
+      if (!Array.isArray(list)) return;
+      var utm = list.find(function (c) { return c && /utm/i.test(c.name || c.id); });
+      var lead = list.find(function (c) { return c && /lead.?channel|^channel$/i.test(c.name || c.id); });
+      if (utm) cols.utm = utm.id;
+      if (lead) cols.lead = lead.id;
+    } catch (e) { /* keep defaults */ }
+  }
+
+  // ---------------------------------------------------------------- events
+  FIELDS.forEach(function (f) { $(f).addEventListener('input', function () { say(''); render(); }); });
+  $('presets').innerHTML = PRESETS.map(function (p) { return '<button class="btn-sm" data-preset="' + p.id + '" aria-pressed="false">' + esc(p.label) + '</button>'; }).join('');
+  $('presets').addEventListener('click', function (e) {
+    var id = e.target && e.target.getAttribute ? e.target.getAttribute('data-preset') : null;
+    if (id) applyPreset(id);
+  });
+  $('pick').addEventListener('change', pickCampaign);
+  $('copy').addEventListener('click', async function () {
+    if (!current) return;
+    var ok = await copyText(current.link);
+    remember(current);
+    say(ok ? 'Copied, and saved to the history.' : 'Saved to the history. Select the link above and copy it.', ok ? 'ok' : '');
+  });
+  $('save').addEventListener('click', function () { if (current) { remember(current); say('Saved to the history.', 'ok'); } });
+  $('clear').addEventListener('click', function () {
+    ['source', 'medium', 'content', 'term'].forEach(function (f) { $(f).value = ''; });
+    $('pick').value = '';
+    store.set('pick', '');
+    say('');
+    render();
+  });
+  $('filter').addEventListener('input', renderHistory);
+  $('csv').addEventListener('click', async function () {
+    if (!history.length) return say('Nothing to copy yet.', '');
+    var q = function (s) { s = String(s || ''); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+    var lines = ['link,source,medium,campaign,content,term,campaign_row'].concat(history.map(function (h) {
+      var t = h.tags || {};
+      return [h.link, t.source, t.medium, t.campaign, t.content, t.term, h.campaignRow].map(q).join(',');
+    }));
+    var ok = await copyText(lines.join('\n'));
+    say(ok ? 'History copied as CSV; paste it into a sheet.' : 'Copying is blocked here.', ok ? 'ok' : 'err');
+  });
+  $('history').addEventListener('click', async function (e) {
+    var t = e.target;
+    if (!t || !t.getAttribute) return;
+    var i = t.getAttribute('data-copy') || t.getAttribute('data-use') || t.getAttribute('data-remove');
+    if (i === null) return;
+    var h = history[Number(i)];
+    if (!h) return;
+    if (t.hasAttribute('data-copy')) { var ok = await copyText(h.link); say(ok ? 'Copied.' : 'Copying is blocked here.', ok ? 'ok' : 'err'); }
+    if (t.hasAttribute('data-use')) {
+      try {
+        var u = new URL(h.link);
+        var tags = h.tags || {};
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) { u.searchParams.delete(k); });
+        $('url').value = u.toString();
+        $('source').value = tags.source || '';
+        $('medium').value = tags.medium || '';
+        $('campaign').value = tags.campaign || '';
+        $('content').value = tags.content || '';
+        $('term').value = tags.term || '';
+        render();
+        say('Loaded. Change the content tag for the new creative.', '');
+      } catch (err) { say('Could not read that link.', 'err'); }
+    }
+    if (t.hasAttribute('data-remove')) { history.splice(Number(i), 1); store.set('history', history); renderHistory(); }
+  });
+
+  async function start() {
+    if (window.hillnote) { try { await hillnote.ready(); } catch (e) { /* render anyway */ } }
+    history = Array.isArray(store.get('history', [])) ? store.get('history', []) : [];
+    var form = store.get('form', null);
+    if (form) FIELDS.forEach(function (f) { $(f).value = form[f] || ''; });
+    if (window.hillnote && typeof hillnote.data === 'function') {
+      try { source = await hillnote.data(); } catch (e) { source = null; }
+    }
+    if (source) {
+      await detectColumns();
+      if (typeof source.onChange === 'function') source.onChange(loadRows);
+      await loadRows();
+    } else {
+      renderPicker();
+    }
+    render();
+    renderHistory();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

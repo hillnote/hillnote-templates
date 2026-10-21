@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "teleprompter",
+      "description": "Paste a script and read it to camera: adjustable pace, mirror mode, cues and a runtime estimate",
+      "glyph": "🎙️",
+      "color": "cobalt",
+      "entryPath": "resources/html/teleprompter/index.html"
+    },
+    {
+      "name": "title-checker",
+      "description": "Title and thumbnail-text lengths for every platform, with truncation previews and the calendar's titles",
+      "glyph": "🔤",
+      "color": "coral",
+      "entryPath": "resources/html/title-checker/index.html"
+    }
+  ]
+}

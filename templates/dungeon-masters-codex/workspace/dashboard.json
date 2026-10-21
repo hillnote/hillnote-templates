@@ -1,0 +1,86 @@
+{
+  "defaultView": "dashboard",
+  "widgets": [
+    {
+      "id": 1783000000001,
+      "type": "document-view",
+      "config": {
+        "documentPath": "documents/Start here.md",
+        "documentName": "Start here",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 3,
+      "position": 0
+    },
+    {
+      "id": 1783000000002,
+      "type": "tasklist-stats",
+      "config": {
+        "displayMode": "bar",
+        "selectedDatabases": [
+          {
+            "id": "template:documents/Quests/Quests",
+            "path": "documents/Quests/Quests",
+            "name": "Quests"
+          },
+          {
+            "id": "template:documents/Cast/NPCs",
+            "path": "documents/Cast/NPCs",
+            "name": "NPCs"
+          }
+        ]
+      },
+      "size": "single",
+      "height": 1,
+      "position": 1
+    },
+    {
+      "id": 1783000000003,
+      "type": "pinned-documents",
+      "config": {
+        "pinnedDocuments": [
+          "documents/World/Campaign bible.md",
+          "documents/Sessions/Sessions/Session 2 - Lights on the Teeth.md",
+          "documents/Sessions/DM screen.md",
+          "documents/Quests/Campaign arc.md"
+        ]
+      },
+      "size": "single",
+      "height": 2,
+      "position": 2
+    },
+    {
+      "id": 1783000000004,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Cast/NPCs",
+        "databaseName": "NPCs",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 3,
+      "position": 3
+    },
+    {
+      "id": 1783000000005,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Sessions/Sessions",
+        "databaseName": "Sessions",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 2,
+      "position": 4
+    },
+    {
+      "id": 1783000000006,
+      "type": "clock",
+      "config": {},
+      "size": "single",
+      "height": 2,
+      "position": 5
+    }
+  ]
+}

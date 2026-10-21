@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#0047AB;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#0047AB;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runway calculator</title>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
+  .figure { padding: 10px 12px; border: 1px solid var(--border); border-radius: calc(var(--radius) - 2px); background: var(--background); }
+  .figure small { display: block; color: var(--muted-foreground); font-size: 12px; }
+  .figure strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .verdict { margin: 14px 0 6px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .verdict p { margin: 0; }
+  svg { width: 100%; height: auto; display: block; margin-top: 8px; }
+  .axis { font-size: 10px; fill: var(--muted-foreground); }
+  .marker-label { font-size: 10px; fill: var(--foreground); }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin-top: 4px; }
+  .scenarios .list-item { justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Runway</strong>
+  <span class="muted">Months of cash left, and whether you're default alive</span>
+</div>
+
+<div class="card">
+  <div class="grid">
+    <div class="field"><label for="cash">Cash set aside</label><input id="cash" type="number" min="0" step="500"></div>
+    <div class="field"><label for="spend">Monthly spending</label><input id="spend" type="number" min="0" step="50"></div>
+    <div class="field"><label for="other">Other monthly income</label><input id="other" type="number" min="0" step="50"></div>
+    <div class="field"><label for="mrr">MRR today</label><input id="mrr" type="number" min="0" step="10"></div>
+    <div class="field"><label for="growth">MRR growth per month (%)</label><input id="growth" type="number" min="0" max="100" step="1"></div>
+    <div class="field"><label for="currency">Currency</label>
+      <select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>AUD</option><option>CAD</option></select>
+    </div>
+  </div>
+  <p class="hint">Spending includes your own living costs. Other income is anything you still earn on the side, like a freelance day a week.</p>
+
+  <div id="empty" class="empty-state" hidden>Enter the cash you've set aside and what you spend each month to see your runway.</div>
+  <div id="results">
+    <div class="figures">
+      <div class="figure"><small>Runway</small><strong id="runway"></strong></div>
+      <div class="figure"><small>Break-even</small><strong id="breakeven"></strong></div>
+      <div class="figure"><small>Cash at month 12</small><strong id="cash12"></strong></div>
+      <div class="figure"><small>Runway with no growth</small><strong id="flat"></strong></div>
+    </div>
+    <div class="verdict"><span class="badge" id="badge"></span><p id="summary"></p></div>
+    <svg id="chart" viewBox="0 0 640 220" role="img" aria-label="Cash in the bank over the next three years"></svg>
+  </div>
+</div>
+
+<div class="card scenarios" style="margin-top: 14px">
+  <h3>Scenarios</h3>
+  <div class="row">
+    <input id="name" placeholder="Name it, e.g. Launch month or Two freelance days">
+    <button class="btn-primary" id="save">Save</button>
+  </div>
+  <p class="hint">Saved with this workspace. Save one each month to see how the picture moves.</p>
+  <div class="list" id="list"></div>
+</div>
+
+<script>
+(function () {
+  var DEFAULTS = { cash: 14000, spend: 2600, other: 1400, mrr: 96, growth: 25, currency: 'USD' };
+  var FIELDS = ['cash', 'spend', 'other', 'mrr', 'growth', 'currency'];
+  var HORIZON = 36;
+  var MAX_SCENARIOS = 12;
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+
+  function read() {
+    var v = {};
+    FIELDS.forEach(function (f) { v[f] = f === 'currency' ? $(f).value : Math.max(0, Number($(f).value) || 0); });
+    v.growth = Math.min(v.growth, 100);
+    return v;
+  }
+  function write(v) { FIELDS.forEach(function (f) { $(f).value = v[f] != null ? v[f] : DEFAULTS[f]; }); }
+
+  function money(n, currency) {
+    try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: currency, maximumFractionDigits: 0 }).format(n); }
+    catch (e) { return Math.round(n).toLocaleString() + ' ' + currency; }
+  }
+  function months(n) { return n === 1 ? '1 month' : n + ' months'; }
+
+  // Month by month: MRR grows, cash moves by income minus spending.
+  function simulate(v) {
+    var cash = v.cash, mrr = v.mrr, points = [{ month: 0, cash: cash }];
+    var runOut = null, breakEven = null;
+    for (var m = 1; m <= HORIZON; m++) {
+      if (breakEven === null && v.other + mrr >= v.spend) breakEven = m;
+      cash += v.other + mrr - v.spend;
+      points.push({ month: m, cash: cash });
+      if (runOut === null && cash < 0) runOut = m;
+      mrr *= 1 + v.growth / 100;
+    }
+    return { points: points, runOut: runOut, breakEven: breakEven };
+  }
+
+  function flatRunway(v) {
+    var burn = v.spend - v.other - v.mrr;
+    if (burn <= 0) return null;
+    return v.cash / burn;
+  }
+
+  function drawChart(sim, v) {
+    var W = 640, H = 220, P = { l: 56, r: 12, t: 14, b: 26 };
+    var values = sim.points.map(function (p) { return p.cash; });
+    var max = Math.max.apply(null, values.concat([v.cash, 1]));
+    var min = Math.min.apply(null, values.concat([0]));
+    var sx = function (m) { return P.l + (m / HORIZON) * (W - P.l - P.r); };
+    var sy = function (c) { return P.t + (max - c) / (max - min || 1) * (H - P.t - P.b); };
+    var line = sim.points.map(function (p, i) { return (i ? 'L' : 'M') + sx(p.month).toFixed(1) + ' ' + sy(p.cash).toFixed(1); }).join(' ');
+    var area = line + ' L' + sx(HORIZON).toFixed(1) + ' ' + sy(0).toFixed(1) + ' L' + sx(0).toFixed(1) + ' ' + sy(0).toFixed(1) + ' Z';
+    var svg = '';
+    svg += '<path d="' + area + '" style="fill: color-mix(in srgb, var(--primary) 10%, transparent)"/>';
+    svg += '<line x1="' + P.l + '" x2="' + (W - P.r) + '" y1="' + sy(0).toFixed(1) + '" y2="' + sy(0).toFixed(1) + '" style="stroke: var(--muted-foreground); stroke-dasharray: 3 3"/>';
+    svg += '<path d="' + line + '" style="fill: none; stroke: var(--primary); stroke-width: 2"/>';
+    [0, 12, 24, 36].forEach(function (m) {
+      svg += '<text class="axis" x="' + sx(m).toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle">' + (m === 0 ? 'Now' : 'Month ' + m) + '</text>';
+    });
+    svg += '<text class="axis" x="' + (P.l - 6) + '" y="' + (sy(max) + 4).toFixed(1) + '" text-anchor="end">' + esc(money(max, v.currency)) + '</text>';
+    svg += '<text class="axis" x="' + (P.l - 6) + '" y="' + (sy(0) + 4).toFixed(1) + '" text-anchor="end">0</text>';
+    if (sim.breakEven) {
+      var bx = sx(sim.breakEven).toFixed(1);
+      svg += '<line x1="' + bx + '" x2="' + bx + '" y1="' + P.t + '" y2="' + (H - P.b) + '" style="stroke: var(--success)"/>';
+      svg += '<text class="marker-label" x="' + (Number(bx) + 4) + '" y="' + (P.t + 10) + '">Break-even</text>';
+    }
+    if (sim.runOut) {
+      var rx = sx(sim.runOut).toFixed(1);
+      svg += '<circle cx="' + rx + '" cy="' + sy(0).toFixed(1) + '" r="4" style="fill: var(--destructive)"/>';
+      svg += '<text class="marker-label" x="' + rx + '" y="' + (sy(0) - 8).toFixed(1) + '" text-anchor="middle">Cash runs out</text>';
+    }
+    $('chart').innerHTML = svg;
+  }
+
+  function render() {
+    var v = read();
+    store.set('last', v);
+    if (!v.cash && !v.spend) {
+      $('results').hidden = true;
+      $('empty').hidden = false;
+      return;
+    }
+    $('results').hidden = false;
+    $('empty').hidden = true;
+
+    var sim = simulate(v);
+    var alive = sim.breakEven !== null && (sim.runOut === null || sim.breakEven < sim.runOut);
+    var flat = flatRunway(v);
+
+    $('runway').textContent = sim.runOut === null ? HORIZON + '+ months' : months(sim.runOut - 1);
+    $('breakeven').textContent = sim.breakEven === null ? 'Not in 3 years' : (sim.breakEven === 1 ? 'Now' : 'Month ' + sim.breakEven);
+    $('cash12').textContent = money(sim.points[12].cash, v.currency);
+    $('flat').textContent = flat === null ? 'Covered already' : months(Math.floor(flat));
+
+    $('badge').className = 'badge ' + (alive ? 'badge-success' : 'badge-danger');
+    $('badge').textContent = alive ? 'Default alive' : 'Default dead';
+    var summary;
+    if (alive && sim.breakEven === 1) {
+      summary = 'Income already covers spending. Every month adds to the bank.';
+    } else if (alive) {
+      var low = Math.min.apply(null, sim.points.map(function (p) { return p.cash; }));
+      summary = 'At ' + v.growth + '% growth a month, income covers spending in month ' + sim.breakEven + ', with about ' + money(Math.max(0, low), v.currency) + ' left at the lowest point.';
+    } else if (sim.runOut !== null) {
+      summary = 'Cash runs out in month ' + sim.runOut + ' before income catches up. Cut spending, add side income or grow faster, and save the scenario that works.';
+    } else {
+      summary = 'Cash lasts three years, but income never catches up with spending at this growth rate.';
+    }
+    $('summary').textContent = summary;
+    drawChart(sim, v);
+  }
+
+  function renderList() {
+    var list = store.get('scenarios', []);
+    if (!list.length) { $('list').innerHTML = '<div class="empty-state">No saved scenarios yet. Save today\'s numbers to compare them next month.</div>'; return; }
+    $('list').innerHTML = list.map(function (s, i) {
+      var sim = simulate(s.values);
+      var label = sim.runOut === null ? HORIZON + '+ months' : months(sim.runOut - 1);
+      return '<div class="list-item"><span><strong>' + esc(s.name) + '</strong> <span class="muted">' + esc(label) + ' of runway</span></span>' +
+        '<span class="row"><button class="btn-sm" data-load="' + i + '">Load</button><button class="btn-sm btn-ghost" data-delete="' + i + '" aria-label="Delete ' + esc(s.name) + '">Delete</button></span></div>';
+    }).join('');
+  }
+
+  $('save').addEventListener('click', function () {
+    var name = $('name').value.trim() || 'Scenario ' + (store.get('scenarios', []).length + 1);
+    var list = store.get('scenarios', []).filter(function (s) { return s.name !== name; });
+    list.unshift({ name: name, values: read() });
+    store.set('scenarios', list.slice(0, MAX_SCENARIOS));
+    $('name').value = '';
+    renderList();
+  });
+
+  $('list').addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.hasAttribute) return;
+    var list = store.get('scenarios', []);
+    if (t.hasAttribute('data-load')) {
+      var s = list[Number(t.getAttribute('data-load'))];
+      if (s) { write(Object.assign({}, DEFAULTS, s.values)); render(); }
+    }
+    if (t.hasAttribute('data-delete')) {
+      list.splice(Number(t.getAttribute('data-delete')), 1);
+      store.set('scenarios', list);
+      renderList();
+    }
+  });
+
+  FIELDS.forEach(function (f) { $(f).addEventListener('input', render); });
+
+  async function start() {
+    if (window.hillnote) {
+      try { await hillnote.ready(); } catch (e) { /* settings still work */ }
+    }
+    write(Object.assign({}, DEFAULTS, store.get('last', {})));
+    render();
+    renderList();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+{
+  "name": "Feedback log",
+  "folderKind": "inbox",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Feedback",
+      "type": "title",
+      "width": 320
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Open",
+        "In progress",
+        "Resolved",
+        "Won't fix"
+      ],
+      "optionColors": {
+        "Open": "blue",
+        "In progress": "amber",
+        "Resolved": "emerald",
+        "Won't fix": "gray"
+      },
+      "optionStates": {
+        "Open": "normal",
+        "In progress": "normal",
+        "Resolved": "done",
+        "Won't fix": "archive"
+      },
+      "defaultValue": "Open"
+    },
+    {
+      "id": "severity",
+      "name": "Severity",
+      "type": "select",
+      "options": [
+        "Blocker",
+        "Major",
+        "Minor",
+        "Polish"
+      ],
+      "optionColors": {
+        "Blocker": "red",
+        "Major": "orange",
+        "Minor": "amber",
+        "Polish": "gray"
+      }
+    },
+    {
+      "id": "screen",
+      "name": "Screen",
+      "type": "select",
+      "options": [
+        "Onboarding",
+        "Home",
+        "Plant profile",
+        "Care calendar",
+        "Diagnosis",
+        "Settings"
+      ],
+      "optionColors": {
+        "Onboarding": "teal",
+        "Home": "blue",
+        "Plant profile": "lime",
+        "Care calendar": "cyan",
+        "Diagnosis": "purple",
+        "Settings": "brown"
+      }
+    },
+    {
+      "id": "source",
+      "name": "Source",
+      "type": "select",
+      "options": [
+        "Usability test",
+        "Design crit",
+        "Engineering",
+        "Stakeholder"
+      ],
+      "optionColors": {
+        "Usability test": "pink",
+        "Design crit": "purple",
+        "Engineering": "darkGray",
+        "Stakeholder": "icing"
+      }
+    },
+    {
+      "id": "reported",
+      "name": "Reported",
+      "type": "date"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "reported",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "reported",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "name": "Open",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "isAnyOf",
+          "value": [
+            "Open",
+            "In progress"
+          ]
+        }
+      ],
+      "sorts": [
+        {
+          "column": "reported",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "screens",
+      "name": "By screen",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "screen",
+      "aggregation": "count",
+      "splitColumn": "severity",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

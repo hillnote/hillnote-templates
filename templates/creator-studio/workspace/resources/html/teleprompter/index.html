@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#0047AB;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#0047AB;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>Teleprompter</title>
+<style>
+  textarea { min-height: 170px; font-size: 13px; line-height: 1.5; }
+  .settings { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .settings label span { color: var(--foreground); font-variant-numeric: tabular-nums; }
+  .checks { flex-wrap: wrap; gap: 6px 16px; }
+  .check { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 400; color: var(--foreground); }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 8px; }
+  .summary div { background: var(--muted); border-radius: calc(var(--radius) - 2px); padding: 8px 10px; }
+  .summary small { display: block; font-size: 11px; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: .04em; }
+  .summary strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+  .sections { margin: 10px 0 0; padding-inline-start: 18px; font-size: 13px; color: var(--muted-foreground); }
+  section + section, section + .empty-state { margin-top: 14px; }
+
+  .stage { position: fixed; inset: 0; z-index: 50; display: flex; flex-direction: column; background: var(--background); color: var(--foreground); }
+  .scroller { position: relative; flex: 1; overflow: hidden; }
+  .prompt { padding: 38vh 7% 70vh; font-weight: 600; line-height: 1.35; letter-spacing: -.005em; }
+  .prompt.mirror { transform: scaleX(-1); }
+  .prompt p { margin: 0 0 .7em; }
+  .prompt .cue { display: inline; font-size: .55em; font-weight: 400; font-style: italic; color: var(--muted-foreground); }
+  .prompt p.cue-line { font-size: .55em; font-weight: 400; font-style: italic; color: var(--muted-foreground); }
+  .prompt .label { font-size: .38em; font-weight: 650; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 1.6em 0 .6em; }
+  .focus { position: absolute; left: 0; right: 0; top: 34vh; height: 14vh; pointer-events: none; z-index: 2;
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--primary) 35%, transparent); }
+  .count { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; font-size: 96px; font-weight: 700; color: var(--primary);
+    background: color-mix(in srgb, var(--background) 75%, transparent); }
+  .hud { border-top: 1px solid var(--border); background: var(--card); padding: 8px 12px 10px; }
+  .progress { height: 3px; border-radius: 999px; background: var(--muted); overflow: hidden; margin-bottom: 8px; }
+  .progress span { display: block; height: 100%; width: 0; background: var(--primary); }
+  .hud .row { flex-wrap: wrap; gap: 6px; }
+  .hud .pace, .hud .clock { font-size: 12px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; min-width: 64px; text-align: center; }
+  .hud .spacer { flex: 1; }
+</style>
+</head>
+<body>
+<div id="setup">
+  <div class="toolbar">
+    <strong>Teleprompter</strong>
+    <span class="badge" id="runtime">No script yet</span>
+  </div>
+
+  <section class="card stack">
+    <div class="field">
+      <label for="script">Script</label>
+      <textarea id="script" placeholder="Paste the locked script here. Spoken lines can stay in quotes; headings become section markers."></textarea>
+    </div>
+    <div class="settings">
+      <div class="field"><label for="wpm">Speaking pace: <span id="wpmOut"></span></label><input id="wpm" type="range" min="90" max="220" step="5"></div>
+      <div class="field"><label for="size">Text size: <span id="sizeOut"></span></label><input id="size" type="range" min="22" max="72" step="2"></div>
+    </div>
+    <div class="row checks">
+      <label class="check"><input type="checkbox" id="mirror"> Mirror the text, for a beam-splitter glass</label>
+      <label class="check"><input type="checkbox" id="countdown"> Three-second countdown</label>
+    </div>
+    <div class="row">
+      <button class="btn-primary" id="go" disabled>Start prompting</button>
+      <button class="btn-ghost" id="clear">Clear</button>
+    </div>
+  </section>
+
+  <div class="empty-state" id="empty">Paste a script above to begin. Lines in [square brackets], tables, and lines starting with B-roll or On screen are cues: they stay on screen, dimmed, and don't count towards the runtime.</div>
+
+  <section class="card" id="summary" hidden>
+    <div class="summary">
+      <div><small>Spoken words</small><strong id="sWords">0</strong></div>
+      <div><small>Runtime</small><strong id="sTime">0:00</strong></div>
+      <div><small>Cues</small><strong id="sCues">0</strong></div>
+      <div><small>Sections</small><strong id="sSections">0</strong></div>
+    </div>
+    <ol class="sections" id="sectionList"></ol>
+  </section>
+</div>
+
+<div class="stage" id="stage" hidden>
+  <div class="scroller" id="scroller">
+    <div class="focus" aria-hidden="true"></div>
+    <div class="prompt" id="prompt"></div>
+    <div class="count" id="count" hidden></div>
+  </div>
+  <div class="hud">
+    <div class="progress"><span id="bar"></span></div>
+    <div class="row">
+      <button class="btn-sm" id="slower" aria-label="Slower">Slower</button>
+      <span class="pace" id="pace"></span>
+      <button class="btn-sm" id="faster" aria-label="Faster">Faster</button>
+      <button class="btn-sm btn-primary" id="play">Pause</button>
+      <button class="btn-sm" id="top">Back to top</button>
+      <span class="spacer"></span>
+      <span class="clock" id="clock"></span>
+      <button class="btn-sm btn-ghost" id="exit">Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { try { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); } catch (e) { return d; } },
+    set: function (k, v) { try { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; } catch (e) { /* ignore */ } }
+  };
+  var DEFAULTS = { wpm: 150, size: 40, mirror: false, countdown: true };
+  var MAX_SCRIPT = 40000;
+  var prefs = {};
+  var parsed = { blocks: [], words: 0, cues: 0, sections: [] };
+  var state = { playing: false, pos: 0, last: 0, raf: 0, counting: 0 };
+
+  var countWords = function (s) { return (s.match(/[A-Za-z0-9À-ɏ]+(?:['’-][A-Za-z0-9]+)*/g) || []).length; };
+  function mmss(minutes) {
+    var s = Math.max(0, Math.round(minutes * 60));
+    return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  }
+  function clean(s) {
+    return s.replace(/\*\*|__|`/g, '').replace(/(^|\s)[*_](\S)/g, '$1$2').replace(/(\S)[*_](\s|$)/g, '$1$2')
+      .replace(/\[\[([^\]|]+)\|[^\]]*\]\]/g, '$1').replace(/!?\[([^\]]+)\]\([^)]*\)/g, '$1');
+  }
+
+  // Script text → blocks: { kind: 'label' | 'cue' | 'line', html, words }
+  function parse(text) {
+    var out = { blocks: [], words: 0, cues: 0, sections: [] };
+    var para = [];
+    var flush = function () {
+      if (!para.length) return;
+      var joined = para.join(' ');
+      para = [];
+      var words = 0;
+      var html = '';
+      joined.split(/(\[[^\]]*\])/).forEach(function (part) {
+        if (!part) return;
+        if (/^\[[^\]]*\]$/.test(part)) { out.cues++; html += '<span class="cue">' + esc(part) + '</span>'; return; }
+        words += countWords(part);
+        html += esc(part);
+      });
+      if (!words) { out.blocks.push({ kind: 'cue', html: html, words: 0 }); return; }
+      out.words += words;
+      out.blocks.push({ kind: 'line', html: html, words: words });
+    };
+    String(text || '').split(/\r?\n/).forEach(function (raw) {
+      var line = raw.trim();
+      if (!line || /^:::/.test(line) || /^-{3,}$/.test(line)) { flush(); return; }
+      if (/^\|?\s*:?-{3,}/.test(line)) return;
+      var heading = /^#{1,6}\s+(.*)$/.exec(line);
+      if (heading) {
+        flush();
+        var label = clean(heading[1]);
+        out.sections.push(label);
+        out.blocks.push({ kind: 'label', html: esc(label), words: 0 });
+        return;
+      }
+      if (/^\|/.test(line)) {
+        flush();
+        var cells = line.replace(/^\||\|$/g, '').split('|').map(function (c) { return clean(c.trim()); }).filter(Boolean);
+        out.cues++;
+        out.blocks.push({ kind: 'cue', html: esc(cells.join('  ·  ')), words: 0 });
+        return;
+      }
+      line = clean(line.replace(/^>\s?/, '').replace(/^[-*+]\s+(\[[ xX]\]\s+)?/, '').replace(/^\d+\.\s+/, ''));
+      if (/^(b-roll|on screen|on-screen|end screen|cut to|music|sfx)\b/i.test(line)) {
+        flush();
+        out.cues++;
+        out.blocks.push({ kind: 'cue', html: esc(line), words: 0 });
+        return;
+      }
+      line = line.replace(/^["“]/, '').replace(/["”]$/, '');
+      if (line) para.push(line);
+    });
+    flush();
+    return out;
+  }
+
+  function renderSetup() {
+    var text = $('script').value;
+    parsed = parse(text);
+    var has = parsed.blocks.some(function (b) { return b.kind === 'line'; });
+    $('go').disabled = !has;
+    $('empty').hidden = has;
+    $('summary').hidden = !has;
+    $('wpmOut').textContent = prefs.wpm + ' words a minute';
+    $('sizeOut').textContent = prefs.size + ' px';
+    if (!has) {
+      $('runtime').textContent = 'No script yet';
+      $('runtime').className = 'badge';
+      return;
+    }
+    var minutes = parsed.words / prefs.wpm;
+    $('runtime').textContent = 'About ' + mmss(minutes) + ' at ' + prefs.wpm + ' wpm';
+    $('runtime').className = 'badge badge-info';
+    $('sWords').textContent = parsed.words.toLocaleString();
+    $('sTime').textContent = mmss(minutes);
+    $('sCues').textContent = parsed.cues;
+    $('sSections').textContent = parsed.sections.length;
+    $('sectionList').innerHTML = parsed.sections.slice(0, 20).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
+  }
+
+  // ---------------------------------------------------------------- prompting
+  function pxPerSecond() {
+    var el = $('prompt');
+    var styles = getComputedStyle(el);
+    var content = el.scrollHeight - (parseFloat(styles.paddingTop) || 0) - (parseFloat(styles.paddingBottom) || 0);
+    return parsed.words ? (content / parsed.words) * (prefs.wpm / 60) : 0;
+  }
+  function maxScroll() { return Math.max(0, $('scroller').scrollHeight - $('scroller').clientHeight); }
+  function travel() {
+    var el = $('prompt');
+    var styles = getComputedStyle(el);
+    return Math.max(1, el.scrollHeight - (parseFloat(styles.paddingTop) || 0) - (parseFloat(styles.paddingBottom) || 0));
+  }
+
+  function renderHud() {
+    var frac = Math.min(1, state.pos / travel());
+    $('bar').style.width = (frac * 100).toFixed(1) + '%';
+    var total = parsed.words / prefs.wpm;
+    $('clock').textContent = mmss(total * frac) + ' / ' + mmss(total);
+    $('pace').textContent = prefs.wpm + ' wpm';
+    $('play').textContent = state.counting ? 'Wait' : (state.playing ? 'Pause' : (frac >= 1 ? 'Again' : 'Play'));
+  }
+
+  function frame(ts) {
+    if (!state.playing) return;
+    var dt = state.last ? (ts - state.last) / 1000 : 0;
+    state.last = ts;
+    state.pos = Math.min(maxScroll(), state.pos + pxPerSecond() * dt);
+    $('scroller').scrollTop = state.pos;
+    if (state.pos >= maxScroll() || state.pos >= travel()) { state.playing = false; }
+    renderHud();
+    if (state.playing) state.raf = requestAnimationFrame(frame);
+  }
+
+  function play() {
+    if (state.counting) return;
+    if (state.pos >= travel() || state.pos >= maxScroll() && maxScroll() > 0) state.pos = 0;
+    var begin = function () {
+      state.playing = true;
+      state.last = 0;
+      cancelAnimationFrame(state.raf);
+      state.raf = requestAnimationFrame(frame);
+      renderHud();
+    };
+    if (!prefs.countdown) return begin();
+    var n = 3;
+    state.counting = 1;
+    $('count').hidden = false;
+    $('count').textContent = n;
+    renderHud();
+    var t = setInterval(function () {
+      n--;
+      if (n > 0) { $('count').textContent = n; return; }
+      clearInterval(t);
+      $('count').hidden = true;
+      state.counting = 0;
+      begin();
+    }, 1000);
+  }
+  function pause() { state.playing = false; cancelAnimationFrame(state.raf); renderHud(); }
+  function nudgePace(delta) {
+    prefs.wpm = Math.max(90, Math.min(220, prefs.wpm + delta));
+    $('wpm').value = prefs.wpm;
+    store.set('prefs', prefs);
+    renderHud();
+  }
+
+  function enter() {
+    $('prompt').innerHTML = parsed.blocks.map(function (b) {
+      if (b.kind === 'label') return '<div class="label">' + b.html + '</div>';
+      if (b.kind === 'cue') return '<p class="cue-line">' + b.html + '</p>';
+      return '<p>' + b.html + '</p>';
+    }).join('');
+    $('prompt').style.fontSize = prefs.size + 'px';
+    $('prompt').classList.toggle('mirror', !!prefs.mirror);
+    $('setup').hidden = true;
+    $('stage').hidden = false;
+    state.pos = 0;
+    $('scroller').scrollTop = 0;
+    renderHud();
+    play();
+  }
+  function exit() {
+    pause();
+    $('stage').hidden = true;
+    $('setup').hidden = false;
+  }
+
+  // ---------------------------------------------------------------- events
+  var saveTimer = null;
+  $('script').addEventListener('input', function () {
+    renderSetup();
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () { store.set('script', $('script').value.slice(0, MAX_SCRIPT)); }, 600);
+  });
+  $('wpm').addEventListener('input', function () { prefs.wpm = Number($('wpm').value); store.set('prefs', prefs); renderSetup(); });
+  $('size').addEventListener('input', function () { prefs.size = Number($('size').value); store.set('prefs', prefs); renderSetup(); });
+  $('mirror').addEventListener('change', function () { prefs.mirror = $('mirror').checked; store.set('prefs', prefs); });
+  $('countdown').addEventListener('change', function () { prefs.countdown = $('countdown').checked; store.set('prefs', prefs); });
+  $('go').addEventListener('click', enter);
+  $('clear').addEventListener('click', function () { $('script').value = ''; store.set('script', ''); renderSetup(); $('script').focus(); });
+  $('play').addEventListener('click', function () { if (state.playing) pause(); else play(); });
+  $('slower').addEventListener('click', function () { nudgePace(-10); });
+  $('faster').addEventListener('click', function () { nudgePace(10); });
+  $('top').addEventListener('click', function () { state.pos = 0; $('scroller').scrollTop = 0; renderHud(); });
+  $('exit').addEventListener('click', exit);
+  $('scroller').addEventListener('wheel', function (e) {
+    e.preventDefault();
+    state.pos = Math.max(0, Math.min(maxScroll(), state.pos + e.deltaY));
+    $('scroller').scrollTop = state.pos;
+    renderHud();
+  }, { passive: false });
+  document.addEventListener('keydown', function (e) {
+    if ($('stage').hidden) return;
+    if (e.code === 'Space') { e.preventDefault(); if (state.playing) pause(); else play(); }
+    else if (e.key === 'Escape') exit();
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      state.pos = Math.max(0, Math.min(maxScroll(), state.pos + (e.key === 'ArrowUp' ? -60 : 60)));
+      $('scroller').scrollTop = state.pos;
+      renderHud();
+    }
+    else if (e.key === 'ArrowLeft' || e.key === '-') nudgePace(-5);
+    else if (e.key === 'ArrowRight' || e.key === '+' || e.key === '=') nudgePace(5);
+  });
+
+  async function start() {
+    if (window.hillnote) { try { await hillnote.ready(); } catch (e) { /* render anyway */ } }
+    prefs = Object.assign({}, DEFAULTS, store.get('prefs', {}) || {});
+    $('wpm').value = prefs.wpm;
+    $('size').value = prefs.size;
+    $('mirror').checked = !!prefs.mirror;
+    $('countdown').checked = !!prefs.countdown;
+    $('script').value = store.get('script', '') || '';
+    renderSetup();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

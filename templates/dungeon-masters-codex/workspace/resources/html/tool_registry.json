@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "dice-roller",
+      "description": "Roll any dice expression with advantage or disadvantage, saved rolls and a history",
+      "glyph": "🎲",
+      "color": "wine",
+      "entryPath": "resources/html/dice-roller/index.html"
+    },
+    {
+      "name": "initiative-tracker",
+      "description": "Turn order, hit points, conditions and rounds for a fight, with monsters from the bestiary",
+      "glyph": "⚔️",
+      "color": "rust",
+      "entryPath": "resources/html/initiative-tracker/index.html"
+    }
+  ]
+}

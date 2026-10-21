@@ -1,0 +1,33 @@
+{
+  "formatVersion": 1,
+  "id": "solo-builder-hq",
+  "version": "1.0.0",
+  "name": "Solo Builder HQ",
+  "tagline": "Take one product from idea to launch on your own: lean canvas, build board, launch kit and the money, in one folder.",
+  "description": "A workspace for building a product on your own, shown through a worked example: Harbor, a fictional invoicing app for freelancers, taken by one person from idea to launch in ten weeks. Strategy comes first (a lean canvas, assumptions ranked by risk, competitor notes and a customer interviews database), then the build: an MVP spec with the user flow, the tech stack and a build board you can open as a board, a roadmap, this week's list or a calendar.\n\nLaunch pages hold the checklist, landing page copy, announcement drafts and a short pitch deck. Operations keeps a Money sheet for revenue, costs and MRR, and a brand board with the palette, type and voice.\n\nEverything is plain markdown, so Claude Code or Cursor can read the spec and move cards in the same folder over MCP. Three AI recipes pressure-test the idea, run the Friday ship review and draft landing copy in your customers' own words. Two tools come with it: a runway calculator and an MRR goal planner.",
+  "setups": [
+    "solo-builder"
+  ],
+  "tags": [
+    "solo-founder",
+    "indie-hacker",
+    "lean-canvas",
+    "mvp",
+    "launch",
+    "roadmap",
+    "mrr",
+    "bootstrapping"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Solo founder workspace: lean canvas, ranked assumptions, an interview log, MVP spec, a build board (board, roadmap, this week, calendar), launch checklist and copy, a pitch deck, a money sheet and a brand board.",
+  "color": "tangerine",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

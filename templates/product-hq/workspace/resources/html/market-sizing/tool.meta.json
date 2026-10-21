@@ -1,0 +1,11 @@
+{
+  "name": "market-sizing",
+  "description": "TAM, SAM and SOM from a few inputs, with saved scenarios",
+  "glyph": "🌐",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

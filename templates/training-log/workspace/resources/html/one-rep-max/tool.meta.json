@@ -1,0 +1,16 @@
+{
+  "name": "one-rep-max",
+  "description": "Estimate a one-rep max (Epley and Brzycki), a percentage table and the plates to load per side",
+  "glyph": "🏋️",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Lift log",
+      "path": "Log/Lift log"
+    }
+  ]
+}

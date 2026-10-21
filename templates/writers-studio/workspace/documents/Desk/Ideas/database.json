@@ -1,0 +1,110 @@
+{
+  "name": "Ideas",
+  "folderKind": "ideas",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Idea",
+      "type": "title",
+      "width": 300
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Spark",
+        "Exploring",
+        "Promoted",
+        "Parked"
+      ],
+      "optionColors": {
+        "Spark": "amber",
+        "Exploring": "blue",
+        "Promoted": "emerald",
+        "Parked": "gray"
+      },
+      "optionStates": {
+        "Spark": "normal",
+        "Exploring": "normal",
+        "Promoted": "done",
+        "Parked": "archive"
+      },
+      "defaultValue": "Spark"
+    },
+    {
+      "id": "format",
+      "name": "Format",
+      "type": "select",
+      "options": [
+        "Newsletter",
+        "Book chapter",
+        "Guest essay",
+        "Short post"
+      ],
+      "optionColors": {
+        "Newsletter": "rose",
+        "Book chapter": "brown",
+        "Guest essay": "cyan",
+        "Short post": "lime"
+      }
+    },
+    {
+      "id": "spark",
+      "name": "Spark",
+      "type": "text",
+      "width": 260
+    },
+    {
+      "id": "captured",
+      "name": "Captured",
+      "type": "date"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "captured",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "inbox",
+      "name": "Inbox",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "equals",
+          "value": "Spark"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "captured",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "all",
+      "name": "All ideas",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "captured",
+          "direction": "desc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

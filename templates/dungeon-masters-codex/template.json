@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "id": "dungeon-masters-codex",
+  "version": "1.0.0",
+  "name": "Dungeon Master's Codex",
+  "tagline": "A living campaign bible: NPCs, places, monsters, loot, quests and sessions, all linked, with dice and initiative tools.",
+  "description": "Everything a game master juggles, in one linked workspace that works with 5e or any d20 game. It comes with a worked example: The Shattered Coast, an original nautical-gothic setting where a great lighthouse is failing, ships are vanishing and bells ring under the sea. Every NPC, place, quest and monster is filled in, so you can read session 2 tonight and see how the pieces connect before you build your own.\n\nThe campaign bible, lore and factions sit at the top. NPCs are the hub, with voice, secrets, faction and attitude, shown as a gallery, a board by faction or a table. Places, monsters with compact stat blocks, magic items and quests have their own databases, all tied together with links, and the region map is a board where every place is a card that opens its notes. Sessions run on a calendar with a weekly prep reminder, a filled-in recap and prep, a session-zero deck with lines and veils, and a DM screen.\n\nThree AI recipes voice any NPC in character, spin side quests from your own lore and turn session notes into a recap. Two tools work on a phone at the table: a dice roller with advantage and roll history, and an initiative tracker with hit points, conditions and rounds.",
+  "setups": [
+    "dungeon-master"
+  ],
+  "tags": [
+    "ttrpg",
+    "dungeon master",
+    "campaign",
+    "worldbuilding",
+    "d20",
+    "npcs",
+    "dice"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Game master workspace: campaign bible, lore and factions, linked NPC, place, monster, item and quest databases, a region map board, a session calendar with recap and prep, a session-zero deck, and dice and initiative tools.",
+  "color": "wine",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

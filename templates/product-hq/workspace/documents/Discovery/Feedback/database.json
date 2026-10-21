@@ -1,0 +1,165 @@
+{
+  "name": "Feedback",
+  "folderKind": "inbox",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Feedback",
+      "type": "title",
+      "width": 320
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "New",
+        "Triaged",
+        "Linked",
+        "Won't do"
+      ],
+      "optionColors": {
+        "New": "blue",
+        "Triaged": "amber",
+        "Linked": "emerald",
+        "Won't do": "gray"
+      },
+      "optionStates": {
+        "New": "normal",
+        "Triaged": "normal",
+        "Linked": "done",
+        "Won't do": "archive"
+      },
+      "defaultValue": "New"
+    },
+    {
+      "id": "theme",
+      "name": "Theme",
+      "type": "select",
+      "options": [
+        "Saved views",
+        "Alerts",
+        "Sharing",
+        "Data import",
+        "Performance",
+        "Permissions"
+      ],
+      "optionColors": {
+        "Saved views": "blue",
+        "Alerts": "rose",
+        "Sharing": "teal",
+        "Data import": "amber",
+        "Performance": "orange",
+        "Permissions": "brown"
+      }
+    },
+    {
+      "id": "source",
+      "name": "Source",
+      "type": "select",
+      "options": [
+        "Interview",
+        "Support",
+        "Sales call",
+        "Survey",
+        "In-app"
+      ],
+      "optionColors": {
+        "Interview": "purple",
+        "Support": "red",
+        "Sales call": "orange",
+        "Survey": "cyan",
+        "In-app": "teal"
+      }
+    },
+    {
+      "id": "segment",
+      "name": "Segment",
+      "type": "select",
+      "options": [
+        "SMB",
+        "Mid-market",
+        "Enterprise"
+      ],
+      "optionColors": {
+        "SMB": "lime",
+        "Mid-market": "blue",
+        "Enterprise": "purple"
+      }
+    },
+    {
+      "id": "account",
+      "name": "Account",
+      "type": "text",
+      "width": 180
+    },
+    {
+      "id": "votes",
+      "name": "Votes",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "received",
+      "name": "Received",
+      "type": "date"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "By theme",
+      "type": "kanban",
+      "groupBy": "theme",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "votes",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "inbox",
+      "name": "Inbox",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "equals",
+          "value": "New"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "received",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "name": "Themes",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "theme",
+      "aggregation": "count",
+      "splitColumn": "segment",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "all",
+      "name": "All",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "received",
+          "direction": "desc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

@@ -1,0 +1,178 @@
+{
+  "name": "Claims and evidence",
+  "folderKind": "science",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Claim",
+      "type": "title",
+      "width": 360
+    },
+    {
+      "id": "stance",
+      "name": "Stance on H1",
+      "type": "select",
+      "options": [
+        "Supports",
+        "Mixed",
+        "Contradicts"
+      ],
+      "optionColors": {
+        "Supports": "emerald",
+        "Mixed": "amber",
+        "Contradicts": "rose"
+      },
+      "width": 130
+    },
+    {
+      "id": "strength",
+      "name": "Strength",
+      "type": "select",
+      "options": [
+        "Strong",
+        "Moderate",
+        "Weak"
+      ],
+      "optionColors": {
+        "Strong": "teal",
+        "Moderate": "blue",
+        "Weak": "gray"
+      },
+      "width": 110
+    },
+    {
+      "id": "theme",
+      "name": "Theme",
+      "type": "select",
+      "options": [
+        "Connection",
+        "Restoration",
+        "Health and diet",
+        "Access and exclusion",
+        "Change"
+      ],
+      "optionColors": {
+        "Connection": "blue",
+        "Restoration": "teal",
+        "Health and diet": "lime",
+        "Access and exclusion": "orange",
+        "Change": "purple"
+      },
+      "width": 170
+    },
+    {
+      "id": "evidence",
+      "name": "Evidence from",
+      "type": "select",
+      "options": [
+        "Literature",
+        "Interviews",
+        "Both"
+      ],
+      "optionColors": {
+        "Literature": "cyan",
+        "Interviews": "pink",
+        "Both": "purple"
+      },
+      "width": 130
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "To check",
+        "Checked",
+        "In draft",
+        "Dropped"
+      ],
+      "optionColors": {
+        "To check": "gray",
+        "Checked": "blue",
+        "In draft": "emerald",
+        "Dropped": "darkGray"
+      },
+      "optionStates": {
+        "To check": "normal",
+        "Checked": "normal",
+        "In draft": "done",
+        "Dropped": "archive"
+      },
+      "defaultValue": "To check"
+    },
+    {
+      "id": "source",
+      "name": "Source",
+      "type": "text",
+      "width": 220
+    },
+    {
+      "id": "ref",
+      "name": "Page or timestamp",
+      "type": "text",
+      "width": 140
+    },
+    {
+      "id": "weight",
+      "name": "Weight",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF({Stance on H1} = \"Contradicts\", -1, IF({Stance on H1} = \"Mixed\", 0, 1)) * IF({Strength} = \"Strong\", 3, IF({Strength} = \"Moderate\", 2, 1))",
+      "resultType": "number",
+      "width": 90
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "By theme",
+      "type": "kanban",
+      "groupBy": "theme",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "weight",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "all",
+      "name": "All claims",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "theme",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "name": "To check",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "equals",
+          "value": "To check"
+        }
+      ],
+      "sorts": []
+    },
+    {
+      "id": "balance",
+      "name": "Evidence balance",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "theme",
+      "valueColumn": "weight",
+      "aggregation": "sum",
+      "splitColumn": "stance",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

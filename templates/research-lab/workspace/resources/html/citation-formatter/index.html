@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#008080;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#008080;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>Citation formatter</title>
+<style>
+  .picker { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: end; }
+  .styles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-top: 12px; }
+  .style-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .style-head h3 { margin: 0; }
+  .ref { font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+  .ref.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; white-space: pre-wrap; background: var(--muted); border-radius: calc(var(--radius) - 2px); padding: 10px; }
+  .missing { margin-top: 10px; font-size: 12px; color: var(--muted-foreground); }
+  .bib { margin-top: 14px; }
+  .bib-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+  .bib-controls select { width: auto; }
+  .bib-controls label { display: flex; align-items: center; gap: 6px; color: var(--foreground); }
+  .bib-list p { padding-inline-start: 2em; text-indent: -2em; font-size: 13px; overflow-wrap: anywhere; }
+  .status-line { font-size: 12px; color: var(--muted-foreground); min-height: 1.2em; margin-top: 6px; }
+  .toolbar .grow { margin-inline-start: auto; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Citation formatter</strong>
+  <span class="muted" id="count"></span>
+  <span class="grow"></span>
+  <button class="btn-sm" id="save" hidden>Save APA to Citation column</button>
+</div>
+<div id="empty" class="empty-state" hidden></div>
+<main id="main" hidden>
+  <div class="card">
+    <div class="picker">
+      <div class="field">
+        <label for="source">Source</label>
+        <select id="source"></select>
+      </div>
+      <span class="badge" id="type-badge"></span>
+    </div>
+    <p class="missing" id="missing" hidden></p>
+  </div>
+
+  <div class="styles" id="styles"></div>
+
+  <section class="card bib">
+    <h3>Bibliography</h3>
+    <div class="bib-controls">
+      <select id="bib-style" aria-label="Bibliography style">
+        <option value="apa">APA 7</option>
+        <option value="mla">MLA 9</option>
+        <option value="chicago">Chicago author-date</option>
+        <option value="bibtex">BibTeX</option>
+      </select>
+      <label><input type="checkbox" id="cited-only"> Cited sources only</label>
+      <button class="btn-sm btn-primary" id="copy-bib">Copy all</button>
+    </div>
+    <div class="bib-list" id="bib-list"></div>
+  </section>
+  <p class="status-line" id="status" role="status"></p>
+</main>
+<script>
+(function () {
+  var STYLES = [
+    { id: 'apa', name: 'APA 7' },
+    { id: 'mla', name: 'MLA 9' },
+    { id: 'chicago', name: 'Chicago author-date' },
+    { id: 'bibtex', name: 'BibTeX' }
+  ];
+  var MINOR = ['a', 'an', 'the', 'and', 'but', 'or', 'nor', 'for', 'so', 'yet', 'as', 'at', 'by', 'in', 'of', 'off', 'on', 'per', 'to', 'up', 'via', 'from', 'into', 'over', 'with', 'about', 'across', 'after', 'against', 'among', 'around', 'before', 'between', 'during', 'like', 'near', 'onto', 'since', 'than', 'through', 'toward', 'towards', 'under', 'upon', 'within', 'without'];
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var source = null;
+  var rows = [];
+
+  function str(v) { return v == null ? '' : String(v).trim(); }
+  function stripEnd(s) { return s.replace(/[.\s]+$/, ''); }
+
+  function people(list) {
+    return str(list).split(';').map(function (p) { return p.trim(); }).filter(Boolean).map(function (p) {
+      var i = p.indexOf(',');
+      if (i < 0) return { last: p, first: '' };
+      return { last: p.slice(0, i).trim(), first: p.slice(i + 1).trim() };
+    });
+  }
+  function initials(first) {
+    return first.replace(/\./g, ' ').split(/\s+/).filter(Boolean).map(function (part) {
+      return part.split('-').filter(Boolean).map(function (x) { return x.charAt(0).toUpperCase() + '.'; }).join('-');
+    }).join(' ');
+  }
+  function full(p) { return p.first ? p.first + ' ' + p.last : p.last; }
+  function inverted(p) { return p.first ? p.last + ', ' + p.first : p.last; }
+  function joinList(names, conj) {
+    if (names.length <= 1) return names.join('');
+    if (names.length === 2) return names[0] + ' ' + conj + ' ' + names[1];
+    return names.slice(0, -1).join(', ') + ', ' + conj + ' ' + names[names.length - 1];
+  }
+
+  function titleCase(s) {
+    var words = s.split(' ');
+    return words.map(function (w, i) {
+      var after = i > 0 && /[:?!]$/.test(words[i - 1]);
+      return w.split('-').map(function (part, j) {
+        var lower = part.toLowerCase();
+        var keep = i !== 0 && i !== words.length - 1 && !after && j === 0 && MINOR.indexOf(lower) >= 0;
+        if (keep) return lower;
+        if (/[A-Z].*[A-Z]/.test(part)) return part;
+        return part.charAt(0).toUpperCase() + part.slice(1);
+      }).join('-');
+    }).join(' ');
+  }
+  function sentenceSubtitle(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+
+  function pageRange(p, abbreviate) {
+    var m = /^(\d+)\s*[-–—]+\s*(\d+)$/.exec(str(p));
+    if (!m) return str(p);
+    var a = m[1], b = m[2];
+    if (abbreviate && a.length === b.length && a.length > 2) {
+      var k = 0;
+      while (k < a.length - 2 && a.charAt(k) === b.charAt(k)) k++;
+      b = b.slice(k);
+    }
+    return a + '–' + b;
+  }
+
+  function fields(r) {
+    return {
+      title: str(r.title), subtitle: str(r.subtitle), authors: people(r.authors), year: str(r.year) || 'n.d.',
+      type: str(r.type) || 'Journal article', venue: str(r.venue), volume: str(r.volume), issue: str(r.issue),
+      pages: str(r.pages), editors: people(r.editors), publisher: str(r.publisher), url: str(r.url)
+    };
+  }
+  function fullTitle(f, caseFn) {
+    var main = caseFn ? caseFn(f.title) : f.title;
+    if (!f.subtitle) return main;
+    return main + ': ' + (caseFn ? caseFn(f.subtitle) : sentenceSubtitle(f.subtitle));
+  }
+
+  // Each formatter returns [{ text, italic }] segments, so one function serves the preview (HTML) and the clipboard (plain text).
+  function seg(text, italic) { return { text: text, italic: !!italic }; }
+
+  function apa(f) {
+    var names = f.authors.map(function (p) { return p.first ? p.last + ', ' + initials(p.first) : p.last; });
+    var a = names.length === 0 ? '' : names.length === 1 ? names[0] : names.length === 2 ? names[0] + ', & ' + names[1] : names.slice(0, -1).join(', ') + ', & ' + names[names.length - 1];
+    var out = [];
+    var title = fullTitle(f);
+    out.push(seg((a ? stripEnd(a) + '. ' : '') + '(' + f.year + '). '));
+    var url = f.url ? ' ' + f.url : '';
+    if (f.type === 'Journal article') {
+      out.push(seg(title + '. '));
+      if (f.venue) {
+        out.push(seg(f.venue + (f.volume ? ', ' : ''), true));
+        if (f.volume) out.push(seg(f.volume, true));
+        out.push(seg((f.issue ? '(' + f.issue + ')' : '') + (f.pages ? ', ' + pageRange(f.pages) : '') + '.' + url));
+      } else out.push(seg(url.trim()));
+    } else if (f.type === 'Book chapter') {
+      var eds = f.editors.map(function (p) { return (p.first ? initials(p.first) + ' ' : '') + p.last; });
+      var edText = eds.length ? (eds.length === 2 ? eds.join(' & ') : eds.length > 2 ? eds.slice(0, -1).join(', ') + ', & ' + eds[eds.length - 1] : eds[0]) + (eds.length > 1 ? ' (Eds.), ' : ' (Ed.), ') : '';
+      out.push(seg(title + '. In ' + edText));
+      out.push(seg(f.venue || 'Book title', true));
+      out.push(seg((f.pages ? ' (pp. ' + pageRange(f.pages) + ')' : '') + '. ' + (f.publisher ? f.publisher + '.' : '') + url));
+    } else if (f.type === 'Thesis') {
+      out.push(seg(title, true));
+      out.push(seg(' [' + (f.venue || 'Doctoral dissertation') + (f.publisher ? ', ' + f.publisher : '') + '].' + url));
+    } else if (f.type === 'Conference paper') {
+      out.push(seg(title + '. ' + (f.venue ? 'In ' : '')));
+      if (f.venue) out.push(seg(f.venue, true));
+      out.push(seg((f.pages ? ' (pp. ' + pageRange(f.pages) + ')' : '') + '.' + url));
+    } else {
+      out.push(seg(title, true));
+      out.push(seg('. ' + (f.publisher ? f.publisher + '.' : '') + url));
+    }
+    return out;
+  }
+
+  function mlaAuthors(list) {
+    if (!list.length) return '';
+    if (list.length === 1) return inverted(list[0]);
+    if (list.length === 2) return inverted(list[0]) + ', and ' + full(list[1]);
+    return inverted(list[0]) + ', et al';
+  }
+  function mla(f) {
+    var a = mlaAuthors(f.authors);
+    var title = fullTitle(f, titleCase);
+    var url = f.url ? ' ' + f.url.replace(/^https?:\/\//, '') + '.' : '';
+    var out = [seg(a ? stripEnd(a) + '. ' : '')];
+    if (f.type === 'Journal article' || f.type === 'Conference paper' || f.type === 'Book chapter') {
+      out.push(seg('“' + title + '.” '));
+      if (f.venue) out.push(seg(titleCase(f.venue), true));
+      var parts = [];
+      if (f.type === 'Book chapter' && f.editors.length) parts.push('edited by ' + joinList(f.editors.map(full), 'and'));
+      if (f.type === 'Book chapter' && f.publisher) parts.push(f.publisher);
+      if (f.volume) parts.push('vol. ' + f.volume);
+      if (f.issue) parts.push('no. ' + f.issue);
+      parts.push(f.year);
+      if (f.pages) parts.push('pp. ' + pageRange(f.pages, true));
+      out.push(seg(', ' + parts.join(', ') + '.' + url));
+    } else if (f.type === 'Thesis') {
+      out.push(seg(title, true));
+      out.push(seg('. ' + f.year + '. ' + (f.publisher ? f.publisher + ', ' : '') + (f.venue || 'Doctoral dissertation') + '.' + url));
+    } else {
+      out.push(seg(title, true));
+      out.push(seg('. ' + (f.publisher ? f.publisher + ', ' : '') + f.year + '.' + url));
+    }
+    return out;
+  }
+
+  function chicagoAuthors(list) {
+    if (!list.length) return '';
+    var names = list.map(function (p, i) { return i === 0 ? inverted(p) : full(p); });
+    if (names.length === 1) return names[0];
+    if (names.length === 2) return names[0] + ', and ' + names[1];
+    return names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1];
+  }
+  function chicago(f) {
+    var a = chicagoAuthors(f.authors);
+    var title = fullTitle(f, titleCase);
+    var url = f.url ? ' ' + f.url + '.' : '';
+    var out = [seg((a ? stripEnd(a) + '. ' : '') + f.year + '. ')];
+    if (f.type === 'Journal article') {
+      out.push(seg('“' + title + '.” '));
+      if (f.venue) out.push(seg(titleCase(f.venue), true));
+      out.push(seg((f.volume ? ' ' + f.volume : '') + (f.issue ? ' (' + f.issue + ')' : '') + (f.pages ? ': ' + pageRange(f.pages, true) : '') + '.' + url));
+    } else if (f.type === 'Book chapter' || f.type === 'Conference paper') {
+      out.push(seg('“' + title + '.” In '));
+      out.push(seg(f.venue ? titleCase(f.venue) : 'Book Title', true));
+      var eds = f.editors.length ? ', edited by ' + joinList(f.editors.map(full), 'and') : '';
+      out.push(seg(eds + (f.pages ? ', ' + pageRange(f.pages, true) : '') + '.' + (f.publisher ? ' ' + f.publisher + '.' : '') + url));
+    } else if (f.type === 'Thesis') {
+      out.push(seg('“' + title + '.” ' + (f.venue || 'Doctoral dissertation') + (f.publisher ? ', ' + f.publisher : '') + '.' + url));
+    } else {
+      out.push(seg(title, true));
+      out.push(seg('. ' + (f.publisher ? f.publisher + '.' : '') + url));
+    }
+    return out;
+  }
+
+  function bibKey(f) {
+    var last = f.authors.length ? f.authors[0].last : 'anon';
+    var word = (f.title.split(/\s+/).find(function (w) { return MINOR.indexOf(w.toLowerCase()) < 0; }) || 'source');
+    var clean = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, ''); };
+    return clean(last) + f.year.replace(/[^0-9]/g, '') + clean(word);
+  }
+  function bibtex(f) {
+    var kinds = { 'Journal article': 'article', 'Book': 'book', 'Book chapter': 'incollection', 'Report': 'techreport', 'Thesis': 'phdthesis', 'Conference paper': 'inproceedings', 'Dataset': 'misc' };
+    var kind = kinds[f.type] || 'misc';
+    var b = function (s) { return String(s).replace(/([&%$#_])/g, '\\$1'); };
+    var lines = [];
+    var add = function (k, v) { if (v) lines.push('  ' + k + ' = {' + b(v) + '}'); };
+    add('author', f.authors.map(inverted).join(' and '));
+    add('title', fullTitle(f));
+    if (kind === 'article') add('journal', f.venue);
+    if (kind === 'incollection' || kind === 'inproceedings') add('booktitle', f.venue);
+    if (kind === 'incollection') add('editor', f.editors.map(inverted).join(' and '));
+    if (kind === 'phdthesis') add('school', f.publisher);
+    else if (kind === 'techreport') add('institution', f.publisher);
+    else add('publisher', f.publisher);
+    add('year', f.year);
+    add('volume', f.volume);
+    add('number', f.issue);
+    if (f.pages) add('pages', pageRange(f.pages).replace('–', '--'));
+    add('url', f.url);
+    return [seg('@' + kind + '{' + bibKey(f) + ',\n' + lines.join(',\n') + '\n}')];
+  }
+
+  var FORMAT = { apa: apa, mla: mla, chicago: chicago, bibtex: bibtex };
+  function html(segs) { return segs.map(function (s) { return s.italic ? '<i>' + esc(s.text) + '</i>' : esc(s.text); }).join(''); }
+  function plain(segs) { return segs.map(function (s) { return s.text; }).join('').replace(/\s+\./g, '.').trim(); }
+
+  function needed(f) {
+    var need = { 'Journal article': ['venue', 'volume', 'pages'], 'Book chapter': ['venue', 'editors', 'publisher', 'pages'], 'Book': ['publisher'], 'Report': ['publisher'], 'Thesis': ['publisher'], 'Conference paper': ['venue', 'pages'] }[f.type] || [];
+    var labels = { venue: 'journal or book', volume: 'volume', pages: 'pages', editors: 'editors', publisher: 'publisher or institution' };
+    var missing = [];
+    if (!f.authors.length) missing.push('authors');
+    if (f.year === 'n.d.') missing.push('year');
+    need.forEach(function (k) { var v = f[k]; if (!v || (Array.isArray(v) && !v.length)) missing.push(labels[k]); });
+    return missing;
+  }
+
+  function current() {
+    var id = $('source').value;
+    return rows.find(function (r) { return r.id === id; }) || null;
+  }
+
+  async function copy(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (e) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }
+  }
+  function say(msg) { $('status').textContent = msg; }
+
+  function renderOne() {
+    var r = current();
+    if (!r) { $('styles').innerHTML = ''; return; }
+    store.set('selected', r.id);
+    var f = fields(r);
+    $('type-badge').textContent = f.type;
+    var missing = needed(f);
+    $('missing').hidden = !missing.length;
+    $('missing').textContent = missing.length ? 'Missing for a complete ' + f.type.toLowerCase() + ' reference: ' + missing.join(', ') + '. Fill these columns in the Sources database.' : '';
+    $('styles').innerHTML = STYLES.map(function (s) {
+      var segs = FORMAT[s.id](f);
+      return '<section class="card"><div class="style-head"><h3>' + s.name + '</h3><button class="btn-sm" data-copy="' + s.id + '">Copy</button></div>' +
+        '<div class="ref' + (s.id === 'bibtex' ? ' mono' : '') + '">' + html(segs) + '</div></section>';
+    }).join('');
+  }
+
+  function bibRows() {
+    var citedOnly = $('cited-only').checked;
+    return rows.filter(function (r) { return citedOnly ? r.status === 'Cited' : r.status !== 'Excluded'; })
+      .map(fields)
+      .sort(function (a, b) {
+        var ka = (a.authors[0] ? a.authors[0].last : a.title) + a.year;
+        var kb = (b.authors[0] ? b.authors[0].last : b.title) + b.year;
+        return ka.localeCompare(kb);
+      });
+  }
+  function renderBib() {
+    var style = $('bib-style').value;
+    store.set('bibStyle', style);
+    store.set('citedOnly', $('cited-only').checked);
+    var list = bibRows();
+    $('bib-list').innerHTML = list.length
+      ? list.map(function (f) { return style === 'bibtex' ? '<p class="ref mono">' + html(bibtex(f)) + '</p>' : '<p>' + html(FORMAT[style](f)) + '</p>'; }).join('')
+      : '<div class="empty-state">No sources match. Untick "Cited sources only", or mark a source as Cited.</div>';
+  }
+
+  function render() {
+    $('count').textContent = rows.length === 1 ? '1 source' : rows.length + ' sources';
+    if (!rows.length) return showEmpty('No sources yet. Add a row to the Sources database with authors, year and type, and its citations appear here.');
+    $('empty').hidden = true;
+    $('main').hidden = false;
+    var keep = $('source').value || store.get('selected', '');
+    var sorted = rows.slice().sort(function (a, b) { return String(a.authors || a.title).localeCompare(String(b.authors || b.title)); });
+    $('source').innerHTML = sorted.map(function (r) {
+      var f = fields(r);
+      var who = f.authors.length ? f.authors[0].last + (f.authors.length > 1 ? (f.authors.length > 2 ? ' et al.' : ' and ' + f.authors[1].last) : '') : 'No author';
+      return '<option value="' + esc(r.id) + '">' + esc(who + ' (' + f.year + ') ' + f.title) + '</option>';
+    }).join('');
+    if (sorted.some(function (r) { return r.id === keep; })) $('source').value = keep;
+    renderOne();
+    renderBib();
+  }
+
+  function showEmpty(message) {
+    $('main').hidden = true;
+    $('save').hidden = true;
+    $('empty').hidden = false;
+    $('empty').textContent = message;
+  }
+
+  async function load() {
+    try {
+      rows = await source.rows({ limit: 1000 });
+    } catch (err) {
+      return showEmpty('Could not read the sources: ' + (err && err.message ? err.message : err));
+    }
+    render();
+  }
+
+  $('source').addEventListener('change', function () { say(''); renderOne(); });
+  $('bib-style').addEventListener('change', renderBib);
+  $('cited-only').addEventListener('change', renderBib);
+  $('styles').addEventListener('click', async function (e) {
+    var id = e.target && e.target.getAttribute ? e.target.getAttribute('data-copy') : null;
+    var r = current();
+    if (!id || !r) return;
+    var ok = await copy(plain(FORMAT[id](fields(r))));
+    say(ok ? 'Copied the ' + STYLES.find(function (s) { return s.id === id; }).name + ' reference.' : 'Copy is blocked here. Select the reference and press Cmd+C or Ctrl+C.');
+  });
+  $('copy-bib').addEventListener('click', async function () {
+    var style = $('bib-style').value;
+    var text = bibRows().map(function (f) { return plain(FORMAT[style](f)); }).join(style === 'bibtex' ? '\n\n' : '\n');
+    if (!text) return say('Nothing to copy yet.');
+    var ok = await copy(text);
+    say(ok ? 'Copied the bibliography.' : 'Copy is blocked here. Select the list and press Cmd+C or Ctrl+C.');
+  });
+  $('save').addEventListener('click', async function () {
+    var r = current();
+    if (!r || !source) return;
+    $('save').disabled = true;
+    try {
+      await source.update(r.id, { citation: plain(apa(fields(r))) });
+      say('Saved the APA reference to the Citation column.');
+    } catch (err) {
+      say('Could not save: ' + (err && err.message ? err.message : err));
+    }
+    $('save').disabled = false;
+  });
+
+  async function start() {
+    $('bib-style').value = store.get('bibStyle', 'apa');
+    $('cited-only').checked = !!store.get('citedOnly', true);
+    if (!window.hillnote) return showEmpty('Open this tool inside Hillnote, as the Cite view of the Sources database.');
+    await hillnote.ready();
+    try {
+      source = await hillnote.data();
+    } catch (err) {
+      return showEmpty('Use this tool as a view on a sources database with Title, Authors, Year and Type columns, like Sources in this workspace.');
+    }
+    var cols = typeof source.columns === 'function' ? source.columns() : [];
+    $('save').hidden = !cols.some(function (c) { return c.id === 'citation'; });
+    source.onChange(load);
+    load();
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "name": "Reading notes",
+  "folderKind": "reading",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "title",
+      "width": 260
+    },
+    {
+      "id": "author",
+      "name": "Author",
+      "type": "text",
+      "width": 180
+    },
+    {
+      "id": "kind",
+      "name": "Kind",
+      "type": "select",
+      "options": [
+        "Book",
+        "Essay",
+        "Lecture",
+        "Report",
+        "Interview"
+      ],
+      "optionColors": {
+        "Book": "blue",
+        "Essay": "purple",
+        "Lecture": "teal",
+        "Report": "orange",
+        "Interview": "pink"
+      }
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "To read",
+        "Reading",
+        "Finished"
+      ],
+      "optionColors": {
+        "To read": "gray",
+        "Reading": "amber",
+        "Finished": "emerald"
+      },
+      "optionStates": {
+        "To read": "normal",
+        "Reading": "normal",
+        "Finished": "done"
+      },
+      "defaultValue": "To read"
+    },
+    {
+      "id": "rating",
+      "name": "Rating",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "finished",
+      "name": "Finished",
+      "type": "date"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Shelf",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "finished",
+          "direction": "desc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

@@ -1,0 +1,196 @@
+{
+  "name": "Tickets",
+  "folderKind": "task-database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Ticket",
+      "type": "title",
+      "width": 320
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Backlog",
+        "To do",
+        "In progress",
+        "In review",
+        "Done"
+      ],
+      "optionColors": {
+        "Backlog": "gray",
+        "To do": "blue",
+        "In progress": "amber",
+        "In review": "purple",
+        "Done": "emerald"
+      },
+      "optionStates": {
+        "Backlog": "normal",
+        "To do": "normal",
+        "In progress": "normal",
+        "In review": "normal",
+        "Done": "done"
+      },
+      "defaultValue": "Backlog"
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "type": "select",
+      "options": [
+        "Feature",
+        "Bug",
+        "Chore",
+        "Docs"
+      ],
+      "optionColors": {
+        "Feature": "teal",
+        "Bug": "rose",
+        "Chore": "brown",
+        "Docs": "cyan"
+      }
+    },
+    {
+      "id": "priority",
+      "name": "Priority",
+      "type": "select",
+      "options": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "optionColors": {
+        "P0": "red",
+        "P1": "orange",
+        "P2": "amber",
+        "P3": "gray"
+      }
+    },
+    {
+      "id": "estimate",
+      "name": "Estimate",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "sprint",
+      "name": "Sprint",
+      "type": "select",
+      "options": [
+        "Sprint 14",
+        "Sprint 15",
+        "Sprint 16"
+      ],
+      "optionColors": {
+        "Sprint 14": "darkGray",
+        "Sprint 15": "blue",
+        "Sprint 16": "lime"
+      }
+    },
+    {
+      "id": "owner",
+      "name": "Owner",
+      "type": "text",
+      "width": 150
+    },
+    {
+      "id": "pr",
+      "name": "PR",
+      "type": "url",
+      "width": 200
+    },
+    {
+      "id": "opened",
+      "name": "Opened",
+      "type": "date"
+    },
+    {
+      "id": "done_points",
+      "name": "Done points",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF({Status} = \"Done\", {Estimate}, 0)",
+      "resultType": "number",
+      "width": 120
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "priority",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "current",
+      "name": "Current sprint",
+      "type": "table",
+      "filters": [
+        {
+          "column": "sprint",
+          "operator": "equals",
+          "value": "Sprint 15"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "priority",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "bugs",
+      "name": "Bugs",
+      "type": "table",
+      "filters": [
+        {
+          "column": "type",
+          "operator": "equals",
+          "value": "Bug"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "priority",
+          "direction": "asc"
+        }
+      ],
+      "hiddenColumns": [
+        "type",
+        "done_points"
+      ]
+    },
+    {
+      "id": "by-type",
+      "name": "By type",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "type",
+      "valueColumn": "estimate",
+      "aggregation": "sum",
+      "splitColumn": "status",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "changelog",
+      "name": "Changelog",
+      "type": "tool",
+      "toolPath": "resources/html/changelog-drafter/index.html",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

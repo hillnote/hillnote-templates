@@ -1,0 +1,280 @@
+{
+  "documents": [
+    {
+      "name": "App interface",
+      "path": "documents/Exploring Hillnote/App interface.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/Customise%20Hillnote.md",
+        "documents/Sign-in%20to%20sync%20and%20unlock%20premium%20features!%20.md",
+        "documents/Pages.md",
+        "documents/Slides.md",
+        "documents/Canvas.md",
+        "documents/Database.md",
+        "documents/Exploring%20Hillnote/Pages.md",
+        "documents/Exploring%20Hillnote/Connect%20your%20tools.md"
+      ],
+      "position": 0,
+      "emoji": "🎈"
+    },
+    {
+      "name": "Complete formatting guide",
+      "path": "documents/references/Complete formatting guide.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.355Z",
+      "description": "",
+      "referencedIn": [
+        "documents/topics.md"
+      ],
+      "containsReferencesTo": [
+        "documents/Hexhunt%20Rules.md",
+        "documents/Presenting%20on%20Hillnote.slides.md"
+      ],
+      "position": 0,
+      "emoji": "🍪"
+    },
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.355Z",
+      "description": "",
+      "referencedIn": [
+        "documents/topics.md"
+      ],
+      "containsReferencesTo": [
+        "documents/Exploring%20Hillnote/Pages.md",
+        "documents/Exploring%20Hillnote/Slides.md",
+        "documents/Exploring%20Hillnote/Database.md",
+        "documents/Exploring%20Hillnote/Customise%20Hillnote.md",
+        "documents/Exploring%20Hillnote/App%20interface.md"
+      ],
+      "position": 0,
+      "emoji": "🌊",
+      "pinned": true
+    },
+    {
+      "name": "Canvas",
+      "path": "documents/Exploring Hillnote/Canvas.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/Draw%20and%20think%20free.canvas.md"
+      ],
+      "position": 1,
+      "emoji": "⭐"
+    },
+    {
+      "name": "Connect your tools",
+      "path": "documents/Exploring Hillnote/Connect your tools.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 1,
+      "emoji": "🔌"
+    },
+    {
+      "name": "Create your first file!",
+      "path": "documents/Exploring Hillnote/Create your first file!.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/Documents.md"
+      ],
+      "position": 2,
+      "emoji": "🐙"
+    },
+    {
+      "name": "Sync",
+      "path": "documents/Sync.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.355Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 2,
+      "emoji": "🍊"
+    },
+    {
+      "name": "Create your first workspace ",
+      "path": "documents/Exploring Hillnote/Create your first workspace .md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 3,
+      "emoji": "☕"
+    },
+    {
+      "name": "Publish",
+      "path": "documents/references/Publish.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.355Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 3,
+      "emoji": "🍕"
+    },
+    {
+      "name": "Read the Start here guide",
+      "path": "documents/Exploring Hillnote/Read the Start here guide.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/Start%20here.md"
+      ],
+      "position": 4,
+      "emoji": "🌊"
+    },
+    {
+      "name": "Draw and think free.canvas",
+      "path": "documents/Draw and think free.canvas.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.355Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 4,
+      "emoji": "🎟️"
+    },
+    {
+      "name": "Sign-in to sync and unlock premium features! ",
+      "path": "documents/Exploring Hillnote/Sign-in to sync and unlock premium features! .md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 5,
+      "emoji": "🤾"
+    },
+    {
+      "name": "Presenting on Hillnote.slides",
+      "path": "documents/Presenting on Hillnote.slides.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.355Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 5,
+      "emoji": "🏄‍♂️"
+    },
+    {
+      "name": "Customise Hillnote",
+      "path": "documents/Exploring Hillnote/Customise Hillnote.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/App%20interface.md"
+      ],
+      "position": 6,
+      "emoji": "🛩"
+    },
+    {
+      "name": "Database",
+      "path": "documents/Exploring Hillnote/Database.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/Pages.md"
+      ],
+      "position": 7,
+      "emoji": "❤"
+    },
+    {
+      "name": "Download Hillnote for Mobile",
+      "path": "documents/Exploring Hillnote/Download Hillnote for Mobile.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/Exploring%20Hillnote/Pages.md",
+        "documents/Exploring%20Hillnote/Database.md"
+      ],
+      "position": 7,
+      "emoji": "🎊"
+    },
+    {
+      "name": "Download your first model",
+      "path": "documents/Exploring Hillnote/Download your first model.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 8,
+      "emoji": "🎊"
+    },
+    {
+      "name": "Pages",
+      "path": "documents/Exploring Hillnote/Pages.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [
+        "documents/topics.md"
+      ],
+      "containsReferencesTo": [
+        "documents/references/Complete%20formatting%20guide.md",
+        "documents/references/locked%20page.md"
+      ],
+      "position": 8,
+      "emoji": "🧡"
+    },
+    {
+      "name": "Slides",
+      "path": "documents/Exploring Hillnote/Slides.md",
+      "type": "document",
+      "lastModified": "2026-07-02T18:58:10.354Z",
+      "description": "",
+      "referencedIn": [],
+      "containsReferencesTo": [
+        "documents/Presenting%20on%20Hillnote.slides.md"
+      ],
+      "position": 11,
+      "emoji": "🥝"
+    }
+  ],
+  "folders": [
+    {
+      "name": "Exploring Hillnote",
+      "path": "documents/Exploring Hillnote",
+      "type": "folder",
+      "description": "",
+      "documentCount": 13,
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 0,
+      "pinned": false
+    },
+    {
+      "name": "references",
+      "path": "documents/references",
+      "type": "folder",
+      "description": "",
+      "documentCount": 3,
+      "referencedIn": [],
+      "containsReferencesTo": [],
+      "position": 6,
+      "pinned": false
+    }
+  ]
+}

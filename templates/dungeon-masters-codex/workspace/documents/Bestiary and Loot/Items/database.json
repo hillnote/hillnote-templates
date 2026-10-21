@@ -1,0 +1,114 @@
+{
+  "name": "Items",
+  "folderKind": "favorites",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Item",
+      "type": "title",
+      "width": 220
+    },
+    {
+      "id": "rarity",
+      "name": "Rarity",
+      "type": "select",
+      "options": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Very rare",
+        "Legendary"
+      ],
+      "optionColors": {
+        "Common": "gray",
+        "Uncommon": "emerald",
+        "Rare": "blue",
+        "Very rare": "purple",
+        "Legendary": "amber"
+      },
+      "width": 120
+    },
+    {
+      "id": "kind",
+      "name": "Type",
+      "type": "select",
+      "options": [
+        "Weapon",
+        "Armour",
+        "Wondrous item",
+        "Potion",
+        "Treasure"
+      ],
+      "optionColors": {
+        "Weapon": "red",
+        "Armour": "brown",
+        "Wondrous item": "purple",
+        "Potion": "pink",
+        "Treasure": "amber"
+      },
+      "width": 140
+    },
+    {
+      "id": "holder",
+      "name": "Held by",
+      "type": "text",
+      "width": 200
+    },
+    {
+      "id": "attunement",
+      "name": "Attunement",
+      "type": "checkbox",
+      "width": 110
+    },
+    {
+      "id": "value",
+      "name": "Value (gp)",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "sell",
+      "name": "Sells for (gp)",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "ROUND({Value (gp)} / 2, 0)",
+      "resultType": "number",
+      "width": 120
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Gallery",
+      "type": "gallery",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "value",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "rarity",
+      "name": "By rarity",
+      "type": "kanban",
+      "groupBy": "rarity",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "holder",
+          "direction": "asc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "id": "training-log",
+  "version": "1.0.0",
+  "name": "Training Log",
+  "tagline": "Plan the week, log every set and run, and see your progress charted, with a 12-week 10k and strength block filled in.",
+  "description": "A training workspace for people who run and lift. It comes with a worked example: a 12-week block aimed at a sub-50-minute 10k while keeping strength, shown in week 7, so the calendar, the logs and the charts already have something in them. The plan sets out the goals, the block structure, deload weeks and the rules for progressing, from 80/20 running to adding weight on the bar.\n\nSessions are the hub: a weekly template of recurring sessions that reset every Monday, shown as a week board, a calendar, a log and charts of training load and easy-versus-hard time. A lift log charts estimated one-rep maxes and weekly volume with formula columns, an exercise library holds cues for every movement, and a body metrics sheet tracks weight, sleep and resting heart rate beside a nutrition page with your protein target.\n\nThree AI recipes write the weekly review, adjust the plan when life gets in the way and check whether you need a deload. Two tools come with it: an interval timer with beeps and saved presets, and a one-rep max and plate calculator. Not medical advice: check with a professional before starting a new programme.",
+  "setups": [
+    "fitness"
+  ],
+  "tags": [
+    "fitness",
+    "running",
+    "strength",
+    "training log",
+    "10k",
+    "workouts",
+    "health"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Training workspace: a 12-week plan, recurring weekly sessions on a board and calendar, a lift log with estimated 1RM and volume charts, an exercise library, body metrics, nutrition and weekly check-ins.",
+  "color": "emerald",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

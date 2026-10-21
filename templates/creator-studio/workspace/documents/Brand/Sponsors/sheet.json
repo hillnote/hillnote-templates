@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "name": "Sponsors",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Brand",
+      "type": "title",
+      "width": 180
+    },
+    {
+      "id": "value",
+      "name": "Value",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "deliverables",
+      "name": "Deliverables",
+      "type": "text",
+      "width": 340
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "select",
+      "options": [
+        "Pitched",
+        "Negotiating",
+        "Signed",
+        "Delivered",
+        "Paid"
+      ],
+      "optionColors": {
+        "Pitched": "gray",
+        "Negotiating": "amber",
+        "Signed": "blue",
+        "Delivered": "purple",
+        "Paid": "emerald"
+      }
+    },
+    {
+      "id": "due",
+      "name": "Due",
+      "type": "date"
+    },
+    {
+      "id": "contact",
+      "name": "Contact",
+      "type": "email",
+      "width": 220
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Pipeline",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "due",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "due",
+          "direction": "asc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

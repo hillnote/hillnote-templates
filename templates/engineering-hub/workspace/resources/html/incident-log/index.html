@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#8A2BE2;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#8A2BE2;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Incident log</title>
+<style>
+  main.stack { gap: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .head { display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  .head h2 { margin: 0; }
+  .head .meta { font-size: 12px; color: var(--muted-foreground); width: 100%; }
+  .head .actions { margin-inline-start: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+  .add { display: grid; grid-template-columns: 120px 88px minmax(0, 1fr) auto; gap: 8px; align-items: end; }
+  @media (max-width: 560px) { .add { grid-template-columns: 1fr 1fr; } .add .grow { grid-column: 1 / -1; } }
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .entry { display: grid; grid-template-columns: 52px 64px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 7px 4px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .entry:last-child { border-bottom: none; }
+  .time { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .offset { font-variant-numeric: tabular-nums; color: var(--muted-foreground); font-size: 12px; }
+  .what { min-width: 0; overflow-wrap: anywhere; }
+  .what .badge { margin-inline-end: 6px; }
+  .tools { display: flex; gap: 2px; }
+  .sev { font-weight: 700; }
+  .sev-1 { background: color-mix(in srgb, var(--destructive) 14%, transparent); color: var(--destructive); }
+  .sev-2 { background: color-mix(in srgb, var(--warning) 16%, transparent); color: var(--warning); }
+  .sev-3 { background: color-mix(in srgb, var(--info) 14%, transparent); color: var(--info); }
+  .status { font-size: 12px; color: var(--muted-foreground); }
+  .past .list-item { justify-content: space-between; flex-wrap: wrap; }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin: 6px 0 0; }
+  .edit-input { padding: 4px 8px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Incident log</strong>
+  <span class="muted" id="summary"></span>
+  <span class="status" id="status" role="status" style="margin-inline-start:auto"></span>
+</div>
+
+<main class="stack">
+  <section id="idle">
+    <div class="empty-state">No open incident.<br><span style="font-size:12px">Start one the moment you declare it, then log every observation, action and decision as it happens.</span></div>
+    <form class="card stack" id="start-form">
+      <h3>Start an incident</h3>
+      <div class="field"><label for="title">What customers see</label><input id="title" required maxlength="120" placeholder="e.g. Places search slow for some requests"></div>
+      <div class="grid">
+        <div class="field"><label for="severity">Severity</label>
+          <select id="severity"><option value="SEV1">SEV1: down or data exposed</option><option value="SEV2" selected>SEV2: badly degraded</option><option value="SEV3">SEV3: workaround exists</option></select>
+        </div>
+        <div class="field"><label for="commander">Incident commander</label><input id="commander" maxlength="60" placeholder="Name"></div>
+      </div>
+      <div class="row"><button type="submit" class="btn-primary">Start incident</button></div>
+    </form>
+  </section>
+
+  <section id="open" hidden class="stack">
+    <div class="card">
+      <div class="head">
+        <h2 id="inc-title"></h2>
+        <span class="badge sev" id="inc-sev"></span>
+        <div class="actions">
+          <button class="btn-sm" id="copy-open">Copy timeline</button>
+          <button class="btn-sm" id="resolve">Mark resolved</button>
+          <button class="btn-sm btn-ghost" id="discard">Discard</button>
+        </div>
+        <div class="meta" id="inc-meta"></div>
+      </div>
+    </div>
+
+    <form class="card" id="add-form">
+      <div class="add">
+        <div class="field"><label for="kind">Kind</label>
+          <select id="kind"><option value="detected">Detected</option><option value="observed" selected>Observed</option><option value="action">Action</option><option value="decision">Decision</option><option value="comms">Comms</option></select>
+        </div>
+        <div class="field"><label for="at">Time</label><input id="at" type="time" aria-describedby="at-hint"></div>
+        <div class="field grow"><label for="text">What happened</label><input id="text" maxlength="500" placeholder="e.g. Postgres CPU at 96%, connection pool full" autocomplete="off"></div>
+        <button type="submit" class="btn-primary">Add</button>
+      </div>
+      <p class="hint" id="at-hint">Press Enter to add. Leave the time empty for now, or set it to backfill something you noticed earlier.</p>
+    </form>
+
+    <div class="card">
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+  </section>
+
+  <section class="card past" id="past-card">
+    <h3>Recent incidents</h3>
+    <div class="list" id="past"></div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var MAX_ENTRIES = 300;
+  var MAX_PAST = 5;
+  var KINDS = { detected: 'Detected', observed: 'Observed', action: 'Action', decision: 'Decision', comms: 'Comms', resolved: 'Resolved' };
+  var BADGE = { detected: 'badge-danger', action: 'badge-info', decision: 'badge-warning', resolved: 'badge-success' };
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var current = null;
+  var past = [];
+  var editing = null;
+  var statusTimer = null;
+
+  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function hhmm(iso) { var d = new Date(iso); return pad(d.getHours()) + ':' + pad(d.getMinutes()); }
+  function dayKey(iso) { var d = new Date(iso); return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate(); }
+  function clock(iso, startIso) {
+    if (!startIso || dayKey(iso) === dayKey(startIso)) return hhmm(iso);
+    var days = Math.round((new Date(iso).setHours(0, 0, 0, 0) - new Date(startIso).setHours(0, 0, 0, 0)) / 86400000);
+    return (days > 0 ? '+' : '') + days + 'd ' + hhmm(iso);
+  }
+  function offset(iso, startIso) {
+    var mins = Math.round((new Date(iso) - new Date(startIso)) / 60000);
+    var sign = mins < 0 ? '-' : '+';
+    var m = Math.abs(mins);
+    if (m < 60) return 'T' + sign + m + 'm';
+    return 'T' + sign + Math.floor(m / 60) + 'h' + pad(m % 60) + 'm';
+  }
+  function duration(a, b) {
+    var m = Math.max(0, Math.round((new Date(b) - new Date(a)) / 60000));
+    return m < 60 ? m + ' min' : Math.floor(m / 60) + ' h ' + pad(m % 60) + ' min';
+  }
+  function sevClass(sev) { return 'sev-' + String(sev || 'SEV2').slice(-1); }
+
+  function flash(message) {
+    $('status').textContent = message;
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(function () { $('status').textContent = ''; }, 2600);
+  }
+
+  function save() {
+    store.set('current', current);
+    store.set('past', past);
+  }
+
+  function sorted(entries) {
+    return entries.slice().sort(function (a, b) { return new Date(a.t) - new Date(b.t); });
+  }
+
+  function startOf(inc) {
+    var first = sorted(inc.entries).filter(function (e) { return e.kind === 'detected'; })[0];
+    return first ? first.t : inc.started;
+  }
+
+  function markdown(inc) {
+    var t0 = startOf(inc);
+    var lines = [];
+    lines.push('**Incident:** ' + inc.title + ' (' + inc.severity + ')' + (inc.commander ? ' · **Incident commander:** ' + inc.commander : ''));
+    lines.push('**Detected:** ' + hhmm(t0) + (inc.resolved ? ' · **Resolved:** ' + clock(inc.resolved, t0) + ' · **Duration:** ' + duration(t0, inc.resolved) : ' · still open'));
+    lines.push('');
+    lines.push('| Time | T+ | Kind | What happened |');
+    lines.push('|---|---|---|---|');
+    sorted(inc.entries).forEach(function (e) {
+      lines.push('| ' + clock(e.t, t0) + ' | ' + offset(e.t, t0) + ' | ' + (KINDS[e.kind] || e.kind) + ' | ' + String(e.text).replace(/\|/g, '\\|').replace(/\n/g, ' ') + ' |');
+    });
+    return lines.join('\n') + '\n';
+  }
+
+  function copyText(value) {
+    function fallback() {
+      var ok = false;
+      var ta = document.createElement('textarea');
+      ta.value = value;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) { flash('Timeline copied'); return; }
+      var dlg = document.createElement('dialog');
+      dlg.innerHTML = '<h3>Copy the timeline</h3><p class="muted">Select all and copy (Cmd+C or Ctrl+C).</p><textarea readonly rows="10"></textarea><div class="row" style="margin-top:8px"><button class="btn-primary" value="close">Done</button></div>';
+      document.body.appendChild(dlg);
+      dlg.querySelector('textarea').value = value;
+      dlg.querySelector('button').addEventListener('click', function () { dlg.close(); dlg.remove(); });
+      dlg.showModal();
+      dlg.querySelector('textarea').select();
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () { flash('Timeline copied'); }, fallback);
+        return;
+      }
+    } catch (e) { /* fall through */ }
+    fallback();
+  }
+
+  function renderPast() {
+    if (!past.length) {
+      $('past').innerHTML = '<div class="empty-state">Resolved incidents show up here, so you can copy their timelines into a postmortem later.</div>';
+      return;
+    }
+    $('past').innerHTML = past.map(function (inc, i) {
+      var t0 = startOf(inc);
+      return '<div class="list-item"><span><span class="badge sev ' + sevClass(inc.severity) + '">' + esc(inc.severity) + '</span> <strong>' + esc(inc.title) + '</strong>' +
+        ' <span class="muted">' + esc(inc.entries.length + ' entries' + (inc.resolved ? ', ' + duration(t0, inc.resolved) : '')) + '</span></span>' +
+        '<span class="row"><button class="btn-sm" data-copy="' + i + '">Copy timeline</button><button class="btn-sm btn-ghost" data-remove="' + i + '" aria-label="Delete ' + esc(inc.title) + '">Delete</button></span></div>';
+    }).join('');
+  }
+
+  function renderTimeline() {
+    var t0 = startOf(current);
+    var list = sorted(current.entries);
+    if (!list.length) {
+      $('timeline').innerHTML = '<li class="empty-state">Nothing logged yet. Start with how it was detected.</li>';
+      return;
+    }
+    $('timeline').innerHTML = list.map(function (e) {
+      var isEditing = editing === e.id;
+      return '<li class="entry"><span class="time">' + esc(clock(e.t, t0)) + '</span><span class="offset">' + esc(offset(e.t, t0)) + '</span>' +
+        '<span class="what"><span class="badge ' + (BADGE[e.kind] || '') + '">' + esc(KINDS[e.kind] || e.kind) + '</span>' +
+        (isEditing ? '<input class="edit-input" data-edit-input="' + esc(e.id) + '" maxlength="500" value="' + esc(e.text) + '" aria-label="Edit entry">' : esc(e.text)) + '</span>' +
+        '<span class="tools">' + (isEditing
+          ? '<button class="btn-sm btn-ghost" data-save="' + esc(e.id) + '">Save</button>'
+          : '<button class="btn-sm btn-ghost" data-edit="' + esc(e.id) + '" aria-label="Edit">Edit</button><button class="btn-sm btn-ghost" data-delete="' + esc(e.id) + '" aria-label="Delete">✕</button>') +
+        '</span></li>';
+    }).join('');
+    var input = document.querySelector('[data-edit-input]');
+    if (input) { input.focus(); input.select(); }
+  }
+
+  function render() {
+    var open = !!current;
+    $('idle').hidden = open;
+    $('open').hidden = !open;
+    if (open) {
+      $('inc-title').textContent = current.title;
+      $('inc-sev').textContent = current.severity;
+      $('inc-sev').className = 'badge sev ' + sevClass(current.severity);
+      $('inc-meta').textContent = 'Started ' + hhmm(current.started) + (current.commander ? ' · IC: ' + current.commander : '') + ' · ' + current.entries.length + (current.entries.length === 1 ? ' entry' : ' entries');
+      $('summary').textContent = current.severity + ' open';
+      renderTimeline();
+    } else {
+      $('summary').textContent = '';
+    }
+    renderPast();
+  }
+
+  function timeFromInput(value) {
+    var now = new Date();
+    if (!value) return now.toISOString();
+    var parts = value.split(':');
+    var d = new Date(now);
+    d.setHours(Number(parts[0]) || 0, Number(parts[1]) || 0, 0, 0);
+    if (d - now > 60 * 60000) d.setDate(d.getDate() - 1);
+    return d.toISOString();
+  }
+
+  $('start-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var title = $('title').value.trim();
+    if (!title) return;
+    var now = new Date().toISOString();
+    current = {
+      id: uid(), title: title.slice(0, 120), severity: $('severity').value,
+      commander: $('commander').value.trim().slice(0, 60), started: now, resolved: null,
+      entries: [{ id: uid(), t: now, kind: 'detected', text: 'Incident declared as ' + $('severity').value + (($('commander').value.trim()) ? ', IC ' + $('commander').value.trim() : '') }]
+    };
+    $('title').value = '';
+    save();
+    render();
+    $('text').focus();
+  });
+
+  $('add-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var text = $('text').value.trim();
+    if (!text || !current) return;
+    if (current.entries.length >= MAX_ENTRIES) { flash('This log is full: copy it and start a new one'); return; }
+    current.entries.push({ id: uid(), t: timeFromInput($('at').value), kind: $('kind').value, text: text.slice(0, 500) });
+    $('text').value = '';
+    $('at').value = '';
+    save();
+    render();
+    $('text').focus();
+  });
+
+  $('timeline').addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.getAttribute || !current) return;
+    var id;
+    if ((id = t.getAttribute('data-edit'))) { editing = id; renderTimeline(); return; }
+    if ((id = t.getAttribute('data-save'))) { commitEdit(id); return; }
+    if ((id = t.getAttribute('data-delete'))) {
+      current.entries = current.entries.filter(function (x) { return x.id !== id; });
+      save();
+      render();
+    }
+  });
+
+  $('timeline').addEventListener('keydown', function (e) {
+    var id = e.target && e.target.getAttribute ? e.target.getAttribute('data-edit-input') : null;
+    if (!id) return;
+    if (e.key === 'Enter') { e.preventDefault(); commitEdit(id); }
+    if (e.key === 'Escape') { editing = null; renderTimeline(); }
+  });
+
+  function commitEdit(id) {
+    var input = document.querySelector('[data-edit-input="' + id + '"]');
+    var value = input ? input.value.trim() : '';
+    current.entries.forEach(function (x) { if (x.id === id && value) x.text = value.slice(0, 500); });
+    editing = null;
+    save();
+    render();
+  }
+
+  $('copy-open').addEventListener('click', function () { if (current) copyText(markdown(current)); });
+
+  $('resolve').addEventListener('click', function () {
+    if (!current) return;
+    var now = new Date().toISOString();
+    current.entries.push({ id: uid(), t: now, kind: 'resolved', text: 'Resolved' });
+    current.resolved = now;
+    past.unshift(current);
+    past = past.slice(0, MAX_PAST);
+    current = null;
+    save();
+    render();
+    flash('Resolved. Copy the timeline into a postmortem.');
+  });
+
+  $('discard').addEventListener('click', function () {
+    if (!current) return;
+    if (current.entries.length > 1 && !window.confirm('Discard this incident and its timeline?')) return;
+    current = null;
+    save();
+    render();
+  });
+
+  $('past').addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.getAttribute) return;
+    if (t.hasAttribute('data-copy')) copyText(markdown(past[Number(t.getAttribute('data-copy'))]));
+    if (t.hasAttribute('data-remove')) {
+      past.splice(Number(t.getAttribute('data-remove')), 1);
+      save();
+      renderPast();
+    }
+  });
+
+  async function start() {
+    if (window.hillnote) await hillnote.ready();
+    var c = store.get('current', null);
+    current = c && c.title && Array.isArray(c.entries) ? c : null;
+    var p = store.get('past', []);
+    past = Array.isArray(p) ? p.filter(function (x) { return x && x.title && Array.isArray(x.entries); }).slice(0, MAX_PAST) : [];
+    render();
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

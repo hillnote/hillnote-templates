@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#DC143C;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#DC143C;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MRR goal planner</title>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .funnel { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 14px; }
+  .step { padding: 10px 12px; border: 1px solid var(--border); border-radius: calc(var(--radius) - 2px); background: var(--background); }
+  .step small { display: block; color: var(--muted-foreground); font-size: 12px; }
+  .step strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .step span { display: block; color: var(--muted-foreground); font-size: 12px; margin-top: 2px; }
+  .headline { margin: 14px 0 4px; font-size: 14px; }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin-top: 4px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .bar { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--primary) 70%, transparent); min-width: 2px; }
+  .bar-cell { width: 34%; }
+  tr.goal td { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>MRR goal</strong>
+  <span class="muted">Work back from a revenue goal to trials and visitors</span>
+</div>
+
+<div class="card">
+  <div class="grid">
+    <div class="field"><label for="goal">Goal MRR</label><input id="goal" type="number" min="0" step="100"></div>
+    <div class="field"><label for="price">Price per month</label><input id="price" type="number" min="0" step="1"></div>
+    <div class="field"><label for="current">Paying customers today</label><input id="current" type="number" min="0" step="1"></div>
+    <div class="field"><label for="months">Months to get there</label><input id="months" type="number" min="1" max="60" step="1"></div>
+    <div class="field"><label for="churn">Monthly churn (%)</label><input id="churn" type="number" min="0" max="50" step="0.5"></div>
+    <div class="field"><label for="trial">Trial to paid (%)</label><input id="trial" type="number" min="0.1" max="100" step="1"></div>
+    <div class="field"><label for="visit">Visitor to trial (%)</label><input id="visit" type="number" min="0.1" max="100" step="0.5"></div>
+    <div class="field"><label for="currency">Currency</label>
+      <select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>AUD</option><option>CAD</option></select>
+    </div>
+  </div>
+  <p class="hint">Churn is the share of paying customers who cancel each month. Early products often see 3 to 8%.</p>
+
+  <div id="empty" class="empty-state" hidden></div>
+  <div id="results">
+    <p class="headline" id="headline"></p>
+    <div class="funnel">
+      <div class="step"><small>Customers at the goal</small><strong id="needed"></strong><span id="neededNote"></span></div>
+      <div class="step"><small>New customers a month</small><strong id="perMonth"></strong><span id="perWeek"></span></div>
+      <div class="step"><small>Trials a month</small><strong id="trials"></strong><span id="trialsWeek"></span></div>
+      <div class="step"><small>Visitors a month</small><strong id="visitors"></strong><span id="visitorsWeek"></span></div>
+    </div>
+    <p class="hint" id="sensitivity"></p>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 14px" id="planCard">
+  <h3>Month by month</h3>
+  <table>
+    <thead><tr><th>Month</th><th class="num">New</th><th class="num">Cancelled</th><th class="num">Customers</th><th class="num">MRR</th><th class="bar-cell"><span class="muted">Progress</span></th></tr></thead>
+    <tbody id="plan"></tbody>
+  </table>
+</div>
+
+<script>
+(function () {
+  var DEFAULTS = { goal: 4800, price: 12, current: 8, months: 12, churn: 3, trial: 25, visit: 4, currency: 'USD' };
+  var FIELDS = ['goal', 'price', 'current', 'months', 'churn', 'trial', 'visit', 'currency'];
+  var WEEKS_PER_MONTH = 4.345;
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+
+  function read() {
+    var v = {};
+    FIELDS.forEach(function (f) { v[f] = f === 'currency' ? $(f).value : Math.max(0, Number($(f).value) || 0); });
+    v.months = Math.min(60, Math.max(1, Math.round(v.months) || 1));
+    v.churn = Math.min(v.churn, 50);
+    return v;
+  }
+  function write(v) { FIELDS.forEach(function (f) { $(f).value = v[f] != null ? v[f] : DEFAULTS[f]; }); }
+
+  function money(n, currency) {
+    try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: currency, maximumFractionDigits: 0 }).format(n); }
+    catch (e) { return Math.round(n).toLocaleString() + ' ' + currency; }
+  }
+  var whole = function (n) { return Math.ceil(n).toLocaleString(); };
+
+  // Constant monthly new customers N so that, losing `c` of the base each
+  // month, `start` customers grow to `target` in `m` months:
+  // C(m) = start·(1−c)^m + N·(1 − (1−c)^m) / c
+  function newPerMonth(start, target, c, m) {
+    if (c <= 0) return Math.max(0, (target - start) / m);
+    var keep = Math.pow(1 - c, m);
+    return Math.max(0, (target - start * keep) * c / (1 - keep));
+  }
+
+  function plan(v) {
+    var c = v.churn / 100;
+    var target = Math.ceil(v.goal / v.price);
+    var n = newPerMonth(v.current, target, c, v.months);
+    var trials = v.trial > 0 ? n / (v.trial / 100) : 0;
+    var visitors = v.visit > 0 ? trials / (v.visit / 100) : 0;
+    var rows = [];
+    var customers = v.current;
+    for (var m = 1; m <= v.months; m++) {
+      var lost = customers * c;
+      customers = customers - lost + n;
+      rows.push({ month: m, added: n, lost: lost, customers: customers, mrr: customers * v.price });
+    }
+    return { target: target, n: n, trials: trials, visitors: visitors, rows: rows };
+  }
+
+  function showEmpty(message) {
+    $('results').hidden = true;
+    $('planCard').hidden = true;
+    $('empty').hidden = false;
+    $('empty').textContent = message;
+  }
+
+  function render() {
+    var v = read();
+    store.set('inputs', v);
+    if (!v.price) return showEmpty('Set a price above zero to plan the goal.');
+    if (!v.goal) return showEmpty('Set a goal MRR, for example the monthly income that would let you go full time.');
+    $('empty').hidden = true;
+    $('results').hidden = false;
+
+    var p = plan(v);
+    var currentMrr = v.current * v.price;
+    if (currentMrr >= v.goal) {
+      $('headline').textContent = 'You are already there: ' + money(currentMrr, v.currency) + ' MRR. Raise the goal.';
+    } else {
+      $('headline').textContent = 'To reach ' + money(v.goal, v.currency) + ' MRR in ' + v.months + ' months, from ' + money(currentMrr, v.currency) + ' today:';
+    }
+    $('needed').textContent = whole(p.target);
+    $('neededNote').textContent = 'at ' + money(v.price, v.currency) + ' a month';
+    $('perMonth').textContent = whole(p.n);
+    $('perWeek').textContent = whole(p.n / WEEKS_PER_MONTH) + ' a week';
+    $('trials').textContent = whole(p.trials);
+    $('trialsWeek').textContent = whole(p.trials / WEEKS_PER_MONTH) + ' a week';
+    $('visitors').textContent = whole(p.visitors);
+    $('visitorsWeek').textContent = whole(p.visitors / WEEKS_PER_MONTH) + ' a week';
+
+    var higher = Math.round(v.price * 1.25);
+    if (higher > v.price) {
+      var alt = plan(Object.assign({}, v, { price: higher }));
+      $('sensitivity').textContent = 'At ' + money(higher, v.currency) + ' a month you would need ' + whole(alt.target) + ' customers and ' + whole(alt.n) + ' new ones a month. Price is the cheapest lever you have.';
+    } else {
+      $('sensitivity').textContent = '';
+    }
+
+    $('planCard').hidden = false;
+    var top = Math.max(v.goal, p.rows.length ? p.rows[p.rows.length - 1].mrr : 0, 1);
+    $('plan').innerHTML = p.rows.map(function (r, i) {
+      var last = i === p.rows.length - 1;
+      var pct = Math.min(100, (r.mrr / top) * 100);
+      return '<tr' + (last ? ' class="goal"' : '') + '><td>Month ' + r.month + '</td>' +
+        '<td class="num">' + whole(r.added) + '</td><td class="num">' + Math.round(r.lost).toLocaleString() + '</td>' +
+        '<td class="num">' + Math.round(r.customers).toLocaleString() + '</td><td class="num">' + esc(money(r.mrr, v.currency)) + '</td>' +
+        '<td class="bar-cell"><div class="bar" style="width:' + pct.toFixed(1) + '%"></div></td></tr>';
+    }).join('');
+  }
+
+  FIELDS.forEach(function (f) { $(f).addEventListener('input', render); });
+
+  async function start() {
+    if (window.hillnote) {
+      try { await hillnote.ready(); } catch (e) { /* settings still work */ }
+    }
+    write(Object.assign({}, DEFAULTS, store.get('inputs', {})));
+    render();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "readability-check",
+  "description": "Reading ease, sentence length, long sentences, adverbs and passive-voice hints for any passage",
+  "glyph": "🔎",
+  "sheets": [],
+  "databases": [],
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ]
+}

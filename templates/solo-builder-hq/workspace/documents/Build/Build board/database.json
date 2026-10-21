@@ -1,0 +1,176 @@
+{
+  "name": "Build board",
+  "folderKind": "task-database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Task",
+      "type": "title",
+      "width": 280
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Later",
+        "This week",
+        "Doing",
+        "Done"
+      ],
+      "optionColors": {
+        "Later": "gray",
+        "This week": "blue",
+        "Doing": "amber",
+        "Done": "emerald"
+      },
+      "optionStates": {
+        "Later": "normal",
+        "This week": "normal",
+        "Doing": "normal",
+        "Done": "done"
+      },
+      "defaultValue": "Later"
+    },
+    {
+      "id": "area",
+      "name": "Area",
+      "type": "select",
+      "options": [
+        "Product",
+        "Backend",
+        "Payments",
+        "Design",
+        "Marketing"
+      ],
+      "optionColors": {
+        "Product": "blue",
+        "Backend": "purple",
+        "Payments": "teal",
+        "Design": "pink",
+        "Marketing": "orange"
+      }
+    },
+    {
+      "id": "milestone",
+      "name": "Milestone",
+      "type": "select",
+      "options": [
+        "M1 Invoices",
+        "M2 Get paid",
+        "M3 Reminders",
+        "Launch"
+      ],
+      "optionColors": {
+        "M1 Invoices": "cyan",
+        "M2 Get paid": "emerald",
+        "M3 Reminders": "amber",
+        "Launch": "rose"
+      }
+    },
+    {
+      "id": "effort",
+      "name": "Effort (days)",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "start",
+      "name": "Start",
+      "type": "date",
+      "dateRole": "start"
+    },
+    {
+      "id": "end",
+      "name": "End",
+      "type": "date",
+      "dateRole": "end"
+    },
+    {
+      "id": "due",
+      "name": "Due",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF({Status} = \"Done\", \"Shipped\", IF(ISBLANK({End}), \"No date\", IF(DAYS({End}, TODAY()) < 0, \"Overdue\", IF(DAYS({End}, TODAY()) = 0, \"Due today\", IF(DAYS({End}, TODAY()) = 1, \"Due tomorrow\", DAYS({End}, TODAY()) & \" days left\")))))",
+      "resultType": "text",
+      "width": 130
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "end",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "roadmap",
+      "name": "Roadmap",
+      "type": "gantt",
+      "ganttZoom": "week",
+      "colorByColumn": "milestone",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "start",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "week",
+      "name": "This week",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "isAnyOf",
+          "value": [
+            "This week",
+            "Doing"
+          ]
+        }
+      ],
+      "sorts": [
+        {
+          "column": "end",
+          "direction": "asc"
+        }
+      ],
+      "hiddenColumns": [
+        "start"
+      ]
+    },
+    {
+      "id": "calendar",
+      "name": "Calendar",
+      "type": "calendar",
+      "dateColumn": "end",
+      "colorByColumn": "area",
+      "calendarViewMode": "dayGridMonth",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "effort",
+      "name": "Effort by milestone",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "milestone",
+      "valueColumn": "effort",
+      "aggregation": "sum",
+      "splitColumn": "status",
+      "sortBy": "natural",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

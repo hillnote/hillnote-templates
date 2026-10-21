@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "block_week",
+      "name": "Block week",
+      "type": "number"
+    },
+    {
+      "id": "phase",
+      "name": "Phase",
+      "type": "select",
+      "options": [
+        "Base",
+        "Build",
+        "Deload",
+        "Race-specific",
+        "Taper"
+      ],
+      "optionColors": {
+        "Base": "lime",
+        "Build": "blue",
+        "Deload": "teal",
+        "Race-specific": "orange",
+        "Taper": "purple"
+      }
+    },
+    {
+      "id": "verdict",
+      "name": "Verdict",
+      "type": "select",
+      "options": [
+        "On track",
+        "Adjust",
+        "Deload"
+      ],
+      "optionColors": {
+        "On track": "emerald",
+        "Adjust": "amber",
+        "Deload": "blue"
+      }
+    }
+  ]
+}

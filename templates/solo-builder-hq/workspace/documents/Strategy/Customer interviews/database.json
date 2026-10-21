@@ -1,0 +1,129 @@
+{
+  "name": "Customer interviews",
+  "folderKind": "people",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Interviewee",
+      "type": "title",
+      "width": 240
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "To book",
+        "Booked",
+        "Done",
+        "Synthesised"
+      ],
+      "optionColors": {
+        "To book": "gray",
+        "Booked": "blue",
+        "Done": "amber",
+        "Synthesised": "emerald"
+      },
+      "optionStates": {
+        "To book": "normal",
+        "Booked": "normal",
+        "Done": "normal",
+        "Synthesised": "done"
+      },
+      "defaultValue": "To book"
+    },
+    {
+      "id": "segment",
+      "name": "Segment",
+      "type": "select",
+      "options": [
+        "Designer",
+        "Developer",
+        "Writer",
+        "Photographer",
+        "Consultant"
+      ],
+      "optionColors": {
+        "Designer": "pink",
+        "Developer": "blue",
+        "Writer": "purple",
+        "Photographer": "teal",
+        "Consultant": "brown"
+      }
+    },
+    {
+      "id": "pain",
+      "name": "Pain (1-5)",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "date",
+      "name": "Date",
+      "type": "date"
+    },
+    {
+      "id": "uses_today",
+      "name": "Uses today",
+      "type": "select",
+      "options": [
+        "Spreadsheet",
+        "Doc template",
+        "Accounting suite",
+        "Invoice maker",
+        "Bank invoicing"
+      ],
+      "optionColors": {
+        "Spreadsheet": "lime",
+        "Doc template": "cyan",
+        "Accounting suite": "orange",
+        "Invoice maker": "rose",
+        "Bank invoicing": "darkGray"
+      }
+    },
+    {
+      "id": "would_pay",
+      "name": "Would pay",
+      "type": "checkbox",
+      "width": 100
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "All",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "date",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "cards",
+      "name": "Cards",
+      "type": "gallery",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "pain",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "pain",
+      "name": "Pain by segment",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "segment",
+      "valueColumn": "pain",
+      "aggregation": "average",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

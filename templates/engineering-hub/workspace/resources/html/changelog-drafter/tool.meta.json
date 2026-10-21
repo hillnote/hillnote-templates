@@ -1,0 +1,17 @@
+{
+  "name": "changelog-drafter",
+  "description": "Turns done tickets into changelog markdown, grouped by type with PR numbers",
+  "glyph": "📣",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Tickets",
+      "path": "Work/Tickets",
+      "primary": true
+    }
+  ]
+}

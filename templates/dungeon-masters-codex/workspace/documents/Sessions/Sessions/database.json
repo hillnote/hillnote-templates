@@ -1,0 +1,124 @@
+{
+  "name": "Sessions",
+  "folderKind": "calendar-database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Session",
+      "type": "title",
+      "width": 260
+    },
+    {
+      "id": "date",
+      "name": "Date",
+      "type": "date"
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Planned",
+        "Prepped",
+        "Done",
+        "Cancelled"
+      ],
+      "optionColors": {
+        "Planned": "gray",
+        "Prepped": "blue",
+        "Done": "emerald",
+        "Cancelled": "darkGray"
+      },
+      "optionStates": {
+        "Planned": "normal",
+        "Prepped": "normal",
+        "Done": "done",
+        "Cancelled": "archive"
+      },
+      "defaultValue": "Planned"
+    },
+    {
+      "id": "number",
+      "name": "Session #",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "arc",
+      "name": "Arc",
+      "type": "select",
+      "options": [
+        "Act 1: Lights out",
+        "Act 2: Below the Teeth",
+        "Act 3: The Deep Bell",
+        "One-shot"
+      ],
+      "optionColors": {
+        "Act 1: Lights out": "amber",
+        "Act 2: Below the Teeth": "blue",
+        "Act 3: The Deep Bell": "purple",
+        "One-shot": "pink"
+      },
+      "width": 170
+    },
+    {
+      "id": "in_world",
+      "name": "In-world date",
+      "type": "text",
+      "width": 200
+    },
+    {
+      "id": "repeat",
+      "name": "Repeats",
+      "type": "recurring",
+      "width": 160
+    },
+    {
+      "id": "days",
+      "name": "Days until",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "DAYS({Date}, TODAY())",
+      "resultType": "number",
+      "width": 100
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Calendar",
+      "type": "calendar",
+      "dateColumn": "date",
+      "colorByColumn": "status",
+      "calendarViewMode": "dayGridMonth",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "board",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "date",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Log",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "date",
+          "direction": "asc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

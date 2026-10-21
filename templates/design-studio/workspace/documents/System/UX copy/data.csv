@@ -1,0 +1,10 @@
+Copy,Screen,Element,Limit,Status,Notes,_hnid
+Let's keep your plants happy,Onboarding,Title,32,Approved,"Warm, no exclamation mark. First screen of onboarding.",r_62b3d1f2-b831-5378-bf4a-e40bf4b8ea3f
+Skip for now,Onboarding,Button,18,Approved,Never shame the choice. Same label on every optional step.,r_5788f4db-4414-5c6c-91e1-a61c47a8904e
+Add a plant,Home,Button,18,Approved,Verb plus noun. The same label everywhere it appears.,r_ba2ac350-8630-590b-9835-78163de2b32a
+No plants yet. Add your first one: a photo is enough.,Home,Empty state,64,Approved,"Says what goes here, then one action.",r_5391dd46-204b-53f6-a725-baa864bae9aa
+Your monstera is thirsty. Water it today?,Notifications,Push notification,60,Approved,"Plant, need, time. Plant name comes from the profile.",r_4a0d9c17-611a-5c4e-bda7-740028a02e10
+Watered. Next drink in 6 days.,Home,Toast,40,Approved,Day count comes from the care schedule.,r_8cd1b67a-51f1-5ed0-8867-f52445a74cba
+"Drops are water, leaves are food.",Care calendar,Body,48,Draft,First-run legend for the week strip. Fixes the watering vs feeding finding.,r_8d6028a2-843c-5689-ade3-3f7570065da7
+This looks like overwatering. Here's how to check.,Diagnosis,Title,60,In review,Confidence in plain words. Never a verdict.,r_e0299594-21e6-5cb9-86d9-256c49ef6579
+We couldn't read that photo. Try again in brighter light.,Diagnosis,Error,64,Draft,"What happened, then what to do. No error codes.",r_22860675-4972-5151-a2be-0c2f2bb0793e

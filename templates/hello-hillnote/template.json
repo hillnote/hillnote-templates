@@ -1,0 +1,20 @@
+{
+  "formatVersion": 1,
+  "id": "hello-hillnote",
+  "version": "1.0.0",
+  "name": "Hello from Hillnote",
+  "tagline": "A guided tour of everything a Hillnote workspace can do.",
+  "description": "Start here if you are new to Hillnote. A short welcome page walks you through the basics, then a task database of four first steps gets you set up: download a local model, create your first workspace and file, and connect your tools.\n\nThe rest of the workspace is a reference you can come back to: everything pages can do, a slide deck, a free-form canvas, databases with board and calendar views, publishing and sync, plus a complete formatting guide.",
+  "setups": [],
+  "tags": ["starter", "tour", "reference"],
+  "featured": true,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "A guided tour of Hillnote: a welcome page, four first steps, and a reference for every file format.",
+  "color": "blue",
+  "icon": "media/icon.webp"
+}

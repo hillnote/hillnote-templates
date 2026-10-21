@@ -1,0 +1,11 @@
+{
+  "name": "sample-size",
+  "description": "Survey sample size for a proportion: confidence, margin of error, finite population correction and response rate",
+  "glyph": "🧮",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

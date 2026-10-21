@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#DC143C;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#DC143C;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>Dice roller</title>
+<style>
+  .roll-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+  .roll-row input { font-size: 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .mode { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+  .mode button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+  .dice { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+  @media (max-width: 420px) { .dice { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .dice button { padding: 10px 0; font-weight: 650; }
+  .result { margin-top: 12px; text-align: center; min-height: 132px; }
+  .total { font-size: 56px; font-weight: 750; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .breakdown { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: var(--muted-foreground); overflow-wrap: anywhere; }
+  .dropped { text-decoration: line-through; opacity: .6; }
+  .expr-label { font-size: 12px; color: var(--muted-foreground); }
+  .favs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .fav { display: inline-flex; align-items: center; gap: 0; border: 1px solid var(--border); border-radius: calc(var(--radius) - 2px); overflow: hidden; }
+  .fav button { border: none; border-radius: 0; box-shadow: none; }
+  .fav .x { padding-inline: 8px; color: var(--muted-foreground); }
+  .section-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .section-head h3 { margin: 0; }
+  .history .list-item { justify-content: space-between; font-size: 13px; }
+  .history .num { font-weight: 650; font-variant-numeric: tabular-nums; min-width: 3ch; text-align: end; }
+  .error { color: var(--destructive); font-size: 12px; min-height: 1.2em; margin-top: 6px; }
+  .stack-gap { margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Dice roller</strong>
+  <span class="muted">2d6+3 · 1d20-1 · 4d6kh3 · d%</span>
+</div>
+
+<div class="card">
+  <form class="roll-row" id="form">
+    <input id="expr" autocomplete="off" spellcheck="false" aria-label="Dice expression" placeholder="1d20+5">
+    <button class="btn-primary" type="submit">Roll</button>
+  </form>
+  <div class="mode" role="group" aria-label="Advantage">
+    <button type="button" data-mode="dis">Disadvantage</button>
+    <button type="button" data-mode="normal">Normal</button>
+    <button type="button" data-mode="adv">Advantage</button>
+  </div>
+  <div class="dice" id="dice"></div>
+  <p class="error" id="error" role="alert"></p>
+</div>
+
+<div class="card result" id="result" aria-live="polite">
+  <div class="empty-state" id="no-roll">Roll something. Advantage and disadvantage apply to a single d20.</div>
+</div>
+
+<div class="card stack-gap">
+  <div class="section-head"><h3>Saved rolls</h3></div>
+  <div class="favs" id="favs" style="margin-top: 8px"></div>
+  <form class="row" id="fav-form" style="margin-top: 10px">
+    <input id="fav-name" placeholder="Name the current roll, e.g. Brakka: trident">
+    <button type="submit">Save</button>
+  </form>
+</div>
+
+<div class="card stack-gap history">
+  <div class="section-head"><h3>History</h3><button class="btn-sm btn-ghost" id="clear">Clear</button></div>
+  <div class="list" id="history"></div>
+</div>
+
+<script>
+(function () {
+  var SIDES = [4, 6, 8, 10, 12, 20, 100];
+  var MAX_HISTORY = 30;
+  var DEFAULT_FAVS = [
+    { name: 'Attack +5', expr: '1d20+5' },
+    { name: 'Trident', expr: '1d8+4' },
+    { name: 'Healing potion', expr: '2d4+2' },
+    { name: 'Fireball', expr: '8d6' },
+    { name: 'Ability score', expr: '4d6kh3' }
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var mode = 'normal';
+
+  function die(sides) {
+    if (window.crypto && crypto.getRandomValues) {
+      var buf = new Uint32Array(1);
+      var limit = Math.floor(4294967296 / sides) * sides;
+      do { crypto.getRandomValues(buf); } while (buf[0] >= limit);
+      return (buf[0] % sides) + 1;
+    }
+    return Math.floor(Math.random() * sides) + 1;
+  }
+
+  function parse(text) {
+    var s = String(text || '').toLowerCase().replace(/\s+/g, '').replace(/d%/g, 'd100');
+    if (!s) throw new Error('Type a roll, like 1d20+5.');
+    if (!/^[+-]?(\d*d\d+(k[hl]\d+)?|\d+)([+-](\d*d\d+(k[hl]\d+)?|\d+))*$/.test(s)) throw new Error('That isn’t a roll I understand. Try 2d6+3, 1d20-1 or 4d6kh3.');
+    var terms = [];
+    var re = /([+-]?)(?:(\d*)d(\d+)(?:k([hl])(\d+))?|(\d+))/g;
+    var m;
+    while ((m = re.exec(s)) !== null) {
+      var sign = m[1] === '-' ? -1 : 1;
+      if (m[6] !== undefined) { terms.push({ sign: sign, flat: Number(m[6]) }); continue; }
+      var count = m[2] === '' ? 1 : Number(m[2]);
+      var sides = Number(m[3]);
+      if (count < 1 || count > 100) throw new Error('Roll between 1 and 100 dice at a time.');
+      if (sides < 2 || sides > 1000) throw new Error('Dice need between 2 and 1000 sides.');
+      var keep = m[4] ? { high: m[4] === 'h', n: Math.min(Number(m[5]), count) } : null;
+      terms.push({ sign: sign, count: count, sides: sides, keep: keep });
+    }
+    if (terms.length > 20) throw new Error('That’s a lot of terms. Keep it under 20.');
+    return terms;
+  }
+
+  function evaluate(text, rollMode) {
+    var terms = parse(text);
+    var advUsed = false;
+    var natural = null;
+    var total = 0;
+    var parts = terms.map(function (t) {
+      if (t.flat !== undefined) { total += t.sign * t.flat; return { sign: t.sign, flat: t.flat }; }
+      var count = t.count;
+      var keep = t.keep;
+      var label = t.count + 'd' + t.sides + (t.keep ? 'k' + (t.keep.high ? 'h' : 'l') + t.keep.n : '');
+      if (!advUsed && rollMode !== 'normal' && t.sides === 20 && t.count === 1 && !t.keep) {
+        advUsed = true;
+        count = 2;
+        keep = { high: rollMode === 'adv', n: 1 };
+        label = '1d20 ' + (rollMode === 'adv' ? 'adv' : 'dis');
+      }
+      var rolls = [];
+      for (var i = 0; i < count; i++) rolls.push(die(t.sides));
+      var keptIdx = rolls.map(function (v, i) { return i; });
+      if (keep) {
+        keptIdx = keptIdx.slice().sort(function (a, b) { return keep.high ? rolls[b] - rolls[a] : rolls[a] - rolls[b]; }).slice(0, keep.n);
+      }
+      var value = keptIdx.reduce(function (n, i) { return n + rolls[i]; }, 0);
+      if (t.sides === 20 && keptIdx.length === 1 && natural === null) natural = rolls[keptIdx[0]];
+      total += t.sign * value;
+      return { sign: t.sign, label: label, rolls: rolls, kept: keptIdx, value: value };
+    });
+    return { expr: String(text).trim(), mode: advUsed ? rollMode : 'normal', total: total, parts: parts, natural: natural, at: Date.now() };
+  }
+
+  function breakdown(r) {
+    return r.parts.map(function (p, i) {
+      var sign = i === 0 ? (p.sign < 0 ? '−' : '') : (p.sign < 0 ? ' − ' : ' + ');
+      if (p.flat !== undefined) return sign + p.flat;
+      var dice = p.rolls.map(function (v, j) { return p.kept.indexOf(j) >= 0 ? String(v) : '<span class="dropped">' + v + '</span>'; }).join(', ');
+      return sign + esc(p.label) + ' [' + dice + ']';
+    }).join('');
+  }
+
+  function badge(r) {
+    if (r.natural === 20) return ' <span class="badge badge-success">Natural 20</span>';
+    if (r.natural === 1) return ' <span class="badge badge-danger">Natural 1</span>';
+    return '';
+  }
+
+  function show(r) {
+    $('result').innerHTML = '<div class="expr-label">' + esc(r.expr) + (r.mode !== 'normal' ? ' · ' + (r.mode === 'adv' ? 'advantage' : 'disadvantage') : '') + '</div>' +
+      '<div class="total">' + r.total + '</div>' +
+      '<div class="breakdown">' + breakdown(r) + badge(r) + '</div>';
+  }
+
+  function time(ms) {
+    var d = new Date(ms);
+    return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+  }
+
+  function renderHistory() {
+    var list = store.get('history', []);
+    if (!list.length) { $('history').innerHTML = '<div class="empty-state">No rolls yet this session.</div>'; return; }
+    $('history').innerHTML = list.map(function (r) {
+      return '<div class="list-item"><span><span class="muted">' + time(r.at) + '</span> ' + esc(r.expr) + (r.mode !== 'normal' ? ' <span class="muted">(' + (r.mode === 'adv' ? 'adv' : 'dis') + ')</span>' : '') + badge(r) + '</span><span class="num">' + r.total + '</span></div>';
+    }).join('');
+  }
+
+  function renderFavs() {
+    var favs = store.get('favourites', DEFAULT_FAVS);
+    $('favs').innerHTML = favs.length ? favs.map(function (f, i) {
+      return '<span class="fav"><button type="button" class="btn-sm" data-fav="' + i + '" title="' + esc(f.expr) + '">' + esc(f.name) + '</button><button type="button" class="btn-sm x" data-unfav="' + i + '" aria-label="Remove ' + esc(f.name) + '">×</button></span>';
+    }).join('') : '<span class="muted">Nothing saved. Type a roll, name it and save it.</span>';
+  }
+
+  function setMode(m) {
+    mode = m;
+    store.set('mode', m);
+    document.querySelectorAll('.mode button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-mode') === m)); });
+  }
+
+  function doRoll(text) {
+    $('error').textContent = '';
+    var r;
+    try { r = evaluate(text, mode); } catch (err) { $('error').textContent = err.message; return; }
+    show(r);
+    var list = store.get('history', []);
+    list.unshift(r);
+    store.set('history', list.slice(0, MAX_HISTORY).map(function (x) { return { expr: x.expr, mode: x.mode, total: x.total, natural: x.natural, at: x.at }; }));
+    store.set('lastExpr', r.expr);
+    renderHistory();
+  }
+
+  $('dice').innerHTML = SIDES.map(function (s) { return '<button type="button" data-die="' + s + '">d' + s + '</button>'; }).join('');
+  $('dice').addEventListener('click', function (e) {
+    var s = e.target.getAttribute && e.target.getAttribute('data-die');
+    if (!s) return;
+    $('expr').value = '1d' + s;
+    doRoll('1d' + s);
+  });
+  $('form').addEventListener('submit', function (e) { e.preventDefault(); doRoll($('expr').value); });
+  document.querySelector('.mode').addEventListener('click', function (e) {
+    var m = e.target.getAttribute && e.target.getAttribute('data-mode');
+    if (m) setMode(m);
+  });
+  $('favs').addEventListener('click', function (e) {
+    var favs = store.get('favourites', DEFAULT_FAVS);
+    var i = e.target.getAttribute && e.target.getAttribute('data-fav');
+    var u = e.target.getAttribute && e.target.getAttribute('data-unfav');
+    if (i !== null && i !== undefined && favs[Number(i)]) { $('expr').value = favs[Number(i)].expr; doRoll(favs[Number(i)].expr); }
+    if (u !== null && u !== undefined) { favs.splice(Number(u), 1); store.set('favourites', favs); renderFavs(); }
+  });
+  $('fav-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var expr = $('expr').value.trim();
+    try { parse(expr); } catch (err) { $('error').textContent = err.message; return; }
+    var name = $('fav-name').value.trim() || expr;
+    var favs = store.get('favourites', DEFAULT_FAVS).filter(function (f) { return f.name !== name; });
+    favs.push({ name: name, expr: expr });
+    store.set('favourites', favs.slice(-24));
+    $('fav-name').value = '';
+    renderFavs();
+  });
+  $('clear').addEventListener('click', function () { store.set('history', []); renderHistory(); });
+
+  async function start() {
+    if (window.hillnote) await hillnote.ready();
+    setMode(store.get('mode', 'normal'));
+    $('expr').value = store.get('lastExpr', '1d20+5');
+    renderFavs();
+    renderHistory();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

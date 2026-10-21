@@ -1,0 +1,123 @@
+{
+  "name": "Places",
+  "folderKind": "travel",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Place",
+      "type": "title",
+      "width": 220
+    },
+    {
+      "id": "region",
+      "name": "Region",
+      "type": "select",
+      "options": [
+        "Graywatch Cliffs",
+        "Saltreach",
+        "The Teeth",
+        "Hollowmere"
+      ],
+      "optionColors": {
+        "Graywatch Cliffs": "blue",
+        "Saltreach": "amber",
+        "The Teeth": "purple",
+        "Hollowmere": "emerald"
+      },
+      "width": 160
+    },
+    {
+      "id": "kind",
+      "name": "Type",
+      "type": "select",
+      "options": [
+        "City",
+        "Village",
+        "Tavern",
+        "Temple",
+        "Hideout",
+        "Landmark",
+        "Wilderness",
+        "Dungeon"
+      ],
+      "optionColors": {
+        "City": "blue",
+        "Village": "lime",
+        "Tavern": "orange",
+        "Temple": "cyan",
+        "Hideout": "brown",
+        "Landmark": "purple",
+        "Wilderness": "emerald",
+        "Dungeon": "red"
+      },
+      "width": 130
+    },
+    {
+      "id": "danger",
+      "name": "Danger",
+      "type": "select",
+      "options": [
+        "Safe",
+        "Low",
+        "Moderate",
+        "High",
+        "Deadly"
+      ],
+      "optionColors": {
+        "Safe": "emerald",
+        "Low": "lime",
+        "Moderate": "amber",
+        "High": "orange",
+        "Deadly": "red"
+      },
+      "width": 110
+    },
+    {
+      "id": "visited",
+      "name": "Visited",
+      "type": "checkbox",
+      "width": 90
+    },
+    {
+      "id": "summary",
+      "name": "In a line",
+      "type": "text",
+      "width": 340
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Gallery",
+      "type": "gallery",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "region",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "regions",
+      "name": "By region",
+      "type": "kanban",
+      "groupBy": "region",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "region",
+          "direction": "asc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

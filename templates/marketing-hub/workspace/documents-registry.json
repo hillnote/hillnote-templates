@@ -1,0 +1,128 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "ICP and personas",
+      "path": "documents/Research/ICP and personas.md",
+      "type": "document",
+      "emoji": "🎯",
+      "position": 0
+    },
+    {
+      "name": "Messaging house",
+      "path": "documents/Research/Messaging house.md",
+      "type": "document",
+      "emoji": "🏠",
+      "position": 1
+    },
+    {
+      "name": "Q4 launch brief",
+      "path": "documents/Campaigns/Q4 launch brief.md",
+      "type": "document",
+      "emoji": "🚀",
+      "position": 1
+    },
+    {
+      "name": "Monthly report template",
+      "path": "documents/Reporting/Monthly report template.md",
+      "type": "document",
+      "emoji": "🗒️",
+      "position": 1
+    },
+    {
+      "name": "Campaign recap",
+      "path": "documents/Reporting/Campaign recap.slides.md",
+      "type": "document",
+      "emoji": "📊",
+      "position": 2
+    },
+    {
+      "name": "Campaign brief",
+      "path": "documents/Templates/Campaign brief.md",
+      "type": "document",
+      "emoji": "📄",
+      "position": 0
+    }
+  ],
+  "folders": [
+    {
+      "name": "Research",
+      "path": "documents/Research",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "🔬"
+    },
+    {
+      "name": "Campaigns",
+      "path": "documents/Campaigns",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "📣"
+    },
+    {
+      "name": "Content",
+      "path": "documents/Content",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "✍️"
+    },
+    {
+      "name": "Reporting",
+      "path": "documents/Reporting",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "📈"
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false,
+      "emoji": "📁"
+    },
+    {
+      "name": "Competitors",
+      "path": "documents/Research/Competitors",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "🥊"
+    },
+    {
+      "name": "Campaigns",
+      "path": "documents/Campaigns/Campaigns",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "🗂️"
+    },
+    {
+      "name": "Content calendar",
+      "path": "documents/Content/Content calendar",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "📅"
+    },
+    {
+      "name": "Weekly metrics",
+      "path": "documents/Reporting/Weekly metrics",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "📏"
+    }
+  ]
+}

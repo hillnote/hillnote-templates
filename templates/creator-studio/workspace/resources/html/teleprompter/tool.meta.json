@@ -1,0 +1,11 @@
+{
+  "name": "teleprompter",
+  "description": "Paste a script and read it to camera: adjustable pace, mirror mode, cues and a runtime estimate",
+  "glyph": "🎙️",
+  "sheets": [],
+  "databases": [],
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ]
+}

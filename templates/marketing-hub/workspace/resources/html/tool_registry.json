@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "utm-builder",
+      "description": "Tagged campaign links with consistent naming, filled from a campaign row, with a saved link history",
+      "glyph": "🔗",
+      "color": "marigold",
+      "entryPath": "resources/html/utm-builder/index.html"
+    },
+    {
+      "name": "channel-counter",
+      "description": "Character counts against every channel's limit, with a preview of where the copy gets cut",
+      "glyph": "🔢",
+      "color": "cerulean",
+      "entryPath": "resources/html/channel-counter/index.html"
+    }
+  ]
+}

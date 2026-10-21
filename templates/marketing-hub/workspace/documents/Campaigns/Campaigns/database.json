@@ -1,0 +1,257 @@
+{
+  "name": "Campaigns",
+  "folderKind": "task-database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Campaign",
+      "type": "title",
+      "width": 280
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Planning",
+        "Briefed",
+        "Live",
+        "Wrapping up",
+        "Done"
+      ],
+      "optionColors": {
+        "Planning": "gray",
+        "Briefed": "blue",
+        "Live": "amber",
+        "Wrapping up": "purple",
+        "Done": "emerald"
+      },
+      "optionStates": {
+        "Planning": "normal",
+        "Briefed": "normal",
+        "Live": "normal",
+        "Wrapping up": "normal",
+        "Done": "done"
+      },
+      "defaultValue": "Planning"
+    },
+    {
+      "id": "program",
+      "name": "Program",
+      "type": "select",
+      "options": [
+        "Q4 launch",
+        "Always-on"
+      ],
+      "optionColors": {
+        "Q4 launch": "orange",
+        "Always-on": "gray"
+      }
+    },
+    {
+      "id": "goal",
+      "name": "Goal",
+      "type": "select",
+      "options": [
+        "Awareness",
+        "Trials",
+        "Pipeline",
+        "Activation",
+        "Win-back"
+      ],
+      "optionColors": {
+        "Awareness": "purple",
+        "Trials": "blue",
+        "Pipeline": "teal",
+        "Activation": "lime",
+        "Win-back": "rose"
+      }
+    },
+    {
+      "id": "lead_channel",
+      "name": "Lead channel",
+      "type": "select",
+      "options": [
+        "Paid social",
+        "Search",
+        "Email",
+        "Content",
+        "Events",
+        "Partners",
+        "Community"
+      ],
+      "optionColors": {
+        "Paid social": "pink",
+        "Search": "orange",
+        "Email": "cyan",
+        "Content": "emerald",
+        "Events": "purple",
+        "Partners": "brown",
+        "Community": "amber"
+      }
+    },
+    {
+      "id": "channels",
+      "name": "Channels",
+      "type": "multiselect",
+      "options": [
+        "LinkedIn",
+        "Google Ads",
+        "Email",
+        "Blog",
+        "Webinar",
+        "Partners",
+        "Product Hunt",
+        "X",
+        "YouTube"
+      ],
+      "optionColors": {
+        "LinkedIn": "blue",
+        "Google Ads": "orange",
+        "Email": "cyan",
+        "Blog": "emerald",
+        "Webinar": "purple",
+        "Partners": "brown",
+        "Product Hunt": "rose",
+        "X": "darkGray",
+        "YouTube": "red"
+      },
+      "width": 220
+    },
+    {
+      "id": "owner",
+      "name": "Owner",
+      "type": "select",
+      "options": [
+        "Dana",
+        "Leo",
+        "Priya",
+        "Marcus"
+      ],
+      "optionColors": {
+        "Dana": "purple",
+        "Leo": "teal",
+        "Priya": "pink",
+        "Marcus": "blue"
+      }
+    },
+    {
+      "id": "budget",
+      "name": "Budget",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "spend",
+      "name": "Spend",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "pacing",
+      "name": "Pacing %",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF({Budget} > 0, ROUND({Spend} / {Budget} * 100, 0), 0)",
+      "resultType": "number",
+      "width": 100
+    },
+    {
+      "id": "trials",
+      "name": "Trials",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "cost_per_trial",
+      "name": "Cost per trial",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF({Trials} > 0, ROUND({Spend} / {Trials}, 0))",
+      "resultType": "number",
+      "width": 120
+    },
+    {
+      "id": "utm_campaign",
+      "name": "UTM campaign",
+      "type": "text",
+      "width": 160
+    },
+    {
+      "id": "start",
+      "name": "Start",
+      "type": "date",
+      "dateRole": "start"
+    },
+    {
+      "id": "end",
+      "name": "End",
+      "type": "date",
+      "dateRole": "end"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Timeline",
+      "type": "gantt",
+      "ganttZoom": "week",
+      "colorByColumn": "lead_channel",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "start",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "board",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "start",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "name": "Budget by channel",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "lead_channel",
+      "valueColumn": "budget",
+      "aggregation": "sum",
+      "splitColumn": "program",
+      "sortBy": "value",
+      "sortDir": "desc",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "All campaigns",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "start",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "utm",
+      "name": "UTM links",
+      "type": "tool",
+      "toolPath": "resources/html/utm-builder/index.html",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

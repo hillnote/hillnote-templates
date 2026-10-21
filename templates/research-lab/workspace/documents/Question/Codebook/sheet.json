@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "name": "Codebook",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Code",
+      "type": "title",
+      "width": 170
+    },
+    {
+      "id": "theme",
+      "name": "Theme",
+      "type": "select",
+      "options": [
+        "Connection",
+        "Restoration",
+        "Health and diet",
+        "Access and exclusion",
+        "Change"
+      ],
+      "optionColors": {
+        "Connection": "blue",
+        "Restoration": "teal",
+        "Health and diet": "lime",
+        "Access and exclusion": "orange",
+        "Change": "purple"
+      },
+      "width": 170
+    },
+    {
+      "id": "definition",
+      "name": "Definition",
+      "type": "text",
+      "width": 320
+    },
+    {
+      "id": "include_when",
+      "name": "Include when",
+      "type": "text",
+      "width": 260
+    },
+    {
+      "id": "exclude_when",
+      "name": "Exclude when",
+      "type": "text",
+      "width": 260
+    },
+    {
+      "id": "example",
+      "name": "Example",
+      "type": "text",
+      "width": 300
+    },
+    {
+      "id": "segments",
+      "name": "Segments",
+      "type": "number",
+      "width": 100
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Codebook",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "theme",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "by_theme",
+      "name": "Segments by theme",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "theme",
+      "valueColumn": "segments",
+      "aggregation": "sum",
+      "sortBy": "value",
+      "sortDir": "desc",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

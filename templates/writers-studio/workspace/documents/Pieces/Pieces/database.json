@@ -1,0 +1,163 @@
+{
+  "name": "Pieces",
+  "folderKind": "blog-database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Piece",
+      "type": "title",
+      "width": 280
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Idea",
+        "Outline",
+        "Drafting",
+        "Editing",
+        "Ready",
+        "Published"
+      ],
+      "optionColors": {
+        "Idea": "gray",
+        "Outline": "blue",
+        "Drafting": "amber",
+        "Editing": "purple",
+        "Ready": "teal",
+        "Published": "emerald"
+      },
+      "optionStates": {
+        "Idea": "normal",
+        "Outline": "normal",
+        "Drafting": "normal",
+        "Editing": "normal",
+        "Ready": "normal",
+        "Published": "done"
+      },
+      "defaultValue": "Idea"
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "type": "select",
+      "options": [
+        "Newsletter",
+        "Book chapter",
+        "Guest essay"
+      ],
+      "optionColors": {
+        "Newsletter": "rose",
+        "Book chapter": "brown",
+        "Guest essay": "cyan"
+      }
+    },
+    {
+      "id": "target_words",
+      "name": "Target words",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "current_words",
+      "name": "Current words",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "progress",
+      "name": "Progress %",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF({Target words} > 0, MIN(100, ROUND({Current words} / {Target words} * 100, 0)), 0)",
+      "resultType": "number",
+      "width": 110
+    },
+    {
+      "id": "publish_date",
+      "name": "Publish date",
+      "type": "date"
+    },
+    {
+      "id": "tags",
+      "name": "Tags",
+      "type": "multiselect",
+      "options": [
+        "Repair",
+        "Craft",
+        "Attention",
+        "Memory",
+        "Money",
+        "Place"
+      ],
+      "optionColors": {
+        "Repair": "teal",
+        "Craft": "amber",
+        "Attention": "blue",
+        "Memory": "pink",
+        "Money": "lime",
+        "Place": "orange"
+      },
+      "width": 200
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Pipeline",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "publish_date",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "calendar",
+      "name": "Calendar",
+      "type": "calendar",
+      "dateColumn": "publish_date",
+      "colorByColumn": "type",
+      "calendarViewMode": "dayGridMonth",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "publish_date",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "sprint",
+      "name": "Sprint",
+      "type": "tool",
+      "toolPath": "resources/html/word-sprint/index.html",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "words",
+      "name": "Words by type",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "type",
+      "valueColumn": "current_words",
+      "aggregation": "sum",
+      "splitColumn": "status",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

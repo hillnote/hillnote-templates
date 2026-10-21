@@ -1,0 +1,33 @@
+{
+  "formatVersion": 1,
+  "id": "engineering-hub",
+  "version": "1.0.0",
+  "name": "Engineering Hub",
+  "tagline": "Specs, RFCs, ADRs, a sprint board and runbooks as plain files, right beside your code and your coding agent.",
+  "description": "An engineering team's workspace, shown through a worked example: Atlas API, the public geocoding and places API of a fictional company, run by a six-person platform team in the middle of a sprint. They are shipping rate limiting and recovering from a latency incident, so every page and view already has something real in it.\n\nSpecs come first: an architecture overview with diagrams and SLOs, an RFC for rate limiting and a glossary whose terms other pages link to directly. A Tickets database runs the sprint as a board, a current-sprint list, a bug queue and a points chart, and an ADR log records why things are the way they are. Runbooks cover deploys, incident response, on-call and the changelog, with a filled-in blameless postmortem and blank templates for design docs, ADRs and postmortems.\n\nThree AI recipes write the daily standup, draft ADRs and turn an incident timeline into a postmortem. Two tools come with it: a changelog drafter that turns done tickets into release notes, and an incident log that keeps a timestamped timeline while you fight the fire. Point Claude Code or Cursor at the folder and they read the same specs you do.",
+  "setups": [
+    "code"
+  ],
+  "tags": [
+    "engineering",
+    "specs",
+    "adr",
+    "rfc",
+    "sprints",
+    "runbooks",
+    "incidents",
+    "changelog"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Engineering team workspace: architecture overview, RFCs and a linked glossary, a sprint ticket board with a changelog view, an ADR log, deploy and incident runbooks, a sample postmortem and design-doc templates.",
+  "color": "indigo",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

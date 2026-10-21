@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#8A2BE2;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#8A2BE2;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Type scale</title>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .steps { display: flex; flex-direction: column; margin-top: 4px; }
+  .step { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step.base { background: color-mix(in srgb, var(--primary) 7%, transparent); border-radius: calc(var(--radius) - 2px); padding-inline: 8px; margin-inline: -8px; }
+  .meta { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+  .meta code { font-size: 11px; color: var(--foreground); }
+  .sample { line-height: 1.2; overflow-wrap: anywhere; color: var(--foreground); }
+  .role { font-size: 11px; }
+  .warn { margin-top: 10px; }
+  textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; min-height: 180px; }
+  .copy-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+  .status { font-size: 12px; color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Type scale</strong>
+  <span class="muted" id="summary"></span>
+</div>
+
+<section class="card" aria-label="Scale settings">
+  <div class="grid">
+    <div class="field"><label for="base">Base size (px)</label><input id="base" type="number" min="8" max="32" step="0.5"></div>
+    <div class="field"><label for="ratio">Ratio</label>
+      <select id="ratio">
+        <option value="1.067">1.067 · Minor second</option>
+        <option value="1.125">1.125 · Major second</option>
+        <option value="1.2">1.2 · Minor third</option>
+        <option value="1.25">1.25 · Major third</option>
+        <option value="1.333">1.333 · Perfect fourth</option>
+        <option value="1.414">1.414 · Augmented fourth</option>
+        <option value="1.5">1.5 · Perfect fifth</option>
+        <option value="1.618">1.618 · Golden ratio</option>
+      </select>
+    </div>
+    <div class="field"><label for="up">Steps up</label><input id="up" type="number" min="1" max="8" step="1"></div>
+    <div class="field"><label for="down">Steps down</label><input id="down" type="number" min="0" max="4" step="1"></div>
+    <div class="field"><label for="unit">CSS unit</label>
+      <select id="unit"><option value="rem">rem (16 px root)</option><option value="px">px</option></select>
+    </div>
+    <div class="field"><label for="text">Sample text</label><input id="text" type="text" maxlength="80"></div>
+  </div>
+</section>
+
+<section class="card" style="margin-top: 14px" aria-labelledby="preview-heading">
+  <h3 id="preview-heading">Preview</h3>
+  <div class="steps" id="steps"></div>
+  <div id="warn"></div>
+</section>
+
+<section class="card" style="margin-top: 14px" aria-labelledby="css-heading">
+  <h3 id="css-heading">CSS variables</h3>
+  <textarea id="css" readonly aria-label="CSS custom properties for this scale"></textarea>
+  <div class="copy-row">
+    <button class="btn-primary" id="copy" type="button">Copy CSS</button>
+    <span class="status" id="status" role="status"></span>
+  </div>
+</section>
+
+<script>
+(function () {
+  var DEFAULTS = { base: 16, ratio: '1.25', up: 5, down: 2, unit: 'rem', text: 'Monstera deliciosa' };
+  var ROLES = { 4: 'Display', 3: 'Title 1', 2: 'Title 2', 1: 'Headline', 0: 'Body', '-1': 'Caption' };
+  var RATIO_NAMES = { '1.067': 'minor second', '1.125': 'major second', '1.2': 'minor third', '1.25': 'major third', '1.333': 'perfect fourth', '1.414': 'augmented fourth', '1.5': 'perfect fifth', '1.618': 'golden ratio' };
+  var FIELDS = ['base', 'ratio', 'up', 'down', 'unit', 'text'];
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var clamp = function (n, lo, hi, d) { n = Number(n); return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : d; };
+
+  function read() {
+    return {
+      base: clamp($('base').value, 8, 32, DEFAULTS.base),
+      ratio: RATIO_NAMES[$('ratio').value] ? $('ratio').value : DEFAULTS.ratio,
+      up: Math.round(clamp($('up').value, 1, 8, DEFAULTS.up)),
+      down: Math.round(clamp($('down').value, 0, 4, DEFAULTS.down)),
+      unit: $('unit').value === 'px' ? 'px' : 'rem',
+      text: $('text').value.trim() || DEFAULTS.text
+    };
+  }
+  function write(v) { FIELDS.forEach(function (f) { $(f).value = v[f] != null ? v[f] : DEFAULTS[f]; }); }
+
+  function scale(v) {
+    var out = [];
+    for (var i = v.up; i >= -v.down; i--) out.push({ step: i, px: v.base * Math.pow(Number(v.ratio), i) });
+    return out;
+  }
+  var trim = function (n, places) { return String(Number(n.toFixed(places))); };
+  var varName = function (step) { return '--step-' + step; };
+
+  function css(v, steps) {
+    var lines = steps.map(function (s) {
+      var value = v.unit === 'px' ? trim(s.px, 2) + 'px' : trim(s.px / 16, 3) + 'rem';
+      var note = v.unit === 'px' ? '' : ' /* ' + trim(s.px, 2) + 'px */';
+      return '  ' + varName(s.step) + ': ' + value + ';' + note;
+    });
+    return '/* Base ' + trim(v.base, 2) + 'px × ' + v.ratio + ' (' + RATIO_NAMES[v.ratio] + ') */\n:root {\n' + lines.join('\n') + '\n}\n';
+  }
+
+  function render() {
+    var v = read();
+    var steps = scale(v);
+    $('summary').textContent = trim(v.base, 2) + ' px × ' + v.ratio + ', ' + steps.length + ' steps';
+    $('steps').innerHTML = steps.map(function (s) {
+      var role = ROLES[s.step];
+      return '<div class="step' + (s.step === 0 ? ' base' : '') + '">' +
+        '<div class="meta"><code>' + esc(varName(s.step)) + '</code><span>' + trim(s.px, 2) + ' px</span>' +
+        (role ? '<span class="role">' + esc(role) + '</span>' : '') + '</div>' +
+        '<div class="sample" style="font-size:' + s.px.toFixed(2) + 'px">' + esc(v.text) + '</div></div>';
+    }).join('');
+    var tooSmall = steps.filter(function (s) { return s.px < 12; });
+    $('warn').innerHTML = tooSmall.length
+      ? '<p class="warn"><span class="badge badge-warning">' + tooSmall.length + (tooSmall.length === 1 ? ' step is' : ' steps are') + ' below 12 px</span> <span class="muted">Too small for captions or anything people need to read.</span></p>'
+      : '';
+    $('css').value = css(v, steps);
+    store.set('config', v);
+  }
+
+  function copyText(text) {
+    var done = function (ok) {
+      $('status').textContent = ok ? 'Copied' : 'Select the text above and copy it';
+      setTimeout(function () { $('status').textContent = ''; }, 2600);
+    };
+    var fallback = function () {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (!ok) { $('css').focus(); $('css').select(); }
+      done(ok);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
+        return;
+      }
+    } catch (e) { /* fall through */ }
+    fallback();
+  }
+
+  FIELDS.forEach(function (f) { $(f).addEventListener('input', render); $(f).addEventListener('change', render); });
+  $('copy').addEventListener('click', function () { copyText($('css').value); });
+
+  async function start() {
+    if (window.hillnote) await hillnote.ready();
+    var saved = store.get('config', null);
+    write(Object.assign({}, DEFAULTS, saved && typeof saved === 'object' ? saved : {}));
+    render();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

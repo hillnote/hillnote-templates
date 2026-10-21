@@ -1,0 +1,16 @@
+{
+  "name": "initiative-tracker",
+  "description": "Turn order, hit points, conditions and rounds for a fight, with monsters from the bestiary",
+  "glyph": "⚔️",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Monsters",
+      "path": "Bestiary and Loot/Monsters"
+    }
+  ]
+}

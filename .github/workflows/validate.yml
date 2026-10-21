@@ -1,0 +1,38 @@
+name: Validate templates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions are pinned by commit. Credentials are never written into
+      # .git/config: every step below reads contributor-supplied files.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      # The policy against hostile names, deterministic zips, the strict zip reader.
+      - run: npm test
+      # On a pull request validate also checks the diff: registry.json is built
+      # by the release workflow, never edited in a PR.
+      - name: Validate (pull request)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: node scripts/validate.mjs --base "origin/$BASE_REF"
+      - name: Validate
+        if: github.event_name != 'pull_request'
+        run: node scripts/validate.mjs
+      # Every template must build (plugin pins downloaded and verified).
+      - run: node scripts/build.mjs --check

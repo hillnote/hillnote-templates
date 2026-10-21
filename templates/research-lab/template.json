@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "id": "research-lab",
+  "version": "1.0.0",
+  "name": "Research Lab",
+  "tagline": "Sources, claims and themes in one linked workspace, from research question to literature review draft.",
+  "description": "A workspace for a research project, from the first question to the first draft. It comes with a worked example: a fictional study of urban community gardens and neighbourhood wellbeing, with every source clearly labelled as an invented sample. The question, scope and search log sit at the top. Every source you find becomes one row in a Sources database, with reading notes, topics, a reading status and a ready-made citation.\n\nFindings are broken into single claims in a Claims and evidence database. Each claim links to its source and is marked as supporting or contradicting the working hypothesis. A synthesis matrix, a themes-and-gaps page, a concept map board and a literature review draft turn those claims into an argument. An interview guide, a codebook sheet and a filled-in interview note cover the qualitative side.\n\nThree AI recipes synthesize themes, critique a source and find the gaps in your evidence. Two tools come with it: a citation formatter that turns any source row into APA 7, MLA 9, Chicago and BibTeX, and a sample size calculator for surveys.",
+  "setups": [
+    "research"
+  ],
+  "tags": [
+    "research",
+    "literature review",
+    "citations",
+    "synthesis",
+    "interviews",
+    "thesis",
+    "academic"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Research workspace: question and scope, a search log, a Sources database with reading notes and citations, a Claims and evidence database, a codebook, themes and gaps, a concept map and a literature review draft.",
+  "color": "teal",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

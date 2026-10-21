@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "changelog-drafter",
+      "description": "Turns done tickets into changelog markdown, grouped by type with PR numbers",
+      "glyph": "📣",
+      "color": "indigo",
+      "entryPath": "resources/html/changelog-drafter/index.html"
+    },
+    {
+      "name": "incident-log",
+      "description": "A timestamped incident timeline to copy into the postmortem",
+      "glyph": "🚨",
+      "color": "crimson",
+      "entryPath": "resources/html/incident-log/index.html"
+    }
+  ]
+}

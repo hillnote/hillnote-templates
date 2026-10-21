@@ -1,0 +1,17 @@
+{
+  "name": "priority-matrix",
+  "description": "Expected impact against effort for the roadmap; move initiatives between Now, Next and Later",
+  "glyph": "🎯",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Roadmap",
+      "path": "Planning/Roadmap",
+      "primary": true
+    }
+  ]
+}

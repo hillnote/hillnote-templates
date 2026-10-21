@@ -1,0 +1,161 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Architecture overview",
+      "path": "documents/Specs/Architecture overview.md",
+      "type": "document",
+      "emoji": "🏗️",
+      "position": 0
+    },
+    {
+      "name": "RFC-001 Rate limiting",
+      "path": "documents/Specs/RFC-001 Rate limiting.md",
+      "type": "document",
+      "emoji": "📐",
+      "position": 1
+    },
+    {
+      "name": "Glossary",
+      "path": "documents/Specs/Glossary.md",
+      "type": "document",
+      "emoji": "📖",
+      "position": 2
+    },
+    {
+      "name": "Sprint plan",
+      "path": "documents/Work/Sprint plan.md",
+      "type": "document",
+      "emoji": "🗓️",
+      "position": 1
+    },
+    {
+      "name": "Sprint review",
+      "path": "documents/Work/Sprint review.slides.md",
+      "type": "document",
+      "emoji": "🎤",
+      "position": 2
+    },
+    {
+      "name": "Deploy",
+      "path": "documents/Runbooks/Deploy.md",
+      "type": "document",
+      "emoji": "🚢",
+      "position": 0
+    },
+    {
+      "name": "Incident response",
+      "path": "documents/Runbooks/Incident response.md",
+      "type": "document",
+      "emoji": "🚨",
+      "position": 1
+    },
+    {
+      "name": "On-call",
+      "path": "documents/Runbooks/On-call.md",
+      "type": "document",
+      "emoji": "📟",
+      "position": 2
+    },
+    {
+      "name": "Changelog",
+      "path": "documents/Runbooks/Changelog.md",
+      "type": "document",
+      "emoji": "📣",
+      "position": 3
+    },
+    {
+      "name": "Postmortem - Places search latency",
+      "path": "documents/Runbooks/Postmortem - Places search latency.md",
+      "type": "document",
+      "emoji": "🔍",
+      "position": 4
+    },
+    {
+      "name": "Design doc template",
+      "path": "documents/Templates/Design doc template.md",
+      "type": "document",
+      "emoji": "📝",
+      "position": 0
+    },
+    {
+      "name": "ADR template",
+      "path": "documents/Templates/ADR template.md",
+      "type": "document",
+      "emoji": "⚖️",
+      "position": 1
+    },
+    {
+      "name": "Postmortem template",
+      "path": "documents/Templates/Postmortem template.md",
+      "type": "document",
+      "emoji": "🩹",
+      "position": 2
+    }
+  ],
+  "folders": [
+    {
+      "name": "Specs",
+      "path": "documents/Specs",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "📐"
+    },
+    {
+      "name": "Work",
+      "path": "documents/Work",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "🛠️"
+    },
+    {
+      "name": "Decisions",
+      "path": "documents/Decisions",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "⚖️"
+    },
+    {
+      "name": "Runbooks",
+      "path": "documents/Runbooks",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "🧯"
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false,
+      "emoji": "🗂️"
+    },
+    {
+      "name": "Tickets",
+      "path": "documents/Work/Tickets",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "🎫"
+    },
+    {
+      "name": "ADRs",
+      "path": "documents/Decisions/ADRs",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "🧭"
+    }
+  ]
+}

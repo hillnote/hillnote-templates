@@ -1,0 +1,141 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Script template",
+      "path": "documents/Scripts/Script template.md",
+      "type": "document",
+      "emoji": "📋",
+      "position": 0
+    },
+    {
+      "name": "Script - Salt and boiling water",
+      "path": "documents/Scripts/Script - Salt and boiling water.md",
+      "type": "document",
+      "emoji": "🧂",
+      "position": 1
+    },
+    {
+      "name": "Script - Why cookies spread",
+      "path": "documents/Scripts/Script - Why cookies spread.md",
+      "type": "document",
+      "emoji": "🍪",
+      "position": 2
+    },
+    {
+      "name": "Channel strategy",
+      "path": "documents/Brand/Channel strategy.md",
+      "type": "document",
+      "emoji": "🧭",
+      "position": 0
+    },
+    {
+      "name": "Brand and thumbnails",
+      "path": "documents/Brand/Brand and thumbnails.moodboard.md",
+      "type": "document",
+      "emoji": "🎨",
+      "position": 1
+    },
+    {
+      "name": "Media kit",
+      "path": "documents/Brand/Media kit.slides.md",
+      "type": "document",
+      "emoji": "📣",
+      "position": 2
+    },
+    {
+      "name": "Short script",
+      "path": "documents/Templates/Short script.md",
+      "type": "document",
+      "emoji": "⚡",
+      "position": 0
+    },
+    {
+      "name": "Newsletter issue",
+      "path": "documents/Templates/Newsletter issue.md",
+      "type": "document",
+      "emoji": "📨",
+      "position": 1
+    },
+    {
+      "name": "Sponsor brief",
+      "path": "documents/Templates/Sponsor brief.md",
+      "type": "document",
+      "emoji": "🤝",
+      "position": 2
+    }
+  ],
+  "folders": [
+    {
+      "name": "Ideas",
+      "path": "documents/Ideas",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "💡"
+    },
+    {
+      "name": "Production",
+      "path": "documents/Production",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "🎬"
+    },
+    {
+      "name": "Scripts",
+      "path": "documents/Scripts",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "📝"
+    },
+    {
+      "name": "Brand",
+      "path": "documents/Brand",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "✨"
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false,
+      "emoji": "📄"
+    },
+    {
+      "name": "Idea bank",
+      "path": "documents/Ideas/Idea bank",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "🗃️"
+    },
+    {
+      "name": "Content calendar",
+      "path": "documents/Production/Content calendar",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "📅"
+    },
+    {
+      "name": "Sponsors",
+      "path": "documents/Brand/Sponsors",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "💰"
+    }
+  ]
+}

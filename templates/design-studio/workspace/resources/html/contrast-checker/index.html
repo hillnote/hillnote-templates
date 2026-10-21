@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#4B0082;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#4B0082;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contrast checker</title>
+<style>
+  .inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+  .color-input { display: flex; gap: 6px; align-items: center; }
+  .color-input input[type=color] { flex: none; }
+  .color-input input[type=text] { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+  .error { color: var(--destructive); font-size: 12px; min-height: 16px; margin: 4px 0 0; }
+  .ratio { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin: 12px 0 0; }
+  .ratio strong { font-size: 30px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+  .preview { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-top: 12px; }
+  .preview .big { font-size: 24px; font-weight: 600; line-height: 1.2; margin: 0 0 6px; }
+  .preview .small { font-size: 14px; margin: 0; }
+  .preview .ui { display: inline-block; margin-top: 10px; padding: 5px 12px; border: 2px solid currentColor; border-radius: 6px; font-size: 13px; font-weight: 600; }
+  .checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 6px; margin-top: 12px; }
+  .check { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid var(--border); border-radius: calc(var(--radius) - 2px); font-size: 12px; }
+  .check small { display: block; color: var(--muted-foreground); font-size: 11px; }
+  .suggest { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 12px; font-size: 13px; }
+  .chip { width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--border); flex: none; }
+  .sample { width: 40px; height: 26px; border-radius: 6px; border: 1px solid var(--border); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex: none; }
+  .pairs .list-item { gap: 10px; }
+  .pair-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Contrast checker</strong>
+  <span class="muted">WCAG 2.x</span>
+  <button class="btn-sm btn-ghost" id="swap" type="button" style="margin-inline-start: auto">Swap colours</button>
+</div>
+
+<section class="card" aria-labelledby="pair-heading">
+  <h3 id="pair-heading" hidden>Colour pair</h3>
+  <div class="inputs">
+    <div class="field">
+      <label for="fgHex">Text colour</label>
+      <div class="color-input">
+        <input id="fgPick" type="color" aria-label="Pick the text colour">
+        <input id="fgHex" type="text" spellcheck="false" autocomplete="off" maxlength="7">
+      </div>
+    </div>
+    <div class="field">
+      <label for="bgHex">Background colour</label>
+      <div class="color-input">
+        <input id="bgPick" type="color" aria-label="Pick the background colour">
+        <input id="bgHex" type="text" spellcheck="false" autocomplete="off" maxlength="7">
+      </div>
+    </div>
+  </div>
+  <p class="error" id="error" role="alert"></p>
+
+  <div class="ratio">
+    <strong id="ratio"></strong>
+    <span id="verdict" class="badge"></span>
+  </div>
+
+  <div class="preview" id="preview">
+    <p class="big">Monstera deliciosa</p>
+    <p class="small">Water every 7 days. Likes bright, indirect light.</p>
+    <span class="ui">Add a plant</span>
+  </div>
+
+  <div class="checks" id="checks"></div>
+  <div class="suggest" id="suggest"></div>
+</section>
+
+<section class="card pairs" style="margin-top: 14px" aria-labelledby="saved-heading">
+  <h3 id="saved-heading">Saved pairs</h3>
+  <div class="row">
+    <input id="name" type="text" placeholder="Name this pair, e.g. Fern on Paper">
+    <button class="btn-primary" id="save" type="button">Save</button>
+  </div>
+  <p class="hint">Saved with this workspace. Load a pair to check it again after a token changes.</p>
+  <div class="list" id="list"></div>
+</section>
+
+<script>
+(function () {
+  var DEFAULT_PAIRS = [
+    { name: 'Ink on Paper', fg: '#1E2B24', bg: '#FBF8F2' },
+    { name: 'Fern on Paper', fg: '#2F6B4F', bg: '#FBF8F2' },
+    { name: 'Terracotta on Paper', fg: '#A9502B', bg: '#FBF8F2' },
+    { name: 'White on Fern (button)', fg: '#FFFFFF', bg: '#2F6B4F' },
+    { name: 'Fern on dark Surface', fg: '#7FC49F', bg: '#1B231F' },
+    { name: 'Old v2 green on white', fg: '#5DA271', bg: '#FFFFFF' }
+  ];
+  var CHECKS = [
+    { label: 'AA normal text', note: 'Body and captions', min: 4.5 },
+    { label: 'AA large text', note: '24 px, or 18.7 px bold', min: 3 },
+    { label: 'AAA normal text', note: 'Enhanced', min: 7 },
+    { label: 'AAA large text', note: 'Enhanced, large', min: 4.5 },
+    { label: 'UI components', note: 'Borders, icons, focus rings', min: 3 }
+  ];
+  var MAX_PAIRS = 24;
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var state = { fg: DEFAULT_PAIRS[1].fg, bg: DEFAULT_PAIRS[1].bg };
+
+  function parseHex(input) {
+    var s = String(input || '').trim().replace(/^#/, '');
+    if (/^[0-9a-f]{3}$/i.test(s)) s = s.split('').map(function (c) { return c + c; }).join('');
+    if (!/^[0-9a-f]{6}$/i.test(s)) return null;
+    return '#' + s.toUpperCase();
+  }
+  function rgb(hex) { return [1, 3, 5].map(function (i) { return parseInt(hex.slice(i, i + 2), 16); }); }
+  function toHex(r, g, b) {
+    return '#' + [r, g, b].map(function (v) { var h = Math.round(Math.max(0, Math.min(255, v))).toString(16); return h.length === 1 ? '0' + h : h; }).join('').toUpperCase();
+  }
+  function luminance(hex) {
+    var c = rgb(hex).map(function (v) { v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  function contrast(a, b) {
+    var la = luminance(a), lb = luminance(b);
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+  }
+  function fmt(r) { return (Math.floor(r * 100) / 100).toFixed(2) + ':1'; }
+
+  function toHsl(hex) {
+    var c = rgb(hex).map(function (v) { return v / 255; });
+    var max = Math.max.apply(null, c), min = Math.min.apply(null, c);
+    var h = 0, s = 0, l = (max + min) / 2, d = max - min;
+    if (d) {
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      if (max === c[0]) h = (c[1] - c[2]) / d + (c[1] < c[2] ? 6 : 0);
+      else if (max === c[1]) h = (c[2] - c[0]) / d + 2;
+      else h = (c[0] - c[1]) / d + 4;
+      h /= 6;
+    }
+    return [h, s, l];
+  }
+  function fromHsl(h, s, l) {
+    if (!s) return toHex(l * 255, l * 255, l * 255);
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s, p = 2 * l - q;
+    var f = function (t) {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+    return toHex(f(h + 1 / 3) * 255, f(h) * 255, f(h - 1 / 3) * 255);
+  }
+  // The closest text colour (same hue and saturation, lightness moved the
+  // least) that reaches `target` against the background, or null.
+  function nearestPassing(fg, bg, target) {
+    var hsl = toHsl(fg), best = null;
+    [-1, 1].forEach(function (dir) {
+      for (var step = 1; step <= 200; step++) {
+        var l = hsl[2] + dir * step * 0.005;
+        if (l < 0 || l > 1) break;
+        var hex = fromHsl(hsl[0], hsl[1], l);
+        if (contrast(hex, bg) >= target) {
+          if (!best || step < best.step) best = { hex: hex, step: step };
+          break;
+        }
+      }
+    });
+    return best ? best.hex : null;
+  }
+
+  function render() {
+    var r = contrast(state.fg, state.bg);
+    $('fgHex').value = state.fg; $('bgHex').value = state.bg;
+    $('fgPick').value = state.fg.toLowerCase(); $('bgPick').value = state.bg.toLowerCase();
+    $('ratio').textContent = fmt(r);
+    var level = r >= 7 ? ['AAA', 'badge-success'] : r >= 4.5 ? ['AA', 'badge-success'] : r >= 3 ? ['Large text only', 'badge-warning'] : ['Fails', 'badge-danger'];
+    $('verdict').className = 'badge ' + level[1];
+    $('verdict').textContent = level[0];
+    $('preview').style.color = state.fg;
+    $('preview').style.background = state.bg;
+    $('checks').innerHTML = CHECKS.map(function (c) {
+      var ok = r >= c.min;
+      return '<div class="check"><span>' + esc(c.label) + '<small>' + esc(c.note) + ' · ' + c.min + ':1</small></span>' +
+        '<span class="badge ' + (ok ? 'badge-success' : 'badge-danger') + '">' + (ok ? 'Pass' : 'Fail') + '</span></div>';
+    }).join('');
+    renderSuggestion(r);
+    store.set('last', { fg: state.fg, bg: state.bg });
+  }
+
+  function renderSuggestion(r) {
+    var target = r < 4.5 ? 4.5 : r < 7 ? 7 : null;
+    if (!target) { $('suggest').innerHTML = '<span class="badge badge-success">Passes every level</span>'; return; }
+    var hex = nearestPassing(state.fg, state.bg, target);
+    if (!hex) { $('suggest').innerHTML = '<span class="muted">No text colour of this hue reaches ' + target + ':1 here. Change the background.</span>'; return; }
+    $('suggest').innerHTML = '<span class="chip" style="background:' + hex + '"></span>' +
+      '<span>Nearest text colour for ' + (target === 4.5 ? 'AA' : 'AAA') + ': <code>' + hex + '</code> (' + fmt(contrast(hex, state.bg)) + ')</span>' +
+      '<button class="btn-sm" type="button" data-use="' + hex + '">Use it</button>';
+  }
+
+  function renderList() {
+    var list = store.get('pairs', null) || DEFAULT_PAIRS;
+    if (!list.length) {
+      $('list').innerHTML = '<div class="empty-state">No saved pairs yet.<br><span style="font-size:12px">Name the pair above and press Save.</span></div>';
+      return;
+    }
+    $('list').innerHTML = list.map(function (p, i) {
+      var r = contrast(p.fg, p.bg);
+      var cls = r >= 4.5 ? 'badge-success' : r >= 3 ? 'badge-warning' : 'badge-danger';
+      return '<div class="list-item"><span class="sample" style="color:' + esc(p.fg) + ';background:' + esc(p.bg) + '">Aa</span>' +
+        '<span class="pair-name">' + esc(p.name) + '</span><span class="badge ' + cls + '">' + fmt(r) + '</span>' +
+        '<button class="btn-sm" type="button" data-load="' + i + '">Load</button>' +
+        '<button class="btn-sm btn-ghost" type="button" data-delete="' + i + '" aria-label="Delete ' + esc(p.name) + '">Delete</button></div>';
+    }).join('');
+  }
+
+  function setFromText(which) {
+    var hex = parseHex($(which + 'Hex').value);
+    if (!hex) { $('error').textContent = 'Use a hex colour like #2F6B4F or #FFF.'; return; }
+    $('error').textContent = '';
+    state[which] = hex;
+    render();
+  }
+
+  $('fgHex').addEventListener('input', function () { setFromText('fg'); });
+  $('bgHex').addEventListener('input', function () { setFromText('bg'); });
+  $('fgPick').addEventListener('input', function () { state.fg = parseHex(this.value) || state.fg; $('error').textContent = ''; render(); });
+  $('bgPick').addEventListener('input', function () { state.bg = parseHex(this.value) || state.bg; $('error').textContent = ''; render(); });
+  $('swap').addEventListener('click', function () { var f = state.fg; state.fg = state.bg; state.bg = f; render(); });
+  $('suggest').addEventListener('click', function (e) {
+    var hex = e.target && e.target.getAttribute ? e.target.getAttribute('data-use') : null;
+    if (hex) { state.fg = hex; render(); }
+  });
+  $('save').addEventListener('click', function () {
+    var list = (store.get('pairs', null) || DEFAULT_PAIRS).slice();
+    var name = $('name').value.trim() || 'Pair ' + (list.length + 1);
+    list = list.filter(function (p) { return p.name !== name; });
+    list.unshift({ name: name, fg: state.fg, bg: state.bg });
+    store.set('pairs', list.slice(0, MAX_PAIRS));
+    $('name').value = '';
+    renderList();
+  });
+  $('list').addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.hasAttribute) return;
+    var list = (store.get('pairs', null) || DEFAULT_PAIRS).slice();
+    if (t.hasAttribute('data-load')) {
+      var p = list[Number(t.getAttribute('data-load'))];
+      if (p) { state.fg = parseHex(p.fg) || state.fg; state.bg = parseHex(p.bg) || state.bg; $('error').textContent = ''; render(); }
+    }
+    if (t.hasAttribute('data-delete')) {
+      list.splice(Number(t.getAttribute('data-delete')), 1);
+      store.set('pairs', list);
+      renderList();
+    }
+  });
+
+  async function start() {
+    if (window.hillnote) await hillnote.ready();
+    var last = store.get('last', null);
+    if (last && parseHex(last.fg) && parseHex(last.bg)) { state.fg = parseHex(last.fg); state.bg = parseHex(last.bg); }
+    render();
+    renderList();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

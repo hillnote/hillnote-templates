@@ -1,0 +1,11 @@
+{
+  "name": "type-scale",
+  "description": "A modular type scale from a base size and ratio, with a preview and copyable CSS variables",
+  "glyph": "🔠",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

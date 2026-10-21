@@ -1,0 +1,183 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Lean canvas",
+      "path": "documents/Strategy/Lean canvas.md",
+      "type": "document",
+      "emoji": "🧩",
+      "position": 0
+    },
+    {
+      "name": "Assumptions to test",
+      "path": "documents/Strategy/Assumptions to test.md",
+      "type": "document",
+      "emoji": "🧪",
+      "position": 1
+    },
+    {
+      "name": "Competitor notes",
+      "path": "documents/Strategy/Competitor notes.md",
+      "type": "document",
+      "emoji": "🔍",
+      "position": 2
+    },
+    {
+      "name": "MVP spec",
+      "path": "documents/Build/MVP spec.md",
+      "type": "document",
+      "emoji": "📐",
+      "position": 0
+    },
+    {
+      "name": "Tech stack",
+      "path": "documents/Build/Tech stack.md",
+      "type": "document",
+      "emoji": "🧱",
+      "position": 1
+    },
+    {
+      "name": "Ship log",
+      "path": "documents/Build/Ship log.md",
+      "type": "document",
+      "emoji": "📓",
+      "position": 3
+    },
+    {
+      "name": "Launch checklist",
+      "path": "documents/Launch/Launch checklist.md",
+      "type": "document",
+      "emoji": "✅",
+      "position": 0
+    },
+    {
+      "name": "Landing page copy",
+      "path": "documents/Launch/Landing page copy.md",
+      "type": "document",
+      "emoji": "🪧",
+      "position": 1
+    },
+    {
+      "name": "Announcement drafts",
+      "path": "documents/Launch/Announcement drafts.md",
+      "type": "document",
+      "emoji": "📣",
+      "position": 2
+    },
+    {
+      "name": "Pitch deck",
+      "path": "documents/Launch/Pitch deck.slides.md",
+      "type": "document",
+      "emoji": "🎤",
+      "position": 3
+    },
+    {
+      "name": "Runway and goals",
+      "path": "documents/Operations/Runway and goals.md",
+      "type": "document",
+      "emoji": "🛟",
+      "position": 0
+    },
+    {
+      "name": "Brand board",
+      "path": "documents/Operations/Brand board.moodboard.md",
+      "type": "document",
+      "emoji": "🎨",
+      "position": 2
+    },
+    {
+      "name": "Feature spec template",
+      "path": "documents/Templates/Feature spec template.md",
+      "type": "document",
+      "emoji": "📄",
+      "position": 0
+    },
+    {
+      "name": "Interview notes template",
+      "path": "documents/Templates/Interview notes template.md",
+      "type": "document",
+      "emoji": "🗒️",
+      "position": 1
+    },
+    {
+      "name": "Weekly review template",
+      "path": "documents/Templates/Weekly review template.md",
+      "type": "document",
+      "emoji": "🗓️",
+      "position": 2
+    }
+  ],
+  "folders": [
+    {
+      "name": "Strategy",
+      "path": "documents/Strategy",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "🧭"
+    },
+    {
+      "name": "Build",
+      "path": "documents/Build",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "🛠️"
+    },
+    {
+      "name": "Launch",
+      "path": "documents/Launch",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "🚀"
+    },
+    {
+      "name": "Operations",
+      "path": "documents/Operations",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "⚙️"
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false,
+      "emoji": "📋"
+    },
+    {
+      "name": "Customer interviews",
+      "path": "documents/Strategy/Customer interviews",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "🎙️"
+    },
+    {
+      "name": "Build board",
+      "path": "documents/Build/Build board",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "🗂️"
+    },
+    {
+      "name": "Money",
+      "path": "documents/Operations/Money",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "💾"
+    }
+  ]
+}

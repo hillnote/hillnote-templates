@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "stage",
+      "name": "Stage",
+      "type": "status",
+      "options": [
+        "Draft",
+        "In review",
+        "Approved",
+        "Shipped"
+      ],
+      "optionColors": {
+        "Draft": "gray",
+        "In review": "amber",
+        "Approved": "blue",
+        "Shipped": "emerald"
+      },
+      "optionStates": {
+        "Draft": "normal",
+        "In review": "normal",
+        "Approved": "normal",
+        "Shipped": "done"
+      }
+    },
+    {
+      "id": "owner",
+      "name": "Owner",
+      "type": "text"
+    }
+  ]
+}

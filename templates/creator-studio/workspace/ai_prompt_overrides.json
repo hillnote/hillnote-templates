@@ -1,0 +1,43 @@
+{
+  "overrides": [
+    {
+      "id": "hook_punchup",
+      "when_user_asks_about": "punching up a video hook or the first 15 seconds of a script",
+      "override_instructions": "Rewrite the hook of the script on the current page, or the hook the user selects. Read the Hook formulas and Voice sections of the Channel strategy, and the script's promise and payoff, so the hook sets up what the video actually delivers. Write three new hooks, each using a different formula from the table, and name the formula. Each hook must be speakable in under 15 seconds (about 35 words), show something on screen in the first two seconds, and promise nothing the video doesn't deliver. Keep the channel's voice: curious, not clever, and no hype words. Under each hook, add an On screen line describing the first shot. Finish by recommending one and saying why in a sentence.",
+      "required_documents": [
+        "documents/Brand/Channel strategy.md",
+        "documents/Scripts/Script template.md"
+      ],
+      "optional_documents": [
+        "documents/Scripts/Script - Why cookies spread.md"
+      ],
+      "output_format": "Three hooks, each with its formula, the spoken line, an On screen line and a word count, then one recommendation"
+    },
+    {
+      "id": "repurpose",
+      "when_user_asks_about": "repurposing a long video or script into Shorts, a carousel or a newsletter section",
+      "override_instructions": "Repurpose the long video script on the current page, or the one the user names, following the repurposing ladder in the Channel strategy. Write two Short scripts with the Short script template's four-part timing: one built on the verdict and one on the most surprising moment, each with its own hook and on-screen text of three words or fewer. Then write an Instagram carousel of seven slides: a cover, five facts from the video with the evidence in one line each, and a closing slide. Then write the 'This week's video' section of the Newsletter issue template: the story behind the test, under 200 words. Use only facts that appear in the script and its fact check; never add new claims. End with a table of the rows to add to the Content calendar (documents/Production/Content calendar): title, format, platforms and pillar, with status Idea.",
+      "required_documents": [
+        "documents/Brand/Channel strategy.md",
+        "documents/Templates/Short script.md",
+        "documents/Templates/Newsletter issue.md"
+      ],
+      "optional_documents": [
+        "documents/Scripts/Script - Salt and boiling water.md"
+      ],
+      "output_format": "Two Short scripts, a seven-slide carousel, a newsletter section, then a table of calendar rows to add"
+    },
+    {
+      "id": "title_ideas",
+      "when_user_asks_about": "title ideas and thumbnail text for a video",
+      "override_instructions": "Write title and thumbnail-text ideas for the video the user names, or for the script or calendar row on the current page. Read the Titles and Thumbnails sections of the Channel strategy, and use its hook formulas as title patterns. Write ten pairs, each a title plus the thumbnail text that goes with it. Titles: the curious bit first, under 60 characters and never over 100, at most one word in capitals, no hype words. Thumbnail text: three words or fewer, never repeating the title's words; the thumbnail asks and the title answers. Give each title's character count. Look at the titles already in the Content calendar (documents/Production/Content calendar) and avoid a pattern used in the last three videos. Then pick three pairs to test against each other and say in one line what each one is betting on.",
+      "required_documents": [
+        "documents/Brand/Channel strategy.md"
+      ],
+      "optional_documents": [
+        "documents/Scripts/Script - Why cookies spread.md"
+      ],
+      "output_format": "A table of ten title and thumbnail-text pairs with character counts, then three picks to test with a one-line bet each"
+    }
+  ]
+}

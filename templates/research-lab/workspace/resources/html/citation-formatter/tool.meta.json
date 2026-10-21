@@ -1,0 +1,17 @@
+{
+  "name": "citation-formatter",
+  "description": "APA 7, MLA 9, Chicago author-date and BibTeX for any source, plus a copyable bibliography",
+  "glyph": "📑",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Sources",
+      "path": "Sources/Sources",
+      "primary": true
+    }
+  ]
+}

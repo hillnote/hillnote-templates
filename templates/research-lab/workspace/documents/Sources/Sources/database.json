@@ -1,0 +1,275 @@
+{
+  "name": "Sources",
+  "folderKind": "reading",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "title",
+      "width": 260
+    },
+    {
+      "id": "subtitle",
+      "name": "Subtitle",
+      "type": "text",
+      "width": 280
+    },
+    {
+      "id": "authors",
+      "name": "Authors",
+      "type": "text",
+      "width": 240
+    },
+    {
+      "id": "year",
+      "name": "Year",
+      "type": "number",
+      "width": 80
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "To read",
+        "Reading",
+        "Read",
+        "Cited",
+        "Excluded"
+      ],
+      "optionColors": {
+        "To read": "gray",
+        "Reading": "amber",
+        "Read": "blue",
+        "Cited": "emerald",
+        "Excluded": "darkGray"
+      },
+      "optionStates": {
+        "To read": "normal",
+        "Reading": "normal",
+        "Read": "done",
+        "Cited": "done",
+        "Excluded": "archive"
+      },
+      "defaultValue": "To read"
+    },
+    {
+      "id": "relevance",
+      "name": "Relevance",
+      "type": "select",
+      "options": [
+        "High",
+        "Medium",
+        "Low"
+      ],
+      "optionColors": {
+        "High": "rose",
+        "Medium": "amber",
+        "Low": "gray"
+      },
+      "width": 110
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "type": "select",
+      "options": [
+        "Journal article",
+        "Book",
+        "Book chapter",
+        "Report",
+        "Thesis",
+        "Conference paper",
+        "Dataset"
+      ],
+      "optionColors": {
+        "Journal article": "blue",
+        "Book": "purple",
+        "Book chapter": "pink",
+        "Report": "orange",
+        "Thesis": "brown",
+        "Conference paper": "teal",
+        "Dataset": "cyan"
+      },
+      "width": 150
+    },
+    {
+      "id": "method",
+      "name": "Method",
+      "type": "select",
+      "options": [
+        "Survey",
+        "Cohort study",
+        "Experiment",
+        "Systematic review",
+        "Qualitative",
+        "Mixed methods",
+        "Case study"
+      ],
+      "optionColors": {
+        "Survey": "cyan",
+        "Cohort study": "blue",
+        "Experiment": "purple",
+        "Systematic review": "emerald",
+        "Qualitative": "pink",
+        "Mixed methods": "teal",
+        "Case study": "brown"
+      },
+      "width": 150
+    },
+    {
+      "id": "topics",
+      "name": "Topics",
+      "type": "multiselect",
+      "options": [
+        "Wellbeing",
+        "Social cohesion",
+        "Food access",
+        "Green space",
+        "Physical activity",
+        "Equity",
+        "Methods"
+      ],
+      "optionColors": {
+        "Wellbeing": "teal",
+        "Social cohesion": "blue",
+        "Food access": "lime",
+        "Green space": "emerald",
+        "Physical activity": "orange",
+        "Equity": "rose",
+        "Methods": "gray"
+      },
+      "width": 220
+    },
+    {
+      "id": "venue",
+      "name": "Journal or book",
+      "type": "text",
+      "width": 220
+    },
+    {
+      "id": "volume",
+      "name": "Volume",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "issue",
+      "name": "Issue",
+      "type": "number",
+      "width": 80
+    },
+    {
+      "id": "pages",
+      "name": "Pages",
+      "type": "text",
+      "width": 90
+    },
+    {
+      "id": "editors",
+      "name": "Editors",
+      "type": "text",
+      "width": 180
+    },
+    {
+      "id": "publisher",
+      "name": "Publisher or institution",
+      "type": "text",
+      "width": 200
+    },
+    {
+      "id": "url",
+      "name": "Link",
+      "type": "url",
+      "width": 220
+    },
+    {
+      "id": "citation",
+      "name": "Citation (APA 7)",
+      "type": "text",
+      "width": 420
+    },
+    {
+      "id": "added",
+      "name": "Added",
+      "type": "date"
+    },
+    {
+      "id": "age",
+      "name": "Age (years)",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "YEAR(TODAY()) - {Year}",
+      "resultType": "number",
+      "width": 100
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Reading board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "year",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "library",
+      "name": "Library",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "added",
+          "direction": "desc"
+        }
+      ],
+      "hiddenColumns": [
+        "subtitle",
+        "volume",
+        "issue",
+        "pages",
+        "editors",
+        "publisher",
+        "citation"
+      ]
+    },
+    {
+      "id": "by_year",
+      "name": "By year",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "year",
+      "aggregation": "count",
+      "splitColumn": "relevance",
+      "sortBy": "natural",
+      "sortDir": "asc",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "cite",
+      "name": "Cite",
+      "type": "tool",
+      "toolPath": "resources/html/citation-formatter/index.html",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "added_cal",
+      "name": "Added",
+      "type": "calendar",
+      "dateColumn": "added",
+      "colorByColumn": "status",
+      "calendarViewMode": "dayGridMonth",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

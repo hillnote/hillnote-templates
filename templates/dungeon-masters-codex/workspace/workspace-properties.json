@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "audience",
+      "name": "Audience",
+      "type": "select",
+      "options": [
+        "Players",
+        "GM only"
+      ],
+      "optionColors": {
+        "Players": "emerald",
+        "GM only": "rose"
+      }
+    }
+  ]
+}

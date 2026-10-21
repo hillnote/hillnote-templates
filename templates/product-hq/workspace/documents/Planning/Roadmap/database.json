@@ -1,0 +1,196 @@
+{
+  "name": "Roadmap",
+  "folderKind": "task-database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Initiative",
+      "type": "title",
+      "width": 260
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Now",
+        "Next",
+        "Later",
+        "Shipped"
+      ],
+      "optionColors": {
+        "Now": "amber",
+        "Next": "blue",
+        "Later": "gray",
+        "Shipped": "emerald"
+      },
+      "optionStates": {
+        "Now": "normal",
+        "Next": "normal",
+        "Later": "normal",
+        "Shipped": "done"
+      },
+      "defaultValue": "Later"
+    },
+    {
+      "id": "theme",
+      "name": "Theme",
+      "type": "select",
+      "options": [
+        "Activation",
+        "Retention",
+        "Expansion",
+        "Platform"
+      ],
+      "optionColors": {
+        "Activation": "teal",
+        "Retention": "blue",
+        "Expansion": "purple",
+        "Platform": "brown"
+      }
+    },
+    {
+      "id": "objective",
+      "name": "Objective",
+      "type": "select",
+      "options": [
+        "O1 First screen",
+        "O2 Trusted alerts",
+        "O3 First value"
+      ],
+      "optionColors": {
+        "O1 First screen": "blue",
+        "O2 Trusted alerts": "rose",
+        "O3 First value": "teal"
+      }
+    },
+    {
+      "id": "team",
+      "name": "Team",
+      "type": "select",
+      "options": [
+        "Core",
+        "Growth",
+        "Platform"
+      ],
+      "optionColors": {
+        "Core": "pink",
+        "Growth": "lime",
+        "Platform": "darkGray"
+      }
+    },
+    {
+      "id": "reach",
+      "name": "Reach",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "impact",
+      "name": "Impact",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "confidence",
+      "name": "Confidence",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "effort",
+      "name": "Effort",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "rice",
+      "name": "RICE",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "ROUND({Reach} * {Impact} * {Confidence} / {Effort}, 0)",
+      "resultType": "number",
+      "width": 90
+    },
+    {
+      "id": "start",
+      "name": "Start",
+      "type": "date",
+      "dateRole": "start"
+    },
+    {
+      "id": "end",
+      "name": "End",
+      "type": "date",
+      "dateRole": "end"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "rice",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "type": "gantt",
+      "ganttZoom": "week",
+      "colorByColumn": "theme",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "start",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "ranked",
+      "name": "By RICE",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "notEquals",
+          "value": "Shipped"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "rice",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "matrix",
+      "name": "Matrix",
+      "type": "tool",
+      "toolPath": "resources/html/priority-matrix/index.html",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "effort",
+      "name": "Effort by theme",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "theme",
+      "valueColumn": "effort",
+      "aggregation": "sum",
+      "splitColumn": "status",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

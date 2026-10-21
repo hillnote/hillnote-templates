@@ -1,0 +1,11 @@
+{
+  "name": "dice-roller",
+  "description": "Roll any dice expression with advantage or disadvantage, saved rolls and a history",
+  "glyph": "🎲",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

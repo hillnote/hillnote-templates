@@ -1,0 +1,42 @@
+{
+  "overrides": [
+    {
+      "id": "line_edit",
+      "when_user_asks_about": "line-editing or tightening a passage of prose",
+      "override_instructions": "Line-edit the passage the user selects, or the whole current page if nothing is selected. Read the Style guide and pass 3 of the Editing checklist first, and apply them: cut the filler words in the Style guide's table, break sentences over 30 words unless one long sentence is clearly earned, prefer the active voice where the actor matters, and swap abstract nouns for things the reader could picture. Keep the writer's voice, tense and point of view. Do not add new ideas, facts or quotes, and never change words inside quotation marks. If a sentence is already good, leave it alone. Return the edited passage first, then the changes that matter, each as before → after with a short reason. End with one sentence on anything that needs a structural fix rather than a line edit.",
+      "required_documents": [
+        "documents/Craft/Style guide.md",
+        "documents/Craft/Editing checklist.md"
+      ],
+      "optional_documents": [],
+      "output_format": "The edited passage in markdown, then up to eight bullet points: before → after, and why"
+    },
+    {
+      "id": "headline_options",
+      "when_user_asks_about": "headlines, titles, subtitles or email subject lines for a piece",
+      "override_instructions": "Write headline options for the piece the user names, or the current page. Read the piece first, and its row in the Pieces database (documents/Pieces/Pieces) to see whether it is a Newsletter, Book chapter or Guest essay. Use the six patterns in the Headlines section of the Structure cheat-sheets, two options per pattern, and follow its rules: headlines under 70 characters, subtitles under 120, email subject lines under 50 that still make sense on a phone lock screen. Write in the Style guide's voice: plain, specific and warm, with no clickbait, no capitals for emphasis and no exclamation marks. Use the most specific detail in the piece in at least three options. Then pick a top three and give one line on why for each. For a Newsletter piece, add three subject line and preheader pairs.",
+      "required_documents": [
+        "documents/Craft/Structure cheat-sheets.md",
+        "documents/Craft/Style guide.md"
+      ],
+      "optional_documents": [
+        "documents/Pieces/Newsletter plan.md"
+      ],
+      "output_format": "A table of twelve headlines grouped by pattern with character counts, a top three with reasons, and subject line and preheader pairs for newsletter pieces"
+    },
+    {
+      "id": "outline_from_notes",
+      "when_user_asks_about": "turning rough notes or a scratch space into an outline",
+      "override_instructions": "Turn the user's rough notes into an outline. Use the selected text, or the notes and scratch space on the current page. First choose one structure from the Structure cheat-sheets (Classic, Braided, Hermit crab, Explainer, Newsletter issue or Book chapter) and say in one sentence why it fits this material. Then fill in the Essay outline template's headings: the one-sentence summary, three working titles, structure, opening, beats, research to use, ending and open questions. Search the Commonplace book for quotes whose topics match the piece and list them under Research to use with their attribution. Never invent a quote, a fact or a source; when something is missing, add it to Open questions. Keep the writer's own phrases wherever they are good.",
+      "required_documents": [
+        "documents/Craft/Structure cheat-sheets.md",
+        "documents/Templates/Essay outline.md"
+      ],
+      "optional_documents": [
+        "documents/Research/Commonplace book.md",
+        "documents/Pieces/Book plan.md"
+      ],
+      "output_format": "The Essay outline template filled in, in markdown, ready to paste into the piece's page"
+    }
+  ]
+}

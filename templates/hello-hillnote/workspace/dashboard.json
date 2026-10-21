@@ -1,0 +1,67 @@
+{
+  "widgets": [
+    {
+      "id": 1779898705364,
+      "type": "document-view",
+      "config": {
+        "documentPath": "documents/Start here.md",
+        "documentName": "Start here",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 3,
+      "position": 0
+    },
+    {
+      "id": 1781692584482,
+      "type": "clock",
+      "config": {},
+      "size": "single",
+      "height": 1,
+      "position": 1
+    },
+    {
+      "id": 1781692611165,
+      "type": "tasklist-stats",
+      "config": {
+        "displayMode": "bar",
+        "selectedDatabases": [
+          {
+            "id": "template:documents/Exploring Hillnote",
+            "path": "documents/Exploring Hillnote",
+            "name": "Exploring Hillnote"
+          }
+        ]
+      },
+      "size": "single",
+      "height": 1,
+      "position": 2
+    },
+    {
+      "id": 1781692549322,
+      "type": "pinned-documents",
+      "config": {
+        "pinnedDocuments": [
+          "documents/Exploring Hillnote/Pages.md",
+          "documents/Presenting on Hillnote.slides.md"
+        ]
+      },
+      "size": "single",
+      "height": 1,
+      "position": 3
+    },
+    {
+      "id": 1781692677913,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Exploring Hillnote",
+        "databaseName": "Exploring Hillnote",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 3,
+      "position": 4
+    }
+  ],
+  "defaultView": "dashboard"
+}

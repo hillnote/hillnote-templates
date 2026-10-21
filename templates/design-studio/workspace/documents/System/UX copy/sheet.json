@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "name": "UX copy",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Copy",
+      "type": "title",
+      "width": 340
+    },
+    {
+      "id": "screen",
+      "name": "Screen",
+      "type": "select",
+      "options": [
+        "Onboarding",
+        "Home",
+        "Care calendar",
+        "Diagnosis",
+        "Notifications"
+      ],
+      "optionColors": {
+        "Onboarding": "teal",
+        "Home": "blue",
+        "Care calendar": "cyan",
+        "Diagnosis": "purple",
+        "Notifications": "orange"
+      }
+    },
+    {
+      "id": "element",
+      "name": "Element",
+      "type": "select",
+      "options": [
+        "Title",
+        "Body",
+        "Button",
+        "Push notification",
+        "Empty state",
+        "Error",
+        "Toast"
+      ],
+      "optionColors": {
+        "Title": "darkGray",
+        "Body": "gray",
+        "Button": "pink",
+        "Push notification": "orange",
+        "Empty state": "lime",
+        "Error": "red",
+        "Toast": "teal"
+      }
+    },
+    {
+      "id": "limit",
+      "name": "Limit",
+      "type": "number",
+      "width": 80
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Draft",
+        "In review",
+        "Approved"
+      ],
+      "optionColors": {
+        "Draft": "gray",
+        "In review": "amber",
+        "Approved": "emerald"
+      },
+      "optionStates": {
+        "Draft": "normal",
+        "In review": "normal",
+        "Approved": "done"
+      }
+    },
+    {
+      "id": "notes",
+      "name": "Notes",
+      "type": "text",
+      "width": 300
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "board",
+      "name": "By status",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

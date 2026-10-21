@@ -1,0 +1,44 @@
+{
+  "overrides": [
+    {
+      "id": "synthesize",
+      "when_user_asks_about": "synthesizing the literature, drafting themed paragraphs, or updating the literature review",
+      "override_instructions": "Synthesize the evidence gathered so far. Read every row with status Read or Cited in the Sources database (documents/Sources/Sources) and every row in the Claims and evidence database (documents/Findings/Claims and evidence) that is not Dropped. Group the claims by their Theme column. For each theme write one or two paragraphs that say what the sources agree on, where they disagree, and how strong the evidence is, using the Strength and Stance on H1 columns and the method notes in each source row. Cite in APA 7 author-date style using only sources that exist as rows; never invent a source, a page number or a finding. Link each paragraph to the claim rows it rests on. End with one sentence per theme grading confidence as high, moderate or low, and say why. If the sources are the template's fictional samples, say so at the top.",
+      "required_documents": [
+        "documents/Question/Question and scope.md",
+        "documents/Synthesis/Themes and gaps.md"
+      ],
+      "optional_documents": [
+        "documents/Synthesis/Literature review draft.md"
+      ],
+      "output_format": "Themed synthesis paragraphs with APA in-text citations and claim links, then a confidence line per theme"
+    },
+    {
+      "id": "critique_source",
+      "when_user_asks_about": "critically appraising a source, checking a paper's method, or cross-checking claims against a source",
+      "override_instructions": "Critically appraise one source: the row the user names or the page they have open, from the Sources database (documents/Sources/Sources). An interview note can be appraised the same way. Work through the Appraisal checklist in the Source notes template: is the question clear, does the design suit it, how was the sample drawn and how big is it, what bias and confounding remain, do the conclusions follow from the results, and does it apply to the setting in Question and scope. Then cross-check every row in Claims and evidence (documents/Findings/Claims and evidence) that cites this source: does the source, as described in the row's notes, actually support the claim at the stated strength? Flag any claim that overstates its source or rests on a second-hand citation. Be specific and fair. Name the strengths before the weaknesses, and suggest a Strength value (Strong, Moderate or Weak) for each claim.",
+      "required_documents": [
+        "documents/Templates/Source notes.md",
+        "documents/Question/Question and scope.md"
+      ],
+      "optional_documents": [
+        "documents/Question/Research plan.md"
+      ],
+      "output_format": "An appraisal under the checklist headings, then a table of claims with current strength, suggested strength and why"
+    },
+    {
+      "id": "find_gaps",
+      "when_user_asks_about": "gaps in the evidence, what is missing from the literature, or what to search for next",
+      "override_instructions": "Find the gaps between the research questions and the evidence. Read the research questions and inclusion criteria in Question and scope, the Search log, and the synthesis matrix in Themes and gaps. Then read the Sources database (documents/Sources/Sources) and the Claims and evidence database (documents/Findings/Claims and evidence). Look for: themes resting on one source or only weak evidence; populations, settings, methods or time spans no source covers; claims marked To check; and research questions with no claims at all. For each gap, suggest one concrete next step: a search string in the Search log's concept-block style, an interview probe, or a source to read in full. Do not invent studies to fill a gap.",
+      "required_documents": [
+        "documents/Question/Question and scope.md",
+        "documents/Question/Search log.md",
+        "documents/Synthesis/Themes and gaps.md"
+      ],
+      "optional_documents": [
+        "documents/Question/Interview guide.md"
+      ],
+      "output_format": "A table of gaps (gap, why it matters, next step), ranked by importance to the research questions"
+    }
+  ]
+}

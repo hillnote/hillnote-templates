@@ -1,0 +1,11 @@
+{
+  "name": "channel-counter",
+  "description": "Character counts against every channel's limit, with a preview of where the copy gets cut",
+  "glyph": "🔢",
+  "sheets": [],
+  "databases": [],
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ]
+}

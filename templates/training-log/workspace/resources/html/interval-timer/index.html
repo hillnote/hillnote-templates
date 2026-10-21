@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#0047AB;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#0047AB;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>Interval timer</title>
+<style>
+  .display { text-align: center; padding: 22px 12px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); transition: background .2s; }
+  .display.work { background: color-mix(in srgb, var(--success) 16%, var(--card)); border-color: var(--success); }
+  .display.rest { background: color-mix(in srgb, var(--info) 14%, var(--card)); border-color: var(--info); }
+  .display.prep { background: color-mix(in srgb, var(--warning) 16%, var(--card)); border-color: var(--warning); }
+  .display.done { background: color-mix(in srgb, var(--primary) 12%, var(--card)); border-color: var(--primary); }
+  .phase { font-size: 15px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .clock { font-size: clamp(64px, 22vw, 132px); font-weight: 750; line-height: 1; font-variant-numeric: tabular-nums; margin: 6px 0; }
+  .sub { color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+  .controls { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .controls button { padding: 14px 0; font-size: 16px; }
+  .settings { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 14px; }
+  .presets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .preset { display: inline-flex; border: 1px solid var(--border); border-radius: calc(var(--radius) - 2px); overflow: hidden; }
+  .preset button { border: none; border-radius: 0; box-shadow: none; }
+  .preset .x { padding-inline: 8px; color: var(--muted-foreground); }
+  .row-between { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .row-between h3 { margin: 0; }
+  .toolbar label { display: flex; align-items: center; gap: 6px; margin-inline-start: auto; color: var(--foreground); }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Interval timer</strong>
+  <span class="muted" id="summary"></span>
+  <label><input type="checkbox" id="sound"> Beeps</label>
+</div>
+
+<div class="display" id="display" aria-live="polite">
+  <div class="phase" id="phase">Ready</div>
+  <div class="clock" id="clock">0:00</div>
+  <div class="sub" id="round">Pick a preset or set your own</div>
+</div>
+
+<div class="controls">
+  <button class="btn-primary" id="start">Start</button>
+  <button id="skip">Skip</button>
+  <button id="reset">Reset</button>
+</div>
+
+<div class="card" style="margin-top: 14px">
+  <div class="row-between"><h3>Presets</h3></div>
+  <div class="presets" id="presets"></div>
+  <div class="settings">
+    <div class="field"><label for="prep">Get ready (s)</label><input id="prep" type="number" min="0" max="120" step="5"></div>
+    <div class="field"><label for="work">Work (m:ss)</label><input id="work" inputmode="numeric" placeholder="3:45"></div>
+    <div class="field"><label for="rest">Rest (m:ss)</label><input id="rest" inputmode="numeric" placeholder="2:00"></div>
+    <div class="field"><label for="rounds">Rounds</label><input id="rounds" type="number" min="1" max="99"></div>
+  </div>
+  <form class="row" id="save-form" style="margin-top: 10px">
+    <input id="preset-name" placeholder="Save these settings as… e.g. Hill repeats">
+    <button type="submit">Save preset</button>
+  </form>
+  <p class="hint">Three short beeps count down the end of each interval; a long beep starts the next one. Beeps need one tap on Start before the browser allows sound.</p>
+</div>
+
+<script>
+(function () {
+  var DEFAULT_PRESETS = [
+    { name: '6 × 800 m', prep: 10, work: 225, rest: 120, rounds: 6 },
+    { name: 'Strides', prep: 10, work: 20, rest: 60, rounds: 6 },
+    { name: 'Hill repeats', prep: 10, work: 60, rest: 90, rounds: 8 },
+    { name: 'Core circuit', prep: 10, work: 40, rest: 20, rounds: 10 },
+    { name: 'Tabata', prep: 10, work: 20, rest: 10, rounds: 8 }
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+
+  var audio = null;
+  var timer = null;
+  var running = false;
+  var phases = [];
+  var index = 0;
+  var remainingMs = 0;
+  var phaseEnd = 0;
+  var lastBeepSecond = null;
+  var wakeLock = null;
+
+  function parseTime(text) {
+    var s = String(text || '').trim();
+    if (!s) return 0;
+    if (s.indexOf(':') >= 0) {
+      var p = s.split(':');
+      return Math.max(0, (Number(p[0]) || 0) * 60 + (Number(p[1]) || 0));
+    }
+    return Math.max(0, Number(s) || 0);
+  }
+  function fmt(sec) {
+    sec = Math.max(0, Math.ceil(sec));
+    return Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0');
+  }
+
+  function readSettings() {
+    return {
+      prep: Math.max(0, Number($('prep').value) || 0),
+      work: parseTime($('work').value),
+      rest: parseTime($('rest').value),
+      rounds: Math.max(1, Math.min(99, Math.round(Number($('rounds').value) || 1)))
+    };
+  }
+  function writeSettings(s) {
+    $('prep').value = s.prep;
+    $('work').value = fmt(s.work);
+    $('rest').value = fmt(s.rest);
+    $('rounds').value = s.rounds;
+    summarise();
+  }
+  function summarise() {
+    var s = readSettings();
+    var total = s.prep + s.rounds * s.work + Math.max(0, s.rounds - 1) * s.rest;
+    $('summary').textContent = s.rounds + ' × ' + fmt(s.work) + ' / ' + fmt(s.rest) + ' · ' + fmt(total) + ' total';
+  }
+
+  function build(s) {
+    var list = [];
+    if (s.prep > 0) list.push({ kind: 'prep', label: 'Get ready', secs: s.prep, round: 1 });
+    for (var r = 1; r <= s.rounds; r++) {
+      if (s.work > 0) list.push({ kind: 'work', label: 'Work', secs: s.work, round: r });
+      if (r < s.rounds && s.rest > 0) list.push({ kind: 'rest', label: 'Rest', secs: s.rest, round: r });
+    }
+    return list;
+  }
+
+  function tone(freq, duration, when) {
+    if (!audio || !$('sound').checked) return;
+    try {
+      var t0 = audio.currentTime + (when || 0);
+      var osc = audio.createOscillator();
+      var gain = audio.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, t0);
+      gain.gain.setValueAtTime(0.0001, t0);
+      gain.gain.exponentialRampToValueAtTime(0.4, t0 + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+      osc.connect(gain);
+      gain.connect(audio.destination);
+      osc.start(t0);
+      osc.stop(t0 + duration + 0.02);
+    } catch (e) { /* sound is optional */ }
+  }
+
+  function show() {
+    var ph = phases[index];
+    var d = $('display');
+    var total = phases.filter(function (p) { return p.kind === 'work'; }).length;
+    if (!ph) {
+      d.className = 'display done';
+      $('phase').textContent = 'Done';
+      $('clock').textContent = '0:00';
+      $('round').textContent = total ? total + ' rounds complete. Cool down.' : 'Set a work time above zero.';
+      return;
+    }
+    d.className = 'display ' + ph.kind;
+    $('phase').textContent = ph.label;
+    $('clock').textContent = fmt(remainingMs / 1000);
+    $('round').textContent = ph.kind === 'prep' ? 'Round 1 of ' + total + ' next' : 'Round ' + ph.round + ' of ' + total + (ph.kind === 'rest' ? ' done' : '');
+  }
+
+  function tick() {
+    if (!running) return;
+    remainingMs = phaseEnd - Date.now();
+    var secLeft = Math.ceil(remainingMs / 1000);
+    if (secLeft <= 3 && secLeft >= 1 && secLeft !== lastBeepSecond) { lastBeepSecond = secLeft; tone(880, 0.12); }
+    if (remainingMs <= 0) { advance(); return; }
+    show();
+  }
+
+  function advance() {
+    index += 1;
+    lastBeepSecond = null;
+    if (index >= phases.length) {
+      stop();
+      tone(1320, 0.35); tone(1320, 0.35, 0.45); tone(1760, 0.6, 0.9);
+      show();
+      return;
+    }
+    tone(1320, 0.45);
+    remainingMs = phases[index].secs * 1000;
+    phaseEnd = Date.now() + remainingMs;
+    show();
+  }
+
+  async function keepAwake(on) {
+    try {
+      if (on && navigator.wakeLock && !wakeLock) wakeLock = await navigator.wakeLock.request('screen');
+      if (!on && wakeLock) { await wakeLock.release(); wakeLock = null; }
+    } catch (e) { wakeLock = null; }
+  }
+
+  function start() {
+    if (!audio) {
+      try { var Ctx = window.AudioContext || window.webkitAudioContext; audio = Ctx ? new Ctx() : null; } catch (e) { audio = null; }
+    }
+    if (audio && audio.state === 'suspended' && audio.resume) audio.resume();
+    if (!phases.length || index >= phases.length) {
+      phases = build(readSettings());
+      index = 0;
+      if (!phases.length) { show(); return; }
+      remainingMs = phases[0].secs * 1000;
+      if (phases[0].kind !== 'prep') tone(1320, 0.45);
+    }
+    phaseEnd = Date.now() + remainingMs;
+    running = true;
+    $('start').textContent = 'Pause';
+    timer = setInterval(tick, 100);
+    keepAwake(true);
+    show();
+  }
+  function stop() {
+    running = false;
+    clearInterval(timer);
+    timer = null;
+    $('start').textContent = index >= phases.length ? 'Start again' : 'Resume';
+    keepAwake(false);
+  }
+  function reset() {
+    stop();
+    phases = [];
+    index = 0;
+    remainingMs = 0;
+    $('start').textContent = 'Start';
+    $('display').className = 'display';
+    $('phase').textContent = 'Ready';
+    var s = readSettings();
+    $('clock').textContent = fmt(s.prep > 0 ? s.prep : s.work);
+    $('round').textContent = s.rounds + ' rounds';
+  }
+
+  function renderPresets() {
+    var list = store.get('presets', DEFAULT_PRESETS);
+    $('presets').innerHTML = list.map(function (p, i) {
+      return '<span class="preset"><button type="button" class="btn-sm" data-load="' + i + '">' + esc(p.name) + '</button><button type="button" class="btn-sm x" data-del="' + i + '" aria-label="Delete ' + esc(p.name) + '">×</button></span>';
+    }).join('') || '<span class="muted">No presets saved.</span>';
+  }
+
+  $('start').addEventListener('click', function () { if (running) stop(); else start(); });
+  $('skip').addEventListener('click', function () { if (phases.length && index < phases.length) { if (!running) phaseEnd = Date.now(); advance(); if (!running && index < phases.length) $('start').textContent = 'Resume'; } });
+  $('reset').addEventListener('click', reset);
+  $('sound').addEventListener('change', function () { store.set('sound', $('sound').checked); });
+  ['prep', 'work', 'rest', 'rounds'].forEach(function (id) {
+    $(id).addEventListener('change', function () { var s = readSettings(); writeSettings(s); store.set('last', s); if (!running) reset(); });
+  });
+  $('presets').addEventListener('click', function (e) {
+    var list = store.get('presets', DEFAULT_PRESETS);
+    var l = e.target.getAttribute && e.target.getAttribute('data-load');
+    var d = e.target.getAttribute && e.target.getAttribute('data-del');
+    if (l !== null && l !== undefined && list[Number(l)]) { writeSettings(list[Number(l)]); store.set('last', readSettings()); reset(); }
+    if (d !== null && d !== undefined) { list.splice(Number(d), 1); store.set('presets', list); renderPresets(); }
+  });
+  $('save-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = $('preset-name').value.trim();
+    if (!name) return;
+    var s = readSettings();
+    var list = store.get('presets', DEFAULT_PRESETS).filter(function (p) { return p.name !== name; });
+    list.push({ name: name, prep: s.prep, work: s.work, rest: s.rest, rounds: s.rounds });
+    store.set('presets', list.slice(-20));
+    $('preset-name').value = '';
+    renderPresets();
+  });
+
+  async function boot() {
+    if (window.hillnote) await hillnote.ready();
+    $('sound').checked = store.get('sound', true) !== false;
+    writeSettings(store.get('last', DEFAULT_PRESETS[0]));
+    renderPresets();
+    reset();
+  }
+  boot();
+})();
+</script>
+</body>
+</html>

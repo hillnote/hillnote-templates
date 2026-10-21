@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "name": "Weekly metrics",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Week",
+      "type": "title",
+      "width": 120
+    },
+    {
+      "id": "week_start",
+      "name": "Week start",
+      "type": "date"
+    },
+    {
+      "id": "sessions",
+      "name": "Sessions",
+      "type": "number"
+    },
+    {
+      "id": "trials",
+      "name": "Trials",
+      "type": "number"
+    },
+    {
+      "id": "activated",
+      "name": "Activated",
+      "type": "number"
+    },
+    {
+      "id": "demo_requests",
+      "name": "Demo requests",
+      "type": "number"
+    },
+    {
+      "id": "ad_spend",
+      "name": "Ad spend",
+      "type": "number"
+    },
+    {
+      "id": "subscribers",
+      "name": "Newsletter subscribers",
+      "type": "number"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "week_start",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "trend",
+      "name": "Trials by week",
+      "type": "chart",
+      "chartType": "line",
+      "labelColumn": "week_start",
+      "valueColumn": "trials",
+      "aggregation": "sum",
+      "dateBucket": "week",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "spend",
+      "name": "Ad spend by week",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "week_start",
+      "valueColumn": "ad_spend",
+      "aggregation": "sum",
+      "dateBucket": "week",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "interval-timer",
+  "description": "Work, rest and rounds with a big readable clock, countdown beeps and saved presets",
+  "glyph": "⏱️",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

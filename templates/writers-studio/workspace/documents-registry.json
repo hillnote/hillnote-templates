@@ -1,0 +1,148 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "This week at the desk",
+      "path": "documents/Desk/This week at the desk.md",
+      "type": "document",
+      "emoji": "🗓️",
+      "position": 1
+    },
+    {
+      "name": "Book plan",
+      "path": "documents/Pieces/Book plan.md",
+      "type": "document",
+      "emoji": "📚",
+      "position": 1
+    },
+    {
+      "name": "Newsletter plan",
+      "path": "documents/Pieces/Newsletter plan.md",
+      "type": "document",
+      "emoji": "💌",
+      "position": 2
+    },
+    {
+      "name": "Commonplace book",
+      "path": "documents/Research/Commonplace book.md",
+      "type": "document",
+      "emoji": "📓",
+      "position": 0
+    },
+    {
+      "name": "Style guide",
+      "path": "documents/Craft/Style guide.md",
+      "type": "document",
+      "emoji": "🖋️",
+      "position": 0
+    },
+    {
+      "name": "Editing checklist",
+      "path": "documents/Craft/Editing checklist.md",
+      "type": "document",
+      "emoji": "✂️",
+      "position": 1
+    },
+    {
+      "name": "Structure cheat-sheets",
+      "path": "documents/Craft/Structure cheat-sheets.md",
+      "type": "document",
+      "emoji": "🧱",
+      "position": 2
+    },
+    {
+      "name": "Publishing checklist",
+      "path": "documents/Craft/Publishing checklist.md",
+      "type": "document",
+      "emoji": "🚀",
+      "position": 3
+    },
+    {
+      "name": "Essay outline",
+      "path": "documents/Templates/Essay outline.md",
+      "type": "document",
+      "emoji": "📝",
+      "position": 0
+    },
+    {
+      "name": "Newsletter issue",
+      "path": "documents/Templates/Newsletter issue.md",
+      "type": "document",
+      "emoji": "📨",
+      "position": 1
+    }
+  ],
+  "folders": [
+    {
+      "name": "Desk",
+      "path": "documents/Desk",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "🪴"
+    },
+    {
+      "name": "Pieces",
+      "path": "documents/Pieces",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "✍️"
+    },
+    {
+      "name": "Research",
+      "path": "documents/Research",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "🔍"
+    },
+    {
+      "name": "Craft",
+      "path": "documents/Craft",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "🛠️"
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 5,
+      "pinned": false,
+      "emoji": "📄"
+    },
+    {
+      "name": "Ideas",
+      "path": "documents/Desk/Ideas",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "💡"
+    },
+    {
+      "name": "Pieces",
+      "path": "documents/Pieces/Pieces",
+      "type": "folder",
+      "position": 0,
+      "pinned": false,
+      "emoji": "🗂️"
+    },
+    {
+      "name": "Reading notes",
+      "path": "documents/Research/Reading notes",
+      "type": "folder",
+      "position": 1,
+      "pinned": false,
+      "emoji": "📖"
+    }
+  ]
+}

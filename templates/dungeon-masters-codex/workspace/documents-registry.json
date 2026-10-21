@@ -1,0 +1,168 @@
+{
+  "documents": [
+    {
+      "name": "Start here",
+      "path": "documents/Start here.md",
+      "type": "document",
+      "emoji": "👋",
+      "position": 0,
+      "pinned": true
+    },
+    {
+      "name": "Campaign bible",
+      "path": "documents/World/Campaign bible.md",
+      "type": "document",
+      "emoji": "📖",
+      "position": 0
+    },
+    {
+      "name": "Lore and timeline",
+      "path": "documents/World/Lore and timeline.md",
+      "type": "document",
+      "emoji": "📜",
+      "position": 1
+    },
+    {
+      "name": "Region map",
+      "path": "documents/World/Region map.moodboard.md",
+      "type": "document",
+      "emoji": "🗺️",
+      "position": 3
+    },
+    {
+      "name": "Factions",
+      "path": "documents/Cast/Factions.md",
+      "type": "document",
+      "emoji": "⚔️",
+      "position": 1
+    },
+    {
+      "name": "Encounter building",
+      "path": "documents/Bestiary and Loot/Encounter building.md",
+      "type": "document",
+      "emoji": "⚖️",
+      "position": 2
+    },
+    {
+      "name": "Campaign arc",
+      "path": "documents/Quests/Campaign arc.md",
+      "type": "document",
+      "emoji": "🧭",
+      "position": 1
+    },
+    {
+      "name": "Session zero",
+      "path": "documents/Sessions/Session zero.slides.md",
+      "type": "document",
+      "emoji": "🎬",
+      "position": 1
+    },
+    {
+      "name": "DM screen",
+      "path": "documents/Sessions/DM screen.md",
+      "type": "document",
+      "emoji": "🎲",
+      "position": 2
+    },
+    {
+      "name": "Session prep",
+      "path": "documents/Templates/Session prep.md",
+      "type": "document",
+      "emoji": "📝",
+      "position": 0
+    },
+    {
+      "name": "NPC",
+      "path": "documents/Templates/NPC.md",
+      "type": "document",
+      "emoji": "🎭",
+      "position": 1
+    }
+  ],
+  "folders": [
+    {
+      "name": "World",
+      "path": "documents/World",
+      "type": "folder",
+      "position": 1,
+      "pinned": false
+    },
+    {
+      "name": "Cast",
+      "path": "documents/Cast",
+      "type": "folder",
+      "position": 2,
+      "pinned": false
+    },
+    {
+      "name": "Bestiary and Loot",
+      "path": "documents/Bestiary and Loot",
+      "type": "folder",
+      "position": 3,
+      "pinned": false
+    },
+    {
+      "name": "Quests",
+      "path": "documents/Quests",
+      "type": "folder",
+      "position": 4,
+      "pinned": false
+    },
+    {
+      "name": "Sessions",
+      "path": "documents/Sessions",
+      "type": "folder",
+      "position": 5,
+      "pinned": false
+    },
+    {
+      "name": "Templates",
+      "path": "documents/Templates",
+      "type": "folder",
+      "position": 6,
+      "pinned": false
+    },
+    {
+      "name": "Places",
+      "path": "documents/World/Places",
+      "type": "folder",
+      "position": 2,
+      "pinned": false
+    },
+    {
+      "name": "NPCs",
+      "path": "documents/Cast/NPCs",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    },
+    {
+      "name": "Monsters",
+      "path": "documents/Bestiary and Loot/Monsters",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    },
+    {
+      "name": "Items",
+      "path": "documents/Bestiary and Loot/Items",
+      "type": "folder",
+      "position": 1,
+      "pinned": false
+    },
+    {
+      "name": "Quests",
+      "path": "documents/Quests/Quests",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    },
+    {
+      "name": "Sessions",
+      "path": "documents/Sessions/Sessions",
+      "type": "folder",
+      "position": 0,
+      "pinned": false
+    }
+  ]
+}

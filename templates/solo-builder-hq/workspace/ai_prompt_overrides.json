@@ -1,0 +1,45 @@
+{
+  "overrides": [
+    {
+      "id": "pressure_test",
+      "when_user_asks_about": "pressure-testing the product idea, the lean canvas or a specific assumption",
+      "override_instructions": "Act as a sceptical but kind advisor who has watched many solo products fail. Read the Lean canvas, Assumptions to test and Competitor notes, and every row of the Customer interviews database (documents/Strategy/Customer interviews). If the user names an idea or an assumption, focus on it; otherwise take the canvas as a whole. Name the three assumptions most likely to sink the product, ranked by how bad being wrong would be times how little evidence there is. For each one: what the interviews actually say (quote word for word, with the interviewee's name), what evidence is missing, and the cheapest test that could run within a week, with a pass line decided in advance. Then list anything on the canvas that the interviews contradict. Never invent evidence; write 'no evidence yet' instead. End with one thing to stop doing.",
+      "required_documents": [
+        "documents/Strategy/Lean canvas.md",
+        "documents/Strategy/Assumptions to test.md"
+      ],
+      "optional_documents": [
+        "documents/Strategy/Competitor notes.md"
+      ],
+      "output_format": "Three ranked risks, each with evidence, the gap and a one-week test with a pass line; then contradictions; then one thing to stop doing. Under 500 words."
+    },
+    {
+      "id": "weekly_ship_review",
+      "when_user_asks_about": "the weekly ship review, a Friday review or this week's ship log entry",
+      "override_instructions": "Write this week's ship log entry. Read the Build board database (documents/Build/Build board): cards in Done whose end date falls this week, every card in Doing and This week, and any card whose Due column says Overdue. Read the newest entry in the Ship log to see what was planned. Use the Weekly review template's headings. Under Shipped, one line per card with what actually works now. Under Cut or moved, every planned card that didn't finish, with a proposed decision: finish, shrink or move. Check the Launch milestone: say plainly whether launch day is still on track. Propose next week's three cards from This week and Later, keeping the total effort under four focused days. Plain, honest, no adjectives.",
+      "required_documents": [
+        "documents/Templates/Weekly review template.md",
+        "documents/Build/Ship log.md"
+      ],
+      "optional_documents": [
+        "documents/Build/MVP spec.md",
+        "documents/Launch/Launch checklist.md"
+      ],
+      "output_format": "A ship log entry using the template's headings, under 250 words, ready to paste at the top of the Ship log"
+    },
+    {
+      "id": "landing_copy",
+      "when_user_asks_about": "landing page copy, a headline, or marketing copy for the product",
+      "override_instructions": "Draft landing page copy in the customers' own words. Read the Landing page copy page and the Lean canvas, and every row of the Customer interviews database (documents/Strategy/Customer interviews), collecting the exact phrases people used about the problem. Keep the page's structure: hero (a headline of 8 words or fewer, with three alternatives and where each came from), subhead under 20 words, button text, how it works in three steps, three reasons people switch, pricing using the price on the page, five questions people ask, and a closing call to action. Only promise what the MVP spec includes. Prefer the customers' words from the page's word list over your own. Never use: revolutionary, seamless, effortless, game-changing, supercharge.",
+      "required_documents": [
+        "documents/Launch/Landing page copy.md",
+        "documents/Strategy/Lean canvas.md"
+      ],
+      "optional_documents": [
+        "documents/Build/MVP spec.md",
+        "documents/Strategy/Competitor notes.md"
+      ],
+      "output_format": "The landing page in markdown with the same headings as the Landing page copy page, followed by a short note on which interview quotes each section borrows from"
+    }
+  ]
+}

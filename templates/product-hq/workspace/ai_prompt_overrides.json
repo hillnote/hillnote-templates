@@ -1,0 +1,43 @@
+{
+  "overrides": [
+    {
+      "id": "prd_draft",
+      "when_user_asks_about": "drafting a PRD or spec for a roadmap initiative",
+      "override_instructions": "Draft a product requirements document for the roadmap initiative the user names (or the one linked from the current page). Read that initiative's row in the Roadmap database (documents/Planning/Roadmap) and every Feedback row it links to. Follow the headings of the PRD template exactly. Name the primary persona from Personas in the first paragraph. Quote customers word for word from the feedback, with the account name. Tie each success metric to a key result on the OKRs page. Where you don't know something, add it to Risks and open questions instead of inventing an answer. Keep it under 900 words.",
+      "required_documents": [
+        "documents/Templates/PRD template.md",
+        "documents/Strategy/Personas.md",
+        "documents/Strategy/OKRs.md"
+      ],
+      "optional_documents": [
+        "documents/Delivery/PRD - Saved dashboards.md"
+      ],
+      "output_format": "A complete PRD in markdown, using the template's headings, ready to save as a new page in Delivery"
+    },
+    {
+      "id": "status_digest",
+      "when_user_asks_about": "a weekly status update or digest for the roadmap",
+      "override_instructions": "Write this week's product status digest. Read the Roadmap database (documents/Planning/Roadmap): every initiative in Now, anything that moved to Shipped, and anything whose end date has passed without shipping. Read the latest notes in the Weekly product review. Use the Status digest template's headings. Be specific and plain: one line per initiative, say on track, at risk or blocked and why. Put anything that needs a decision under Decisions needed. No hype, no adjectives.",
+      "required_documents": [
+        "documents/Templates/Status digest template.md",
+        "documents/Planning/Weekly product review.md"
+      ],
+      "optional_documents": [
+        "documents/Strategy/OKRs.md"
+      ],
+      "output_format": "The status digest template filled in, under 300 words"
+    },
+    {
+      "id": "feedback_themes",
+      "when_user_asks_about": "clustering or triaging customer feedback into themes",
+      "override_instructions": "Triage new customer feedback. Read every row with status New in the Feedback database (documents/Discovery/Feedback). Group them into themes, reusing the database's Theme options where they fit and proposing a new theme only when none does. For each theme: the rows in it, the strongest quote, the segments asking, and which Roadmap initiative it supports (documents/Planning/Roadmap), or 'no initiative yet'. End with up to three recommendations, each tied to an objective on the OKRs page.",
+      "required_documents": [
+        "documents/Strategy/OKRs.md"
+      ],
+      "optional_documents": [
+        "documents/Strategy/Personas.md"
+      ],
+      "output_format": "A short themed list with quotes, then up to three recommendations"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "name": "Monsters",
+  "folderKind": "database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Monster",
+      "type": "title",
+      "width": 220
+    },
+    {
+      "id": "cr",
+      "name": "CR",
+      "type": "number",
+      "width": 70
+    },
+    {
+      "id": "kind",
+      "name": "Type",
+      "type": "select",
+      "options": [
+        "Aberration",
+        "Beast",
+        "Construct",
+        "Humanoid",
+        "Monstrosity",
+        "Undead"
+      ],
+      "optionColors": {
+        "Aberration": "purple",
+        "Beast": "lime",
+        "Construct": "brown",
+        "Humanoid": "blue",
+        "Monstrosity": "orange",
+        "Undead": "darkGray"
+      },
+      "width": 130
+    },
+    {
+      "id": "environment",
+      "name": "Found in",
+      "type": "multiselect",
+      "options": [
+        "Coast",
+        "Sea",
+        "Marsh",
+        "Forest",
+        "Ruins",
+        "Underground",
+        "City"
+      ],
+      "optionColors": {
+        "Coast": "cyan",
+        "Sea": "blue",
+        "Marsh": "amber",
+        "Forest": "emerald",
+        "Ruins": "brown",
+        "Underground": "darkGray",
+        "City": "gray"
+      },
+      "width": 220
+    },
+    {
+      "id": "hp",
+      "name": "HP",
+      "type": "number",
+      "width": 70
+    },
+    {
+      "id": "ac",
+      "name": "AC",
+      "type": "number",
+      "width": 70
+    },
+    {
+      "id": "dpr",
+      "name": "Damage per round",
+      "type": "number",
+      "width": 130
+    },
+    {
+      "id": "rounds",
+      "name": "Rounds to drop",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "ROUND({HP} / 24, 1)",
+      "resultType": "number",
+      "width": 120
+    },
+    {
+      "id": "met",
+      "name": "Party has met",
+      "type": "checkbox",
+      "width": 110
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "By challenge",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "cr",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "gallery",
+      "name": "Gallery",
+      "type": "gallery",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "cr",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "types",
+      "name": "By type",
+      "type": "kanban",
+      "groupBy": "kind",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

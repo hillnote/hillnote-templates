@@ -1,0 +1,11 @@
+{
+  "name": "runway-calculator",
+  "description": "Months of runway and whether you're default alive, with saved scenarios",
+  "glyph": "🛟",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

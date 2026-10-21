@@ -1,0 +1,227 @@
+{
+  "name": "Sessions",
+  "folderKind": "fitness",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Session",
+      "type": "title",
+      "width": 240
+    },
+    {
+      "id": "date",
+      "name": "Date",
+      "type": "date"
+    },
+    {
+      "id": "day",
+      "name": "Day",
+      "type": "select",
+      "options": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "optionColors": {
+        "Mon": "blue",
+        "Tue": "cyan",
+        "Wed": "teal",
+        "Thu": "emerald",
+        "Fri": "lime",
+        "Sat": "amber",
+        "Sun": "orange"
+      },
+      "width": 80
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "type": "select",
+      "options": [
+        "Strength",
+        "Run",
+        "Mobility",
+        "Rest"
+      ],
+      "optionColors": {
+        "Strength": "purple",
+        "Run": "blue",
+        "Mobility": "teal",
+        "Rest": "gray"
+      },
+      "width": 110
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Planned",
+        "Done",
+        "Skipped"
+      ],
+      "optionColors": {
+        "Planned": "gray",
+        "Done": "emerald",
+        "Skipped": "rose"
+      },
+      "optionStates": {
+        "Planned": "normal",
+        "Done": "done",
+        "Skipped": "archive"
+      },
+      "defaultValue": "Planned"
+    },
+    {
+      "id": "intensity",
+      "name": "Intensity",
+      "type": "select",
+      "options": [
+        "Easy",
+        "Moderate",
+        "Hard"
+      ],
+      "optionColors": {
+        "Easy": "lime",
+        "Moderate": "amber",
+        "Hard": "red"
+      },
+      "width": 110
+    },
+    {
+      "id": "duration",
+      "name": "Duration (min)",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "distance",
+      "name": "Distance (km)",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "rpe",
+      "name": "RPE",
+      "type": "number",
+      "width": 70
+    },
+    {
+      "id": "energy",
+      "name": "Energy (1-5)",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "kind",
+      "name": "Kind",
+      "type": "select",
+      "options": [
+        "Weekly",
+        "One-off"
+      ],
+      "optionColors": {
+        "Weekly": "blue",
+        "One-off": "gray"
+      },
+      "width": 100
+    },
+    {
+      "id": "repeat",
+      "name": "Repeats",
+      "type": "recurring",
+      "width": 150
+    },
+    {
+      "id": "load",
+      "name": "Load",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF(ISBLANK({RPE}), \"\", {Duration (min)} * {RPE})",
+      "resultType": "number",
+      "width": 90
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "This week",
+      "type": "kanban",
+      "groupBy": "day",
+      "filters": [
+        {
+          "column": "kind",
+          "operator": "equals",
+          "value": "Weekly"
+        }
+      ],
+      "sorts": []
+    },
+    {
+      "id": "calendar",
+      "name": "Calendar",
+      "type": "calendar",
+      "dateColumn": "date",
+      "colorByColumn": "type",
+      "calendarViewMode": "dayGridMonth",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "log",
+      "name": "Log",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "date",
+          "direction": "desc"
+        }
+      ],
+      "hiddenColumns": [
+        "repeat",
+        "kind"
+      ]
+    },
+    {
+      "id": "load_chart",
+      "name": "Weekly load",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "date",
+      "dateBucket": "week",
+      "valueColumn": "load",
+      "aggregation": "sum",
+      "splitColumn": "type",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "eighty",
+      "name": "80/20 check",
+      "type": "chart",
+      "chartType": "donut",
+      "labelColumn": "intensity",
+      "valueColumn": "duration",
+      "aggregation": "sum",
+      "filters": [
+        {
+          "column": "type",
+          "operator": "equals",
+          "value": "Run"
+        },
+        {
+          "column": "status",
+          "operator": "equals",
+          "value": "Done"
+        }
+      ],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

@@ -1,0 +1,93 @@
+{
+  "defaultView": "dashboard",
+  "widgets": [
+    {
+      "id": 1783000000001,
+      "type": "document-view",
+      "config": {
+        "documentPath": "documents/Start here.md",
+        "documentName": "Start here",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 3,
+      "position": 0
+    },
+    {
+      "id": 1783000000002,
+      "type": "tasklist-stats",
+      "config": {
+        "displayMode": "bar",
+        "selectedDatabases": [
+          {
+            "id": "template:documents/Production/Content calendar",
+            "path": "documents/Production/Content calendar",
+            "name": "Content calendar"
+          }
+        ]
+      },
+      "size": "single",
+      "height": 1,
+      "position": 1
+    },
+    {
+      "id": 1783000000003,
+      "type": "pinned-documents",
+      "config": {
+        "pinnedDocuments": [
+          "documents/Brand/Channel strategy.md",
+          "documents/Scripts/Script template.md",
+          "documents/Scripts/Script - Why cookies spread.md",
+          "documents/Brand/Media kit.slides.md"
+        ]
+      },
+      "size": "single",
+      "height": 2,
+      "position": 2
+    },
+    {
+      "id": 1783000000004,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Production/Content calendar",
+        "databaseName": "Content calendar",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 3,
+      "position": 3
+    },
+    {
+      "id": 1783000000005,
+      "type": "sheet",
+      "config": {
+        "sheetPath": "documents/Brand/Sponsors",
+        "sheetName": "Sponsors",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 2,
+      "position": 4
+    },
+    {
+      "id": 1783000000006,
+      "type": "clock",
+      "config": {},
+      "size": "single",
+      "height": 2,
+      "position": 5
+    },
+    {
+      "id": 1783000000007,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Ideas/Idea bank",
+        "databaseName": "Idea bank",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 2,
+      "position": 6
+    }
+  ]
+}

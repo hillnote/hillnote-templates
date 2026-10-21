@@ -1,0 +1,86 @@
+{
+  "defaultView": "dashboard",
+  "widgets": [
+    {
+      "id": 1782000000001,
+      "type": "document-view",
+      "config": {
+        "documentPath": "documents/Start here.md",
+        "documentName": "Start here",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 3,
+      "position": 0
+    },
+    {
+      "id": 1782000000002,
+      "type": "tasklist-stats",
+      "config": {
+        "displayMode": "bar",
+        "selectedDatabases": [
+          {
+            "id": "template:documents/Sources/Sources",
+            "path": "documents/Sources/Sources",
+            "name": "Sources"
+          },
+          {
+            "id": "template:documents/Findings/Claims and evidence",
+            "path": "documents/Findings/Claims and evidence",
+            "name": "Claims and evidence"
+          }
+        ]
+      },
+      "size": "single",
+      "height": 1,
+      "position": 1
+    },
+    {
+      "id": 1782000000003,
+      "type": "pinned-documents",
+      "config": {
+        "pinnedDocuments": [
+          "documents/Question/Question and scope.md",
+          "documents/Synthesis/Themes and gaps.md",
+          "documents/Synthesis/Literature review draft.md",
+          "documents/Question/Search log.md"
+        ]
+      },
+      "size": "single",
+      "height": 2,
+      "position": 2
+    },
+    {
+      "id": 1782000000004,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Sources/Sources",
+        "databaseName": "Sources",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 3,
+      "position": 3
+    },
+    {
+      "id": 1782000000005,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Findings/Claims and evidence",
+        "databaseName": "Claims and evidence",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 2,
+      "position": 4
+    },
+    {
+      "id": 1782000000006,
+      "type": "clock",
+      "config": {},
+      "size": "single",
+      "height": 2,
+      "position": 5
+    }
+  ]
+}

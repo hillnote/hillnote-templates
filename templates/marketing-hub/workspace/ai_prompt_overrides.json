@@ -1,0 +1,43 @@
+{
+  "overrides": [
+    {
+      "id": "campaign_brief",
+      "when_user_asks_about": "drafting a brief for a new marketing campaign",
+      "override_instructions": "Draft a campaign brief for the campaign the user describes. Use the Campaign brief template's headings exactly. Choose the primary persona from ICP and personas and say why in one sentence. Take the proposition word for word from the Messaging house, either the roof or one pillar, and build the insight from its voice-of-the-customer quotes. Set one objective with a number and the week it will be judged, counted in weeks from the start, never as calendar dates. Propose channels and a budget split, then check the Campaigns database (documents/Campaigns/Campaigns): add up the budgets already committed, compare them with the quarter's budget in the Q4 launch brief, and flag it if the plan goes over. Give the UTM campaign tag in lowercase with hyphens. List the risks, each with a plan. Follow the Messaging house's words-we-use table. Keep it under 700 words.",
+      "required_documents": [
+        "documents/Templates/Campaign brief.md",
+        "documents/Research/ICP and personas.md",
+        "documents/Research/Messaging house.md"
+      ],
+      "optional_documents": [
+        "documents/Campaigns/Q4 launch brief.md"
+      ],
+      "output_format": "The Campaign brief template filled in, in markdown, ready to save as a new page in Campaigns"
+    },
+    {
+      "id": "repurpose_post",
+      "when_user_asks_about": "repurposing a post, article or email for other channels",
+      "override_instructions": "Repurpose the content on the current page, or the selected text, for other channels. Write: a LinkedIn post whose first 210 characters work on their own, under 1,300 characters in total; an X post under 280 characters, counting any link as 23; an email subject line under 50 characters with preview text under 90; a search title under 60 characters and a meta description under 155; two Google Ads headlines under 30 characters each and one description under 90. Keep the Messaging house's roof and the pillar that fits, use its words-we-use list, and leave out hype. Give each piece's character count, and suggest a utm_content value for each in lowercase with hyphens. End with the rows worth adding to the Content calendar (documents/Content/Content calendar): title, channel, format, campaign and owner.",
+      "required_documents": [
+        "documents/Research/Messaging house.md"
+      ],
+      "optional_documents": [
+        "documents/Research/ICP and personas.md"
+      ],
+      "output_format": "One section per channel with the copy and its character count, then a table of Content calendar rows to add"
+    },
+    {
+      "id": "weekly_report",
+      "when_user_asks_about": "the weekly marketing report or the Monday update",
+      "override_instructions": "Write this week's marketing report. Read the two most recent rows of the Weekly metrics sheet (documents/Reporting/Weekly metrics) and compare them: sessions, trials, activated trials, demo requests, ad spend, and cost per trial worked out as ad spend divided by trials. Read the Campaigns database (documents/Campaigns/Campaigns). For each Live campaign, compare its Pacing % with the share of its dates already gone by, and say ahead, on track or behind. Flag any Cost per trial above the ceiling in the Q4 launch brief. From the Content calendar (documents/Content/Content calendar), list what was published last week, and what is due this week but still in Idea or Drafting, with its owner. Follow the Weekly snapshot section of the Monthly report template. Plain language, numbers first, no adjectives, and finish with the one decision needed.",
+      "required_documents": [
+        "documents/Reporting/Monthly report template.md",
+        "documents/Campaigns/Q4 launch brief.md"
+      ],
+      "optional_documents": [
+        "documents/Research/Messaging house.md"
+      ],
+      "output_format": "Four short sections from the Weekly snapshot, under 250 words, with a small table of week-on-week numbers"
+    }
+  ]
+}

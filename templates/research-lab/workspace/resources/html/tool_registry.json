@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "citation-formatter",
+      "description": "APA 7, MLA 9, Chicago author-date and BibTeX for any source, plus a copyable bibliography",
+      "glyph": "📑",
+      "color": "cobalt",
+      "entryPath": "resources/html/citation-formatter/index.html"
+    },
+    {
+      "name": "sample-size",
+      "description": "Survey sample size for a proportion: confidence, margin of error, finite population correction and response rate",
+      "glyph": "🧮",
+      "color": "teal",
+      "entryPath": "resources/html/sample-size/index.html"
+    }
+  ]
+}

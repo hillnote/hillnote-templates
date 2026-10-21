@@ -1,0 +1,81 @@
+{
+  "defaultView": "dashboard",
+  "widgets": [
+    {
+      "id": 1784000000001,
+      "type": "document-view",
+      "config": {
+        "documentPath": "documents/Start here.md",
+        "documentName": "Start here",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 3,
+      "position": 0
+    },
+    {
+      "id": 1784000000002,
+      "type": "tasklist-stats",
+      "config": {
+        "displayMode": "bar",
+        "selectedDatabases": [
+          {
+            "id": "template:documents/Plan/Sessions",
+            "path": "documents/Plan/Sessions",
+            "name": "Sessions"
+          }
+        ]
+      },
+      "size": "single",
+      "height": 1,
+      "position": 1
+    },
+    {
+      "id": 1784000000003,
+      "type": "pinned-documents",
+      "config": {
+        "pinnedDocuments": [
+          "documents/Plan/Training plan.md",
+          "documents/Review/PR board.md",
+          "documents/Review/Week 6 check-in.md",
+          "documents/Body/Nutrition.md"
+        ]
+      },
+      "size": "single",
+      "height": 2,
+      "position": 2
+    },
+    {
+      "id": 1784000000004,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Plan/Sessions",
+        "databaseName": "Sessions",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 3,
+      "position": 3
+    },
+    {
+      "id": 1784000000005,
+      "type": "sheet",
+      "config": {
+        "sheetPath": "documents/Body/Body metrics",
+        "sheetName": "Body metrics",
+        "workspaceName": ""
+      },
+      "size": "double",
+      "height": 2,
+      "position": 4
+    },
+    {
+      "id": 1784000000006,
+      "type": "clock",
+      "config": {},
+      "size": "single",
+      "height": 2,
+      "position": 5
+    }
+  ]
+}

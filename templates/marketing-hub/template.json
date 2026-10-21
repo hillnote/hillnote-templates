@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "id": "marketing-hub",
+  "version": "1.0.0",
+  "name": "Marketing Hub",
+  "tagline": "Research, messaging, campaigns with budgets and pacing, a content calendar and weekly reporting in one workspace.",
+  "description": "A marketing team's workspace, shown through a worked example: the Q4 launch of Cobalt CRM, a fictional CRM for agencies, and its new automation feature. Research comes first: an ideal customer profile with personas, a messaging house every headline is checked against, and a competitors database you can see as a table or by threat level.\n\nA campaigns database holds every campaign with its goal, channels, owner, budget and spend, a pacing formula and cost per trial, on a timeline, a board and a budget-by-channel chart. A filled-in launch brief ties it together, the content calendar carries drafted copy with typed status, channel and owner, and a weekly metrics sheet and a recap deck close the loop.\n\nThree AI recipes draft a campaign brief, repurpose a post for other channels and write the weekly report. Two tools come with it: a UTM builder that keeps your link history and naming conventions, and a character counter for every channel's limits.",
+  "setups": [
+    "marketing"
+  ],
+  "tags": [
+    "marketing",
+    "campaigns",
+    "content calendar",
+    "messaging",
+    "launch",
+    "utm",
+    "reporting"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Marketing workspace: ICP and personas, a messaging house, competitors, a campaigns database (timeline, board, budget chart) with pacing, a launch brief, a content calendar, weekly metrics and a recap deck.",
+  "color": "marigold",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

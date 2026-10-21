@@ -1,0 +1,9 @@
+node_modules/
+dist/
+# release workflow scratch files
+released-tags.txt
+verify/
+# OS litter (the scripts ignore these too)
+.DS_Store
+Thumbs.db
+desktop.ini

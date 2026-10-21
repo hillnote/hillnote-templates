@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "id": "design-studio",
+  "version": "1.0.0",
+  "name": "Design Studio",
+  "tagline": "Brief, moodboard, design system, UX copy and critiques in one place, ready for Figma over MCP.",
+  "description": "A design team's whole loop in plain files, shown through a worked example: Fernway, a fictional plant-care app halfway through its v3 refresh. A short project brief sits at the top, a moodboard and annotated references explore the direction, and the system turns it into decisions: colour tokens with real contrast ratios, a type scale, voice and microcopy rules, a Components database with a Figma link per component and a UX copy sheet with character limits.\n\nReview keeps it honest: a feedback log from crits and usability tests, a design QA checklist and a design review deck. Creative brief and critique templates are ready to duplicate.\n\nThree AI recipes run a structured critique, write UI copy inside its limits and turn the brief into a handoff spec. Two tools come with it: a WCAG contrast checker and a type scale generator that copies CSS variables. Connect Claude to Figma and Hillnote over MCP and the brief travels with every frame it builds.",
+  "setups": [
+    "design"
+  ],
+  "tags": [
+    "design",
+    "design-system",
+    "moodboard",
+    "figma",
+    "ux-writing",
+    "critique",
+    "accessibility"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Design team workspace: project brief, moodboard and references, colour and type tokens, voice rules, a Components database, a UX copy sheet, a feedback log, QA checklist and review deck.",
+  "color": "orchid",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

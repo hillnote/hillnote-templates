@@ -1,0 +1,77 @@
+{
+  "name": "Exploring Hillnote",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "title",
+      "width": 300
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "width": 150,
+      "options": [
+        "To Do",
+        "Prioritised",
+        "In Progress",
+        "Done"
+      ],
+      "optionColors": {
+        "To Do": "gray",
+        "Prioritised": "cyan",
+        "In Progress": "amber",
+        "Done": "emerald"
+      },
+      "optionStates": {
+        "To Do": "normal",
+        "In Progress": "normal",
+        "Done": "done"
+      },
+      "defaultValue": "To Do"
+    },
+    {
+      "id": "description",
+      "name": "Description",
+      "type": "text",
+      "width": 250
+    },
+    {
+      "id": "priority",
+      "name": "Priority",
+      "type": "select",
+      "width": 120,
+      "options": [
+        "High",
+        "Medium",
+        "Low"
+      ],
+      "optionColors": {
+        "High": "red",
+        "Medium": "amber",
+        "Low": "gray"
+      },
+      "defaultValue": "Medium"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "All Tasks",
+      "type": "table",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "kanban",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "kanban",
+  "lastOpenedView": "kanban"
+}

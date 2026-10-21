@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "id": "product-hq",
+  "version": "1.0.0",
+  "name": "Product HQ",
+  "tagline": "Strategy, discovery, a RICE-ranked roadmap and specs, all in one place.",
+  "description": "A complete operating system for a product team, shown through a worked example: Lumen, a fictional analytics product planning its next quarter. Strategy sits at the top (vision, OKRs, personas), customer evidence underneath it (a feedback database and interview notes), and a roadmap ranked by RICE that you can see as a board, a timeline, a ranked table or an impact-versus-effort matrix.\n\nDelivery pages turn the roadmap into shipped work: a filled-in PRD, a launch plan and release notes, plus blank templates to duplicate. A weekly product review and a quarterly roadmap deck keep everyone honest.\n\nThree AI recipes draft PRDs, write the Monday status digest and cluster new feedback into themes. Two tools come with it: a priority matrix that lets you move initiatives between Now, Next and Later, and a market-sizing calculator.",
+  "setups": [
+    "product"
+  ],
+  "tags": [
+    "product",
+    "roadmap",
+    "prd",
+    "okrs",
+    "feedback",
+    "rice",
+    "planning"
+  ],
+  "featured": true,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Product team workspace: vision and OKRs, a customer feedback database, a RICE-ranked roadmap (board, timeline, matrix), PRDs, launch plans, release notes and a weekly review.",
+  "color": "blue",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

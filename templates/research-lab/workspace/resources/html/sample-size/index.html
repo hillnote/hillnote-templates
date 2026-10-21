@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#008080;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#008080;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<title>Sample size calculator</title>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+  .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-top: 14px; }
+  .figure { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; }
+  .figure strong { display: block; font-size: 26px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .figure small { color: var(--muted-foreground); font-size: 12px; }
+  .figure.main { border-color: var(--primary); }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin-top: 4px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.current td { font-weight: 650; }
+  .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
+  @media (max-width: 680px) { .two { grid-template-columns: 1fr; } }
+  .formula { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; background: var(--muted); padding: 8px 10px; border-radius: calc(var(--radius) - 2px); overflow-wrap: anywhere; }
+  .scenarios .list-item { justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Sample size calculator</strong>
+  <span class="muted">for estimating a proportion in a survey</span>
+</div>
+
+<div class="card">
+  <div class="grid">
+    <div class="field"><label for="confidence">Confidence level</label>
+      <select id="confidence">
+        <option value="80">80%</option><option value="85">85%</option><option value="90">90%</option>
+        <option value="95">95%</option><option value="98">98%</option><option value="99">99%</option>
+      </select>
+    </div>
+    <div class="field"><label for="margin">Margin of error (± %)</label><input id="margin" type="number" min="0.5" max="50" step="0.5"></div>
+    <div class="field"><label for="proportion">Expected proportion (%)</label><input id="proportion" type="number" min="1" max="99" step="1"></div>
+    <div class="field"><label for="population">Population size (optional)</label><input id="population" type="number" min="0" step="1" placeholder="Leave blank if very large"></div>
+    <div class="field"><label for="response">Response rate (%)</label><input id="response" type="number" min="1" max="100" step="1"></div>
+  </div>
+  <p class="hint">Not sure about the expected proportion? Use 50%: it gives the largest, safest sample.</p>
+
+  <div class="results">
+    <div class="figure main"><small>Completed responses needed</small><strong id="n"></strong><small id="n-note"></small></div>
+    <div class="figure"><small>Invitations to send</small><strong id="invites"></strong><small id="invite-note"></small></div>
+    <div class="figure"><small>Before population correction</small><strong id="n0"></strong><small>infinite population</small></div>
+  </div>
+</div>
+
+<div class="two">
+  <section class="card">
+    <h3>Other margins, same settings</h3>
+    <table>
+      <thead><tr><th>Margin of error</th><th class="num">Responses</th><th class="num">Invitations</th></tr></thead>
+      <tbody id="table"></tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h3>What margin will I get?</h3>
+    <div class="field"><label for="have">Responses you expect</label><input id="have" type="number" min="1" step="1"></div>
+    <p style="margin-top: 10px">Margin of error: <strong id="achieved"></strong></p>
+    <p class="hint">Uses the same confidence level, proportion and population as above.</p>
+  </section>
+</div>
+
+<div class="card" style="margin-top: 14px">
+  <h3>How it works</h3>
+  <p class="formula">n₀ = z² × p × (1 − p) ÷ e² &nbsp;·&nbsp; n = n₀ ÷ (1 + (n₀ − 1) ÷ N) &nbsp;·&nbsp; invitations = n ÷ response rate</p>
+  <p class="hint">z comes from the confidence level (1.96 for 95%), p is the expected proportion, e the margin of error and N the population. The finite population correction only matters when the sample is a sizeable share of the population. This assumes a simple random sample; clustered or quota samples need more. Interview studies size themselves differently: plan for saturation, not a margin of error.</p>
+</div>
+
+<div class="card scenarios" style="margin-top: 14px">
+  <h3>Scenarios</h3>
+  <div class="row">
+    <input id="name" placeholder="Name this scenario, e.g. Neighbourhood survey">
+    <button class="btn-primary" id="save">Save</button>
+  </div>
+  <div class="list" id="list" style="margin-top: 8px"></div>
+</div>
+
+<script>
+(function () {
+  var Z = { 80: 1.2816, 85: 1.4395, 90: 1.6449, 95: 1.96, 98: 2.3263, 99: 2.5758 };
+  var DEFAULTS = { confidence: '95', margin: 5, proportion: 50, population: 2150, response: 30, have: 200 };
+  var FIELDS = ['confidence', 'margin', 'proportion', 'population', 'response', 'have'];
+  var MARGINS = [2, 3, 4, 5, 7, 10];
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); },
+    set: function (k, v) { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; }
+  };
+  var fmt = function (n) { return Number.isFinite(n) ? Math.round(n).toLocaleString() : '—'; };
+
+  function read() {
+    var v = {};
+    FIELDS.forEach(function (f) { v[f] = $(f).value; });
+    return v;
+  }
+  function write(v) { FIELDS.forEach(function (f) { $(f).value = v[f] != null ? v[f] : DEFAULTS[f]; }); }
+
+  function size(v, marginPct) {
+    var z = Z[v.confidence] || 1.96;
+    var p = Math.min(0.99, Math.max(0.01, (Number(v.proportion) || 50) / 100));
+    var e = (marginPct != null ? marginPct : Number(v.margin)) / 100;
+    if (!(e > 0)) return null;
+    var n0 = z * z * p * (1 - p) / (e * e);
+    var N = Number(v.population);
+    var n = N > 0 ? n0 / (1 + (n0 - 1) / N) : n0;
+    var rr = Math.min(1, Math.max(0.01, (Number(v.response) || 100) / 100));
+    var nUp = Math.ceil(n - 1e-9);
+    return { n0: n0, n: nUp, invites: Math.ceil(nUp / rr - 1e-9), capped: N > 0 && nUp >= N };
+  }
+
+  function achieved(v) {
+    var z = Z[v.confidence] || 1.96;
+    var p = Math.min(0.99, Math.max(0.01, (Number(v.proportion) || 50) / 100));
+    var n = Number(v.have);
+    if (!(n > 0)) return null;
+    var N = Number(v.population);
+    var fpc = N > 1 && n < N ? (N - n) / (N - 1) : (N > 0 && n >= N ? 0 : 1);
+    return z * Math.sqrt(p * (1 - p) / n * fpc) * 100;
+  }
+
+  function render() {
+    var v = read();
+    var r = size(v);
+    $('n').textContent = r ? fmt(r.n) : '—';
+    $('n0').textContent = r ? fmt(Math.ceil(r.n0 - 1e-9)) : '—';
+    $('invites').textContent = r ? fmt(r.invites) : '—';
+    $('n-note').textContent = r && r.capped ? 'that is the whole population: survey everyone' : (Number(v.population) > 0 ? 'with finite population correction' : 'population treated as very large');
+    $('invite-note').textContent = 'at a ' + (Number(v.response) || 100) + '% response rate';
+    var current = Number(v.margin);
+    $('table').innerHTML = MARGINS.map(function (m) {
+      var s = size(v, m);
+      return '<tr' + (m === current ? ' class="current"' : '') + '><td>± ' + m + '%</td><td class="num">' + (s ? fmt(s.n) : '—') + '</td><td class="num">' + (s ? fmt(s.invites) : '—') + '</td></tr>';
+    }).join('');
+    var a = achieved(v);
+    $('achieved').textContent = a == null ? '—' : (a === 0 ? '± 0% (everyone)' : '± ' + a.toFixed(1) + '%');
+    store.set('last', v);
+  }
+
+  function renderList() {
+    var list = store.get('scenarios', []);
+    if (!list.length) { $('list').innerHTML = '<div class="empty-state">No saved scenarios yet. Save one to compare assumptions side by side.</div>'; return; }
+    $('list').innerHTML = list.map(function (s, i) {
+      var r = size(s.values);
+      return '<div class="list-item"><span><strong>' + esc(s.name) + '</strong> <span class="muted">' + esc(s.values.confidence) + '%, ± ' + esc(s.values.margin) + '%: ' + (r ? fmt(r.n) : '—') + ' responses</span></span>' +
+        '<span class="row"><button class="btn-sm" data-load="' + i + '">Load</button><button class="btn-sm btn-ghost" data-delete="' + i + '" aria-label="Delete ' + esc(s.name) + '">Delete</button></span></div>';
+    }).join('');
+  }
+
+  $('save').addEventListener('click', function () {
+    var name = $('name').value.trim() || 'Scenario ' + (store.get('scenarios', []).length + 1);
+    var list = store.get('scenarios', []).filter(function (s) { return s.name !== name; });
+    list.unshift({ name: name, values: read() });
+    store.set('scenarios', list.slice(0, 12));
+    $('name').value = '';
+    renderList();
+  });
+  $('list').addEventListener('click', function (e) {
+    var t = e.target;
+    var list = store.get('scenarios', []);
+    if (t.hasAttribute('data-load')) { write(list[Number(t.getAttribute('data-load'))].values); render(); }
+    if (t.hasAttribute('data-delete')) { list.splice(Number(t.getAttribute('data-delete')), 1); store.set('scenarios', list); renderList(); }
+  });
+  FIELDS.forEach(function (f) { $(f).addEventListener('input', render); $(f).addEventListener('change', render); });
+
+  async function start() {
+    if (window.hillnote) await hillnote.ready();
+    write(Object.assign({}, DEFAULTS, store.get('last', {})));
+    render();
+    renderList();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

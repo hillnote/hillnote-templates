@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "format",
+      "name": "Format",
+      "type": "select",
+      "options": [
+        "Long video",
+        "Short",
+        "Newsletter",
+        "Carousel"
+      ],
+      "optionColors": {
+        "Long video": "red",
+        "Short": "pink",
+        "Newsletter": "teal",
+        "Carousel": "purple"
+      }
+    },
+    {
+      "id": "script_stage",
+      "name": "Script stage",
+      "type": "status",
+      "options": [
+        "Draft",
+        "Table read",
+        "Locked",
+        "Shot"
+      ],
+      "optionColors": {
+        "Draft": "gray",
+        "Table read": "amber",
+        "Locked": "blue",
+        "Shot": "emerald"
+      },
+      "optionStates": {
+        "Draft": "normal",
+        "Table read": "normal",
+        "Locked": "normal",
+        "Shot": "done"
+      }
+    },
+    {
+      "id": "runtime_min",
+      "name": "Runtime (min)",
+      "type": "number"
+    }
+  ]
+}

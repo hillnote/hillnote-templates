@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "name": "Body metrics",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Week",
+      "type": "title",
+      "width": 110
+    },
+    {
+      "id": "week_starting",
+      "name": "Week starting",
+      "type": "date"
+    },
+    {
+      "id": "weight_kg",
+      "name": "Weight (kg)",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "sleep_h",
+      "name": "Sleep (h)",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "resting_hr",
+      "name": "Resting HR",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "run_km",
+      "name": "Running (km)",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "notes",
+      "name": "Notes",
+      "type": "text",
+      "width": 320
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Weeks",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "week_starting",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "hr",
+      "name": "Resting HR",
+      "type": "chart",
+      "chartType": "line",
+      "labelColumn": "week_starting",
+      "dateBucket": "week",
+      "valueColumn": "resting_hr",
+      "aggregation": "average",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "sleep",
+      "name": "Sleep",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "week_starting",
+      "dateBucket": "week",
+      "valueColumn": "sleep_h",
+      "aggregation": "average",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "weight",
+      "name": "Weight",
+      "type": "chart",
+      "chartType": "line",
+      "labelColumn": "week_starting",
+      "dateBucket": "week",
+      "valueColumn": "weight_kg",
+      "aggregation": "average",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

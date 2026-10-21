@@ -1,0 +1,115 @@
+name: Release templates
+
+# After a merge: build a zip for every template version that has no release
+# yet, publish it as release <id>-v<version>, download it back and check its
+# sha256, then commit the regenerated registry.json — the file the Hillnote app
+# and hillnote.com/templates read. Releases first, registry second, so the
+# registry never points at an asset that does not exist.
+#
+# A push made with GITHUB_TOKEN does not start workflows, so the registry
+# commit never re-triggers this one (and it touches no templates/** path).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "templates/**"
+  workflow_dispatch:
+
+# One run at a time, in merge order: two quick merges never race for a tag or
+# for the registry commit.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Pinned by commit. persist-credentials: false keeps the write token out
+      # of .git/config while template files are read and zipped — only the
+      # final push step sees it.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      - run: npm test
+      - run: node scripts/validate.mjs
+
+      - name: List released tags
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release list --repo "$GITHUB_REPOSITORY" --limit 1000 --json tagName --jq '.[].tagName' > released-tags.txt
+
+      # Zips only for versions without a tag; released versions are carried
+      # forward from the committed registry.json (a released version is immutable).
+      - name: Build
+        run: node scripts/build.mjs --only-unreleased --released-tags released-tags.txt --commit "$GITHUB_SHA"
+
+      - name: Release and verify
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p verify
+          jq -c '.[]' dist/release-plan.json | while read -r row; do
+            action=$(jq -r .action <<<"$row")
+            tag=$(jq -r .tag <<<"$row")
+            zip=$(jq -r .zip <<<"$row")
+            sha=$(jq -r .sha256 <<<"$row")
+            name=$(basename "$zip")
+            if [ "$action" = "create" ]; then
+              if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+                echo "::error::$tag already exists — a released version is never replaced"
+                exit 1
+              fi
+              gh release create "$tag" "$zip" \
+                --repo "$GITHUB_REPOSITORY" \
+                --target "$GITHUB_SHA" \
+                --title "$tag" \
+                --notes "Workspace template $(jq -r .id <<<"$row") $(jq -r .version <<<"$row"). sha256 $sha"
+            fi
+            # "verify" rows are versions released by an earlier run that never
+            # recorded them: the rebuild must match the published bytes exactly.
+            rm -f "verify/$name"
+            gh release download "$tag" --repo "$GITHUB_REPOSITORY" --pattern "$name" --dir verify
+            echo "$sha  verify/$name" | sha256sum -c -
+          done
+
+      - name: Commit registry.json
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          same=$(node -e '
+            const fs = require("fs")
+            const old = fs.existsSync("registry.json") ? JSON.parse(fs.readFileSync("registry.json", "utf8")).templates : null
+            const next = JSON.parse(fs.readFileSync("dist/registry.json", "utf8")).templates
+            console.log(JSON.stringify(old) === JSON.stringify(next) ? "yes" : "no")
+          ')
+          if [ "$same" = "yes" ]; then
+            echo "registry.json unchanged"
+            exit 0
+          fi
+          cp dist/registry.json registry.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add registry.json
+          git commit -m "Update registry.json"
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          for attempt in 1 2 3 4 5; do
+            if git push "$remote" HEAD:main; then
+              exit 0
+            fi
+            echo "push lost a race (attempt $attempt) — rebasing"
+            git pull --rebase "$remote" main
+          done
+          echo "::error::could not push registry.json"
+          exit 1

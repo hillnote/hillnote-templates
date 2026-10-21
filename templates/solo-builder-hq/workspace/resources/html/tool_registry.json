@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "runway-calculator",
+      "description": "Months of runway and whether you're default alive, with saved scenarios",
+      "glyph": "🛟",
+      "color": "tangerine",
+      "entryPath": "resources/html/runway-calculator/index.html"
+    },
+    {
+      "name": "mrr-goal-planner",
+      "description": "Work back from an MRR goal to new customers, trials and visitors per month",
+      "glyph": "🎯",
+      "color": "teal",
+      "entryPath": "resources/html/mrr-goal-planner/index.html"
+    }
+  ]
+}

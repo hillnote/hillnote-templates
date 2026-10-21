@@ -1,0 +1,43 @@
+{
+  "overrides": [
+    {
+      "id": "weekly_review",
+      "when_user_asks_about": "a weekly training review, a check-in, or how this week of training went",
+      "override_instructions": "Write this week's training check-in using the headings of the Weekly check-in template. Read the rows dated this week in the Sessions database (documents/Plan/Sessions): status, type, duration, distance, RPE, energy and the Load column. Compare with last week. Read this week's rows in the Lift log (documents/Log/Lift log) and compare each lift's estimated 1RM with its previous entry; call out any new best and any lift that went down. Read the latest rows of the Body metrics sheet (documents/Body/Body metrics) for sleep, resting heart rate and weight, against the week 1 baseline. If a Strava or other activity connector is available, use it to fill in runs missing from Sessions. Check the 80/20 balance of running time, run through the deload checklist, and finish with exactly one specific change for next week. Be honest and encouraging, use the numbers, and never give medical advice: if the user mentions pain, illness or injury, suggest they see a professional.",
+      "required_documents": [
+        "documents/Templates/Weekly check-in.md",
+        "documents/Plan/Training plan.md"
+      ],
+      "optional_documents": [
+        "documents/Review/Week 6 check-in.md",
+        "documents/Review/PR board.md"
+      ],
+      "output_format": "A filled-in weekly check-in: numbers table, wins, what didn't go to plan, deload check and one change"
+    },
+    {
+      "id": "adjust_plan",
+      "when_user_asks_about": "changing the plan, missed sessions, travel, illness, or fitting training around a busy week",
+      "override_instructions": "Rework the next one to two weeks of training around what the user tells you: missed sessions, travel, a busy week, illness or a niggle. Read the Training plan for the goals, the current phase, the weekly template and the rules, and the Sessions database (documents/Plan/Sessions) for what is planned and what was done recently. Keep the key sessions (the long run, the interval session and the first strength session of the week), shorten or drop the rest, and keep about 80% of running time easy. Never try to make up missed sessions by cramming them in; never increase weekly running by more than about 10%; keep hard runs and heavy leg days on different days. After illness, start with easy running only. Show the revised week as a day-by-day table, explain each change in one line, and offer to update the Sessions rows. If the user mentions pain, say clearly that they should get it checked by a physiotherapist or doctor before training through it.",
+      "required_documents": [
+        "documents/Plan/Training plan.md"
+      ],
+      "optional_documents": [
+        "documents/Body/Nutrition.md"
+      ],
+      "output_format": "A day-by-day table for the revised week or two, with a one-line reason for each change"
+    },
+    {
+      "id": "deload_check",
+      "when_user_asks_about": "whether to deload, feeling tired or stale, plateaus, or overtraining",
+      "override_instructions": "Decide whether the user needs a deload. Look at the last three weeks: the Lift log (documents/Log/Lift log) for estimated 1RM by lift, flagging any lift down two sessions in a row and any rise in RPE for the same weight; the Sessions database (documents/Plan/Sessions) for RPE, energy and load by week; and the Body metrics sheet (documents/Body/Body metrics) for resting heart rate against the week 1 baseline, and sleep. Count how many weeks since the last deload week from the Training plan's block table. Score each signal in the plan's deload checklist as present or not, with the numbers. Verdict: deload now (two or more signals, or four or more weeks since the last one), take the planned deload, or not yet. If deloading, prescribe it: about 40% less volume, weights around 90% of recent working sets, easy running plus strides, and a date to resume. This is not medical advice; if the signals include illness or pain, recommend seeing a professional.",
+      "required_documents": [
+        "documents/Plan/Training plan.md",
+        "documents/Review/PR board.md"
+      ],
+      "optional_documents": [
+        "documents/Review/Week 6 check-in.md"
+      ],
+      "output_format": "A signal-by-signal table with numbers, a one-line verdict, and a deload prescription if needed"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "mrr-goal-planner",
+  "description": "Work back from an MRR goal to new customers, trials and visitors per month",
+  "glyph": "🎯",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

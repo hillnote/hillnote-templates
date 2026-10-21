@@ -1,0 +1,18 @@
+{
+  "tools": [
+    {
+      "name": "priority-matrix",
+      "description": "Expected impact against effort for the roadmap; move initiatives between Now, Next and Later",
+      "glyph": "🎯",
+      "color": "indigo",
+      "entryPath": "resources/html/priority-matrix/index.html"
+    },
+    {
+      "name": "market-sizing",
+      "description": "TAM, SAM and SOM from a few inputs, with saved scenarios",
+      "glyph": "🌐",
+      "color": "teal",
+      "entryPath": "resources/html/market-sizing/index.html"
+    }
+  ]
+}

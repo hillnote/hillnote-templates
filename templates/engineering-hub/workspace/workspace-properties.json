@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "stage",
+      "name": "Stage",
+      "type": "status",
+      "options": [
+        "Draft",
+        "In review",
+        "Accepted",
+        "Superseded"
+      ],
+      "optionColors": {
+        "Draft": "gray",
+        "In review": "amber",
+        "Accepted": "emerald",
+        "Superseded": "brown"
+      },
+      "optionStates": {
+        "Draft": "normal",
+        "In review": "normal",
+        "Accepted": "done",
+        "Superseded": "archive"
+      }
+    },
+    {
+      "id": "owner",
+      "name": "Owner",
+      "type": "text"
+    }
+  ]
+}

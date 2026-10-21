@@ -1,0 +1,153 @@
+{
+  "name": "Idea bank",
+  "folderKind": "ideas",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Idea",
+      "type": "title",
+      "width": 260
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "New",
+        "Shortlisted",
+        "In calendar",
+        "Parked"
+      ],
+      "optionColors": {
+        "New": "blue",
+        "Shortlisted": "amber",
+        "In calendar": "emerald",
+        "Parked": "gray"
+      },
+      "optionStates": {
+        "New": "normal",
+        "Shortlisted": "normal",
+        "In calendar": "done",
+        "Parked": "archive"
+      },
+      "defaultValue": "New"
+    },
+    {
+      "id": "hook",
+      "name": "Hook",
+      "type": "text",
+      "width": 320
+    },
+    {
+      "id": "format",
+      "name": "Format",
+      "type": "select",
+      "options": [
+        "Long video",
+        "Short",
+        "Newsletter",
+        "Carousel"
+      ],
+      "optionColors": {
+        "Long video": "red",
+        "Short": "pink",
+        "Newsletter": "teal",
+        "Carousel": "purple"
+      }
+    },
+    {
+      "id": "pillar",
+      "name": "Pillar",
+      "type": "select",
+      "options": [
+        "Myth or fact",
+        "Why it works",
+        "Try this at home",
+        "Kitchen gear"
+      ],
+      "optionColors": {
+        "Myth or fact": "rose",
+        "Why it works": "blue",
+        "Try this at home": "lime",
+        "Kitchen gear": "amber"
+      }
+    },
+    {
+      "id": "curiosity",
+      "name": "Curiosity",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "demand",
+      "name": "Search demand",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "effort",
+      "name": "Effort",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "score",
+      "name": "Score",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "{Curiosity} + {Search demand} + 6 - {Effort}",
+      "resultType": "number",
+      "width": 90
+    },
+    {
+      "id": "added",
+      "name": "Added",
+      "type": "date"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "score",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "ranked",
+      "name": "Ranked",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "notEquals",
+          "value": "Parked"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "score",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "pillars",
+      "name": "By pillar",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "pillar",
+      "aggregation": "count",
+      "splitColumn": "status",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

@@ -1,0 +1,45 @@
+{
+  "overrides": [
+    {
+      "id": "npc_voice",
+      "when_user_asks_about": "voicing an NPC, writing dialogue for a character, or how an NPC would react",
+      "override_instructions": "Play the NPC the user names, in character, for the situation they describe. Read that NPC's row in the NPCs database (documents/Cast/NPCs): role, faction, attitude, voice and mannerism, secret and body notes. Read their faction on the Factions page and the Places row for where they are found (documents/World/Places), and use the Campaign bible for tone. Start with a one-line reminder of who they are and how they sound. Then write 5 to 8 lines of dialogue in their voice, with their mannerism shown in brackets once or twice. Then list what they will tell the party, what they will hint at, and what they will never admit. Never reveal the Secret column in their dialogue unless the user explicitly asks; protect it the way the NPC would. End with a d4 table of reactions if the party pushes too hard. Keep everything consistent with the setting; invent nothing that contradicts the bible.",
+      "required_documents": [
+        "documents/World/Campaign bible.md",
+        "documents/Cast/Factions.md"
+      ],
+      "optional_documents": [
+        "documents/World/Lore and timeline.md"
+      ],
+      "output_format": "A one-line reminder, in-character dialogue, a know / hint / never-admit list, and a d4 reaction table"
+    },
+    {
+      "id": "side_quest",
+      "when_user_asks_about": "a side quest, an adventure hook, a rumour for the tavern board, or something for the party to do",
+      "override_instructions": "Create a side quest grounded in this campaign's own lore. Read the Campaign bible, Lore and timeline, Factions and the Campaign arc. Use the databases: pick a quest giver from NPCs (documents/Cast/NPCs), a location from Places (documents/World/Places), opposition from Monsters (documents/Bestiary and Loot/Monsters) suited to the party size and level in the variables, and a reward from Items (documents/Bestiary and Loot/Items) or gold. Check Quests (documents/Quests/Quests) so you don't repeat an existing quest. Structure: a title; three hooks (one rumour, one NPC request, one thing the party stumbles on); the truth behind it; three scenes (social, exploration, combat or chase), each with one complication; the reward; and how the outcome ticks a clock or touches a faction from the Campaign arc. Everything must be original to this setting: no official published settings, deities, creatures or spells. Offer to add it as a Rumor row in the Quests database.",
+      "required_documents": [
+        "documents/World/Campaign bible.md",
+        "documents/World/Lore and timeline.md",
+        "documents/Quests/Campaign arc.md"
+      ],
+      "optional_documents": [
+        "documents/Cast/Factions.md",
+        "documents/Bestiary and Loot/Encounter building.md"
+      ],
+      "output_format": "A ready-to-run quest outline: title, hooks, truth, three scenes, reward and consequences"
+    },
+    {
+      "id": "session_recap",
+      "when_user_asks_about": "a recap of last session, a session summary, or a 'previously on' to read aloud",
+      "override_instructions": "Turn the user's session notes (or the latest Done row in the Sessions database, documents/Sessions/Sessions) into a recap in the same shape as the Session 1 recap. Write: a 'Previously on' of about 120 words to read aloud, second person, present tense, ending on the cliffhanger; a numbered list of what happened, linking NPCs, places, quests and items to their rows; the loose threads; and a checklist of world updates to make (NPC status changes, quests to move on the board, items that changed hands, variables to update). Use the Campaign bible to stay consistent, and never put an NPC's Secret in the read-aloud text unless the players actually discovered it. Finish with a suggested strong start for next session, using the Session prep template's step 2.",
+      "required_documents": [
+        "documents/World/Campaign bible.md",
+        "documents/Templates/Session prep.md"
+      ],
+      "optional_documents": [
+        "documents/Sessions/Sessions/Session 1 - The Drowned Bell.md"
+      ],
+      "output_format": "Read-aloud recap, what happened, loose threads, world-update checklist and next session's strong start"
+    }
+  ]
+}

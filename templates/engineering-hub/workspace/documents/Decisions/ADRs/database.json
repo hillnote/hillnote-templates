@@ -1,0 +1,99 @@
+{
+  "name": "ADRs",
+  "folderKind": "work",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Decision",
+      "type": "title",
+      "width": 380
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Proposed",
+        "Accepted",
+        "Superseded"
+      ],
+      "optionColors": {
+        "Proposed": "amber",
+        "Accepted": "emerald",
+        "Superseded": "gray"
+      },
+      "optionStates": {
+        "Proposed": "normal",
+        "Accepted": "done",
+        "Superseded": "archive"
+      },
+      "defaultValue": "Proposed"
+    },
+    {
+      "id": "decided",
+      "name": "Decided",
+      "type": "date"
+    },
+    {
+      "id": "area",
+      "name": "Area",
+      "type": "select",
+      "options": [
+        "Data",
+        "API",
+        "Infra",
+        "Docs"
+      ],
+      "optionColors": {
+        "Data": "purple",
+        "API": "teal",
+        "Infra": "brown",
+        "Docs": "cyan"
+      }
+    },
+    {
+      "id": "deciders",
+      "name": "Deciders",
+      "type": "text",
+      "width": 220
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Log",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "decided",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "board",
+      "name": "By status",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "decided",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "type": "calendar",
+      "dateColumn": "decided",
+      "colorByColumn": "area",
+      "calendarViewMode": "dayGridMonth",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

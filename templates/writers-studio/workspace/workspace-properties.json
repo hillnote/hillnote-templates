@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "kind",
+      "name": "Kind",
+      "type": "select",
+      "options": [
+        "Plan",
+        "Guide",
+        "Checklist",
+        "Cheat-sheet",
+        "Template"
+      ],
+      "optionColors": {
+        "Plan": "blue",
+        "Guide": "emerald",
+        "Checklist": "amber",
+        "Cheat-sheet": "purple",
+        "Template": "gray"
+      }
+    },
+    {
+      "id": "use_when",
+      "name": "Use when",
+      "type": "text"
+    }
+  ]
+}

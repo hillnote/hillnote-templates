@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "id": "creator-studio",
+  "version": "1.0.0",
+  "name": "Creator Studio",
+  "tagline": "Bank ideas, script videos in beats, run a content calendar and keep sponsors in one place, from idea to upload.",
+  "description": "A studio for a one-person channel, shown through a worked example: Small Kitchen Science, a fictional cooking-science channel with a weekly newsletter. Every idea is banked with a hook and a score, every video gets a script written in beats (what you say, what we see, how long), and a content calendar walks each piece from Idea to Published across YouTube, Shorts, TikTok, Instagram and the newsletter.\n\nTwo finished scripts show the method, a channel strategy sets out the pillars, hook formulas and title rules, and a brand board, a media kit deck and a sponsors sheet keep the business side next to the work. The weekly newsletter row repeats itself.\n\nThree AI recipes punch up a hook, repurpose a long video into a Short, a carousel and a newsletter section, and write title ideas. Two tools come with it: a teleprompter with mirror mode and a runtime estimate, and a title and thumbnail-text checker that previews truncation on every platform.",
+  "setups": [
+    "creator"
+  ],
+  "tags": [
+    "creator",
+    "youtube",
+    "content calendar",
+    "scripts",
+    "shorts",
+    "sponsors",
+    "newsletter"
+  ],
+  "featured": false,
+  "author": {
+    "name": "Hillnote",
+    "url": "https://hillnote.com"
+  },
+  "license": "MIT",
+  "open": "documents/Start here.md",
+  "overview": "Creator workspace: a scored idea bank, a content calendar (calendar, board, table) with a repeating newsletter, scripts in beats, a channel strategy, a brand board, a media kit deck and a sponsors sheet.",
+  "color": "coral",
+  "dateAnchor": "2026-11-02",
+  "icon": "media/icon.webp",
+  "hero": "media/hero.webp"
+}

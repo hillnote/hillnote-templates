@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "name": "Money",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Month",
+      "type": "title",
+      "width": 140
+    },
+    {
+      "id": "phase",
+      "name": "Phase",
+      "type": "select",
+      "options": [
+        "Actual",
+        "Projected"
+      ],
+      "optionColors": {
+        "Actual": "emerald",
+        "Projected": "gray"
+      }
+    },
+    {
+      "id": "revenue",
+      "name": "Revenue",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "costs",
+      "name": "Costs",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "mrr",
+      "name": "MRR",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "customers",
+      "name": "Customers",
+      "type": "number",
+      "width": 110
+    },
+    {
+      "id": "note",
+      "name": "Note",
+      "type": "text",
+      "width": 380
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "mrr",
+      "name": "MRR",
+      "type": "chart",
+      "chartType": "line",
+      "labelColumn": "title",
+      "valueColumn": "mrr",
+      "aggregation": "sum",
+      "sortBy": "label",
+      "sortDir": "asc",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "actual",
+      "name": "Actuals",
+      "type": "table",
+      "filters": [
+        {
+          "column": "phase",
+          "operator": "equals",
+          "value": "Actual"
+        }
+      ],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

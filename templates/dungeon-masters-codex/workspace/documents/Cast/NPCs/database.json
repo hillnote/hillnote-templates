@@ -1,0 +1,233 @@
+{
+  "name": "NPCs",
+  "folderKind": "people",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Name",
+      "type": "title",
+      "width": 200
+    },
+    {
+      "id": "role",
+      "name": "Role",
+      "type": "text",
+      "width": 240
+    },
+    {
+      "id": "faction",
+      "name": "Faction",
+      "type": "select",
+      "options": [
+        "Lamplighters' Guild",
+        "Harbour Compact",
+        "Saltborn",
+        "Gull Court",
+        "Drowned Choir",
+        "Unaligned"
+      ],
+      "optionColors": {
+        "Lamplighters' Guild": "amber",
+        "Harbour Compact": "blue",
+        "Saltborn": "lime",
+        "Gull Court": "brown",
+        "Drowned Choir": "purple",
+        "Unaligned": "gray"
+      },
+      "width": 170
+    },
+    {
+      "id": "location",
+      "name": "Found at",
+      "type": "select",
+      "options": [
+        "Lanternfall",
+        "The Drowned Bell",
+        "Weeping Abbey",
+        "Cinder Quay",
+        "Saltmarrow",
+        "The Lantern Spire",
+        "The Sunken Stair",
+        "The Drowned Wood"
+      ],
+      "optionColors": {
+        "Lanternfall": "blue",
+        "The Drowned Bell": "orange",
+        "Weeping Abbey": "cyan",
+        "Cinder Quay": "brown",
+        "Saltmarrow": "lime",
+        "The Lantern Spire": "purple",
+        "The Sunken Stair": "red",
+        "The Drowned Wood": "emerald"
+      },
+      "width": 170
+    },
+    {
+      "id": "attitude",
+      "name": "Attitude to the party",
+      "type": "select",
+      "options": [
+        "Ally",
+        "Friendly",
+        "Neutral",
+        "Wary",
+        "Hostile"
+      ],
+      "optionColors": {
+        "Ally": "emerald",
+        "Friendly": "lime",
+        "Neutral": "gray",
+        "Wary": "amber",
+        "Hostile": "red"
+      },
+      "width": 170
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Unmet",
+        "Introduced",
+        "Recurring",
+        "Resolved",
+        "Dead"
+      ],
+      "optionColors": {
+        "Unmet": "gray",
+        "Introduced": "blue",
+        "Recurring": "purple",
+        "Resolved": "emerald",
+        "Dead": "darkGray"
+      },
+      "optionStates": {
+        "Unmet": "normal",
+        "Introduced": "normal",
+        "Recurring": "normal",
+        "Resolved": "done",
+        "Dead": "archive"
+      },
+      "defaultValue": "Unmet"
+    },
+    {
+      "id": "voice",
+      "name": "Voice and mannerism",
+      "type": "text",
+      "width": 320
+    },
+    {
+      "id": "secret",
+      "name": "Secret",
+      "type": "text",
+      "width": 340
+    },
+    {
+      "id": "first_seen",
+      "name": "First seen (session)",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "last_seen",
+      "name": "Last seen",
+      "type": "date"
+    },
+    {
+      "id": "days_since",
+      "name": "Days since seen",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF(ISBLANK({Last seen}), \"\", DAYS(TODAY(), {Last seen}))",
+      "resultType": "number",
+      "width": 120
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Gallery",
+      "type": "gallery",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "faction",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "factions",
+      "name": "By faction",
+      "type": "kanban",
+      "groupBy": "faction",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "status",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "screen",
+      "name": "Player-safe",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "notEquals",
+          "value": "Unmet"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "title",
+          "direction": "asc"
+        }
+      ],
+      "hiddenColumns": [
+        "secret",
+        "attitude"
+      ]
+    },
+    {
+      "id": "arcs",
+      "name": "Story arcs",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "neglected",
+      "name": "Not seen lately",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "equals",
+          "value": "Recurring"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "last_seen",
+          "direction": "asc"
+        }
+      ],
+      "hiddenColumns": [
+        "voice",
+        "secret",
+        "first_seen"
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

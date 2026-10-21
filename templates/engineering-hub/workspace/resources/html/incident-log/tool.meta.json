@@ -1,0 +1,11 @@
+{
+  "name": "incident-log",
+  "description": "A timestamped incident timeline to copy into the postmortem",
+  "glyph": "🚨",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

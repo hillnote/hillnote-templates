@@ -1,0 +1,87 @@
+{
+  "name": "Competitors",
+  "folderKind": "database",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Competitor",
+      "type": "title",
+      "width": 200
+    },
+    {
+      "id": "positioning",
+      "name": "Positioning",
+      "type": "text",
+      "width": 320
+    },
+    {
+      "id": "pricing",
+      "name": "Pricing",
+      "type": "text",
+      "width": 200
+    },
+    {
+      "id": "price_per_seat",
+      "name": "Price per seat",
+      "type": "number",
+      "width": 120
+    },
+    {
+      "id": "threat",
+      "name": "Threat level",
+      "type": "select",
+      "options": [
+        "High",
+        "Medium",
+        "Low"
+      ],
+      "optionColors": {
+        "High": "red",
+        "Medium": "amber",
+        "Low": "lime"
+      }
+    },
+    {
+      "id": "segment",
+      "name": "Segment",
+      "type": "select",
+      "options": [
+        "Agencies",
+        "Small business",
+        "Freelancers",
+        "Enterprise",
+        "Status quo"
+      ],
+      "optionColors": {
+        "Agencies": "blue",
+        "Small business": "teal",
+        "Freelancers": "pink",
+        "Enterprise": "purple",
+        "Status quo": "gray"
+      }
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "price_per_seat",
+          "direction": "desc"
+        }
+      ]
+    },
+    {
+      "id": "board",
+      "name": "By threat",
+      "type": "kanban",
+      "groupBy": "threat",
+      "filters": [],
+      "sorts": []
+    }
+  ],
+  "defaultView": "default"
+}

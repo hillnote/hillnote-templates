@@ -1,0 +1,129 @@
+{
+  "name": "Exercise library",
+  "folderKind": "fitness",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Exercise",
+      "type": "title",
+      "width": 200
+    },
+    {
+      "id": "pattern",
+      "name": "Pattern",
+      "type": "select",
+      "options": [
+        "Squat",
+        "Hinge",
+        "Push",
+        "Pull",
+        "Single leg",
+        "Calf"
+      ],
+      "optionColors": {
+        "Squat": "purple",
+        "Hinge": "orange",
+        "Push": "blue",
+        "Pull": "teal",
+        "Single leg": "pink",
+        "Calf": "lime"
+      },
+      "width": 120
+    },
+    {
+      "id": "muscles",
+      "name": "Muscles",
+      "type": "multiselect",
+      "options": [
+        "Quads",
+        "Glutes",
+        "Hamstrings",
+        "Calves",
+        "Chest",
+        "Shoulders",
+        "Triceps",
+        "Back",
+        "Biceps",
+        "Core"
+      ],
+      "optionColors": {
+        "Quads": "purple",
+        "Glutes": "pink",
+        "Hamstrings": "orange",
+        "Calves": "lime",
+        "Chest": "blue",
+        "Shoulders": "cyan",
+        "Triceps": "teal",
+        "Back": "brown",
+        "Biceps": "amber",
+        "Core": "gray"
+      },
+      "width": 240
+    },
+    {
+      "id": "equipment",
+      "name": "Equipment",
+      "type": "select",
+      "options": [
+        "Barbell",
+        "Dumbbell",
+        "Bodyweight",
+        "Kettlebell"
+      ],
+      "optionColors": {
+        "Barbell": "darkGray",
+        "Dumbbell": "blue",
+        "Bodyweight": "emerald",
+        "Kettlebell": "orange"
+      },
+      "width": 120
+    },
+    {
+      "id": "cue",
+      "name": "Key cue",
+      "type": "text",
+      "width": 300
+    },
+    {
+      "id": "runners",
+      "name": "Good for runners",
+      "type": "checkbox",
+      "width": 130
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Gallery",
+      "type": "gallery",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "pattern",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "patterns",
+      "name": "By pattern",
+      "type": "kanban",
+      "groupBy": "pattern",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "pattern",
+          "direction": "asc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}
