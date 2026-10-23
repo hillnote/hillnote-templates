@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "generatedAt": "2026-10-21T03:22:53.093Z",
+  "generatedAt": "2026-10-23T04:58:27.285Z",
   "templates": [
     {
       "id": "hello-hillnote",
@@ -26,7 +26,7 @@
       "overview": "A guided tour of Hillnote: a welcome page, four first steps, and a reference for every file format.",
       "color": "blue",
       "dateAnchor": null,
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/hello-hillnote/media/icon.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/hello-hillnote/media/icon.webp",
       "heroUrl": null,
       "screenshotUrls": [],
       "includes": {
@@ -80,8 +80,8 @@
       "overview": "Product team workspace: vision and OKRs, a customer feedback database, a RICE-ranked roadmap (board, timeline, matrix), PRDs, launch plans, release notes and a weekly review.",
       "color": "blue",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/product-hq/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/product-hq/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/product-hq/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/product-hq/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 12,
@@ -115,10 +115,10 @@
     },
     {
       "id": "writers-studio",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "name": "Writer's Studio",
-      "tagline": "Ideas, outlines, drafts and published pieces in one calm place, with a style guide and editing passes built in.",
-      "description": "A home for a working writer, shown through a worked example: Nell Ashby, a fictional essayist who sends a fortnightly newsletter and is halfway through a book of essays about repair. Ideas land on the Desk, get promoted to pieces, and move through a pipeline from outline to published, with word counts and a progress formula tracking every draft.\n\nEvery piece is a real page: an outline, a draft excerpt and a scratch space for the messy bits, linked to the research behind it. A commonplace book tags quotes by topic, reading notes sit beside it, and the Craft section holds a style guide, a four-pass editing checklist, structure cheat-sheets and a publishing checklist.\n\nThree AI recipes line-edit a passage against your style guide, write headline options and turn rough notes into an outline. Two tools come with it: a word sprint timer that logs words straight to a piece, and a readability check for anything you paste in.",
+      "tagline": "Ideas, drafts, the book and the newsletter in one calm place, with writing tools, a style guide and editing passes built in.",
+      "description": "A home for a working writer, shown through a worked example: Nell Ashby, a fictional essayist who sends a fortnightly newsletter and is halfway through a book of essays about repair. Ideas land on the Desk, get promoted to pieces, and move through a pipeline from outline to published, with word counts, progress and the words a day each deadline needs.\n\nEvery piece is a real page: an outline, a draft excerpt and a scratch space for the messy bits, linked to the research behind it. The book has a corkboard of chapters by part and a tracker that shows how far the manuscript has come and when the first draft will land at your real pace. Pitches, guest essays and prize entries live in Submissions, with the pitch as sent and a count of the days you have been waiting.\n\nFour tools sit where you would reach for them: a word sprint timer that keeps a Writing log, a prose check for readability, rhythm and echoes with a read-aloud test, a subject line preview for the newsletter, and the book tracker. Five AI recipes turn notes into an outline, write a reader's report, line-edit against your style guide, suggest headlines and draft pitches.",
       "setups": [
         "writing"
       ],
@@ -129,7 +129,8 @@
         "book",
         "editing",
         "publishing",
-        "drafts"
+        "submissions",
+        "word count"
       ],
       "featured": true,
       "author": {
@@ -140,28 +141,36 @@
       "credits": "Short public-domain quotations from Henry David Thoreau (Walden), John Ruskin (Unto This Last) and William Morris (The Beauty of Life). Everything else is original.",
       "minAppVersion": null,
       "open": "documents/Start here.md",
-      "overview": "Writing workspace: an ideas inbox, a pieces pipeline (board, calendar, table) with word-count progress, a commonplace book and reading notes, a style guide, editing and publishing checklists, and outline templates.",
+      "overview": "Writing workspace: an ideas inbox, a pieces pipeline with word-count progress, a writing log, a book corkboard and tracker, submissions, a commonplace book and reading notes, a style guide, editing and publishing checklists, and outline templates.",
       "color": "sage",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/writers-studio/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/writers-studio/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/writers-studio/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/writers-studio/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 11,
-        "databases": 3,
-        "sheets": 0,
+        "databases": 4,
+        "sheets": 1,
         "slides": 0,
         "canvases": 0,
-        "moodboards": 0,
-        "tools": 2,
+        "moodboards": 1,
+        "tools": 4,
         "plugins": 0,
         "libraries": 0,
-        "recipes": 3
+        "recipes": 5
       },
       "plugins": [],
       "tools": [
         {
-          "name": "readability-check",
+          "name": "book-tracker",
+          "externalHosts": []
+        },
+        {
+          "name": "prose-check",
+          "externalHosts": []
+        },
+        {
+          "name": "subject-lines",
           "externalHosts": []
         },
         {
@@ -169,12 +178,12 @@
           "externalHosts": []
         }
       ],
-      "sourceHash": "639b01e91c93173557c097d49a16f99bcf4c140ebff40ab1e923e6e8624d2569",
-      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/writers-studio-v1.0.0/writers-studio-1.0.0.zip",
-      "sha256": "62445220c9e79cc41df3f2486fcf9470f97abbe93f4d12972b955b1a1758f1d6",
-      "sizeBytes": 130445,
+      "sourceHash": "0de96db56bf1da549e5a102e8fa862d91900724486e69efa511c6747917b0e84",
+      "zipUrl": "https://github.com/hillnote/hillnote-templates/releases/download/writers-studio-v1.1.0/writers-studio-1.1.0.zip",
+      "sha256": "f3d71c5089b6dbaa69b6e16baeaa40d895427fdcbbd9e63d59b2cb75780763cc",
+      "sizeBytes": 273146,
       "repoPath": "templates/writers-studio",
-      "releasedAt": "2026-10-21T03:22:53.093Z"
+      "releasedAt": "2026-10-23T04:58:27.285Z"
     },
     {
       "id": "creator-studio",
@@ -206,8 +215,8 @@
       "overview": "Creator workspace: a scored idea bank, a content calendar (calendar, board, table) with a repeating newsletter, scripts in beats, a channel strategy, a brand board, a media kit deck and a sponsors sheet.",
       "color": "coral",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/creator-studio/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/creator-studio/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/creator-studio/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/creator-studio/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 8,
@@ -269,8 +278,8 @@
       "overview": "Design team workspace: project brief, moodboard and references, colour and type tokens, voice rules, a Components database, a UX copy sheet, a feedback log, QA checklist and review deck.",
       "color": "orchid",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/design-studio/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/design-studio/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/design-studio/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/design-studio/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 9,
@@ -332,8 +341,8 @@
       "overview": "Game master workspace: campaign bible, lore and factions, linked NPC, place, monster, item and quest databases, a region map board, a session calendar with recap and prep, a session-zero deck, and dice and initiative tools.",
       "color": "wine",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/dungeon-masters-codex/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/dungeon-masters-codex/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/dungeon-masters-codex/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/dungeon-masters-codex/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 9,
@@ -396,8 +405,8 @@
       "overview": "Engineering team workspace: architecture overview, RFCs and a linked glossary, a sprint ticket board with a changelog view, an ADR log, deploy and incident runbooks, a sample postmortem and design-doc templates.",
       "color": "indigo",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/engineering-hub/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/engineering-hub/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/engineering-hub/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/engineering-hub/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 13,
@@ -459,8 +468,8 @@
       "overview": "Marketing workspace: ICP and personas, a messaging house, competitors, a campaigns database (timeline, board, budget chart) with pacing, a launch brief, a content calendar, weekly metrics and a recap deck.",
       "color": "marigold",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/marketing-hub/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/marketing-hub/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/marketing-hub/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/marketing-hub/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 6,
@@ -522,8 +531,8 @@
       "overview": "Research workspace: question and scope, a search log, a Sources database with reading notes and citations, a Claims and evidence database, a codebook, themes and gaps, a concept map and a literature review draft.",
       "color": "teal",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/research-lab/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/research-lab/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/research-lab/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/research-lab/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 10,
@@ -586,8 +595,8 @@
       "overview": "Solo founder workspace: lean canvas, ranked assumptions, an interview log, MVP spec, a build board (board, roadmap, this week, calendar), launch checklist and copy, a pitch deck, a money sheet and a brand board.",
       "color": "tangerine",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/solo-builder-hq/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/solo-builder-hq/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/solo-builder-hq/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/solo-builder-hq/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 14,
@@ -649,8 +658,8 @@
       "overview": "Training workspace: a 12-week plan, recurring weekly sessions on a board and calendar, a lift log with estimated 1RM and volume charts, an exercise library, body metrics, nutrition and weekly check-ins.",
       "color": "emerald",
       "dateAnchor": "2026-11-02",
-      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/training-log/media/icon.webp",
-      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/371c9b373dd4301e93dfa040dbaa1421d614eca9/templates/training-log/media/hero.webp",
+      "iconUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/training-log/media/icon.webp",
+      "heroUrl": "https://raw.githubusercontent.com/hillnote/hillnote-templates/7e3ebeeed7750cf4dad57835510f9b0f3c3e5d64/templates/training-log/media/hero.webp",
       "screenshotUrls": [],
       "includes": {
         "documents": 7,
