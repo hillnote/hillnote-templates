@@ -22,7 +22,7 @@ The rules ${pen_name} writes by. A style guide exists to end arguments quickly, 
 - Vary the length. Three long sentences in a row need a short one after them.
 - Keep most sentences under 25 words. One sentence a paragraph can run long if it earns it.
 - Put the important word at the end of the sentence, where the stress falls.
-- [The read-aloud test]{#read-aloud}: if you run out of breath, the sentence is too long. If you stumble, the rhythm is wrong.
+- [The read-aloud test]{#read-aloud}: if you run out of breath, the sentence is too long. If you stumble, the rhythm is wrong. The prose check in the [[Editing checklist|doc:documents/Craft/Editing%20checklist.md]] can read a passage back to you.
 
 ## Paragraphs
 

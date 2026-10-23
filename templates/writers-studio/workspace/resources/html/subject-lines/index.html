@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#EC5800;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#EC5800;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subject lines</title>
+<style>
+  [hidden] { display: none !important; }
+  section + section { margin-top: 12px; }
+  .setup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin: 8px 0 0; }
+  .editor { display: flex; flex-direction: column; gap: 10px; }
+  .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .count { font-size: 12px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+  .count.over { color: var(--warning); }
+  .options-head { justify-content: space-between; margin: 14px 0 4px; }
+  .options-head h4 { margin: 0; }
+  .option { padding: 2px 4px 2px 2px; gap: 6px; }
+  .option.selected { background: color-mix(in srgb, var(--primary) 9%, transparent); }
+  .option.selected:hover { background: color-mix(in srgb, var(--primary) 12%, transparent); }
+  .option .pick { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 2px; padding: 6px; background: transparent; border: none; box-shadow: none; text-align: left; font-weight: 400; }
+  .option .pick:hover { background: transparent; }
+  .opt-subject { max-width: 100%; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .opt-subject.blank { color: var(--muted-foreground); font-weight: 400; }
+  .opt-meta { max-width: 100%; font-size: 12px; color: var(--muted-foreground); }
+  .option .badges { display: flex; gap: 4px; flex: none; }
+  .option .del.armed { color: var(--destructive); }
+  .note { font-size: 12px; color: var(--muted-foreground); margin: 0; min-height: 1em; }
+  .note.ok { color: var(--success); }
+  .note.err { color: var(--destructive); }
+
+  .previews { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px 14px; margin-top: 10px; }
+  .mock { margin: 0; min-width: 0; }
+  .mock.wide { grid-column: 1 / -1; }
+  .fit { width: 100%; overflow: hidden; }
+  .fit > * { transform-origin: top left; margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 12px; color: var(--muted-foreground); text-align: center; }
+  figcaption strong { display: block; color: var(--foreground); font-weight: 600; }
+  .one-line { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .two-lines { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .empty-text { color: var(--muted-foreground); font-weight: 400; }
+
+  .phone { width: 300px; border-radius: 30px; border: 1px solid var(--border); overflow: hidden; }
+  .lock { min-height: 250px; padding: 22px 14px 26px; color: var(--foreground);
+    background: linear-gradient(165deg, color-mix(in srgb, var(--primary) 42%, var(--background)), color-mix(in srgb, var(--info) 28%, var(--background)) 70%, var(--background)); }
+  .lock-date { text-align: center; font-size: 14px; font-weight: 500; opacity: .8; }
+  .lock-time { text-align: center; font-size: 56px; font-weight: 600; line-height: 1.05; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin-bottom: 26px; }
+  .notif { padding: 10px 12px 11px; border-radius: 18px; font-size: 13px; line-height: 1.35; box-shadow: var(--shadow-sm);
+    background: color-mix(in srgb, var(--card) 82%, transparent); backdrop-filter: blur(12px); }
+  .notif-head { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 11px; color: var(--muted-foreground); }
+  .app-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 5px; font-size: 11px; background: var(--info); color: var(--primary-foreground); }
+  .app-name { font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .when { flex: none; margin-left: auto; font-size: 11px; color: var(--muted-foreground); }
+  .notif-from, .notif-subject { font-weight: 600; }
+
+  .inbox { padding: 14px 0 6px; background: var(--card); }
+  .inbox-title { padding: 0 16px 8px; font-size: 22px; font-weight: 700; }
+  .mail-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--border); }
+  .avatar { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 36px; height: 36px; border-radius: 50%; font-size: 15px; font-weight: 600;
+    background: color-mix(in srgb, var(--primary) 18%, var(--card)); color: var(--primary); }
+  .mail-body { flex: 1; min-width: 0; font-size: 13px; line-height: 1.35; }
+  .mail-top { display: flex; align-items: baseline; gap: 8px; }
+  .mail-from { flex: 1; min-width: 0; font-size: 14px; font-weight: 700; }
+  .mail-subject { font-weight: 600; }
+  .mail-pre { color: var(--muted-foreground); }
+  .skel-row { display: flex; gap: 10px; padding: 12px 16px; border-top: 1px solid var(--border); }
+  .skel-avatar { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--muted); }
+  .skel-lines { flex: 1; display: flex; flex-direction: column; gap: 7px; padding-top: 3px; }
+  .skel-lines i, .desk-row.skel i { display: block; height: 8px; border-radius: 4px; background: var(--muted); }
+
+  .desk { min-width: 620px; max-width: 620px; overflow: hidden; border: 1px solid var(--border); border-radius: 10px; background: var(--card); font-size: 13px; }
+  .desk-bar { padding: 8px 14px; border-bottom: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--muted-foreground); }
+  .desk-row { display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 14px; border-bottom: 1px solid var(--border); }
+  .desk-row:last-child { border-bottom: none; }
+  .desk-row.unread { background: color-mix(in srgb, var(--primary) 6%, var(--card)); }
+  .box { flex: none; width: 13px; height: 13px; border: 1.5px solid var(--input); border-radius: 3px; }
+  .desk-from { flex: none; width: 150px; font-weight: 700; }
+  .desk-text { flex: 1; min-width: 0; }
+  .desk-subject { font-weight: 700; }
+  .desk-pre { color: var(--muted-foreground); }
+  .desk-row.skel i { flex: none; }
+
+  .checks .list-item { justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .checks .what { min-width: 0; }
+  .checks .what strong { display: block; font-size: 13px; font-weight: 600; }
+  .checks .what small { display: block; font-size: 12px; color: var(--muted-foreground); }
+  .checks .badge { flex: none; margin-top: 2px; }
+  .save-row { flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .save-hint { padding: 12px 8px 4px; }
+  .save-hint p { margin: 0 0 10px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Subject lines</strong>
+  <span class="badge" id="summary">Write a subject line</span>
+</div>
+
+<section class="card" aria-label="Issue and sender">
+  <div class="setup-grid">
+    <div class="field" id="pieceField" hidden>
+      <label for="piece">Issue</label>
+      <select id="piece"></select>
+    </div>
+    <div class="field">
+      <label for="from">From</label>
+      <input id="from" type="text" maxlength="60" autocomplete="off">
+    </div>
+  </div>
+  <p class="hint">"From" is the sender name readers see first, before the subject line.</p>
+</section>
+
+<section class="card" aria-label="Options">
+  <div class="editor">
+    <div class="field">
+      <div class="label-row"><label for="subject">Subject line</label><span class="count" id="subjectCount"></span></div>
+      <input id="subject" type="text" maxlength="150" autocomplete="off" placeholder="The most patient thing you can do with your hands">
+    </div>
+    <div class="field">
+      <div class="label-row"><label for="preheader">Preheader</label><span class="count" id="preCount"></span></div>
+      <input id="preheader" type="text" maxlength="200" autocomplete="off" placeholder="It takes twenty minutes, and it will outlast the sock.">
+    </div>
+  </div>
+  <div class="row options-head"><h4>Options</h4><button class="btn-ghost btn-sm" id="add">Add an option</button></div>
+  <div class="list" id="options"></div>
+  <p class="note" id="optionsNote"></p>
+</section>
+
+<section class="card" aria-label="Previews">
+  <h4>How it looks</h4>
+  <div class="previews">
+    <figure class="mock">
+      <div class="fit"><div class="phone lock" aria-hidden="true">
+        <div class="lock-date">Friday</div>
+        <div class="lock-time">7:30</div>
+        <div class="notif">
+          <div class="notif-head"><span class="app-icon">✉</span><span class="app-name">Mail</span><span class="when">now</span></div>
+          <div class="notif-from one-line" id="lockFrom"></div>
+          <div class="notif-subject one-line" id="lockSubject"></div>
+          <div class="notif-pre two-lines" id="lockPre"></div>
+        </div>
+      </div></div>
+      <figcaption><strong>Lock screen</strong><span id="lockNote"></span></figcaption>
+    </figure>
+    <figure class="mock">
+      <div class="fit"><div class="phone inbox" aria-hidden="true">
+        <div class="inbox-title">Inbox</div>
+        <div class="skel-row"><span class="skel-avatar"></span><span class="skel-lines"><i style="width: 45%"></i><i style="width: 80%"></i><i style="width: 65%"></i></span></div>
+        <div class="mail-row">
+          <span class="avatar" id="mobAvatar"></span>
+          <div class="mail-body">
+            <div class="mail-top"><span class="mail-from one-line" id="mobFrom"></span><span class="when">7:30</span></div>
+            <div class="mail-subject one-line" id="mobSubject"></div>
+            <div class="mail-pre one-line" id="mobPre"></div>
+          </div>
+        </div>
+        <div class="skel-row"><span class="skel-avatar"></span><span class="skel-lines"><i style="width: 35%"></i><i style="width: 70%"></i><i style="width: 55%"></i></span></div>
+      </div></div>
+      <figcaption><strong>Phone inbox</strong><span id="mobNote"></span></figcaption>
+    </figure>
+    <figure class="mock wide">
+      <div class="fit"><div class="desk" aria-hidden="true">
+        <div class="desk-bar">Inbox</div>
+        <div class="desk-row skel"><span class="box"></span><i style="width: 110px"></i><i style="width: 300px"></i></div>
+        <div class="desk-row unread">
+          <span class="box"></span>
+          <span class="desk-from one-line" id="deskFrom"></span>
+          <span class="desk-text one-line"><span class="desk-subject" id="deskSubject"></span><span class="desk-pre" id="deskPre"></span></span>
+          <span class="when">7:30</span>
+        </div>
+        <div class="desk-row skel"><span class="box"></span><i style="width: 90px"></i><i style="width: 360px"></i></div>
+      </div></div>
+      <figcaption><strong>Desktop inbox</strong><span id="deskNote"></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="card" aria-label="Checks">
+  <h4>Checks</h4>
+  <div class="list checks" id="checks"></div>
+  <div class="row save-row" id="saveRow" hidden>
+    <button class="btn-primary" id="save">Use this one</button>
+    <p class="note" id="saveNote" role="status"></p>
+  </div>
+  <div class="empty-state save-hint" id="saveHint" hidden><p id="saveHintText"></p><button class="btn-sm" id="connect" hidden>Connect to Pieces</button></div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { try { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); } catch (e) { return d; } },
+    set: function (k, v) { try { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; } catch (e) { /* settings full or unavailable */ } }
+  };
+  var NONE = '_';
+  var MAX_OPTIONS = 12;
+  var MAX_PIECES = 40;
+  var DEFAULT_FROM = 'Nell Ashby';
+  var STATUS_ORDER = { Ready: 0, Editing: 1, Drafting: 2, Outline: 3, Idea: 4 };
+  var SPAM = [
+    [/\bfree\b/i, 'free'], [/\burgent\b/i, 'urgent'], [/\bact now\b/i, 'act now'], [/\blast chance\b/i, 'last chance'],
+    [/\bguaranteed?\b/i, 'guaranteed'], [/\bwinners?\b/i, 'winner'], [/%\s*off\b/i, '% off'], [/\${2,}/, '$$$'], [/\bclick here\b/i, 'click here']
+  ];
+  var raf = window.requestAnimationFrame ? window.requestAnimationFrame.bind(window) : function (f) { return setTimeout(f, 16); };
+
+  var source = null;
+  var sourceError = '';
+  var rows = [];
+  var cols = { subject: null, preheader: null, status: null, type: null };
+  var lists = {};
+  var pieceKey = NONE;
+  var confirmId = null;
+  var confirmTimer = null;
+  var persistTimer = null;
+  var measureQueued = false;
+  var saving = false;
+  var connecting = false;
+  var listening = false;
+  var ctx2d = null;
+
+  var chars = function (s) { return Array.from(String(s || '')).length; };
+  var clean = function (s) { return String(s == null ? '' : s).trim(); };
+  var errText = function (err) { return err && err.message ? err.message : String(err); };
+  function newId() { return 'o' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+  function say(text, kind) { $('saveNote').textContent = text || ''; $('saveNote').className = 'note' + (kind ? ' ' + kind : ''); }
+
+  // ------------------------------------------------------------- columns + pieces
+  function detectColumns() {
+    var list = [];
+    try { list = typeof source.columns === 'function' ? (source.columns() || []) : []; } catch (e) { list = []; }
+    if (!Array.isArray(list)) list = [];
+    function find(id, nameRe, type) {
+      return list.find(function (c) { return c && c.id === id; }) ||
+        list.find(function (c) { return c && nameRe.test(String(c.name || '')) && (!type || c.type === type); }) || null;
+    }
+    var subject = find('subject_line', /^\s*(email\s+)?subject(\s+line)?\s*$/i);
+    var pre = find('preheader', /pre-?header|preview\s+text/i);
+    var status = list.find(function (c) { return c && c.type === 'status'; }) || find('status', /^status$/i);
+    var type = find('type', /^type$/i);
+    cols.subject = subject && !subject.computed ? subject.id : null;
+    cols.preheader = pre && !pre.computed ? pre.id : null;
+    cols.status = status ? status.id : null;
+    cols.type = type ? type.id : null;
+  }
+
+  function cell(row, col) { return col && row && row[col] != null ? String(row[col]) : ''; }
+  function pieceById(id) { return id && id !== NONE ? rows.find(function (r) { return r.id === id; }) || null : null; }
+  function isPublished(r) { return cell(r, cols.status) === 'Published'; }
+
+  function newsletterRows() {
+    var typed = cols.type && rows.some(function (r) { return cell(r, cols.type); });
+    var list = typed ? rows.filter(function (r) { return cell(r, cols.type) === 'Newsletter'; }) : rows.slice();
+    return list.sort(function (a, b) {
+      var pa = isPublished(a) ? 1 : 0, pb = isPublished(b) ? 1 : 0;
+      if (pa !== pb) return pa - pb;
+      var oa = STATUS_ORDER[cell(a, cols.status)], ob = STATUS_ORDER[cell(b, cols.status)];
+      var byStatus = (oa == null ? 9 : oa) - (ob == null ? 9 : ob);
+      return byStatus || String(a.title).localeCompare(String(b.title));
+    });
+  }
+
+  function renderPicker() {
+    var sel = $('piece');
+    $('pieceField').hidden = !source;
+    if (!source) return;
+    var list = newsletterRows();
+    var open = list.filter(function (r) { return !isPublished(r); });
+    var done = list.filter(isPublished);
+    var option = function (r) {
+      var o = document.createElement('option');
+      o.value = r.id;
+      o.textContent = r.title + (cell(r, cols.status) ? ' (' + cell(r, cols.status) + ')' : '');
+      return o;
+    };
+    sel.textContent = '';
+    var none = document.createElement('option');
+    none.value = NONE;
+    none.textContent = 'No piece, just trying lines';
+    sel.appendChild(none);
+    [['In progress', open], ['Published', done]].forEach(function (g) {
+      if (!g[1].length) return;
+      var group = document.createElement('optgroup');
+      group.label = g[0];
+      g[1].forEach(function (r) { group.appendChild(option(r)); });
+      sel.appendChild(group);
+    });
+    sel.value = pieceById(pieceKey) ? pieceKey : NONE;
+  }
+
+  // ------------------------------------------------------------- options
+  function sanitizeLists(raw) {
+    var out = {};
+    if (!raw || typeof raw !== 'object') return out;
+    Object.keys(raw).forEach(function (key) {
+      var l = raw[key];
+      if (!l || !Array.isArray(l.items)) return;
+      var items = l.items.filter(function (it) { return it && typeof it.id === 'string'; }).slice(0, MAX_OPTIONS).map(function (it) {
+        return { id: it.id, subject: String(it.subject || ''), preheader: String(it.preheader || '') };
+      });
+      out[key] = { items: items, selected: typeof l.selected === 'string' ? l.selected : '', touched: Number(l.touched) || 0 };
+    });
+    return out;
+  }
+
+  function persist() {
+    clearTimeout(persistTimer);
+    persistTimer = setTimeout(function () {
+      var keys = Object.keys(lists).filter(function (k) {
+        return k === pieceKey || lists[k].items.some(function (it) { return clean(it.subject) || clean(it.preheader); });
+      }).sort(function (a, b) {
+        if (a === pieceKey) return -1;
+        if (b === pieceKey) return 1;
+        return (lists[b].touched || 0) - (lists[a].touched || 0);
+      }).slice(0, MAX_PIECES);
+      var copy = {};
+      keys.forEach(function (k) {
+        var l = lists[k];
+        copy[k] = {
+          items: l.items.filter(function (it) { return clean(it.subject) || clean(it.preheader); }).slice(0, MAX_OPTIONS)
+            .map(function (it) { return { id: it.id, subject: it.subject.slice(0, 150), preheader: it.preheader.slice(0, 200) }; }),
+          selected: l.selected,
+          touched: l.touched
+        };
+      });
+      store.set('lists', copy);
+    }, 400);
+  }
+
+  function list() {
+    if (!lists[pieceKey]) lists[pieceKey] = { items: [], selected: '', touched: Date.now() };
+    return lists[pieceKey];
+  }
+  function selected() {
+    var l = list();
+    return l.items.find(function (it) { return it.id === l.selected; }) || null;
+  }
+  function same(it, subject, preheader) { return clean(it.subject) === clean(subject) && clean(it.preheader) === clean(preheader); }
+  function savedPair(piece) { return piece ? { subject: cell(piece, cols.subject), preheader: cell(piece, cols.preheader) } : null; }
+  function onPiece(it) {
+    var saved = savedPair(pieceById(pieceKey));
+    return !!(saved && clean(saved.subject) && same(it, saved.subject, saved.preheader));
+  }
+
+  // Load the current piece's options. When the piece already has a subject
+  // line saved, it joins the list (once) and, on a fresh pick, is selected.
+  function loadPiece(chosen) {
+    var l = list();
+    var saved = savedPair(pieceById(pieceKey));
+    if (saved && (clean(saved.subject) || clean(saved.preheader))) {
+      var match = l.items.find(function (it) { return same(it, saved.subject, saved.preheader); });
+      if (!match) {
+        match = { id: newId(), subject: clean(saved.subject), preheader: clean(saved.preheader) };
+        l.items.unshift(match);
+        l.items = l.items.slice(0, MAX_OPTIONS);
+      }
+      if (chosen || !selected()) l.selected = match.id;
+    }
+    if (!l.items.length) l.items.push({ id: newId(), subject: '', preheader: '' });
+    if (!selected()) l.selected = l.items[0].id;
+    l.touched = Date.now();
+    confirmId = null;
+    syncInputs();
+    persist();
+  }
+
+  function syncInputs() {
+    var it = selected();
+    $('subject').value = it ? it.subject : '';
+    $('preheader').value = it ? it.preheader : '';
+  }
+
+  // ------------------------------------------------------------- checks
+  function capsWords(text) {
+    return String(text).split(/[^\p{L}\p{N}]+/u).filter(function (t) {
+      return chars(t) >= 3 && /\p{Lu}/u.test(t) && !/\p{Ll}/u.test(t) && !/\d/.test(t);
+    });
+  }
+  function words(text) { return String(text).toLowerCase().replace(/[^\p{L}\p{N}\s']/gu, ' ').split(/\s+/).filter(Boolean); }
+  function repeatsSubject(subject, preheader) {
+    var s = words(subject), p = words(preheader);
+    if (!s.length || !p.length) return false;
+    if (s.length >= 2 && (' ' + p.join(' ') + ' ').indexOf(' ' + s.join(' ') + ' ') !== -1) return true;
+    var k = Math.min(3, s.length);
+    if (k < 2) return false;
+    return s.slice(0, k).join(' ') === p.slice(0, k).join(' ');
+  }
+
+  function checks(subjectRaw, preheaderRaw) {
+    var subject = clean(subjectRaw), pre = clean(preheaderRaw);
+    var both = subject + ' ' + pre;
+    var n = chars(subject), pn = chars(pre);
+    var out = [];
+    out.push(n <= 50
+      ? { label: 'Under 50 characters', note: 'The style guide keeps subject lines under 50 characters. This one is ' + n + '.', level: 'pass' }
+      : { label: 'Under 50 characters', note: 'The style guide keeps subject lines under 50 characters. This one is ' + n + ', so cut ' + (n - 50) + '.', level: 'fix' });
+    out.push(n <= 35
+      ? { label: 'Fits on a phone', note: 'At 35 characters or fewer it shows in full on most phones.', level: 'pass' }
+      : { label: 'Fits on a phone', note: 'Most phones show about the first 35 characters. Put the words that matter up front.', level: 'info' });
+    var caps = capsWords(both);
+    out.push(caps.length
+      ? { label: 'No capitals for emphasis', note: '"' + caps.slice(0, 3).join('", "') + '" reads as shouting. The style guide says no capitals for emphasis.', level: 'fix' }
+      : { label: 'No capitals for emphasis', note: 'Nothing in capitals.', level: 'pass' });
+    out.push(/!/.test(both)
+      ? { label: 'No exclamation marks', note: 'Leave them out. Readers hear them as noise, and so do spam filters.', level: 'fix' }
+      : { label: 'No exclamation marks', note: 'None in the subject or preheader.', level: 'pass' });
+    var spam = SPAM.filter(function (s) { return s[0].test(both); }).map(function (s) { return s[1]; });
+    out.push(spam.length
+      ? { label: 'Nothing that sounds like spam', note: '"' + spam.join('", "') + '" puts spam filters and readers on guard.', level: 'fix' }
+      : { label: 'Nothing that sounds like spam', note: 'No sales words.', level: 'pass' });
+    out.push(/^(re|fwd?|fw)\s*:/i.test(subject)
+      ? { label: 'No fake reply', note: 'Starting with Re: or Fwd: pretends to be a conversation. Readers notice, and trust the next one less.', level: 'fix' }
+      : { label: 'No fake reply', note: 'It doesn\'t pretend to be a reply.', level: 'pass' });
+    var emoji = (subject.match(/\p{Extended_Pictographic}/gu) || []).length;
+    out.push(emoji > 1
+      ? { label: 'One emoji at most', note: emoji + ' emoji. One is plenty, and none is fine.', level: 'fix' }
+      : { label: 'One emoji at most', note: emoji ? 'One emoji. That\'s the limit.' : 'No emoji.', level: 'pass' });
+    if (!pre) {
+      out.push({ label: 'Preheader written', note: 'Without one, inboxes show the first words of the email instead, often "View in browser".', level: 'fix' });
+      return out;
+    }
+    if (pn < 40) out.push({ label: 'Preheader length', note: 'Only ' + pn + ' characters. Aim for 40 to 90, or the inbox fills the gap with the first words of the email.', level: 'fix' });
+    else if (pn > 90) out.push({ label: 'Preheader length', note: pn + ' characters. Most inboxes cut it off after about 90.', level: 'fix' });
+    else out.push({ label: 'Preheader length', note: pn + ' characters, inside the 40 to 90 most inboxes show.', level: 'pass' });
+    out.push(repeatsSubject(subject, pre)
+      ? { label: 'Preheader adds something', note: 'It repeats the subject\'s opening. Use it to say the next thing instead.', level: 'fix' }
+      : { label: 'Preheader adds something', note: 'It says something the subject doesn\'t.', level: 'pass' });
+    return out;
+  }
+  function fixCount(it) { return checks(it.subject, it.preheader).filter(function (c) { return c.level === 'fix'; }).length; }
+
+  // ------------------------------------------------------------- render
+  function badge(text, kind) {
+    var b = document.createElement('span');
+    b.className = 'badge' + (kind ? ' badge-' + kind : '');
+    b.textContent = text;
+    return b;
+  }
+
+  function renderOptions() {
+    var l = list();
+    var box = $('options');
+    box.textContent = '';
+    l.items.forEach(function (it) {
+      var row = document.createElement('div');
+      row.className = 'list-item option' + (it.id === l.selected ? ' selected' : '');
+      var pick = document.createElement('button');
+      pick.className = 'pick';
+      pick.setAttribute('data-pick', it.id);
+      pick.setAttribute('aria-pressed', String(it.id === l.selected));
+      var s = document.createElement('span');
+      s.className = 'opt-subject' + (clean(it.subject) ? '' : ' blank');
+      s.textContent = clean(it.subject) || 'Empty option';
+      var meta = document.createElement('span');
+      meta.className = 'opt-meta one-line';
+      meta.textContent = chars(clean(it.subject)) + ' characters' + (clean(it.preheader) ? ' · ' + clean(it.preheader) : ' · no preheader');
+      pick.appendChild(s);
+      pick.appendChild(meta);
+      row.appendChild(pick);
+      var badges = document.createElement('span');
+      badges.className = 'badges';
+      if (onPiece(it)) badges.appendChild(badge('Current', 'info'));
+      if (clean(it.subject)) {
+        var f = fixCount(it);
+        badges.appendChild(f ? badge(f + ' to fix', 'warning') : badge('Good', 'success'));
+      }
+      row.appendChild(badges);
+      var del = document.createElement('button');
+      del.className = 'btn-ghost btn-sm del' + (confirmId === it.id ? ' armed' : '');
+      del.setAttribute('data-del', it.id);
+      del.textContent = confirmId === it.id ? 'Delete?' : 'Delete';
+      del.setAttribute('aria-label', confirmId === it.id ? 'Click again to delete this option' : 'Delete this option');
+      row.appendChild(del);
+      box.appendChild(row);
+    });
+    $('add').disabled = l.items.length >= MAX_OPTIONS;
+    $('optionsNote').textContent = l.items.length >= MAX_OPTIONS ? 'Twelve is plenty. Delete one to add another.' : '';
+  }
+
+  function setText(id, text, placeholder) {
+    var el = $(id);
+    el.textContent = text || placeholder || '';
+    el.classList.toggle('empty-text', !text);
+  }
+
+  function renderPreviews() {
+    var it = selected() || { subject: '', preheader: '' };
+    var from = clean($('from').value) || 'Your name';
+    var subject = clean(it.subject), pre = clean(it.preheader);
+    setText('lockFrom', from);
+    setText('lockSubject', subject, 'No subject');
+    setText('lockPre', pre, 'View in browser');
+    setText('mobFrom', from);
+    $('mobAvatar').textContent = Array.from(from)[0].toUpperCase();
+    setText('mobSubject', subject, 'No subject');
+    setText('mobPre', pre, 'View in browser');
+    setText('deskFrom', from);
+    setText('deskSubject', subject, 'No subject');
+    $('deskPre').textContent = ' – ' + (pre || 'View in browser');
+    queueMeasure();
+  }
+
+  function renderChecks() {
+    var it = selected();
+    var box = $('checks');
+    box.textContent = '';
+    var summary = $('summary');
+    if (!it || !clean(it.subject)) {
+      var empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.textContent = 'Write a subject line to check it against the house style.';
+      box.appendChild(empty);
+      summary.textContent = 'Write a subject line';
+      summary.className = 'badge';
+      return;
+    }
+    var list = checks(it.subject, it.preheader);
+    list.forEach(function (c) {
+      var row = document.createElement('div');
+      row.className = 'list-item';
+      var what = document.createElement('span');
+      what.className = 'what';
+      var strong = document.createElement('strong');
+      strong.textContent = c.label;
+      var small = document.createElement('small');
+      small.textContent = c.note;
+      what.appendChild(strong);
+      what.appendChild(small);
+      row.appendChild(what);
+      row.appendChild(c.level === 'fix' ? badge('Fix', 'warning') : (c.level === 'info' ? badge('Note', 'info') : badge('Pass', 'success')));
+      box.appendChild(row);
+    });
+    var fixes = list.filter(function (c) { return c.level === 'fix'; }).length;
+    summary.textContent = fixes ? fixes + ' to fix' : 'All checks pass';
+    summary.className = 'badge ' + (fixes ? 'badge-warning' : 'badge-success');
+  }
+
+  function renderSave() {
+    var piece = pieceById(pieceKey);
+    var it = selected();
+    var hint = '';
+    var canRetry = !source && !!sourceError && !!(window.hillnote && typeof hillnote.data === 'function');
+    if (!source) {
+      hint = canRetry
+        ? 'Hillnote couldn\'t open the Pieces database (' + sourceError + '). Connect to save subject lines to an issue; the previews and checks work either way.'
+        : 'Open this from the Newsletter plan to save a subject line to an issue. The previews and checks work anywhere.';
+    } else if (!piece) {
+      hint = newsletterRows().length ? 'Pick an issue above to save a subject line to it.' : 'No newsletter issues in Pieces yet. Add a row with Type set to Newsletter, then pick it above.';
+    } else if (!cols.subject) {
+      hint = 'The Pieces database has no Subject line column, so there is nowhere to save this. Add a text column called Subject line.';
+    }
+    $('saveHint').hidden = !hint;
+    $('saveHintText').textContent = hint;
+    $('connect').hidden = !canRetry;
+    $('connect').disabled = connecting;
+    $('saveRow').hidden = !!hint;
+    if (hint) return;
+    var current = it && onPiece(it);
+    $('save').textContent = current ? 'On the piece' : 'Use this one';
+    $('save').disabled = saving || !it || !clean(it.subject) || current;
+  }
+
+  function renderCounts() {
+    var it = selected() || { subject: '', preheader: '' };
+    var n = chars(clean(it.subject)), p = chars(clean(it.preheader));
+    $('subjectCount').textContent = n + ' / 50';
+    $('subjectCount').classList.toggle('over', n > 50);
+    $('preCount').textContent = p ? p + ' · aim for 40 to 90' : 'aim for 40 to 90';
+    $('preCount').classList.toggle('over', p > 90 || (p > 0 && p < 40));
+  }
+
+  function renderDerived() {
+    renderOptions();
+    renderCounts();
+    renderPreviews();
+    renderChecks();
+    renderSave();
+  }
+
+  // ------------------------------------------------------------- measuring
+  function queueMeasure() {
+    if (measureQueued) return;
+    measureQueued = true;
+    raf(function () { measureQueued = false; fitMocks(); measureNotes(); });
+  }
+
+  function fitMocks() {
+    Array.prototype.forEach.call(document.querySelectorAll('.fit'), function (fit) {
+      var inner = fit.firstElementChild;
+      if (!inner) return;
+      var natural = inner.offsetWidth, avail = fit.clientWidth;
+      if (!natural || !avail) return;
+      var s = Math.min(1, avail / natural);
+      inner.style.transform = s < 1 ? 'scale(' + s.toFixed(4) + ')' : '';
+      fit.style.height = s < 1 ? Math.ceil(inner.offsetHeight * s) + 'px' : '';
+    });
+  }
+
+  function measurer() {
+    if (ctx2d === null) {
+      try { ctx2d = document.createElement('canvas').getContext('2d') || false; } catch (e) { ctx2d = false; }
+    }
+    return ctx2d || null;
+  }
+  function fontOf(el) {
+    var cs = getComputedStyle(el);
+    return [cs.fontStyle, cs.fontWeight, cs.fontSize, cs.fontFamily].join(' ');
+  }
+  function textWidth(ctx, text, font) { ctx.font = font; return ctx.measureText(text).width; }
+  // How many characters of `text` fit in `avail` px, leaving room for "…".
+  function visibleChars(ctx, text, font, avail) {
+    var ch = Array.from(text);
+    if (!ch.length || textWidth(ctx, text, font) <= avail) return ch.length;
+    var lo = 0, hi = ch.length - 1;
+    while (lo < hi) {
+      var mid = Math.ceil((lo + hi) / 2);
+      if (textWidth(ctx, ch.slice(0, mid).join('') + '…', font) <= avail) lo = mid; else hi = mid - 1;
+    }
+    return lo;
+  }
+
+  function measureNotes() {
+    var it = selected();
+    var subject = it ? clean(it.subject) : '', pre = it ? clean(it.preheader) : '';
+    var ctx = measurer();
+    var ids = ['lockNote', 'mobNote', 'deskNote'];
+    if (!subject || !ctx || !$('mobSubject').clientWidth) { ids.forEach(function (id) { $(id).textContent = ''; }); return; }
+    var n = chars(subject), pn = chars(pre);
+    function line(el, text, total, lines) {
+      var v = visibleChars(ctx, text, fontOf(el), el.clientWidth * lines * (lines > 1 ? 0.94 : 1));
+      return v >= total ? null : v;
+    }
+    function describe(subjectEl, preEl, preLines) {
+      var s = line(subjectEl, subject, n, 1);
+      var parts = [s === null ? 'Subject in full' : 'Subject: about ' + s + ' of ' + n + ' characters'];
+      if (pre) {
+        var p = line(preEl, pre, pn, preLines);
+        parts.push(p === null ? 'preheader in full' : 'preheader cut after about ' + p);
+      }
+      return parts.join(' · ');
+    }
+    $('lockNote').textContent = describe($('lockSubject'), $('lockPre'), 2);
+    $('mobNote').textContent = describe($('mobSubject'), $('mobPre'), 1);
+
+    var box = $('deskSubject').parentNode;
+    var avail = box.clientWidth;
+    var subjectFont = fontOf($('deskSubject')), preFont = fontOf($('deskPre'));
+    var sw = textWidth(ctx, subject, subjectFont);
+    var note;
+    if (sw > avail) {
+      note = 'Subject: about ' + visibleChars(ctx, subject, subjectFont, avail) + ' of ' + n + ' characters, no preheader';
+    } else if (!pre) {
+      note = 'Subject in full';
+    } else {
+      var rest = avail - sw - textWidth(ctx, ' – ', preFont);
+      var p = rest > 0 ? visibleChars(ctx, pre, preFont, rest) : 0;
+      note = p >= pn ? 'Subject and preheader in full' : 'Subject in full, plus about ' + p + ' characters of preheader';
+    }
+    $('deskNote').textContent = note;
+  }
+
+  // ------------------------------------------------------------- data
+  async function loadRows(initial) {
+    try {
+      rows = await source.rows({ limit: 500 });
+      if (!Array.isArray(rows)) rows = [];
+    } catch (err) {
+      rows = [];
+      say('Could not read the pieces: ' + errText(err), 'err');
+    }
+    var lost = pieceKey !== NONE && !pieceById(pieceKey);
+    if (lost) pieceKey = NONE;
+    renderPicker();
+    if (initial || lost) loadPiece(false);
+    renderDerived();
+  }
+
+  async function save() {
+    var piece = pieceById(pieceKey);
+    var it = selected();
+    if (!source || !piece || !it || !cols.subject || !clean(it.subject) || saving) return;
+    var patch = {};
+    patch[cols.subject] = clean(it.subject);
+    if (cols.preheader) patch[cols.preheader] = clean(it.preheader);
+    saving = true;
+    say('Saving…');
+    renderSave();
+    try {
+      await source.update(piece.id, patch);
+      Object.keys(patch).forEach(function (k) { piece[k] = patch[k]; });
+      var title = piece.title;
+      saving = false;
+      await loadRows(false);
+      say('Saved to ' + title + (cols.preheader ? '.' : '. There is no Preheader column, so only the subject line was saved.'), 'ok');
+    } catch (err) {
+      saving = false;
+      say('Could not save: ' + errText(err), 'err');
+    }
+    renderDerived();
+  }
+
+  // ------------------------------------------------------------- events
+  function edit(field, value) {
+    var it = selected();
+    if (!it) return;
+    it[field] = value;
+    list().touched = Date.now();
+    if ($('saveNote').className.indexOf('ok') !== -1) say('');
+    renderDerived();
+    persist();
+  }
+  $('subject').addEventListener('input', function () { edit('subject', $('subject').value); });
+  $('preheader').addEventListener('input', function () { edit('preheader', $('preheader').value); });
+  $('from').addEventListener('input', function () { store.set('from', $('from').value.slice(0, 60)); renderPreviews(); });
+  $('piece').addEventListener('change', function () {
+    pieceKey = $('piece').value || NONE;
+    store.set('pieceId', pieceKey);
+    say('');
+    loadPiece(true);
+    renderDerived();
+  });
+  $('add').addEventListener('click', function () {
+    var l = list();
+    var blank = l.items.find(function (it) { return !clean(it.subject) && !clean(it.preheader); });
+    if (!blank) {
+      if (l.items.length >= MAX_OPTIONS) return;
+      blank = { id: newId(), subject: '', preheader: '' };
+      l.items.push(blank);
+    }
+    l.selected = blank.id;
+    confirmId = null;
+    syncInputs();
+    renderDerived();
+    $('subject').focus();
+  });
+  $('options').addEventListener('click', function (e) {
+    var target = e.target && e.target.closest ? e.target.closest('[data-pick],[data-del]') : null;
+    if (!target) return;
+    var l = list();
+    var pickId = target.getAttribute('data-pick');
+    if (pickId) {
+      l.selected = pickId;
+      confirmId = null;
+      syncInputs();
+      renderDerived();
+      persist();
+      return;
+    }
+    var delId = target.getAttribute('data-del');
+    clearTimeout(confirmTimer);
+    if (confirmId !== delId) {
+      confirmId = delId;
+      confirmTimer = setTimeout(function () { confirmId = null; renderOptions(); }, 3000);
+      renderOptions();
+      return;
+    }
+    confirmId = null;
+    var i = l.items.findIndex(function (it) { return it.id === delId; });
+    if (i === -1) return;
+    l.items.splice(i, 1);
+    if (!l.items.length) l.items.push({ id: newId(), subject: '', preheader: '' });
+    if (l.selected === delId) l.selected = l.items[Math.min(i, l.items.length - 1)].id;
+    syncInputs();
+    renderDerived();
+    persist();
+  });
+  $('save').addEventListener('click', save);
+  $('connect').addEventListener('click', function () { connect(); });
+  window.addEventListener('resize', queueMeasure);
+  if (window.ResizeObserver) { try { new ResizeObserver(queueMeasure).observe(document.body); } catch (e) { /* resize event covers it */ } }
+
+  async function start() {
+    if (window.hillnote) { try { await hillnote.ready(); } catch (e) { /* render anyway */ } }
+    lists = sanitizeLists(store.get('lists', {}));
+    var from = store.get('from', null);
+    $('from').value = typeof from === 'string' ? from : DEFAULT_FROM;
+    await connect();
+  }
+
+  // Open the Pieces database. The first open on a new install asks the user
+  // for access; a denial throws, and the Connect button tries again.
+  async function connect() {
+    if (connecting) return;
+    connecting = true;
+    renderSave();
+    if (window.hillnote && typeof hillnote.data === 'function') {
+      try { source = await hillnote.data(); sourceError = ''; } catch (err) { source = null; sourceError = errText(err); }
+    }
+    connecting = false;
+    if (source) {
+      pieceKey = String(store.get('pieceId', NONE) || NONE);
+      detectColumns();
+      if (!listening && typeof source.onChange === 'function') {
+        listening = true;
+        source.onChange(function () { loadRows(false); });
+      }
+      await loadRows(true);
+    } else {
+      pieceKey = NONE;
+      renderPicker();
+      loadPiece(false);
+      renderDerived();
+    }
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

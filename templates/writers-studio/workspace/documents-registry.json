@@ -23,11 +23,18 @@
       "position": 1
     },
     {
+      "name": "Book board",
+      "path": "documents/Pieces/Book board.moodboard.md",
+      "type": "document",
+      "emoji": "📌",
+      "position": 2
+    },
+    {
       "name": "Newsletter plan",
       "path": "documents/Pieces/Newsletter plan.md",
       "type": "document",
       "emoji": "💌",
-      "position": 2
+      "position": 3
     },
     {
       "name": "Commonplace book",
@@ -143,6 +150,22 @@
       "position": 1,
       "pinned": false,
       "emoji": "📖"
+    },
+    {
+      "name": "Writing log",
+      "path": "documents/Desk/Writing log",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "📈"
+    },
+    {
+      "name": "Submissions",
+      "path": "documents/Pieces/Submissions",
+      "type": "folder",
+      "position": 4,
+      "pinned": false,
+      "emoji": "📮"
     }
   ]
 }

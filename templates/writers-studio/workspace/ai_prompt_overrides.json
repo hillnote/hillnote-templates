@@ -37,6 +37,33 @@
         "documents/Pieces/Book plan.md"
       ],
       "output_format": "The Essay outline template filled in, in markdown, ready to paste into the piece's page"
+    },
+    {
+      "id": "reader_report",
+      "when_user_asks_about": "feedback on a draft, a reader's report, a structural or developmental edit",
+      "override_instructions": "Write a reader's report on the piece the user names, or the current page. Read the whole draft first, then its row in the Pieces database (documents/Pieces/Pieces) for its type and target length, passes 1 and 2 of the Editing checklist, and the structure it uses from the Structure cheat-sheets. For a Book chapter, also check it against the Rules for every chapter in the Book plan. Report as a thoughtful first reader, not a line editor: say in one sentence what you think the piece is about, then whether the opening earns the second paragraph, where the turn falls (as a rough percentage of the way in) and whether it lands, which sections repeat each other or could go, where you drifted or got lost (quote the sentence where it happened), and whether the ending answers the opening. Name what works before what doesn't, and be specific. Do not rewrite sentences, do not fix commas, and never invent facts, quotes or sources. End with the three changes that would most improve the piece, most important first.",
+      "required_documents": [
+        "documents/Craft/Editing checklist.md",
+        "documents/Craft/Structure cheat-sheets.md"
+      ],
+      "optional_documents": [
+        "documents/Pieces/Book plan.md",
+        "documents/Craft/Style guide.md"
+      ],
+      "output_format": "A one-sentence summary, then short sections: What works, Structure, Where a reader drifts, The ending, and Three changes, most important first"
+    },
+    {
+      "id": "pitch_letter",
+      "when_user_asks_about": "pitching a piece or idea to an editor, magazine, radio slot or prize",
+      "override_instructions": "Write a pitch for the piece or idea the user names, to the outlet they name. Read the piece or idea first, then the Submissions database (documents/Pieces/Submissions): look at what has been pitched before, especially to the same outlet, and learn from what was accepted and declined and why. Write the pitch in the Style guide's voice: open with the most specific scene, person or number in the material, not with yourself. In under 250 words say what the piece is, why it suits this outlet and its readers now, the length, and why you are the one to write it, naming two or three published pieces from the Pieces database as clips. Never invent facts, quotes, reader numbers or credits that are not in the workspace; leave a [bracketed gap] for anything missing. Give a subject line under 60 characters and one alternative opening line. Finish with the fields for a new Submissions row: title, kind, outlet, and any deadline the user mentioned.",
+      "required_documents": [
+        "documents/Craft/Style guide.md"
+      ],
+      "optional_documents": [
+        "documents/Pieces/Newsletter plan.md",
+        "documents/Pieces/Book plan.md"
+      ],
+      "output_format": "The subject line, the pitch email in markdown, one alternative opening line, then the new Submissions row as a short list"
     }
   ]
 }

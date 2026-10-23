@@ -1,6 +1,7 @@
 ---
 status: Drafting
 type: Book chapter
+part: Opening
 target_words: 3500
 current_words: 2150
 publish_date: '2026-12-11'

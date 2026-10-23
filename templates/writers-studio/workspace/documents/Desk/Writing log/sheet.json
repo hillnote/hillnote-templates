@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "name": "Writing log",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Piece",
+      "type": "title",
+      "width": 260
+    },
+    {
+      "id": "date",
+      "name": "Date",
+      "type": "date",
+      "width": 120
+    },
+    {
+      "id": "words",
+      "name": "Words",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "minutes",
+      "name": "Minutes",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "note",
+      "name": "Note",
+      "type": "text",
+      "width": 320
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Words per day",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "date",
+      "dateBucket": "day",
+      "valueColumn": "words",
+      "aggregation": "sum",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "weekly",
+      "name": "Per week",
+      "type": "chart",
+      "chartType": "bar",
+      "labelColumn": "date",
+      "dateBucket": "week",
+      "valueColumn": "words",
+      "aggregation": "sum",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "pieces",
+      "name": "By piece",
+      "type": "chart",
+      "chartType": "hbar",
+      "labelColumn": "title",
+      "valueColumn": "words",
+      "aggregation": "sum",
+      "sortBy": "value",
+      "sortDir": "desc",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "log",
+      "name": "Log",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "date",
+          "direction": "desc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

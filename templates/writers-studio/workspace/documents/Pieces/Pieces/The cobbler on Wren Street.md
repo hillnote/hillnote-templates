@@ -1,6 +1,7 @@
 ---
 status: Drafting
 type: Book chapter
+part: Hands
 target_words: 6000
 current_words: 3900
 publish_date: '2026-11-27'

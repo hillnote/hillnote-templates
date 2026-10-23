@@ -21,8 +21,10 @@ Three parts of four essays. Every essay is 4,500 to 6,500 words and follows one 
 | Part | Essays | Thread |
 |---|---|---|
 | One: Hands | The cobbler, the piano tuner, the bicycle, darning | What skill feels like from the inside |
-| Two: Places | The repair café, the radio shop, the tip, the kitchen drawer | Where repair happens, and who it gathers |
+| Two: Places | The radio shop, the tip, the kitchen drawer, the repair café | Where repair happens, and who it gathers |
 | Three: People | A friendship, a father's toolbox, a house, the reader's own | Repair as a way of caring |
+
+The [[Book board|doc:documents/Pieces/Book%20board.moodboard.md]] lays the twelve essays out as cards on a corkboard, one column per part, with the newsletter issues and ideas that will grow into chapters underneath. Drag a card to try a new order before you commit to it here.
 
 ## Chapters in progress
 
@@ -32,11 +34,15 @@ Three parts of four essays. Every essay is 4,500 to 6,500 words and follows one 
 - [[What the bicycle knows|doc:documents/Pieces/Pieces/What%20the%20bicycle%20knows.md]]: a workshop where you fix your own bike while someone watches.
 - [[Mending a friendship|doc:documents/Pieces/Pieces/Mending%20a%20friendship.md]]: eight years of silence, told in the shape of a repair manual.
 
-Live status and word counts are in the **Pieces** database. Open the Table view and filter Type to **Book chapter**.
+Live status and word counts are in the **Pieces** database: its **Book** view shows only the chapters, grouped by part.
 
 ## The word budget
 
 The full draft is **${=round(book_target / 1000)}k words**. At ${daily_words} words a day, five days a week, that is **${=ceil(book_target / (daily_words * 5))} weeks** of sprints before a single word is cut. Add a third again for revision.
+
+The tracker below adds up every chapter in Pieces and reads your real pace from the **Writing log**, so the finish date moves when you do. Set its book length to match the variable, and give it a due date once the editor sets one.
+
+[html:Book tracker](resources/html/book-tracker/index.html)
 
 ## Working with the editor
 

@@ -54,6 +54,24 @@
       }
     },
     {
+      "id": "part",
+      "name": "Book part",
+      "type": "select",
+      "options": [
+        "Opening",
+        "Hands",
+        "Places",
+        "People"
+      ],
+      "optionColors": {
+        "Opening": "gray",
+        "Hands": "amber",
+        "Places": "teal",
+        "People": "rose"
+      },
+      "width": 120
+    },
+    {
       "id": "target_words",
       "name": "Target words",
       "type": "number",
@@ -73,6 +91,15 @@
       "formula": "IF({Target words} > 0, MIN(100, ROUND({Current words} / {Target words} * 100, 0)), 0)",
       "resultType": "number",
       "width": 110
+    },
+    {
+      "id": "per_day",
+      "name": "Words a day",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF(OR(ISBLANK({Publish date}), {Status} = \"Ready\", {Status} = \"Published\"), \"\", CEILING(MAX(0, {Target words} - {Current words}) / MAX(1, DAYS({Publish date}, TODAY()))))",
+      "resultType": "number",
+      "width": 120
     },
     {
       "id": "publish_date",
@@ -100,6 +127,18 @@
         "Place": "orange"
       },
       "width": 200
+    },
+    {
+      "id": "subject_line",
+      "name": "Subject line",
+      "type": "text",
+      "width": 280
+    },
+    {
+      "id": "preheader",
+      "name": "Preheader",
+      "type": "text",
+      "width": 300
     }
   ],
   "views": [
@@ -137,6 +176,20 @@
           "direction": "asc"
         }
       ]
+    },
+    {
+      "id": "book",
+      "name": "Book",
+      "type": "tool",
+      "toolPath": "resources/html/book-tracker/index.html",
+      "filters": [
+        {
+          "column": "type",
+          "operator": "equals",
+          "value": "Book chapter"
+        }
+      ],
+      "sorts": []
     },
     {
       "id": "sprint",

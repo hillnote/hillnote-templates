@@ -1,6 +1,7 @@
 ---
 status: Outline
 type: Book chapter
+part: People
 target_words: 5000
 current_words: 180
 tags:

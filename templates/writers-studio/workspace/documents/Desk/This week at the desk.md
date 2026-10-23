@@ -25,10 +25,11 @@ The morning sprint goes to the book because the book is the thing most likely to
 - [ ] Draft the second half of [[Fix-it Saturday|doc:documents/Pieces/Pieces/Fix-it%20Saturday.md]]
 - [ ] Type up the notes from the piano tuner visit into [[A piano tuner's ear|doc:documents/Pieces/Pieces/A%20piano%20tuner%27s%20ear.md]]
 - [ ] Answer the reader replies to the mailbag issue
+- [ ] Start cutting [[Ticket 4471|doc:documents/Pieces/Submissions/Ticket%204471.md]] down to 2,500 words for the Northlight prize
 
 ## Sprint
 
-Pick a piece, set the minutes, and write until the timer runs out. Log the words and they are added to the piece's current word count.
+Pick a piece, set the minutes, and write until the timer runs out. Log the words and they go two places: onto the piece's word count, and into the **Writing log**, which keeps your streak and draws the words-per-day chart on the dashboard. Wrote on paper or on the train? Add a row to the Writing log by hand; it counts the same.
 
 [html:Word sprint](resources/html/word-sprint/index.html)
 
@@ -38,7 +39,7 @@ Pick a piece, set the minutes, and write until the timer runs out. Log the words
 
 ## End-of-week review
 
-Answer these on Friday, two lines each:
+Open the Writing log's **Per week** chart, then answer these on Friday, two lines each:
 
 1. What did I finish?
 2. Where did the words go that I planned for the book?

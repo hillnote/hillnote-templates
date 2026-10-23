@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#EC5800;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#EC5800;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prose check</title>
+<style>
+  [hidden] { display: none !important; }
+  .toolbar { flex-wrap: wrap; }
+  .speak { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+  .speak select { width: auto; padding: 4px 8px; font-size: 12px; }
+  textarea { min-height: 150px; font-size: 14px; line-height: 1.55; }
+  .controls { justify-content: space-between; margin-top: 8px; flex-wrap: wrap; }
+  .controls .field { flex-direction: row; align-items: center; gap: 6px; }
+  .controls input { width: 64px; }
+  .tabs { display: inline-flex; gap: 2px; padding: 3px; margin: 14px 0 12px; background: var(--muted); border-radius: var(--radius); }
+  .tabs button { padding: 5px 14px; border: none; background: transparent; box-shadow: none; color: var(--muted-foreground); }
+  .tabs button:hover { background: color-mix(in srgb, var(--card) 55%, transparent); color: var(--foreground); }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--foreground); box-shadow: var(--shadow-sm); }
+  .panel > section + section { margin-top: 14px; }
+  .hint { font-size: 12px; color: var(--muted-foreground); margin: -2px 0 10px; }
+  .none { font-size: 13px; color: var(--muted-foreground); padding: 4px 0; }
+  .score { display: flex; align-items: center; gap: 14px; }
+  .gauge { width: 76px; height: 76px; flex: none; }
+  .gauge .track { fill: none; stroke: var(--muted); stroke-width: 9; }
+  .gauge .fill { fill: none; stroke-width: 9; stroke-linecap: round; transform: rotate(-90deg); transform-origin: 50% 50%; }
+  .gauge text { font-size: 20px; font-weight: 650; fill: var(--foreground); }
+  .band { font-size: 15px; font-weight: 650; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-top: 12px; }
+  .metric { background: var(--muted); border-radius: calc(var(--radius) - 2px); padding: 8px 10px; }
+  .metric small { display: block; font-size: 11px; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: .04em; }
+  .metric strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+  .flags .list-item { justify-content: space-between; }
+  .flags .list-item > span:first-child { min-width: 0; }
+  .flags small { display: block; color: var(--muted-foreground); font-size: 12px; }
+  .flags .pick { cursor: pointer; }
+  .flags .pick.sel { background: var(--muted); }
+  .preview { font-size: 14px; line-height: 1.7; max-height: 420px; overflow: auto; }
+  .preview p { margin: 0 0 .9em; }
+  .long { background: color-mix(in srgb, var(--warning) 18%, transparent); border-radius: 3px; }
+  .very-long { background: color-mix(in srgb, var(--destructive) 15%, transparent); border-radius: 3px; }
+  .adv { text-decoration: underline wavy color-mix(in srgb, var(--info) 80%, transparent); text-underline-offset: 3px; }
+  .passive { text-decoration: underline color-mix(in srgb, var(--destructive) 75%, transparent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .filler { text-decoration: underline dotted var(--muted-foreground); text-underline-offset: 3px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted-foreground); margin-bottom: 10px; }
+  .sent.speaking { background: color-mix(in srgb, var(--primary) 22%, transparent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 22%, transparent); border-radius: 3px; }
+  .rhythm-scroll { overflow-x: auto; padding: 18px 0 4px; }
+  .rhythm { position: relative; display: flex; align-items: flex-end; gap: 2px; height: 120px; min-width: 100%; width: max-content; border-bottom: 1px solid var(--border); }
+  .bar { flex: 1 1 8px; min-width: 5px; max-width: 26px; min-height: 3px; border-radius: 2px 2px 0 0; background: color-mix(in srgb, var(--primary) 55%, transparent); cursor: pointer; transition: opacity .15s; }
+  .bar.long { background: var(--warning); }
+  .bar.very-long { background: var(--destructive); }
+  .bar:hover, .bar.sel { box-shadow: 0 0 0 2px var(--ring); }
+  .bar.speaking { box-shadow: 0 0 0 2px var(--foreground); }
+  .rhythm.picking .bar:not(.in) { opacity: .3; }
+  .pgap { flex: none; width: 10px; }
+  .limit { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--muted-foreground); pointer-events: none; }
+  .limit span { position: absolute; right: 0; bottom: 2px; padding: 0 4px; font-size: 10px; color: var(--muted-foreground); background: var(--card); }
+  .tip { margin-top: 10px; min-height: 2.8em; font-size: 13px; color: var(--muted-foreground); }
+  .tip strong { color: var(--foreground); font-weight: 600; }
+  .outline { margin: 0; padding-left: 22px; font-size: 13px; }
+  .outline li { padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .outline li:last-child { border-bottom: none; }
+  .outline .n { margin-left: 6px; font-size: 12px; color: var(--muted-foreground); white-space: nowrap; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .chip { padding: 4px 10px; border-radius: 999px; font-size: 12px; box-shadow: none; }
+  .chip span { color: var(--muted-foreground); font-weight: 400; }
+  .chip[aria-pressed="true"] { border-color: var(--info); background: color-mix(in srgb, var(--info) 12%, var(--card)); }
+  .echo { text-decoration: underline color-mix(in srgb, var(--info) 50%, transparent); text-decoration-thickness: 2px; text-underline-offset: 3px; cursor: pointer; }
+  .echo.on { background: color-mix(in srgb, var(--info) 20%, transparent); text-decoration-color: var(--info); border-radius: 3px; }
+  .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .split .list-item { justify-content: space-between; padding: 6px 4px; }
+  .split small { display: block; color: var(--muted-foreground); font-size: 12px; }
+  .split .count { font-size: 12px; color: var(--muted-foreground); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  section + section { margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Prose check</strong>
+  <span class="badge" id="badge">No text yet</span>
+  <div class="speak" id="speak" hidden>
+    <button class="btn-sm" id="speakBtn" title="The style guide's read-aloud test: if you run out of breath, the sentence is too long; if you stumble, the rhythm is wrong" disabled>Read aloud</button>
+    <button class="btn-sm btn-ghost" id="speakStop" hidden>Stop</button>
+    <select id="speakRate" aria-label="Reading speed">
+      <option value="0.9">0.9×</option>
+      <option value="1">1×</option>
+      <option value="1.1">1.1×</option>
+    </select>
+  </div>
+</div>
+
+<section class="card">
+  <label for="text">Your writing</label>
+  <textarea id="text" placeholder="Paste a paragraph or a whole draft. Nothing leaves this page."></textarea>
+  <div class="row controls">
+    <div class="field"><label for="limit">Flag sentences over</label><input id="limit" type="number" min="10" max="60" step="1"><span class="muted">words</span></div>
+    <button class="btn-ghost btn-sm" id="clear">Clear</button>
+  </div>
+</section>
+
+<div id="empty" class="empty-state">Paste some writing above. Readability shows how easy it is to read, Rhythm shows the shape of your sentences, and Echoes finds repeated words and the style guide's words to cut.</div>
+
+<div id="results" hidden>
+  <div class="tabs" role="tablist" aria-label="Checks" id="tabs">
+    <button role="tab" id="tab-readability" data-tab="readability" aria-controls="panel-readability">Readability</button>
+    <button role="tab" id="tab-rhythm" data-tab="rhythm" aria-controls="panel-rhythm">Rhythm</button>
+    <button role="tab" id="tab-echoes" data-tab="echoes" aria-controls="panel-echoes">Echoes</button>
+  </div>
+
+  <div class="panel" role="tabpanel" id="panel-readability" aria-labelledby="tab-readability">
+    <section class="card">
+      <div class="score">
+        <svg class="gauge" viewBox="0 0 80 80" aria-hidden="true"><circle class="track" cx="40" cy="40" r="33"></circle><circle class="fill" id="gaugeFill" cx="40" cy="40" r="33"></circle><text x="40" y="47" text-anchor="middle" id="gaugeText">0</text></svg>
+        <div>
+          <div class="band" id="band"></div>
+          <div class="muted" id="bandNote"></div>
+        </div>
+      </div>
+      <div class="grid" id="metrics"></div>
+    </section>
+    <section class="card flags">
+      <h4>What to look at</h4>
+      <div class="list" id="flags"></div>
+    </section>
+    <section class="card">
+      <h4>Marked up</h4>
+      <div class="legend">
+        <span><span class="long">Long sentence</span></span>
+        <span><span class="very-long">Very long</span></span>
+        <span><span class="adv">Adverb</span></span>
+        <span><span class="passive">Maybe passive</span></span>
+        <span><span class="filler">Filler</span></span>
+      </div>
+      <div class="preview" id="preview"></div>
+    </section>
+  </div>
+
+  <div class="panel" role="tabpanel" id="panel-rhythm" aria-labelledby="tab-rhythm" hidden>
+    <section class="card">
+      <h4>Sentence rhythm</h4>
+      <p class="hint" id="rhythmSummary"></p>
+      <div class="rhythm-scroll"><div class="rhythm" id="rhythm" role="img"></div></div>
+      <div class="tip" id="tip"></div>
+    </section>
+    <section class="card flags">
+      <h4>What to look at</h4>
+      <div class="list" id="rhythmFlags"></div>
+    </section>
+    <section class="card">
+      <h4>Reverse outline</h4>
+      <p class="hint">The first sentence of every paragraph. Read them in order: each one should say what its paragraph is for.</p>
+      <ol class="outline" id="outline"></ol>
+    </section>
+  </div>
+
+  <div class="panel" role="tabpanel" id="panel-echoes" aria-labelledby="tab-echoes" hidden>
+    <section class="card flags">
+      <h4>Words to cut</h4>
+      <p class="hint">From the table in the style guide.</p>
+      <div class="list" id="cuts"></div>
+    </section>
+    <section class="card">
+      <h4>Echoes</h4>
+      <p class="hint">The same word again within 40 words. Pick one to see every place it lands.</p>
+      <div class="chips" id="echoes"></div>
+      <div class="preview" id="echoPreview"></div>
+    </section>
+    <section class="card split">
+      <div><h4>Sentence openers</h4><div class="list" id="openers"></div></div>
+      <div><h4>Most used words</h4><div class="list" id="topWords"></div></div>
+    </section>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { try { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); } catch (e) { return d; } },
+    set: function (k, v) { try { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; } catch (e) { /* ignore */ } }
+  };
+  var MAX_DRAFT = 20000;
+  var CIRC = 2 * Math.PI * 33;
+  var ECHO_WINDOW = 40;
+  var TABS = ['readability', 'rhythm', 'echoes'];
+  var RATES = ['0.9', '1', '1.1'];
+  var NUMBER_WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+  var NOT_ADVERBS = new Set(('only family early reply apply supply holy ugly belly bully jelly fly july italy rely ally lily silly friendly lovely lonely ' +
+    'daily weekly monthly yearly hourly nightly costly elderly curly chilly hilly oily woolly holly rally tally assembly anomaly butterfly dragonfly ' +
+    'multiply comply imply deadly lively orderly timely homely kindly likely unlikely smelly jolly folly sly ply wily burly surly bubbly cuddly ' +
+    'wrinkly prickly sickly sprightly ghastly ghostly heavenly worldly manly womanly scholarly beastly portly stately leisurely courtly fly-by').split(' '));
+  var PARTICIPLES = ('built made done given taken seen written known shown found held kept left lost paid sold told brought bought caught taught thought ' +
+    'broken chosen driven eaten fallen forgotten frozen hidden ridden risen shaken spoken stolen sworn torn worn woven begun drunk sung sunk put set cut ' +
+    'hit hurt read run sent spent lent meant felt dealt led fed met sewn shown thrown grown drawn understood forgiven mistaken overlooked born worn bent ' +
+    'bound dug fought ground hung lit shot shut slit spun stuck stung struck swept swung wound won').split(' ');
+  var PASSIVE = new RegExp('\\b(am|is|are|was|were|be|been|being|get|gets|got|gotten|getting)\\s+(?:\\w+ly\\s+)?(\\w+ed|' + PARTICIPLES.join('|') + ')\\b', 'gi');
+  var FILLER = /\b(very|really|just|quite|rather|somewhat|actually|basically|simply|literally|totally|in order to|kind of|sort of|a bit)\b/gi;
+  var WORD = /[A-Za-zÀ-ɏ]+(?:['’][A-Za-z]+)*|\d+(?:[.,]\d+)*/g;
+
+  // Function words that never count as echoes or "most used".
+  var STOP = new Set(('a about above after again against ago all almost along already also although always am among an and another any anyone anything ' +
+    'are around as at away back be became because become been before being below between both but by came can cannot could did do does doing ' +
+    'done down during each either else enough even ever every few for from further get gets getting go goes going gone got had has have having ' +
+    'he her here hers herself him himself his how however i if in into is it its itself just less like made make makes many may me might mine ' +
+    'more most much must my myself near need never next no nor not nothing now of off often on once one only onto or other others our ours ' +
+    'ourselves out over own perhaps quite rather really said same say says see seen shall she should since so some something soon still such ' +
+    'than that the their theirs them themselves then there these they thing this those though through thus till to too toward towards two ' +
+    'under until up upon us very was way we well went were what whatever when where whether which while who whom whose why will with within ' +
+    'without would yes yet you your yours yourself yourselves ' +
+    "i'd i'll i'm i've you'd you'll you're you've he'd he'll he's she'd she'll she's it's we'd we'll we're we've they'd they'll they're they've " +
+    "that's there's here's what's who's let's isn't aren't wasn't weren't don't doesn't didn't can't couldn't won't wouldn't shouldn't haven't hasn't hadn't").split(' '));
+
+  // The "Words to cut" table in the style guide, row for row.
+  var CUTS = [
+    { label: 'very, really, quite', re: /\b(very|really|quite)\b/gi, why: 'They weaken the word they lean on. Find a stronger word.' },
+    { label: 'just, actually, simply', re: /\b(just|actually|simply)\b/gi, why: 'Filler. Read the sentence without them.' },
+    { label: 'in order to', re: /\bin order to\b/gi, why: '“to” does the job.' },
+    { label: 'it is important to note that', re: /\bit(?:\s+is|['’]s)\s+important\s+to\s+note\s+that\b/gi, why: 'If it’s important, say it.' },
+    { label: 'sort of, kind of', re: /\b(?:sort|kind) of\b/gi, why: 'Commit, or explain the doubt.' },
+    { label: 'utilise, leverage', re: /\b(?:utili[sz](?:e|es|ed|ing)|leverag(?:e|es|ed|ing))\b/gi, why: 'Use “use”.' }
+  ];
+
+  function cleanMarkdown(text) {
+    return text
+      .replace(/\r\n?/g, '\n')
+      .replace(/^---\n[\s\S]*?\n---\n/, '')
+      .replace(/```[\s\S]*?(?:```|$)/g, '')
+      .replace(/^\s*>\s*\*\*Note for AI:\*\*.*$/gm, '')
+      .replace(/^\s{0,3}#{1,6}\s.*$/gm, '')
+      .replace(/^\s*\|.*$/gm, '')
+      .replace(/:::[^\n]*\n?/g, '')
+      .replace(/\$\{=?([^}]*)\}/g, function (m, name) { return name.replace(/_/g, ' '); })
+      .replace(/\[\[([^\]|]+)\|[^\]]*\]\]/g, '$1')
+      .replace(/\[([^\]]*)\]\{#[^}]*\}/g, '$1')
+      .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+      .replace(/^\s*[-*+]\s+\[[ xX]\]\s+/gm, '')
+      .replace(/^\s{0,3}(>|[-*+]|\d+\.)\s+/gm, '')
+      .replace(/==([^=\n]+)==/g, '$1')
+      .replace(/[*_`~]{1,3}/g, '');
+  }
+
+  function syllables(word) {
+    var w = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (!w) return /\d/.test(word) ? 1 : 0;
+    if (w.length <= 3) return 1;
+    w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '');
+    var groups = w.match(/[aeiouy]{1,2}/g);
+    return Math.max(1, groups ? groups.length : 1);
+  }
+
+  function splitSentences(paragraph) {
+    var protectedText = paragraph.replace(/\b(Mr|Mrs|Ms|Dr|St|Prof|vs|etc|e\.g|i\.e|No)\./g, '$1․');
+    var parts = protectedText.match(/[^.!?…]+(?:[.!?…]+["'”’)\]]*|$)/g) || [];
+    return parts.map(function (s) { return s.replace(/․/g, '.'); }).filter(function (s) { return /[A-Za-z0-9]/.test(s); });
+  }
+
+  function isAdverb(w) {
+    var lw = w.toLowerCase();
+    return lw.length > 4 && /ly$/.test(lw) && !NOT_ADVERBS.has(lw);
+  }
+
+  function lower(w) { return w.toLowerCase().replace(/’/g, "'"); }
+  // Fold simple plurals and possessives so "boot" and "boots" echo each other.
+  function fold(w) {
+    w = w.replace(/'s$/, '');
+    if (w.length > 4 && /ies$/.test(w)) return w.slice(0, -3) + 'y';
+    if (w.length > 4 && /(ss|x|z|ch|sh)es$/.test(w)) return w.slice(0, -2);
+    if (w.length > 3 && /s$/.test(w) && !/(ss|us|is)$/.test(w)) return w.slice(0, -1);
+    return w;
+  }
+  function contentKey(word) {
+    if (/^\d/.test(word)) return '';
+    var lw = lower(word);
+    if (lw.length < 3 || STOP.has(lw)) return '';
+    var k = fold(lw);
+    return k.length < 3 || STOP.has(k) ? '' : k;
+  }
+
+  function analyse(raw, limit) {
+    var paragraphs = cleanMarkdown(raw).split(/\n\s*\n/).map(function (p) { return p.replace(/\s+/g, ' ').trim(); }).filter(Boolean);
+    var out = { paragraphs: [], sentences: [], clean: paragraphs.join('\n\n'), words: 0, syllables: 0, long: 0, veryLong: 0, adverbs: 0, passive: 0, filler: 0, longest: 0, shortest: 0 };
+    paragraphs.forEach(function (p, pi) {
+      var sentences = splitSentences(p).map(function (raw) {
+        var text = raw.trim();
+        var ws = text.match(WORD) || [];
+        var syl = ws.reduce(function (n, w) { return n + syllables(w); }, 0);
+        out.words += ws.length; out.syllables += syl;
+        out.adverbs += ws.filter(isAdverb).length;
+        out.passive += (text.match(PASSIVE) || []).length;
+        out.filler += (text.match(FILLER) || []).length;
+        out.longest = Math.max(out.longest, ws.length);
+        var level = ws.length > limit * 1.6 ? 'very-long' : (ws.length > limit ? 'long' : '');
+        if (level === 'long') out.long++;
+        if (level === 'very-long') out.veryLong++;
+        var s = { text: text, tokens: ws, words: ws.length, level: level, p: pi, i: out.sentences.length };
+        out.sentences.push(s);
+        return s;
+      });
+      if (sentences.length) out.paragraphs.push(sentences);
+    });
+    out.shortest = out.sentences.reduce(function (m, s) { return Math.min(m, s.words); }, out.longest);
+    var count = out.sentences.length;
+    var wps = count ? out.words / count : 0;
+    var spw = out.words ? out.syllables / out.words : 0;
+    out.avgSentence = wps;
+    out.ease = out.words ? Math.max(0, Math.min(100, 206.835 - 1.015 * wps - 84.6 * spw)) : 0;
+    out.grade = out.words ? Math.max(0, 0.39 * wps + 11.8 * spw - 15.59) : 0;
+    out.minutes = out.words / 238;
+    return out;
+  }
+
+  function band(score) {
+    if (score >= 90) return ['Very easy', 'Short words, short sentences. Good for a quick note.', 'success'];
+    if (score >= 80) return ['Easy', 'Conversational. Most readers glide through it.', 'success'];
+    if (score >= 70) return ['Fairly easy', 'Comfortable for a newsletter.', 'success'];
+    if (score >= 60) return ['Plain English', 'The sweet spot for most essays.', 'success'];
+    if (score >= 50) return ['Fairly difficult', 'Fine for a book chapter; check the longest sentences.', 'warning'];
+    if (score >= 30) return ['Difficult', 'Readers will need to slow down. Is that what you want?', 'warning'];
+    return ['Very difficult', 'Academic density. Break up sentences and swap long words.', 'danger'];
+  }
+
+  function numberWord(n, capital) {
+    var w = n < NUMBER_WORDS.length ? NUMBER_WORDS[n] : String(n);
+    return capital ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+  }
+  function truncate(s, n) { return s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s; }
+
+  /* ------------------------------------------------------------ readability */
+  function markSentence(s) {
+    var html = esc(s.text);
+    html = html.replace(PASSIVE, function (m) { return '<span class="passive">' + m + '</span>'; });
+    html = html.replace(FILLER, function (m) { return '<span class="filler">' + m + '</span>'; });
+    html = html.replace(/<[^>]+>|[A-Za-zÀ-ɏ]+(?:['’][A-Za-z]+)*/g, function (m) {
+      if (m.charAt(0) === '<') return m;
+      return isAdverb(m) ? '<span class="adv">' + m + '</span>' : m;
+    });
+    return '<span class="sent' + (s.level ? ' ' + s.level : '') + '" data-s="' + s.i + '"' + (s.level ? ' title="' + s.words + ' words"' : '') + '>' + html + '</span>';
+  }
+
+  function renderReadability(a, limit) {
+    var b = band(a.ease);
+    var score = Math.round(a.ease);
+    $('badge').textContent = 'Reading ease ' + score;
+    $('badge').className = 'badge badge-' + b[2];
+    $('band').textContent = b[0];
+    $('bandNote').textContent = b[1];
+    $('gaugeText').textContent = score;
+    $('gaugeFill').style.stroke = b[2] === 'success' ? 'var(--success)' : (b[2] === 'warning' ? 'var(--warning)' : 'var(--destructive)');
+    $('gaugeFill').style.strokeDasharray = CIRC.toFixed(2);
+    $('gaugeFill').style.strokeDashoffset = (CIRC * (1 - score / 100)).toFixed(2);
+
+    var metrics = [
+      ['Words', a.words.toLocaleString()],
+      ['Sentences', a.sentences.length.toLocaleString()],
+      ['Avg sentence', a.avgSentence.toFixed(1) + ' words'],
+      ['Longest', a.longest + ' words'],
+      ['Grade level', a.grade.toFixed(1)],
+      ['Reading time', a.minutes < 1 ? 'under 1 min' : Math.round(a.minutes) + ' min']
+    ];
+    $('metrics').innerHTML = metrics.map(function (m) { return '<div class="metric"><small>' + m[0] + '</small><strong>' + m[1] + '</strong></div>'; }).join('');
+
+    var flags = [
+      [a.long + a.veryLong, 'Long sentences', 'Over ' + limit + ' words. Break one in two, or make sure it earns its length.', a.veryLong ? 'danger' : 'warning'],
+      [a.adverbs, 'Adverbs', 'Words ending in -ly. A stronger verb usually does the job alone.', 'info'],
+      [a.passive, 'Maybe passive', 'A form of "to be" before a past participle. Fine when the actor doesn\'t matter.', 'danger'],
+      [a.filler, 'Filler words', 'very, really, just, quite, actually. Read the sentence without them.', 'warning']
+    ];
+    $('flags').innerHTML = flags.map(function (f) {
+      return '<div class="list-item"><span><strong>' + f[1] + '</strong><small>' + f[2] + '</small></span>' +
+        '<span class="badge' + (f[0] ? ' badge-' + f[3] : ' badge-success') + '">' + (f[0] || 'None') + '</span></div>';
+    }).join('');
+
+    $('preview').innerHTML = a.paragraphs.map(function (sents) {
+      return '<p>' + sents.map(markSentence).join(' ') + '</p>';
+    }).join('');
+  }
+
+  /* ----------------------------------------------------------------- rhythm */
+  function rhythmFlags(a) {
+    var flags = [];
+    a.paragraphs.forEach(function (sents, pi) {
+      var run = [];
+      sents.concat([null]).forEach(function (s) {
+        if (s && s.level) { run.push(s); return; }
+        if (run.length >= 3) {
+          flags.push({ from: run[0].i, to: run[run.length - 1].i, title: numberWord(run.length, true) + ' long sentences in a row',
+            note: 'Paragraph ' + (pi + 1) + '. Three long sentences in a row need a short one after them.', badge: 'warning' });
+        }
+        run = [];
+      });
+      var start = 0, lo = 0, hi = 0;
+      for (var i = 0; i <= sents.length; i++) {
+        var s = sents[i];
+        if (s && i > start && Math.max(hi, s.words) - Math.min(lo, s.words) <= 6) { lo = Math.min(lo, s.words); hi = Math.max(hi, s.words); continue; }
+        var flat = sents.slice(start, i);
+        if (flat.length >= 4 && !flat.every(function (x) { return x.level; })) {
+          flags.push({ from: flat[0].i, to: flat[flat.length - 1].i, title: numberWord(flat.length, true) + ' sentences of the same length',
+            note: 'Paragraph ' + (pi + 1) + ', all ' + lo + ' to ' + hi + ' words. Vary the length so it doesn\'t drone.', badge: 'info' });
+        }
+        if (s) { start = i; lo = hi = s.words; }
+      }
+    });
+    return flags.sort(function (x, y) { return x.from - y.from; });
+  }
+
+  var rhythmState = { flags: [], picked: -1, sel: -1 };
+
+  function renderRhythm(a, limit) {
+    var max = Math.max(a.longest, Math.round(limit * 1.3), 10);
+    var html = '';
+    a.paragraphs.forEach(function (sents, pi) {
+      if (pi) html += '<span class="pgap" aria-hidden="true"></span>';
+      sents.forEach(function (s) {
+        html += '<span class="bar' + (s.level ? ' ' + s.level : '') + '" data-s="' + s.i + '" style="height:' + Math.max(3, s.words / max * 100).toFixed(1) + '%"></span>';
+      });
+    });
+    html += '<div class="limit" style="bottom:' + (limit / max * 100).toFixed(1) + '%"><span>' + limit + ' words</span></div>';
+    $('rhythm').innerHTML = html;
+    $('rhythm').setAttribute('aria-label', 'Sentence lengths: ' + a.sentences.length + ' sentences, from ' + a.shortest + ' to ' + a.longest + ' words');
+    var n = a.sentences.length;
+    $('rhythmSummary').textContent = 'Each bar is one sentence; the gaps are paragraph breaks. ' +
+      (n === 1 ? 'One sentence so far, ' + a.longest + ' words.' : numberWord(n, true) + ' sentences, from ' + a.shortest + ' to ' + a.longest + ' words.');
+
+    rhythmState.flags = rhythmFlags(a);
+    rhythmState.picked = -1;
+    if (rhythmState.sel >= n) rhythmState.sel = -1;
+    $('rhythmFlags').innerHTML = rhythmState.flags.length ? rhythmState.flags.map(function (f, i) {
+      return '<div class="list-item pick" data-flag="' + i + '" role="button" tabindex="0"><span><strong>' + f.title + '</strong><small>' + esc(f.note) + '</small></span>' +
+        '<span class="badge badge-' + f.badge + '">Show</span></div>';
+    }).join('') : '<div class="none">Good variety: no runs of long sentences and no flat stretches.</div>';
+
+    $('outline').innerHTML = a.paragraphs.map(function (sents) {
+      var words = sents.reduce(function (m, s) { return m + s.words; }, 0);
+      return '<li>' + esc(truncate(sents[0].text, 120)) + '<span class="n">' + words + ' words</span></li>';
+    }).join('');
+    showTip();
+    paintBars();
+  }
+
+  function paintBars() {
+    var f = rhythmState.flags[rhythmState.picked];
+    $('rhythm').classList.toggle('picking', !!f);
+    Array.prototype.forEach.call($('rhythm').querySelectorAll('.bar'), function (b) {
+      var i = Number(b.getAttribute('data-s'));
+      b.classList.toggle('in', !!f && i >= f.from && i <= f.to);
+      b.classList.toggle('sel', i === rhythmState.sel);
+    });
+    Array.prototype.forEach.call($('rhythmFlags').querySelectorAll('.pick'), function (el) {
+      el.classList.toggle('sel', Number(el.getAttribute('data-flag')) === rhythmState.picked);
+    });
+  }
+
+  function showTip(i) {
+    var a = state.a;
+    if (i == null) i = rhythmState.sel;
+    var f = rhythmState.flags[rhythmState.picked];
+    var s = a && a.sentences[i];
+    if (s) {
+      $('tip').innerHTML = '<strong>Sentence ' + (s.i + 1) + ', ' + s.words + ' words.</strong> ' + esc(s.text);
+    } else if (f && a) {
+      $('tip').innerHTML = '<strong>Sentences ' + (f.from + 1) + ' to ' + (f.to + 1) + '.</strong> ' + esc(truncate(a.sentences[f.from].text, 160));
+    } else {
+      $('tip').textContent = 'Hover or tap a bar to read its sentence.';
+    }
+  }
+
+  function pickFlag(i) {
+    rhythmState.picked = rhythmState.picked === i ? -1 : i;
+    rhythmState.sel = -1;
+    paintBars();
+    showTip();
+    var f = rhythmState.flags[rhythmState.picked];
+    var first = f && $('rhythm').querySelector('.bar[data-s="' + f.from + '"]');
+    if (first && first.scrollIntoView) first.scrollIntoView({ block: 'nearest', inline: 'center' });
+  }
+
+  /* ----------------------------------------------------------------- echoes */
+  function findEchoes(a) {
+    var last = Object.create(null), stats = Object.create(null), at = Object.create(null);
+    var g = 0;
+    a.sentences.forEach(function (s) {
+      s.tokens.forEach(function (w) {
+        var k = contentKey(w);
+        if (k) {
+          var st = stats[k] || (stats[k] = { k: k, count: 0, pairs: 0, min: Infinity, forms: Object.create(null) });
+          st.count++;
+          var lw = lower(w);
+          st.forms[lw] = (st.forms[lw] || 0) + 1;
+          if (last[k] !== undefined && g - last[k] <= ECHO_WINDOW) {
+            st.pairs++;
+            st.min = Math.min(st.min, g - last[k]);
+            at[last[k]] = k;
+            at[g] = k;
+          }
+          last[k] = g;
+        }
+        g++;
+      });
+    });
+    var all = Object.keys(stats).map(function (k) {
+      var st = stats[k];
+      st.label = Object.keys(st.forms).sort(function (x, y) { return st.forms[y] - st.forms[x]; })[0];
+      return st;
+    });
+    return {
+      at: at,
+      echoes: all.filter(function (st) { return st.pairs; }).sort(function (x, y) { return y.pairs - x.pairs || x.min - y.min; }).slice(0, 12),
+      top: all.filter(function (st) { return st.count >= 2; }).sort(function (x, y) { return y.count - x.count || (x.k < y.k ? -1 : 1); }).slice(0, 8)
+    };
+  }
+
+  function findCuts(a) {
+    return CUTS.map(function (c) {
+      var forms = Object.create(null), total = 0;
+      (a.clean.match(c.re) || []).forEach(function (m) {
+        var f = lower(m).replace(/\s+/g, ' ');
+        forms[f] = (forms[f] || 0) + 1;
+        total++;
+      });
+      return { label: c.label, why: c.why, total: total, forms: forms };
+    }).filter(function (c) { return c.total; });
+  }
+
+  function findOpeners(a) {
+    var out = [];
+    a.paragraphs.forEach(function (sents, pi) {
+      var groups = Object.create(null);
+      sents.forEach(function (s, j) {
+        var first = s.tokens[0];
+        if (!first) return;
+        var k = lower(first);
+        var g = groups[k] || (groups[k] = { word: first, count: 0, backToBack: false, p: pi });
+        g.count++;
+        var prev = j && sents[j - 1].tokens[0];
+        if (prev && lower(prev) === k) g.backToBack = true;
+      });
+      Object.keys(groups).forEach(function (k) {
+        var g = groups[k];
+        if (g.count >= 3) out.push({ word: g.word, note: 'starts ' + numberWord(g.count) + ' sentences in paragraph ' + (pi + 1), weight: g.count + 1 });
+        else if (g.backToBack) out.push({ word: g.word, note: 'starts two sentences in a row in paragraph ' + (pi + 1), weight: 2 });
+      });
+    });
+    return out.sort(function (x, y) { return y.weight - x.weight; });
+  }
+
+  function renderEchoes(a) {
+    var cuts = findCuts(a);
+    $('cuts').innerHTML = cuts.length ? cuts.map(function (c) {
+      var found = Object.keys(c.forms).map(function (f) { return f + (c.forms[f] > 1 ? ' ×' + c.forms[f] : ''); }).join(', ');
+      return '<div class="list-item"><span><strong>' + esc(found) + '</strong><small>' + esc(c.why) + '</small></span>' +
+        '<span class="badge badge-warning">' + c.total + '</span></div>';
+    }).join('') : '<div class="none">None of the words from the style guide\'s table. Nicely done.</div>';
+
+    var e = findEchoes(a);
+    state.e = e;
+    if (state.echo && !e.echoes.some(function (st) { return st.k === state.echo; })) state.echo = '';
+    $('echoes').innerHTML = e.echoes.length ? e.echoes.map(function (st) {
+      return '<button class="chip" data-k="' + esc(st.k) + '" aria-pressed="' + (st.k === state.echo) + '"><strong>' + esc(st.label) + '</strong> <span>' +
+        st.count + '×, ' + st.min + ' word' + (st.min === 1 ? '' : 's') + ' apart</span></button>';
+    }).join('') : '<div class="none">No word comes back within 40 words.</div>';
+    $('echoPreview').hidden = !e.echoes.length;
+    if (e.echoes.length) $('echoPreview').innerHTML = echoMarkup(a, e.at);
+    paintEcho();
+
+    var openers = findOpeners(a);
+    $('openers').innerHTML = openers.length ? openers.slice(0, 8).map(function (o) {
+      return '<div class="list-item"><span><strong>“' + esc(o.word) + '”</strong><small>' + esc(o.note) + '</small></span></div>';
+    }).join('') + (openers.length > 8 ? '<div class="none">and ' + (openers.length - 8) + ' more</div>' : '')
+      : '<div class="none">Every sentence finds its own way in.</div>';
+
+    $('topWords').innerHTML = e.top.length ? e.top.map(function (st) {
+      var per = Math.round(st.count / a.words * 1000);
+      return '<div class="list-item"><strong>' + esc(st.label) + '</strong><span class="count">' + st.count + '×' + (a.words >= 300 ? ', ' + per + ' per 1,000 words' : '') + '</span></div>';
+    }).join('') : '<div class="none">No word repeats yet.</div>';
+  }
+
+  function echoMarkup(a, at) {
+    var re = new RegExp(WORD.source, 'g');
+    var g = 0;
+    return a.paragraphs.map(function (sents) {
+      return '<p>' + sents.map(function (s) {
+        var out = '', from = 0, m;
+        re.lastIndex = 0;
+        while ((m = re.exec(s.text))) {
+          out += esc(s.text.slice(from, m.index));
+          var k = at[g];
+          out += k ? '<span class="echo" data-k="' + esc(k) + '">' + esc(m[0]) + '</span>' : esc(m[0]);
+          from = m.index + m[0].length;
+          g++;
+        }
+        return '<span class="sent" data-s="' + s.i + '">' + out + esc(s.text.slice(from)) + '</span>';
+      }).join(' ') + '</p>';
+    }).join('');
+  }
+
+  function paintEcho() {
+    Array.prototype.forEach.call($('echoes').querySelectorAll('.chip'), function (c) {
+      c.setAttribute('aria-pressed', String(c.getAttribute('data-k') === state.echo));
+    });
+    var first = null;
+    Array.prototype.forEach.call($('echoPreview').querySelectorAll('.echo'), function (el) {
+      var on = !!state.echo && el.getAttribute('data-k') === state.echo;
+      el.classList.toggle('on', on);
+      if (on && !first) first = el;
+    });
+    return first;
+  }
+
+  function pickEcho(k) {
+    state.echo = state.echo === k ? '' : k;
+    var first = paintEcho();
+    if (first && first.scrollIntoView) first.scrollIntoView({ block: 'nearest' });
+  }
+
+  /* --------------------------------------------------------------- tabs */
+  var tab = 'readability';
+  function selectTab(name, focus) {
+    if (TABS.indexOf(name) < 0) name = 'readability';
+    tab = name;
+    TABS.forEach(function (t) {
+      var b = $('tab-' + t);
+      b.setAttribute('aria-selected', String(t === name));
+      b.tabIndex = t === name ? 0 : -1;
+      $('panel-' + t).hidden = t !== name;
+    });
+    if (focus) $('tab-' + name).focus();
+    store.set('tab', name);
+    if (speech.active) highlight(speech.idx);
+  }
+
+  /* ---------------------------------------------------------- read aloud */
+  var synth = window.speechSynthesis;
+  var canSpeak = !!(synth && typeof window.SpeechSynthesisUtterance === 'function');
+  var speech = { run: 0, idx: -1, active: false, paused: false, rate: 1 };
+
+  function voices() { try { return (canSpeak && synth.getVoices()) || []; } catch (e) { return []; } }
+  function pickVoice() {
+    var list = voices();
+    var lang = String(document.documentElement.lang || navigator.language || 'en').toLowerCase().slice(0, 2);
+    var same = list.filter(function (v) { return String(v.lang || '').toLowerCase().slice(0, 2) === lang; });
+    return same.filter(function (v) { return v.default; })[0] || same.filter(function (v) { return v.localService; })[0] || same[0] || null;
+  }
+  function checkVoices() { $('speak').hidden = !(canSpeak && voices().length); }
+
+  function renderSpeak() {
+    var hasText = !!(state.a && state.a.words);
+    $('speakBtn').disabled = !hasText;
+    $('speakBtn').textContent = !speech.active ? 'Read aloud' : (speech.paused ? 'Resume' : 'Pause');
+    $('speakBtn').className = 'btn-sm' + (speech.active ? ' btn-primary' : '');
+    $('speakStop').hidden = !speech.active;
+  }
+
+  function highlight(i) {
+    Array.prototype.forEach.call(document.querySelectorAll('.speaking'), function (el) { el.classList.remove('speaking'); });
+    if (i < 0) return;
+    var visible = null;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-s="' + i + '"]'), function (el) {
+      el.classList.add('speaking');
+      if (!visible && el.offsetParent !== null && $('panel-' + tab).contains(el)) visible = el;
+    });
+    if (visible && visible.scrollIntoView) visible.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+
+  function speakAt(i) {
+    var a = state.a;
+    var run = speech.run;
+    if (!speech.active || !a || i >= a.sentences.length) { stopSpeaking(); return; }
+    speech.idx = i;
+    highlight(i);
+    var u = new SpeechSynthesisUtterance(a.sentences[i].text);
+    var v = pickVoice();
+    if (v) { u.voice = v; u.lang = v.lang; }
+    u.rate = speech.rate;
+    u.onend = function () { if (run === speech.run && speech.active) speakAt(i + 1); };
+    u.onerror = function (e) {
+      if (run !== speech.run) return;
+      if (e && (e.error === 'interrupted' || e.error === 'canceled')) return;
+      stopSpeaking();
+    };
+    synth.speak(u);
+  }
+
+  function stopSpeaking() {
+    speech.run++;
+    speech.active = false;
+    speech.paused = false;
+    speech.idx = -1;
+    if (canSpeak) { try { synth.cancel(); if (synth.paused) synth.resume(); } catch (e) { /* nothing to stop */ } }
+    highlight(-1);
+    renderSpeak();
+  }
+
+  function toggleSpeech() {
+    if (!canSpeak || !state.a || !state.a.words) return;
+    if (speech.active) {
+      try { if (speech.paused) synth.resume(); else synth.pause(); } catch (e) { /* ignore */ }
+      speech.paused = !speech.paused;
+      renderSpeak();
+      return;
+    }
+    stopSpeaking();
+    if (tab === 'rhythm') selectTab('readability');
+    speech.active = true;
+    renderSpeak();
+    speakAt(0);
+  }
+
+  /* ------------------------------------------------------------- render */
+  var state = { a: null, e: null, echo: '' };
+
+  function render() {
+    var limit = Math.max(10, Math.min(60, Number($('limit').value) || 25));
+    var a = analyse($('text').value, limit);
+    state.a = a;
+    if (!a.words) {
+      $('results').hidden = true;
+      $('empty').hidden = false;
+      $('badge').textContent = 'No text yet';
+      $('badge').className = 'badge';
+      renderSpeak();
+      return;
+    }
+    $('results').hidden = false;
+    $('empty').hidden = true;
+    renderReadability(a, limit);
+    renderRhythm(a, limit);
+    renderEchoes(a);
+    if (speech.active) highlight(speech.idx);
+    renderSpeak();
+  }
+
+  var renderTimer = null;
+  var saveTimer = null;
+  function saveDraft() { clearTimeout(saveTimer); saveTimer = null; store.set('draft', $('text').value.slice(0, MAX_DRAFT)); }
+  function onText() {
+    if (speech.active) stopSpeaking();
+    clearTimeout(renderTimer);
+    renderTimer = setTimeout(render, 150);
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveDraft, 600);
+  }
+
+  /* ------------------------------------------------------------- events */
+  $('text').addEventListener('input', onText);
+  $('limit').addEventListener('input', function () { store.set('limit', Number($('limit').value) || 25); render(); });
+  $('clear').addEventListener('click', function () { $('text').value = ''; if (speech.active) stopSpeaking(); saveDraft(); render(); $('text').focus(); });
+
+  $('tabs').addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-tab]') : null;
+    if (b) selectTab(b.getAttribute('data-tab'));
+  });
+  $('tabs').addEventListener('keydown', function (e) {
+    var i = TABS.indexOf(tab);
+    var next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: TABS.length - 1 }[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    selectTab(TABS[(next + TABS.length) % TABS.length], true);
+  });
+
+  $('rhythm').addEventListener('mouseover', function (e) {
+    var b = e.target.closest ? e.target.closest('.bar') : null;
+    if (b) showTip(Number(b.getAttribute('data-s')));
+  });
+  $('rhythm').addEventListener('mouseleave', function () { showTip(); });
+  $('rhythm').addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.bar') : null;
+    if (!b) return;
+    var i = Number(b.getAttribute('data-s'));
+    rhythmState.sel = rhythmState.sel === i ? -1 : i;
+    paintBars();
+    showTip();
+  });
+  function onFlag(e) {
+    var el = e.target.closest ? e.target.closest('[data-flag]') : null;
+    if (!el) return;
+    if (e.type === 'keydown') { if (e.key !== 'Enter' && e.key !== ' ') return; e.preventDefault(); }
+    pickFlag(Number(el.getAttribute('data-flag')));
+  }
+  $('rhythmFlags').addEventListener('click', onFlag);
+  $('rhythmFlags').addEventListener('keydown', onFlag);
+
+  $('echoes').addEventListener('click', function (e) {
+    var c = e.target.closest ? e.target.closest('[data-k]') : null;
+    if (c) pickEcho(c.getAttribute('data-k'));
+  });
+  $('echoPreview').addEventListener('click', function (e) {
+    var w = e.target.closest ? e.target.closest('.echo') : null;
+    if (w) pickEcho(w.getAttribute('data-k'));
+  });
+
+  $('speakBtn').addEventListener('click', toggleSpeech);
+  $('speakStop').addEventListener('click', stopSpeaking);
+  $('speakRate').addEventListener('change', function () {
+    speech.rate = Number($('speakRate').value) || 1;
+    store.set('rate', $('speakRate').value);
+  });
+  window.addEventListener('pagehide', function () {
+    if (saveTimer) saveDraft();
+    if (canSpeak) { try { synth.cancel(); } catch (e) { /* ignore */ } }
+  });
+
+  async function start() {
+    if (window.hillnote) { try { await hillnote.ready(); } catch (e) { /* render anyway */ } }
+    $('limit').value = store.get('limit', 25) || 25;
+    $('text').value = store.get('draft', '') || '';
+    var rate = String(store.get('rate', '1'));
+    $('speakRate').value = RATES.indexOf(rate) >= 0 ? rate : '1';
+    speech.rate = Number($('speakRate').value) || 1;
+    selectTab(store.get('tab', 'readability'));
+    if (canSpeak) {
+      checkVoices();
+      if (typeof synth.addEventListener === 'function') synth.addEventListener('voiceschanged', checkVoices);
+      else synth.onvoiceschanged = checkVoices;
+      setTimeout(checkVoices, 1200);
+    }
+    render();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

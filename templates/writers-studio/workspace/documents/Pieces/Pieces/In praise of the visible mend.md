@@ -7,6 +7,8 @@ publish_date: '2026-10-09'
 tags:
   - Repair
   - Craft
+subject_line: In praise of the visible mend
+preheader: A mend you can see is a record, not a failure.
 _emoji: 🧵
 ---
 

@@ -7,6 +7,8 @@ publish_date: '2026-10-23'
 tags:
   - Memory
   - Repair
+subject_line: Your mends, in your words
+preheader: Nine reader stories about the things you mended, and who taught you how.
 _emoji: 📬
 ---
 

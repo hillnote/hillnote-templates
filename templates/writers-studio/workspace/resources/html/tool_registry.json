@@ -2,17 +2,31 @@
   "tools": [
     {
       "name": "word-sprint",
-      "description": "A sprint timer with a word target that logs words to a piece and keeps your streak",
+      "description": "A sprint timer with a word target that logs every sprint to the Writing log, adds the words to a piece and keeps your streak",
       "glyph": "⏱️",
       "color": "sage",
       "entryPath": "resources/html/word-sprint/index.html"
     },
     {
-      "name": "readability-check",
-      "description": "Reading ease, sentence length, long sentences, adverbs and passive-voice hints for any passage",
+      "name": "prose-check",
+      "description": "Readability, sentence rhythm, echoes and the style guide's words to cut for any passage, with a read-aloud test",
       "glyph": "🔎",
       "color": "plum",
-      "entryPath": "resources/html/readability-check/index.html"
+      "entryPath": "resources/html/prose-check/index.html"
+    },
+    {
+      "name": "subject-lines",
+      "description": "Preview newsletter subject lines and preheaders on a phone and in an inbox, check them against the house style, and save the winner to the piece",
+      "glyph": "✉️",
+      "color": "coral",
+      "entryPath": "resources/html/subject-lines/index.html"
+    },
+    {
+      "name": "book-tracker",
+      "description": "The manuscript at a glance: chapters by part, words against the book's length, and the pace to finish the first draft",
+      "glyph": "📚",
+      "color": "marigold",
+      "entryPath": "resources/html/book-tracker/index.html"
     }
   ]
 }

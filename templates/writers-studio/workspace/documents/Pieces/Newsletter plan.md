@@ -35,6 +35,10 @@ Send dates and status live in **Pieces**; the Calendar view shows the run at a g
 
 Under 50 characters, no capitals for emphasis, no questions you wouldn't ask a friend. Run `/headline_options` for ten candidates, built on the patterns in the [[Structure cheat-sheets|doc:documents/Craft/Structure%20cheat-sheets.md#headlines]].
 
+Then try your best three in the preview below. It shows each one on a phone's lock screen and in an inbox, so you see exactly where it gets cut off, checks it against the house style, and saves the winner to the piece's **Subject line** and **Preheader**.
+
+[html:Subject line preview](resources/html/subject-lines/index.html)
+
 ## Welcome email
 
 New readers get one email, not a sequence:
@@ -50,3 +54,5 @@ Every issue ends the same way: "Mend something this week." Then the name, and no
 ## Growth
 
 One rule: reply to every reader reply within two days. The mailbag issues prove it works; they get more forwards than anything else.
+
+Guest essays are the other way in. Every pitch, guest essay and prize entry goes into **Pieces → Submissions**, and `/pitch_letter` drafts the next pitch from what worked last time.

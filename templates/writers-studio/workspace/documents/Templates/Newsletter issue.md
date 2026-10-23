@@ -9,6 +9,8 @@ use_when: Every other Monday, for Friday's issue
 
 **Preheader**, under 90 characters:
 
+Try both in the [[subject line preview|doc:documents/Pieces/Newsletter%20plan.md#subject-lines]] before you choose.
+
 ## Lede
 
 A moment from this fortnight. Start in the middle of it.

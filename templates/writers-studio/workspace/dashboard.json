@@ -37,6 +37,7 @@
         "pinnedDocuments": [
           "documents/Desk/This week at the desk.md",
           "documents/Pieces/Book plan.md",
+          "documents/Pieces/Newsletter plan.md",
           "documents/Craft/Style guide.md",
           "documents/Craft/Editing checklist.md"
         ]
@@ -58,11 +59,11 @@
       "position": 3
     },
     {
-      "id": 1782000000005,
-      "type": "database",
+      "id": 1782000000007,
+      "type": "sheet",
       "config": {
-        "databasePath": "documents/Desk/Ideas",
-        "databaseName": "Ideas",
+        "sheetPath": "documents/Desk/Writing log",
+        "sheetName": "Writing log",
         "workspaceName": ""
       },
       "size": "double",
@@ -70,12 +71,24 @@
       "position": 4
     },
     {
-      "id": 1782000000006,
-      "type": "clock",
+      "id": 1782000000008,
+      "type": "recent-documents",
       "config": {},
       "size": "single",
       "height": 2,
       "position": 5
+    },
+    {
+      "id": 1782000000005,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Desk/Ideas",
+        "databaseName": "Ideas",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 2,
+      "position": 6
     }
   ]
 }

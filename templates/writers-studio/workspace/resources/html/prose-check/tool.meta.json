@@ -1,0 +1,11 @@
+{
+  "name": "prose-check",
+  "description": "Readability, sentence rhythm, echoes and the style guide's words to cut for any passage, with a read-aloud test",
+  "glyph": "🔎",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": []
+}

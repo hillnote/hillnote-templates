@@ -1,0 +1,138 @@
+{
+  "name": "Submissions",
+  "folderKind": "inbox",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Submission",
+      "type": "title",
+      "width": 280
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "type": "status",
+      "options": [
+        "Drafting",
+        "Sent",
+        "Accepted",
+        "Declined",
+        "Withdrawn"
+      ],
+      "optionColors": {
+        "Drafting": "gray",
+        "Sent": "blue",
+        "Accepted": "emerald",
+        "Declined": "rose",
+        "Withdrawn": "brown"
+      },
+      "optionStates": {
+        "Drafting": "normal",
+        "Sent": "normal",
+        "Accepted": "done",
+        "Declined": "done",
+        "Withdrawn": "archive"
+      },
+      "defaultValue": "Drafting"
+    },
+    {
+      "id": "kind",
+      "name": "Kind",
+      "type": "select",
+      "options": [
+        "Pitch",
+        "Finished piece",
+        "Prize",
+        "Book proposal"
+      ],
+      "optionColors": {
+        "Pitch": "purple",
+        "Finished piece": "teal",
+        "Prize": "amber",
+        "Book proposal": "brown"
+      }
+    },
+    {
+      "id": "outlet",
+      "name": "Outlet",
+      "type": "text",
+      "width": 200
+    },
+    {
+      "id": "deadline",
+      "name": "Deadline",
+      "type": "date"
+    },
+    {
+      "id": "sent",
+      "name": "Sent",
+      "type": "date"
+    },
+    {
+      "id": "heard",
+      "name": "Heard back",
+      "type": "date"
+    },
+    {
+      "id": "days_out",
+      "name": "Days out",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "IF(ISBLANK({Sent}), \"\", IF(ISBLANK({Heard back}), DAYS(TODAY(), {Sent}), DAYS({Heard back}, {Sent})))",
+      "resultType": "number",
+      "width": 100
+    },
+    {
+      "id": "fee",
+      "name": "Fee",
+      "type": "number",
+      "width": 90
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Board",
+      "type": "kanban",
+      "groupBy": "status",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "sent",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "waiting",
+      "name": "Waiting",
+      "type": "table",
+      "filters": [
+        {
+          "column": "status",
+          "operator": "equals",
+          "value": "Sent"
+        }
+      ],
+      "sorts": [
+        {
+          "column": "sent",
+          "direction": "asc"
+        }
+      ]
+    },
+    {
+      "id": "all",
+      "name": "All",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "sent",
+          "direction": "desc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

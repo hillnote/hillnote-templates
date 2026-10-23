@@ -1,6 +1,7 @@
 ---
 status: Idea
 type: Book chapter
+part: Hands
 target_words: 6000
 current_words: 0
 tags:

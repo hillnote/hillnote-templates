@@ -1,0 +1,17 @@
+{
+  "name": "subject-lines",
+  "description": "Preview newsletter subject lines and preheaders on a phone and in an inbox, check them against the house style, and save the winner to the piece",
+  "glyph": "✉️",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Pieces",
+      "path": "Pieces/Pieces",
+      "primary": true
+    }
+  ]
+}

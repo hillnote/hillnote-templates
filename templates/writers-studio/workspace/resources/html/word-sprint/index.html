@@ -95,6 +95,7 @@ window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&
 var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
 <title>Word sprint</title>
 <style>
+  [hidden] { display: none !important; }
   .sprint { display: flex; flex-direction: column; gap: 12px; }
   .lengths { display: flex; gap: 6px; flex-wrap: wrap; }
   .lengths button[aria-pressed="true"] { background: color-mix(in srgb, var(--primary) 14%, var(--card)); border-color: var(--primary); }
@@ -125,12 +126,17 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
   .bar.zero { fill: var(--muted); }
   .goal { stroke: var(--muted-foreground); stroke-dasharray: 3 3; stroke-width: 1; }
   .tick { font-size: 9px; fill: var(--muted-foreground); }
+  .history-head { justify-content: space-between; margin-bottom: 4px; }
+  .history-head h4 { margin: 0; }
   .history .list-item { justify-content: space-between; gap: 10px; font-size: 13px; }
   .history .what { min-width: 0; }
   .history .what span { display: block; color: var(--muted-foreground); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .history .confirm { color: var(--destructive); }
   .note { font-size: 12px; color: var(--muted-foreground); margin: 0; min-height: 1em; }
   .note.ok { color: var(--success); }
   .note.err { color: var(--destructive); }
+  .where { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 8px 0 0; min-height: 0; }
+  .where .btn-sm { flex: none; }
   section + section { margin-top: 14px; }
   details { margin-top: 10px; }
   details summary { cursor: pointer; font-size: 12px; color: var(--muted-foreground); }
@@ -172,6 +178,7 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
   <form class="stack log" id="log" hidden>
     <h3>How did it go?</h3>
     <div class="field"><label for="words">Words written in this sprint</label><input id="words" type="number" min="0" step="1" required></div>
+    <div class="field"><label for="noteText">Note, if you like</label><input id="noteText" type="text" maxlength="200" placeholder="The workshop scene, second try"></div>
     <label class="check" id="addWrap"><input type="checkbox" id="addToPiece" checked> <span id="addLabel">Add them to the piece's word count</span></label>
     <div class="row"><button type="submit" class="btn-primary">Log sprint</button><button type="button" class="btn-ghost" id="discard">Discard</button></div>
   </form>
@@ -194,8 +201,9 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
 </section>
 
 <section class="card history" aria-label="Recent sprints">
-  <h4>Recent sprints</h4>
+  <div class="row history-head"><h4>Recent sprints</h4><span class="note" id="logName"></span></div>
   <div class="list" id="history"></div>
+  <p class="note where" id="where" hidden><span id="whereText"></span><button type="button" class="btn-ghost btn-sm" id="connect" hidden>Connect</button></p>
 </section>
 
 <script>
@@ -208,32 +216,51 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
     set: function (k, v) { try { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; } catch (e) { /* settings full or unavailable */ } }
   };
   var DEFAULTS = { minutes: 25, target: 500, daily: 750, pieceId: '' };
+  var LOG_SHEET = 'Writing log';
+  var NO_PIECE = 'Just writing';
   var MAX_HISTORY = 300;
   var CIRC = 2 * Math.PI * 52;
   var STATUS_ORDER = { Drafting: 0, Editing: 1, Outline: 2, Ready: 3, Idea: 4 };
   var DAY_INITIALS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
-  var source = null;
+  var source = null;   // the Pieces database
   var rows = [];
   var cols = { current: 'current_words', target: 'target_words', status: 'status' };
+  var logSheet = null; // the Writing log sheet, when connected
+  var logRows = [];
   var prefs = {};
-  var history = [];
+  var history = [];    // sprints not (yet) in the Writing log
   var active = null;   // { total, remaining, endsAt, running, pieceId }
   var pending = null;  // { minutes, pieceId, target } waiting to be logged
   var timer = null;
+  var confirmKey = null;
+  var confirmTimer = null;
+  var flushing = false;
 
   var num = function (v) { var n = Number(v); return Number.isFinite(n) ? n : 0; };
   var fmtWords = function (n) { return Math.round(n).toLocaleString(); };
+  var errText = function (err) { return err && err.message ? err.message : String(err); };
   function dayKey(d) {
     var x = d || new Date();
     return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0');
   }
+  function dayFrom(v) {
+    if (typeof v === 'string') {
+      var m = v.match(/^(\d{4}-\d{2}-\d{2})/);
+      if (m) return m[1];
+    }
+    if (v === '' || v == null) return '';
+    var d = new Date(v);
+    return isNaN(d.getTime()) ? '' : dayKey(d);
+  }
+  function parseDay(key) { var p = key.split('-'); return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2])); }
   function clock(ms) {
     var s = Math.max(0, Math.ceil(ms / 1000));
     return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
   }
   function say(text, kind) { $('note').textContent = text || ''; $('note').className = 'note' + (kind ? ' ' + kind : ''); }
   function savePrefs() { store.set('prefs', prefs); }
+  function saveHistory() { history = history.slice(0, MAX_HISTORY); store.set('history', history); }
   function pieceById(id) { return rows.find(function (r) { return r.id === id; }) || null; }
 
   // ---------------------------------------------------------------- pieces
@@ -265,7 +292,7 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
       rows = await source.rows({ limit: 500 });
     } catch (err) {
       rows = [];
-      say('Could not read the pieces: ' + (err && err.message ? err.message : err), 'err');
+      say('Could not read the pieces: ' + errText(err), 'err');
     }
     renderPieces();
     renderLog();
@@ -283,6 +310,82 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
       if (tgt) cols.target = tgt.id;
       if (st) cols.status = st.id;
     } catch (e) { /* keep the defaults */ }
+  }
+
+  // ---------------------------------------------------------------- writing log
+  function toLogRow(h) {
+    return { title: h.piece || NO_PIECE, date: h.day, words: num(h.words), minutes: num(h.minutes), note: h.note || '' };
+  }
+
+  async function connectLog() {
+    if (!window.hillnote || typeof hillnote.sheet !== 'function') { renderWhere(); return; }
+    try {
+      logSheet = await hillnote.sheet(LOG_SHEET);
+      if (typeof logSheet.onChange === 'function') logSheet.onChange(function () { loadLog(); });
+      await loadLog();
+      await flushHistory();
+    } catch (err) {
+      logSheet = null;
+      logRows = [];
+      renderWhere(errText(err));
+    }
+    renderStats();
+  }
+
+  async function loadLog() {
+    if (!logSheet) return;
+    try {
+      logRows = await logSheet.rows({ limit: 5000 });
+      if (!Array.isArray(logRows)) logRows = [];
+      renderWhere();
+    } catch (err) {
+      renderWhere(errText(err));
+    }
+    renderStats();
+  }
+
+  // Sprints logged while the Writing log was out of reach go in now.
+  async function flushHistory() {
+    if (!logSheet || flushing || !history.length) return;
+    flushing = true;
+    var batch = history.slice();
+    try {
+      await logSheet.add(batch.map(toLogRow));
+      history = history.filter(function (h) { return batch.indexOf(h) === -1; });
+      saveHistory();
+      await loadLog();
+    } catch (err) {
+      renderWhere(errText(err));
+    } finally {
+      flushing = false;
+    }
+  }
+
+  function renderWhere(problem) {
+    var connected = !!logSheet;
+    $('logName').textContent = connected ? 'Saved to the Writing log' : '';
+    var show = !connected || history.length > 0;
+    $('where').hidden = !show;
+    if (!show) return;
+    var text;
+    if (connected) text = history.length + (history.length === 1 ? ' sprint is' : ' sprints are') + ' waiting to go into the Writing log.';
+    else text = 'Sprints are only kept in this tool until the Writing log is connected.';
+    if (problem && !connected && /denied/i.test(problem)) text += ' Access was not allowed.';
+    $('whereText').textContent = text;
+    $('connect').hidden = !(window.hillnote && typeof hillnote.sheet === 'function');
+    $('connect').textContent = connected ? 'Try again' : 'Connect';
+  }
+
+  // One list for stats and the recent list: the sheet's rows plus anything
+  // still waiting in this tool.
+  function entries() {
+    var list = logRows.map(function (r, i) {
+      return { key: 's:' + r.id, rowId: r.id, day: dayFrom(r.date), words: num(r.words), minutes: num(r.minutes), piece: r.title || '', note: r.note || '', rank: i };
+    });
+    history.forEach(function (h, i) {
+      list.push({ key: 'h:' + h.at + ':' + i, at: h.at, day: h.day, words: num(h.words), minutes: num(h.minutes), piece: h.piece || '', note: h.note || '', rank: 1e12 + num(h.at) });
+    });
+    return list;
   }
 
   // ---------------------------------------------------------------- timer
@@ -398,12 +501,32 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
     if (!pending) return;
     var words = Math.max(0, Math.round(num($('words').value)));
     var piece = pieceById(pending.pieceId);
-    history.unshift({ at: Date.now(), day: dayKey(), minutes: pending.minutes, words: words, target: pending.target, piece: piece ? piece.title : '', pieceId: pending.pieceId || '' });
-    history = history.slice(0, MAX_HISTORY);
-    store.set('history', history);
-    var message = 'Logged ' + fmtWords(words) + ' words in ' + pending.minutes + ' min.';
+    var entry = { at: Date.now(), day: dayKey(), minutes: pending.minutes, words: words, target: pending.target, piece: piece ? piece.title : '', pieceId: pending.pieceId || '', note: $('noteText').value.trim().slice(0, 200) };
+    var addToPiece = piece && source && $('addToPiece').checked && words > 0;
+    pending = null;
+    store.set('pending', null);
+    $('words').value = '';
+    $('noteText').value = '';
+    renderTimer();
+    renderLog();
+
+    var message = 'Logged ' + fmtWords(words) + ' words in ' + entry.minutes + ' min.';
     var kind = 'ok';
-    if (piece && source && $('addToPiece').checked && words > 0) {
+    if (logSheet) {
+      try {
+        await logSheet.add(toLogRow(entry));
+        await loadLog();
+      } catch (err) {
+        history.unshift(entry);
+        saveHistory();
+        message += ' Kept here for now: the Writing log could not be updated (' + errText(err) + ').';
+        kind = 'err';
+      }
+    } else {
+      history.unshift(entry);
+      saveHistory();
+    }
+    if (addToPiece) {
       try {
         var fresh = await source.rows({ limit: 500 });
         var row = fresh.find(function (r) { return r.id === piece.id; }) || piece;
@@ -412,28 +535,38 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
         await source.update(piece.id, patch);
         message += ' ' + piece.title + ' is now at ' + fmtWords(patch[cols.current]) + ' words.';
       } catch (err) {
-        message += ' Could not update the piece: ' + (err && err.message ? err.message : err);
+        message += ' Could not update the piece: ' + errText(err);
         kind = 'err';
       }
     }
-    pending = null;
-    store.set('pending', null);
-    $('words').value = '';
     say(message, kind);
-    renderTimer();
-    renderLog();
+    renderWhere();
+    renderStats();
+  }
+
+  async function removeEntry(key) {
+    var item = entries().find(function (x) { return x.key === key; });
+    if (!item) return;
+    if (item.rowId) {
+      try {
+        await logSheet.remove(item.rowId);
+        await loadLog();
+      } catch (err) {
+        say('Could not remove that sprint: ' + errText(err), 'err');
+      }
+    } else {
+      history = history.filter(function (h) { return h.at !== item.at; });
+      saveHistory();
+      renderWhere();
+    }
     renderStats();
   }
 
   // ---------------------------------------------------------------- stats
-  function totalsByDay() {
-    var map = {};
-    history.forEach(function (h) { map[h.day] = (map[h.day] || 0) + num(h.words); });
-    return map;
-  }
-
   function renderStats() {
-    var byDay = totalsByDay();
+    var list = entries();
+    var byDay = {};
+    list.forEach(function (x) { if (x.day) byDay[x.day] = (byDay[x.day] || 0) + x.words; });
     var now = new Date();
     var today = byDay[dayKey(now)] || 0;
     var monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
@@ -473,17 +606,26 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
     }
     $('chart').innerHTML = svg;
 
-    if (!history.length) {
+    if (!list.length) {
       $('history').innerHTML = '<div class="empty-state">No sprints yet. Start the timer, write, then log your words.</div>';
       return;
     }
     var todayKey = dayKey(now);
-    $('history').innerHTML = history.slice(0, 8).map(function (h, i) {
-      var when = new Date(h.at);
-      var label = (h.day === todayKey ? 'Today' : when.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' })) + ', ' + when.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
-      return '<div class="list-item"><div class="what"><strong>' + fmtWords(h.words) + ' words</strong> in ' + h.minutes + ' min' +
-        '<span>' + esc(h.piece || 'No piece') + ' · ' + esc(label) + '</span></div>' +
-        '<button class="btn-ghost btn-sm" data-remove="' + i + '" aria-label="Remove this sprint">Remove</button></div>';
+    var recent = list.slice().sort(function (a, b) {
+      return (a.day < b.day ? 1 : a.day > b.day ? -1 : 0) || b.rank - a.rank;
+    }).slice(0, 8);
+    $('history').innerHTML = recent.map(function (h) {
+      var when;
+      if (h.day === todayKey) when = 'Today';
+      else if (h.day) when = parseDay(h.day).toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' });
+      else when = 'No date';
+      if (h.at) when += ', ' + new Date(h.at).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+      var minutes = h.minutes ? ' in ' + h.minutes + ' min' : '';
+      var detail = [h.piece || NO_PIECE, h.note, when].filter(Boolean).join(' · ');
+      var sure = confirmKey === h.key;
+      return '<div class="list-item"><div class="what"><strong>' + fmtWords(h.words) + ' words</strong>' + minutes +
+        '<span>' + esc(detail) + '</span></div>' +
+        '<button class="btn-ghost btn-sm' + (sure ? ' confirm' : '') + '" data-remove="' + esc(h.key) + '" aria-label="' + (sure ? 'Confirm removing this sprint' : 'Remove this sprint') + '">' + (sure ? 'Sure?' : 'Remove') + '</button></div>';
     }).join('');
   }
 
@@ -506,11 +648,25 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
   $('daily').addEventListener('input', function () { prefs.daily = num($('daily').value); savePrefs(); renderStats(); });
   $('piece').addEventListener('change', function () { prefs.pieceId = $('piece').value; savePrefs(); });
   $('history').addEventListener('click', function (e) {
-    var i = e.target && e.target.getAttribute ? e.target.getAttribute('data-remove') : null;
-    if (i === null) return;
-    history.splice(Number(i), 1);
-    store.set('history', history);
+    var btn = e.target && e.target.closest ? e.target.closest('[data-remove]') : null;
+    if (!btn) return;
+    var key = btn.getAttribute('data-remove');
+    clearTimeout(confirmTimer);
+    if (confirmKey === key) {
+      confirmKey = null;
+      btn.disabled = true;
+      removeEntry(key);
+      return;
+    }
+    confirmKey = key;
     renderStats();
+    confirmTimer = setTimeout(function () { confirmKey = null; renderStats(); }, 4000);
+  });
+  $('connect').addEventListener('click', async function () {
+    $('connect').disabled = true;
+    if (logSheet) await flushHistory();
+    else await connectLog();
+    $('connect').disabled = false;
   });
   document.addEventListener('keydown', function (e) {
     if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); toggle(); }
@@ -519,12 +675,14 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
   async function start() {
     if (window.hillnote) { try { await hillnote.ready(); } catch (e) { /* render anyway */ } }
     prefs = Object.assign({}, DEFAULTS, store.get('prefs', {}) || {});
-    history = Array.isArray(store.get('history', [])) ? store.get('history', []) : [];
+    var saved = store.get('history', []);
+    history = Array.isArray(saved) ? saved.filter(function (h) { return h && typeof h === 'object'; }) : [];
     active = store.get('active', null);
     pending = store.get('pending', null);
     $('minutes').value = prefs.minutes;
     $('target').value = prefs.target;
     $('daily').value = prefs.daily;
+    renderStats();
 
     if (window.hillnote && typeof hillnote.data === 'function') {
       try { source = await hillnote.data(); } catch (e) { source = null; }
@@ -536,6 +694,7 @@ var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(
     } else {
       renderPieces();
     }
+    await connectLog();
 
     if (active && active.running) {
       if (Date.now() >= active.endsAt) complete(true);

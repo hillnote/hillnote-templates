@@ -1,8 +1,13 @@
 {
   "name": "word-sprint",
-  "description": "A sprint timer with a word target that logs words to a piece and keeps your streak",
+  "description": "A sprint timer with a word target that logs every sprint to the Writing log, adds the words to a piece and keeps your streak",
   "glyph": "⏱️",
-  "sheets": [],
+  "sheets": [
+    {
+      "name": "Writing log",
+      "path": "Desk/Writing log"
+    }
+  ],
   "databases": [
     {
       "name": "Pieces",

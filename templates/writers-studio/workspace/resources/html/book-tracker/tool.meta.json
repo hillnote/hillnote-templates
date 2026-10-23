@@ -1,0 +1,22 @@
+{
+  "name": "book-tracker",
+  "description": "The manuscript at a glance: chapters by part, words against the book's length, and the pace to finish the first draft",
+  "glyph": "📚",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [
+    {
+      "name": "Writing log",
+      "path": "Desk/Writing log"
+    }
+  ],
+  "databases": [
+    {
+      "name": "Pieces",
+      "path": "Pieces/Pieces",
+      "primary": true
+    }
+  ]
+}

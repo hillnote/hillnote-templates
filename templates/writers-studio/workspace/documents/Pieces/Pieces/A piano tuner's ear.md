@@ -1,6 +1,7 @@
 ---
 status: Outline
 type: Book chapter
+part: Hands
 target_words: 6000
 current_words: 450
 publish_date: '2026-12-18'

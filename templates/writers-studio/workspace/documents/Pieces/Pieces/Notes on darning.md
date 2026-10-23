@@ -29,5 +29,6 @@ My grandmother kept a wooden mushroom in her sewing tin. For years I thought it 
 - [x] Passes 1 to 4 of the editing checklist
 - [x] Readability check: 68, plain English
 - [ ] Photo of the mushroom, with alt text
+- [ ] Try the three subject lines in the [[subject line preview|doc:documents/Pieces/Newsletter%20plan.md#subject-lines]] and save the winner
 - [ ] Test send to myself, read on the phone
 - [ ] Schedule for 7:30 on Friday
