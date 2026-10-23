@@ -1,0 +1,22 @@
+{
+  "name": "okr-scorecard",
+  "description": "Key results with live progress, a pace forecast to the end of the quarter and a weekly check-in",
+  "glyph": "🏁",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [
+    {
+      "name": "KR check-ins",
+      "path": "Strategy/KR check-ins"
+    }
+  ],
+  "databases": [
+    {
+      "name": "Key results",
+      "path": "Strategy/Key results",
+      "primary": true
+    }
+  ]
+}

@@ -113,6 +113,22 @@
       "width": 90
     },
     {
+      "id": "outcome",
+      "name": "Outcome",
+      "type": "select",
+      "options": [
+        "Hit",
+        "Partial",
+        "Missed"
+      ],
+      "optionColors": {
+        "Hit": "emerald",
+        "Partial": "amber",
+        "Missed": "rose"
+      },
+      "width": 110
+    },
+    {
       "id": "start",
       "name": "Start",
       "type": "date",
@@ -145,7 +161,13 @@
       "type": "gantt",
       "ganttZoom": "week",
       "colorByColumn": "theme",
-      "filters": [],
+      "filters": [
+        {
+          "column": "status",
+          "operator": "notEquals",
+          "value": "Shipped"
+        }
+      ],
       "sorts": [
         {
           "column": "start",
@@ -180,14 +202,10 @@
       "sorts": []
     },
     {
-      "id": "effort",
-      "name": "Effort by theme",
-      "type": "chart",
-      "chartType": "bar",
-      "labelColumn": "theme",
-      "valueColumn": "effort",
-      "aggregation": "sum",
-      "splitColumn": "status",
+      "id": "reality",
+      "name": "Reality check",
+      "type": "tool",
+      "toolPath": "resources/html/reality-check/index.html",
       "filters": [],
       "sorts": []
     }

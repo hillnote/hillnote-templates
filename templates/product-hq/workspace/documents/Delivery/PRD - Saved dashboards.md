@@ -48,6 +48,8 @@ Usage data agrees: 63% of Monday sessions start with the same filter changes as 
 
 These move key results under Objective 1 on the [[OKRs|doc:documents/Strategy/OKRs.md]] page.
 
+**The bet:** saving a view removes the Monday rebuild, so half of active accounts come back to a saved dashboard within six weeks. **Confidence:** 0.8, from 6 interviews and 14 votes from one account. Our 0.8s have come true about 40% of the time, so the beta is the real test.
+
 ## Requirements
 
 | # | Requirement | Priority |

@@ -1,37 +1,33 @@
 # OKRs
 
-Three objectives for the quarter, each with key results we can measure every week. Score each key result from 0.0 to 1.0 at the end of the quarter: 0.7 is a good result, and a 1.0 means the target was too safe.
+Three objectives for the quarter. The key results live in the **Key results** database below, so the numbers are never hand-typed: each owner checks in once a week, and the scorecard works out progress and whether we're on pace to finish the quarter.
 
 ## Objective 1: Make ${product} the first screen ops leads open each morning
 
-| Key result | Baseline | Current | Target | Progress |
-|---|---|---|---|---|
-| Grow ${north_star} | 1,900 | ${wad_current} | ${wad_target} | ${=round((wad_current - 1900) / (wad_target - 1900) * 100)}% |
-| Share of active accounts with a saved dashboard | 0% | 22% | 50% | 44% |
-| Median time from login to first dashboard view | 41s | 28s | 15s | 50% |
+Ops leads open email first and their dispatch tool second. We win the morning when ${product} answers "what's about to go wrong?" before they've looked anywhere else. Measured by ${north_star}, how fast the first dashboard appears, and how many accounts come back to a saved view.
 
 **Owner:** Product · **Initiatives:** Saved dashboards, Query caching, KPI pins
 
 ## Objective 2: Make alerts something people trust
 
-| Key result | Baseline | Current | Target | Progress |
-|---|---|---|---|---|
-| Alerts muted within 7 days of creation | 38% | 31% | 15% | 30% |
-| Accounts receiving a weekly digest | 0 | 0 | 120 | 0% |
+Last quarter's Slack alerts doubled alert creation and taught people to mute them. This quarter is about fewer, better alerts: a muted alert is worth nothing.
 
 **Owner:** Growth · **Initiatives:** Alert digests
 
 ## Objective 3: Shorten the path to first value
 
-| Key result | Baseline | Current | Target | Progress |
-|---|---|---|---|---|
-| New accounts with a live dashboard on day 1 | 34% | 46% | 60% | 46% |
-| Large CSV imports completed without support | 61% | 61% | 90% | 0% |
+New accounts that see live data on day one stay. Templates and the onboarding checklist moved this a lot; large imports are the next wall.
 
 **Owner:** Platform · **Initiatives:** Faster CSV import, Guided first dashboard
 
+## Key results
+
+[database:Key results](documents/Strategy/Key%20results)
+
 ## How we use this page
 
-- Update **Current** in the weekly review. The ${north_star} row updates itself from the `wad_current` variable.
-- A key result that is red two weeks running gets a line in the [[Weekly product review|doc:documents/Planning/Weekly%20product%20review.md]] with a plan to get it back.
-- Every roadmap initiative should move at least one key result. If it doesn't, ask why it's on the roadmap.
+- **Every Monday before the review,** each owner opens the Scorecard and checks in their key results: one number each. That adds a row to **KR check-ins** and updates **Current**.
+- **Pace** projects each key result to the end of the quarter from its last four check-ins. 0.7 is a good result. **Ahead** means the target was probably too safe; say so at the next planning.
+- **At risk or Off track two weeks running** gets a line in the [[Weekly product review|doc:documents/Planning/Weekly%20product%20review.md]] with a plan to get it back.
+- **Every roadmap initiative should move an objective.** The **Reality check** view on the Roadmap lists the ones that don't, and the ones nobody asked for.
+- Check-ins match key results by name, so rename a key result in both places or start a fresh one.

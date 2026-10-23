@@ -34,6 +34,8 @@ What problem, for whom, and how do we know? Link the feedback rows and quote cus
 
 Which key result on the OKRs page does this move?
 
+**The bet:** we believe [this change] will move [key result] from [today] to [target] by [when]. **Confidence:** 0.5, 0.8 or 1.0, and the evidence behind it. After launch, record the result in the initiative's **Outcome** column.
+
 ## Requirements
 
 | # | Requirement | Priority |

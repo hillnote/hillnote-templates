@@ -19,7 +19,7 @@ Batch non-urgent alerts into a morning digest; keep real-time paging for breache
 - [[Alerts fire at 3am for non-urgent SLA dips|doc:documents/Discovery/Feedback/Alerts%20fire%20at%203am%20for%20non-urgent%20SLA%20dips.md]]
 - [[A weekly email instead of logging in|doc:documents/Discovery/Feedback/A%20weekly%20email%20instead%20of%20logging%20in.md]]
 
-**Success:** alerts muted within 7 days drop from 31% to 15%.
+**Success:** alerts muted within 7 days drop to 15%.
 
 - [x] Severity levels agreed with support
 - [ ] Digest email design

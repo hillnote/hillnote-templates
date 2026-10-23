@@ -19,9 +19,9 @@ Product team · quarterly review
 | Key result | Progress % |
 |---|---|
 | Weekly active dashboards | 41 |
-| Accounts with a saved dashboard | 44 |
+| Accounts with a saved dashboard | 0 |
 | Time to first dashboard | 50 |
-| Alerts muted in 7 days | 30 |
+| Alerts muted in 7 days | 22 |
 | Day-1 live dashboards | 46 |
 
 ***
@@ -37,6 +37,22 @@ Ten ready-made dashboards. Time to first view **41s → 28s**.
 ### Onboarding checklist
 
 Five steps on the home screen. Day-1 live dashboards **34% → 46%**.
+
+***
+
+## How our bets did
+
+Last quarter, judged against what each bet promised:
+
+- **Sure things (1.0):** 2 hits
+- **Likely (0.8):** 1 hit, 1 partial, 2 missed
+- **Long shots (0.5):** 1 hit, 1 partial
+
+~split
+
+### What changes
+
+Our 0.8s have behaved like 0.4s. From now on a bet scores 0.8 only with evidence from two or more accounts. Everything else starts at 0.5.
 
 ***
 
@@ -89,5 +105,6 @@ Reach × Impact × Confidence ÷ Effort, updated live on the roadmap.
 |---|---|
 | Digest email blocked on brand review | Ship plain-text first |
 | Share links need a security review | Keep in Next until done |
+| Growth is 2 person-weeks over | Client share links waits below the line |
 
 **Ask:** one more designer for the second half of the quarter.

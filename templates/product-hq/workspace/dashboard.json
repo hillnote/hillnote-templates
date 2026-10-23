@@ -46,6 +46,18 @@
       "position": 2
     },
     {
+      "id": 1781000000007,
+      "type": "database",
+      "config": {
+        "databasePath": "documents/Strategy/Key results",
+        "databaseName": "Key results",
+        "workspaceName": ""
+      },
+      "size": "full",
+      "height": 2,
+      "position": 3
+    },
+    {
       "id": 1781000000004,
       "type": "database",
       "config": {
@@ -55,7 +67,7 @@
       },
       "size": "full",
       "height": 3,
-      "position": 3
+      "position": 4
     },
     {
       "id": 1781000000005,
@@ -65,15 +77,7 @@
         "databaseName": "Feedback",
         "workspaceName": ""
       },
-      "size": "double",
-      "height": 2,
-      "position": 4
-    },
-    {
-      "id": 1781000000006,
-      "type": "clock",
-      "config": {},
-      "size": "single",
+      "size": "full",
       "height": 2,
       "position": 5
     }

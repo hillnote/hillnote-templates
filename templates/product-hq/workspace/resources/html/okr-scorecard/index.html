@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#B87333;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#B87333;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OKR scorecard</title>
+<style>
+  [hidden] { display: none !important; }
+  .num { font-variant-numeric: tabular-nums; }
+  .toolbar { flex-wrap: wrap; row-gap: 6px; }
+  .toolbar .grow { flex: 1; }
+  .weeks { font-size: 12px; color: var(--muted-foreground); }
+  .counts { display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .notice { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 0 0 10px; padding: 8px 12px; border-radius: calc(var(--radius) - 2px); background: color-mix(in srgb, var(--warning) 10%, transparent); font-size: 12px; }
+  .notice p { margin: 0; }
+
+  .obj { padding: 4px 14px; }
+  .obj + .obj { margin-top: 10px; }
+  .obj-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 0 6px; border-bottom: 1px solid var(--border); }
+  .obj-score { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .obj-score b { color: var(--foreground); font-weight: 600; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+  .chip { display: inline-flex; align-items: center; padding: 1px 8px; border-radius: 4px; font-size: 11px; line-height: 16px; white-space: nowrap; flex-shrink: 0; background: var(--muted); color: var(--muted-foreground); }
+  .chip.small { font-size: 10px; padding: 0 6px; }
+
+  .kr { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .kr:last-child { border-bottom: none; }
+  .kr-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .kr-name { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .kr-title { font-weight: 550; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .kr-side { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .kr-side .badge { font-variant-numeric: tabular-nums; }
+  .kr-line { display: grid; grid-template-columns: 14em minmax(80px, 1fr) 72px 20em; align-items: center; gap: 12px; margin-top: 4px; font-size: 12px; }
+  .kr-nums { font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .kr-nums b { font-weight: 600; }
+  .kr-pace { color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+
+  .bar { position: relative; height: 6px; border-radius: 999px; background: var(--muted); }
+  .bar .fill, .bar .proj { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+  .bar .tick { position: absolute; top: -3px; width: 2px; height: 12px; margin-left: -1px; border-radius: 1px; background: var(--foreground); }
+  .spark { display: block; width: 72px; height: 22px; overflow: visible; }
+
+  .checkin { display: flex; align-items: flex-end; gap: 8px; flex-wrap: wrap; margin-top: 8px; padding: 10px; border-radius: calc(var(--radius) - 2px); background: var(--muted); }
+  .checkin .field.value { width: 120px; }
+  .checkin .field.note { flex: 1 1 180px; min-width: 0; }
+  .checkin .actions { display: flex; gap: 6px; }
+  .checkin .err { flex-basis: 100%; margin: 0; font-size: 12px; color: var(--destructive); }
+
+  .foot { margin: 10px 2px 0; font-size: 11px; color: var(--muted-foreground); }
+  .empty-state p { margin: 0 0 10px; }
+
+  @media (max-width: 620px) {
+    .kr-line { grid-template-columns: minmax(0, 1fr) 72px; gap: 6px 10px; }
+    .kr-nums { order: 1; }
+    .spark { order: 2; }
+    .kr-line .bar { order: 3; grid-column: 1 / -1; }
+    .kr-pace { order: 4; grid-column: 1 / -1; }
+  }
+  @media (max-width: 420px) {
+    .kr-top { align-items: flex-start; }
+    .kr-name { flex-wrap: wrap; row-gap: 2px; }
+    .kr-title { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Key results</strong>
+  <span class="weeks" id="weeks"></span>
+  <span class="grow"></span>
+  <span class="counts" id="counts"></span>
+</div>
+
+<div id="empty" class="empty-state" hidden>
+  <p id="emptyText"></p>
+  <button class="btn-sm" id="retry" hidden>Try again</button>
+</div>
+
+<div id="notice" class="notice" hidden>
+  <p id="noticeText"></p>
+  <button class="btn-sm" id="connectLog">Retry</button>
+</div>
+
+<div id="main" hidden></div>
+<p class="foot" id="foot" hidden>Pace uses the last four check-ins. 0.7 is a good result.</p>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var errText = function (err) { return err && err.message ? err.message : String(err); };
+
+  var LOG_SHEET = 'KR check-ins';
+  var PACE_POINTS = 4;
+  var SPARK_POINTS = 8;
+  var WEEK = 7 * 86400000;
+  var NO_OBJECTIVE = 'No objective';
+  var STATUS = {
+    ahead: { label: 'Ahead', count: 'ahead', badge: 'badge-success', color: 'var(--success)' },
+    track: { label: 'On track', count: 'on track', badge: 'badge-success', color: 'var(--success)' },
+    risk: { label: 'At risk', count: 'at risk', badge: 'badge-warning', color: 'var(--warning)' },
+    off: { label: 'Off track', count: 'off track', badge: 'badge-danger', color: 'var(--destructive)' },
+    idle: { label: 'Not started', count: 'not started', badge: '', color: 'var(--muted-foreground)' },
+    sparse: { label: 'Needs a check-in', count: 'need a check-in', badge: '', color: 'var(--muted-foreground)' },
+    nohist: { label: 'No history', count: 'without history', badge: '', color: 'var(--muted-foreground)' },
+    unset: { label: 'Needs a target', count: 'need a target', badge: '', color: 'var(--muted-foreground)' }
+  };
+  var ORDER = ['ahead', 'track', 'risk', 'off', 'idle', 'sparse', 'nohist', 'unset'];
+
+  var source = null;       // the Key results database
+  var log = null;          // the KR check-ins sheet, or null when it can't be opened
+  var logError = '';
+  var hasSheetApi = false;
+  var cols = {};
+  var lcols = {};
+  var rows = [];
+  var logRows = [];
+  var fatal = '';
+  var sourceSubscribed = false;
+  var logSubscribed = false;
+  var renderTimer = null;
+
+  var openId = null;       // the key result whose check-in form is open
+  var draft = { value: '', note: '' };
+  var saving = false;
+  var formError = '';
+
+  // ------------------------------------------------------------ helpers
+  function toNum(v) {
+    if (v === '' || v == null || typeof v === 'boolean') return NaN;
+    var n = typeof v === 'number' ? v : Number(String(v).replace(/,/g, '').trim());
+    return Number.isFinite(n) ? n : NaN;
+  }
+  var isNum = function (n) { return typeof n === 'number' && Number.isFinite(n); };
+  var lower = function (v) { return String(v == null ? '' : v).trim().toLowerCase(); };
+  var clamp01 = function (n) { return Math.max(0, Math.min(1, n)); };
+
+  function parseDay(v) {
+    if (!v) return null;
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(v));
+    var d = m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : new Date(String(v));
+    if (isNaN(d.getTime())) return null;
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+  function today() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function mondayOf(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7)); }
+  function ymd(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  function endOfQuarter(d) { return new Date(d.getFullYear(), Math.floor(d.getMonth() / 3) * 3 + 3, 0); }
+  function shortDate(d) { return d.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }); }
+
+  function fmtNum(n) {
+    var a = Math.abs(n);
+    var digits = a > 0 && a < 10 && Math.round(a) !== a ? 1 : 0;
+    return new Intl.NumberFormat(undefined, { maximumFractionDigits: digits }).format(n);
+  }
+  function unitOf(kr) { return String(kr.unit == null ? '' : kr.unit).trim(); }
+  function fmtVal(n, unit) {
+    if (!isNum(n)) return 'not set';
+    if (unit === '%') return fmtNum(n) + '%';
+    if (unit === 's') return fmtNum(n) + 's';
+    return unit ? fmtNum(n) + ' ' + unit : fmtNum(n);
+  }
+  function fmtDelta(n, unit) {
+    var sign = n > 0 ? '+' : n < 0 ? '−' : '';
+    var body = fmtNum(Math.abs(n));
+    if (unit === '%') return sign + body + ' pts';
+    if (unit === 's') return sign + body + 's';
+    return sign + body + (unit ? ' ' + unit : '');
+  }
+  function fmtScore(s) { return s >= 1 ? '1.0+' : Math.max(0, s).toFixed(2); }
+  function scoreStatus(s) { return s >= 1 ? 'ahead' : s >= 0.7 ? 'track' : s >= 0.4 ? 'risk' : 'off'; }
+  function scoreColor(s) { return s >= 0.7 ? 'var(--success)' : s >= 0.4 ? 'var(--warning)' : 'var(--destructive)'; }
+
+  // Least-squares slope in value per week; null without two distinct days.
+  function slopePerWeek(points) {
+    if (points.length < 2) return null;
+    var t0 = points[0].d.getTime();
+    var xs = points.map(function (p) { return (p.d.getTime() - t0) / WEEK; });
+    var mx = xs.reduce(function (a, b) { return a + b; }, 0) / xs.length;
+    var my = points.reduce(function (a, p) { return a + p.v; }, 0) / points.length;
+    var sxx = 0, sxy = 0;
+    for (var i = 0; i < points.length; i++) { sxx += (xs[i] - mx) * (xs[i] - mx); sxy += (xs[i] - mx) * (points[i].v - my); }
+    return sxx > 0 ? sxy / sxx : null;
+  }
+
+  // ------------------------------------------------------------ columns
+  function findCol(list, id, test) {
+    var byId = list.find(function (c) { return c && c.id === id; });
+    if (byId) return byId;
+    return list.find(function (c) { return c && test(c); }) || null;
+  }
+  function detectCols(list) {
+    var isNumCol = function (c) { return c.type === 'number' || c.type === 'formula'; };
+    var isChoice = function (c) { return c.type === 'select' || c.type === 'status'; };
+    cols = {
+      objective: findCol(list, 'objective', function (c) { return isChoice(c) && /objective|goal/i.test(c.name || ''); }),
+      owner: findCol(list, 'owner', function (c) { return /owner/i.test(c.name || ''); }),
+      baseline: findCol(list, 'baseline', function (c) { return isNumCol(c) && /baseline|start/i.test(c.name || ''); }),
+      current: findCol(list, 'current', function (c) { return c.type === 'number' && /current|now|latest/i.test(c.name || ''); }),
+      target: findCol(list, 'target', function (c) { return isNumCol(c) && /target|goal/i.test(c.name || ''); }),
+      unit: findCol(list, 'unit', function (c) { return /unit/i.test(c.name || ''); }),
+      due: findCol(list, 'due', function (c) { return c.type === 'date' && /due|end|deadline/i.test(c.name || ''); })
+    };
+  }
+  function detectLogCols(list) {
+    lcols = {
+      title: findCol(list, 'title', function (c) { return c.type === 'title'; }),
+      week: findCol(list, 'week', function (c) { return c.type === 'date'; }),
+      value: findCol(list, 'value', function (c) { return c.type === 'number'; }),
+      note: findCol(list, 'note', function (c) { return c.type === 'text'; })
+    };
+  }
+  var val = function (row, col) { return col ? row[col.id] : undefined; };
+  var logReady = function () { return !!(log && lcols.title && lcols.week && lcols.value); };
+
+  function chipFor(col, opt, extra) {
+    if (!opt) return '';
+    var st = col && col.optionStyles && col.optionStyles[opt];
+    var style = st && st.bg ? ' style="background:' + esc(st.bg) + ';color:' + esc(st.fg || 'inherit') + '"' : '';
+    return '<span class="chip' + (extra ? ' ' + extra : '') + '"' + style + '>' + esc(opt) + '</span>';
+  }
+
+  // ------------------------------------------------------------ model
+  function historyFor(title) {
+    if (!logReady()) return [];
+    var key = lower(title);
+    return logRows
+      .filter(function (r) { return lower(r[lcols.title.id] != null ? r[lcols.title.id] : r.title) === key; })
+      .map(function (r) {
+        return { id: r.id, d: parseDay(r[lcols.week.id]), v: toNum(r[lcols.value.id]), note: lcols.note ? String(r[lcols.note.id] || '') : '' };
+      })
+      .filter(function (h) { return h.d && isNum(h.v); })
+      .sort(function (a, b) { return a.d - b.d; });
+  }
+
+  function model(row) {
+    var now = today();
+    var kr = {
+      id: row.id,
+      title: String(row.title || 'Untitled'),
+      objective: val(row, cols.objective) ? String(val(row, cols.objective)) : '',
+      owner: val(row, cols.owner) ? String(val(row, cols.owner)) : '',
+      baseline: toNum(val(row, cols.baseline)),
+      target: toNum(val(row, cols.target)),
+      current: toNum(val(row, cols.current)),
+      unit: cols.unit ? val(row, cols.unit) : ''
+    };
+    kr.unit = unitOf(kr);
+    kr.due = parseDay(val(row, cols.due)) || endOfQuarter(now);
+    kr.hist = historyFor(kr.title);
+    var last = kr.hist.length ? kr.hist[kr.hist.length - 1] : null;
+    kr.latest = isNum(kr.current) ? kr.current : last ? last.v : NaN;
+
+    var span = kr.target - kr.baseline;
+    var prog = function (v) { return isNum(v) && isNum(span) && span !== 0 ? (v - kr.baseline) / span : NaN; };
+    kr.now = prog(kr.latest);
+    kr.pace = slopePerWeek(kr.hist.slice(-PACE_POINTS));
+
+    // Project from the day the latest number was true: the last check-in,
+    // unless Current was typed in since then.
+    var anchor = last && (!isNum(kr.current) || kr.current === last.v) ? last.d : now;
+    if (anchor > now) anchor = now;
+    kr.horizon = Math.max(0, (kr.due - anchor) / WEEK);
+    kr.weeksLeft = Math.max(0, (kr.due - now) / WEEK);
+    kr.projected = kr.pace !== null && isNum(kr.latest) ? kr.latest + kr.pace * kr.horizon : kr.latest;
+    kr.score = kr.horizon > 0 ? prog(kr.projected) : kr.now;
+    kr.needed = kr.horizon > 0 && isNum(kr.latest) && isNum(kr.target) ? (kr.target - kr.latest) / kr.horizon : null;
+    kr.thisWeek = kr.hist.find(function (h) { return ymd(mondayOf(h.d)) === ymd(mondayOf(now)); }) || null;
+
+    var still = isNum(kr.latest) && kr.latest === kr.baseline;
+    if (!isNum(kr.now)) {
+      kr.status = 'unset';
+    } else if (!logReady()) {
+      kr.status = still ? 'idle' : 'nohist';
+      kr.score = kr.now;
+      kr.pace = null;
+    } else if (still && ((kr.hist.length && kr.hist.every(function (h) { return h.v === kr.baseline; })) || kr.pace === 0)) {
+      kr.status = 'idle';
+    } else if (kr.pace === null) {
+      kr.status = 'sparse';
+      kr.score = kr.now;
+    } else {
+      kr.status = scoreStatus(kr.score);
+    }
+    return kr;
+  }
+
+  // ------------------------------------------------------------ render
+  function showEmpty(text, canRetry) {
+    $('main').hidden = true;
+    $('foot').hidden = true;
+    $('notice').hidden = true;
+    $('empty').hidden = false;
+    $('emptyText').textContent = text;
+    $('retry').hidden = !canRetry;
+  }
+
+  function weeksText(krs) {
+    var now = today();
+    var due = null;
+    krs.forEach(function (k) { if (!due || k.due > due) due = k.due; });
+    if (!due) due = endOfQuarter(now);
+    var w = (due - now) / WEEK;
+    if (w < 0) return 'The quarter is over';
+    if (w < 1) return 'Last week of the quarter';
+    var n = Math.round(w);
+    return n + (n === 1 ? ' week' : ' weeks') + ' left in the quarter';
+  }
+
+  function paceLine(kr) {
+    if (kr.status === 'unset') return 'Set a baseline and a different target';
+    if (kr.status === 'nohist') return 'Pace needs the check-in history';
+    if (kr.status === 'sparse') return 'Check in weekly to see the pace';
+    if (kr.horizon <= 0) return 'Quarter over';
+    var need = kr.needed !== null ? 'needs ' + fmtDelta(kr.needed, kr.unit) + ' a week' : '';
+    if (kr.status === 'idle') return 'No movement yet' + (need ? ' · ' + need : '');
+    var pace = 'Pace ' + fmtDelta(kr.pace, kr.unit) + ' a week';
+    if (kr.status === 'ahead') return pace + ' · target may be too safe';
+    return pace + (kr.needed !== null ? ' · needs ' + fmtDelta(kr.needed, kr.unit) : '');
+  }
+
+  function barHtml(kr) {
+    var st = STATUS[kr.status];
+    if (!isNum(kr.now)) return '<div class="bar" role="img" aria-label="No progress yet"></div>';
+    var now = clamp01(kr.now);
+    var html = '<span class="fill" style="left:0;width:' + (now * 100).toFixed(1) + '%;background:' + st.color + '"></span>';
+    var label = 'Progress ' + Math.round(kr.now * 100) + '%';
+    if (kr.pace !== null && isNum(kr.score) && kr.horizon > 0 && kr.status !== 'idle') {
+      var proj = clamp01(kr.score);
+      var a = Math.min(now, proj), b = Math.max(now, proj);
+      html += '<span class="proj" style="left:' + (a * 100).toFixed(1) + '%;width:' + ((b - a) * 100).toFixed(1) + '%;background:color-mix(in srgb, ' + st.color + ' 30%, transparent)"></span>';
+      html += '<i class="tick" style="left:' + (proj * 100).toFixed(1) + '%"></i>';
+      label += ', on pace for ' + fmtScore(kr.score) + ' by ' + shortDate(kr.due);
+    }
+    return '<div class="bar" role="img" title="' + esc(label) + '" aria-label="' + esc(label) + '">' + html + '</div>';
+  }
+
+  // Sparkline of progress, so up is always better (lower-is-better results too).
+  function sparkHtml(kr) {
+    var span = kr.target - kr.baseline;
+    var pts = kr.hist.slice(-SPARK_POINTS);
+    if (pts.length < 2 || !isNum(span) || span === 0) {
+      return '<svg class="spark" viewBox="0 0 72 22" aria-hidden="true"><line x1="2" y1="11" x2="70" y2="11" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="3 3"/></svg>';
+    }
+    var ys = pts.map(function (p) { return (p.v - kr.baseline) / span; });
+    var lo = Math.min.apply(null, ys), hi = Math.max.apply(null, ys);
+    var t0 = pts[0].d.getTime(), t1 = pts[pts.length - 1].d.getTime();
+    var xy = pts.map(function (p, i) {
+      var x = t1 > t0 ? 2 + (p.d.getTime() - t0) / (t1 - t0) * 68 : 2 + i / (pts.length - 1) * 68;
+      var y = hi > lo ? 19 - (ys[i] - lo) / (hi - lo) * 16 : 11;
+      return [x.toFixed(1), y.toFixed(1)];
+    });
+    var color = STATUS[kr.status].color;
+    var lastPt = xy[xy.length - 1];
+    var title = pts.map(function (p) { return shortDate(p.d) + ': ' + fmtVal(p.v, kr.unit); }).join(', ');
+    return '<svg class="spark" viewBox="0 0 72 22" role="img" aria-label="' + esc(title) + '"><title>' + esc(title) + '</title>' +
+      '<polyline points="' + xy.map(function (p) { return p.join(','); }).join(' ') + '" fill="none" stroke="' + color + '" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="' + lastPt[0] + '" cy="' + lastPt[1] + '" r="2.2" fill="' + color + '"/></svg>';
+  }
+
+  function formHtml(kr) {
+    var week = mondayOf(today());
+    var label = (kr.thisWeek ? 'Update the week of ' : 'Week of ') + shortDate(week);
+    return '<form class="checkin" data-form="' + esc(kr.id) + '">' +
+      '<div class="field value"><label for="ci-value">' + esc(label) + '</label>' +
+      '<input id="ci-value" name="value" type="number" step="any" inputmode="decimal" value="' + esc(draft.value) + '"' + (saving ? ' disabled' : '') + '></div>' +
+      '<div class="field note"><label for="ci-note">Note (optional)</label>' +
+      '<input id="ci-note" name="note" type="text" maxlength="200" placeholder="What moved it?" value="' + esc(draft.note) + '"' + (saving ? ' disabled' : '') + '></div>' +
+      '<div class="actions"><button type="submit" class="btn-sm btn-primary"' + (saving ? ' disabled' : '') + '>' + (saving ? 'Saving' : 'Save') + '</button>' +
+      '<button type="button" class="btn-sm btn-ghost" data-cancel' + (saving ? ' disabled' : '') + '>Cancel</button></div>' +
+      (formError ? '<p class="err">' + esc(formError) + '</p>' : '') +
+      '</form>';
+  }
+
+  function krHtml(kr) {
+    var st = STATUS[kr.status];
+    var badgeText = st.label;
+    if (['ahead', 'track', 'risk', 'off'].indexOf(kr.status) !== -1) badgeText += ' · ' + fmtScore(kr.score);
+    else if (kr.status === 'nohist' || kr.status === 'sparse') badgeText += ' · ' + fmtScore(kr.score) + ' so far';
+    var hint = kr.status === 'ahead' ? 'Target may be too safe' : st.label;
+    var nums = fmtVal(kr.baseline, kr.unit) + ' → <b>' + fmtVal(kr.latest, kr.unit) + '</b> → ' + fmtVal(kr.target, kr.unit);
+    var canCheckIn = !!cols.current || logReady();
+    return '<div class="kr" data-id="' + esc(kr.id) + '">' +
+      '<div class="kr-top">' +
+        '<div class="kr-name"><span class="kr-title" title="' + esc(kr.title) + '">' + esc(kr.title) + '</span>' + chipFor(cols.owner, kr.owner, 'small') + '</div>' +
+        '<div class="kr-side"><span class="badge ' + st.badge + '" title="' + esc(hint) + '">' + esc(badgeText) + '</span>' +
+          (canCheckIn ? '<button type="button" class="btn-sm btn-ghost" data-checkin="' + esc(kr.id) + '"' + (openId === kr.id ? ' hidden' : '') + '>Check in</button>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="kr-line">' +
+        '<span class="kr-nums" title="Baseline, now, target">' + nums + '</span>' +
+        barHtml(kr) +
+        sparkHtml(kr) +
+        '<span class="kr-pace">' + esc(paceLine(kr)) + '</span>' +
+      '</div>' +
+      (openId === kr.id ? formHtml(kr) : '') +
+      '</div>';
+  }
+
+  function groupHtml(name, krs) {
+    var scored = krs.filter(function (k) { return k.status !== 'unset' && isNum(k.score); });
+    var head = name === NO_OBJECTIVE ? '<span class="chip">' + NO_OBJECTIVE + '</span>' : chipFor(cols.objective, name);
+    var score = '';
+    if (scored.length) {
+      var mean = scored.reduce(function (a, k) { return a + clamp01(k.score); }, 0) / scored.length;
+      var paced = scored.some(function (k) { return k.pace !== null; });
+      var allIdle = scored.every(function (k) { return k.status === 'idle'; });
+      var color = allIdle ? 'var(--muted-foreground)' : scoreColor(mean);
+      score = '<span class="obj-score"><span class="dot" style="background:' + color + '"></span>' +
+        (paced ? 'on pace for <b>' + mean.toFixed(2) + '</b>' : '<b>' + mean.toFixed(2) + '</b> so far') + '</span>';
+    }
+    return '<section class="card obj"><div class="obj-head">' + head + score + '</div>' + krs.map(krHtml).join('') + '</section>';
+  }
+
+  function render() {
+    clearTimeout(renderTimer);
+    if (fatal) {
+      $('weeks').textContent = '';
+      $('counts').innerHTML = '';
+      showEmpty(fatal, true);
+      return;
+    }
+    if (!cols.baseline || !cols.target || !(cols.current || logReady())) {
+      showEmpty('This view needs Baseline, Current and Target number columns on the Key results database.', false);
+      return;
+    }
+    if (!rows.length) {
+      $('weeks').textContent = '';
+      $('counts').innerHTML = '';
+      showEmpty('No key results yet. Add one to the Key results database with a baseline, a target and a due date, then check in once a week: the progress, the pace and the forecast fill in by themselves.', false);
+      return;
+    }
+
+    var krs = rows.map(model);
+    var groups = {};
+    var order = (cols.objective && Array.isArray(cols.objective.options) ? cols.objective.options.slice() : []);
+    krs.forEach(function (k) {
+      var g = k.objective || NO_OBJECTIVE;
+      if (order.indexOf(g) === -1 && g !== NO_OBJECTIVE) order.push(g);
+      (groups[g] = groups[g] || []).push(k);
+    });
+    order.push(NO_OBJECTIVE);
+
+    var tally = {};
+    krs.forEach(function (k) { tally[k.status] = (tally[k.status] || 0) + 1; });
+    $('weeks').textContent = weeksText(krs);
+    $('counts').innerHTML = ORDER.filter(function (s) { return tally[s]; }).map(function (s) {
+      return '<span class="badge ' + STATUS[s].badge + '">' + tally[s] + ' ' + esc(STATUS[s].count) + '</span>';
+    }).join('');
+
+    var notice = hasSheetApi && !logReady();
+    $('notice').hidden = !notice;
+    if (notice) {
+      $('noticeText').textContent = 'Allow access to KR check-ins to keep history and see pace.' +
+        (logError ? ' (' + logError + '.) After a Deny, reopen the page to be asked again.' : '');
+    }
+
+    var main = $('main');
+    var focused = document.activeElement && document.activeElement.id;
+    main.innerHTML = order.filter(function (g) { return groups[g]; }).map(function (g) { return groupHtml(g, groups[g]); }).join('');
+    $('empty').hidden = true;
+    main.hidden = false;
+    $('foot').hidden = false;
+    if (openId && !saving) {
+      var keep = focused === 'ci-note' ? $('ci-note') : $('ci-value');
+      if (keep) keep.focus();
+    }
+  }
+
+  function schedule() {
+    clearTimeout(renderTimer);
+    renderTimer = setTimeout(render, 60);
+  }
+
+  // ------------------------------------------------------------ data
+  async function loadRows() {
+    if (!source) return;
+    try {
+      rows = await source.rows({ limit: 500 });
+      if (!Array.isArray(rows)) rows = [];
+      fatal = '';
+    } catch (err) {
+      rows = [];
+      fatal = 'Could not read the Key results database: ' + errText(err);
+    }
+    schedule();
+  }
+  async function loadLog() {
+    if (!log) return;
+    try {
+      logRows = await log.rows({ limit: 5000 });
+      if (!Array.isArray(logRows)) logRows = [];
+    } catch (err) {
+      logRows = [];
+      log = null;
+      logError = errText(err);
+    }
+    schedule();
+  }
+
+  async function connectSource() {
+    try {
+      source = await hillnote.data();
+    } catch (err) {
+      source = null;
+      fatal = 'Could not open the Key results database: ' + errText(err) + '. Allow access when asked; after a Deny, reopen the page to be asked again.';
+      return;
+    }
+    var list = [];
+    try { list = typeof source.columns === 'function' ? (await Promise.resolve(source.columns())) || [] : []; } catch (e) { list = []; }
+    detectCols(list);
+    if (!sourceSubscribed && typeof source.onChange === 'function') { source.onChange(function () { loadRows(); }); sourceSubscribed = true; }
+    await loadRows();
+  }
+
+  async function connectLog() {
+    hasSheetApi = typeof hillnote.sheet === 'function';
+    if (!hasSheetApi) return;
+    try {
+      log = await hillnote.sheet(LOG_SHEET);
+      logError = '';
+    } catch (err) {
+      log = null;
+      logError = errText(err);
+      return;
+    }
+    var list = [];
+    try { list = typeof log.columns === 'function' ? (await Promise.resolve(log.columns())) || [] : []; } catch (e) { list = []; }
+    detectLogCols(list);
+    if (!logSubscribed && typeof log.onChange === 'function') { log.onChange(function () { loadLog(); }); logSubscribed = true; }
+    await loadLog();
+  }
+
+  async function save(id) {
+    var row = rows.find(function (r) { return r.id === id; });
+    if (!row) { openId = null; render(); return; }
+    var kr = model(row);
+    var value = toNum(draft.value);
+    if (!isNum(value)) { formError = 'Enter a number.'; render(); return; }
+    var note = String(draft.note || '').trim();
+    saving = true;
+    formError = '';
+    render();
+    try {
+      if (logReady()) {
+        var patch = {};
+        patch[lcols.value.id] = value;
+        if (lcols.note) patch[lcols.note.id] = note;
+        if (kr.thisWeek && kr.thisWeek.id) {
+          await log.update(kr.thisWeek.id, patch);
+        } else {
+          patch[lcols.title.id] = kr.title;
+          patch[lcols.week.id] = ymd(mondayOf(today()));
+          await log.add(patch);
+        }
+      }
+      if (cols.current) {
+        var p2 = {};
+        p2[cols.current.id] = value;
+        await source.update(kr.id, p2);
+      }
+      openId = null;
+      draft = { value: '', note: '' };
+    } catch (err) {
+      formError = 'Could not save: ' + errText(err);
+    }
+    saving = false;
+    // onChange never fires for this tool's own writes, so read both again.
+    await Promise.all([loadRows(), loadLog()]);
+    render();
+  }
+
+  // ------------------------------------------------------------ events
+  $('main').addEventListener('click', function (e) {
+    var open = e.target.closest('[data-checkin]');
+    if (open) {
+      var id = open.getAttribute('data-checkin');
+      var row = rows.find(function (r) { return r.id === id; });
+      if (!row) return;
+      var kr = model(row);
+      openId = id;
+      formError = '';
+      draft = {
+        value: kr.thisWeek ? String(kr.thisWeek.v) : isNum(kr.latest) ? String(kr.latest) : '',
+        note: kr.thisWeek ? kr.thisWeek.note : ''
+      };
+      render();
+      var input = $('ci-value');
+      if (input) { input.focus(); input.select(); }
+      return;
+    }
+    if (e.target.closest('[data-cancel]')) {
+      openId = null;
+      formError = '';
+      render();
+    }
+  });
+  $('main').addEventListener('input', function (e) {
+    if (e.target.id === 'ci-value') draft.value = e.target.value;
+    if (e.target.id === 'ci-note') draft.note = e.target.value;
+  });
+  $('main').addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && openId && !saving) { openId = null; formError = ''; render(); }
+  });
+  $('main').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = e.target.closest('[data-form]');
+    if (form && !saving) save(form.getAttribute('data-form'));
+  });
+
+  $('retry').addEventListener('click', async function () {
+    $('retry').disabled = true;
+    fatal = '';
+    if (source) await loadRows(); else await connectSource();
+    $('retry').disabled = false;
+    render();
+  });
+  $('connectLog').addEventListener('click', async function () {
+    $('connectLog').disabled = true;
+    await connectLog();
+    $('connectLog').disabled = false;
+    render();
+  });
+
+  async function start() {
+    if (!window.hillnote || typeof hillnote.data !== 'function') {
+      showEmpty('Open this inside Hillnote, as the Scorecard view of the Key results database, to see the key results.', false);
+      return;
+    }
+    try { await hillnote.ready(); } catch (e) { /* render anyway */ }
+    await Promise.all([connectSource(), connectLog()]);
+    render();
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

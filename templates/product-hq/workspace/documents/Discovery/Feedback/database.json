@@ -88,6 +88,12 @@
       }
     },
     {
+      "id": "initiative",
+      "name": "Initiative",
+      "type": "text",
+      "width": 200
+    },
+    {
       "id": "account",
       "name": "Account",
       "type": "text",

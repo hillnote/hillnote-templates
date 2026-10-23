@@ -10,14 +10,6 @@ Lumen
 
 weekly active dashboards
 
-## $wad_current
-
-2350
-
-## $wad_target
-
-3000
-
 ## $active_accounts
 
 180

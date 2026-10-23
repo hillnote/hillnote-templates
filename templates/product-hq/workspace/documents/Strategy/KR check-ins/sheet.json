@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "name": "KR check-ins",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Key result",
+      "type": "title",
+      "width": 260
+    },
+    {
+      "id": "week",
+      "name": "Week",
+      "type": "date",
+      "width": 120
+    },
+    {
+      "id": "value",
+      "name": "Value",
+      "type": "number",
+      "width": 100
+    },
+    {
+      "id": "note",
+      "name": "Note",
+      "type": "text",
+      "width": 340
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Log",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "week",
+          "direction": "desc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}

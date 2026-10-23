@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style id="hillnote-baseline">
+/* hillnote-baseline v1 */
+:root{
+  color-scheme:light dark;
+  --background:light-dark(#f7f7f8,#131316);
+  --foreground:light-dark(#1c1c1f,#ededf0);
+  --card:light-dark(#ffffff,#1c1c20);
+  --card-foreground:light-dark(#1c1c1f,#ededf0);
+  --muted:light-dark(#efeff1,#26262b);
+  --muted-foreground:light-dark(#6f6f78,#9d9da7);
+  --secondary:light-dark(#ececef,#26262b);
+  --secondary-foreground:light-dark(#1c1c1f,#ededf0);
+  --accent:light-dark(#ececef,#2b2b31);
+  --accent-foreground:light-dark(#1c1c1f,#ededf0);
+  --primary:#0047AB;
+  --primary-foreground:#ffffff;
+  --destructive:light-dark(#dc2626,#ef4444);
+  --destructive-foreground:#ffffff;
+  --success:light-dark(#16a34a,#4ade80);
+  --warning:light-dark(#d97706,#fbbf24);
+  --info:light-dark(#2563eb,#60a5fa);
+  --border:light-dark(#e2e2e6,#2c2c32);
+  --input:light-dark(#d9d9de,#34343b);
+  --ring:#0047AB;
+  --radius:8px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.05);
+  --shadow:0 4px 12px -2px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.05);
+}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:14px;background:var(--background);color:var(--foreground);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.25;font-weight:650}
+h1{font-size:19px}h2{font-size:16px}h3{font-size:14px}
+h4{font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
+p{margin:0 0 .75em}
+a{color:var(--primary)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--muted);padding:2px 5px;border-radius:4px}
+img,svg,canvas,video{max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s,border-color .15s,opacity .15s;text-decoration:none;user-select:none}
+button:hover,.btn:hover{background:var(--muted)}
+button:active,.btn:active{transform:translateY(.5px)}
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}
+.btn-primary:hover{background:var(--primary);filter:brightness(1.1)}
+.btn-destructive{background:var(--destructive);border-color:var(--destructive);color:var(--destructive-foreground)}
+.btn-destructive:hover{background:var(--destructive);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border-color:transparent;box-shadow:none}
+.btn-ghost:hover{background:var(--muted)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-icon{padding:6px;width:30px;height:30px}
+input,select,textarea{width:100%;padding:7px 10px;border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);background:var(--card);color:var(--foreground);font:inherit;font-size:13px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:var(--muted-foreground)}
+input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--primary)}
+input[type=range]{padding:0;border:none;box-shadow:none;accent-color:var(--primary)}
+input[type=color]{width:36px;height:30px;padding:2px}
+:is(button,.btn,input,select,textarea,a,summary):focus-visible{outline:2px solid color-mix(in srgb,var(--ring) 55%,transparent);outline-offset:1px}
+label{font-size:12px;font-weight:500;color:var(--muted-foreground)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted-foreground)}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border)}
+dialog{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);color:var(--card-foreground);box-shadow:var(--shadow);padding:16px;max-width:min(92vw,420px)}
+dialog::backdrop{background:rgb(0 0 0/.4)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm)}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;margin:-14px -14px 12px;padding:10px 14px;background:color-mix(in srgb,var(--background) 86%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.row{display:flex;align-items:center;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:4px}
+.list{display:flex;flex-direction:column}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:calc(var(--radius) - 2px);border-bottom:1px solid var(--border)}
+.list-item:last-child{border-bottom:none}
+.list-item:hover{background:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--muted);color:var(--muted-foreground)}
+.badge-success{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success)}
+.badge-warning{background:color-mix(in srgb,var(--warning) 16%,transparent);color:var(--warning)}
+.badge-info{background:color-mix(in srgb,var(--info) 14%,transparent);color:var(--info)}
+.badge-danger{background:color-mix(in srgb,var(--destructive) 12%,transparent);color:var(--destructive)}
+.muted{color:var(--muted-foreground)}
+.empty-state{padding:32px 12px;text-align:center;color:var(--muted-foreground);font-size:13px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:5px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--muted-foreground);border:2px solid transparent;background-clip:padding-box}
+</style>
+<script id="hillnote-error-bridge">(function(){var seen={};function send(m,s,l){try{m=String(m).slice(0,500);var k=m+'|'+(l||0);if(seen[k])return;seen[k]=1;window.parent.postMessage({type:'hillnote-tool-error',message:m,source:s?String(s).slice(0,200):'',line:l||0},'*')}catch(e){}}
+window.addEventListener('error',function(e){send(e.message||'Script error',e.filename,e.lineno)});
+window.addEventListener('unhandledrejection',function(e){var r=e.reason;send((r&&r.message)||String(r||'Unhandled promise rejection'),'',0)});
+var ce=console.error;console.error=function(){try{send(Array.prototype.map.call(arguments,function(a){return a instanceof Error?(a.message||String(a)):(typeof a==='object'?JSON.stringify(a):String(a))}).join(' '),'',0)}catch(e){}return ce.apply(console,arguments)};})()</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reality check</title>
+<style>
+  [hidden] { display: none !important; }
+  .num { font-variant-numeric: tabular-nums; }
+  .toolbar { flex-wrap: wrap; justify-content: space-between; row-gap: 8px; }
+  .tabs { display: inline-flex; gap: 2px; padding: 2px; border-radius: calc(var(--radius) - 1px); background: var(--muted); }
+  .tabs button { padding: 4px 10px; font-size: 12px; border-color: transparent; background: transparent; box-shadow: none; color: var(--muted-foreground); }
+  .tabs button:hover { background: color-mix(in srgb, var(--card) 60%, transparent); color: var(--foreground); }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--foreground); box-shadow: var(--shadow-sm); }
+  .lede { font-size: 12px; color: var(--muted-foreground); margin: 0 0 10px; }
+  .headline { font-size: 15px; font-weight: 600; margin: 0 0 4px; line-height: 1.4; }
+  .notice { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 8px 12px; margin-bottom: 12px; border-radius: calc(var(--radius) - 2px); font-size: 12px; background: var(--muted); color: var(--muted-foreground); }
+  .notice.err { background: color-mix(in srgb, var(--destructive) 10%, transparent); color: var(--destructive); }
+  .chip { display: inline-flex; align-items: center; padding: 1px 7px; border-radius: 4px; font-size: 11px; line-height: 16px; white-space: nowrap; background: var(--muted); color: var(--muted-foreground); }
+  .chips { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+  .sub { font-size: 12px; color: var(--muted-foreground); }
+  .section-title { margin: 18px 0 8px; }
+
+  /* Will it fit? */
+  .teams { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .team-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+  .team-head h3 { margin: 0; }
+  .cap { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted-foreground); }
+  .cap input { width: 64px; padding: 4px 8px; text-align: right; font-variant-numeric: tabular-nums; }
+  .bar { position: relative; height: 14px; margin: 4px 0 8px; border-radius: 4px; background: var(--muted); }
+  .bar .seg { position: absolute; top: 0; bottom: 0; background: var(--primary); box-shadow: inset -1px 0 0 var(--card); }
+  .bar .seg.next { background: color-mix(in srgb, var(--primary) 42%, var(--card)); }
+  .bar .seg:first-child { border-radius: 4px 0 0 4px; }
+  .bar .over { position: absolute; top: 0; bottom: 0; border-radius: 0 4px 4px 0; background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--destructive) 60%, transparent) 0 4px, color-mix(in srgb, var(--destructive) 25%, transparent) 4px 8px); }
+  .bar .mark { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--foreground); }
+  .fit-sum { font-size: 12px; margin: 0 0 8px; }
+  .fit-sum.over { color: var(--destructive); font-weight: 600; }
+  .items { display: flex; flex-direction: column; }
+  .item { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; align-items: center; gap: 4px 8px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .item:last-child { border-bottom: none; }
+  .item .sw { width: 10px; height: 10px; border-radius: 3px; background: var(--primary); }
+  .item .sw.next { background: color-mix(in srgb, var(--primary) 42%, var(--card)); }
+  .item .sw.none { background: transparent; border: 1px dashed var(--muted-foreground); }
+  .item .name { min-width: 0; overflow-wrap: anywhere; line-height: 1.35; }
+  .item .facts { font-size: 12px; color: var(--muted-foreground); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .item.out .name { color: var(--destructive); }
+  .item .act { grid-column: 2 / -1; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted-foreground); }
+  .cutline { display: flex; align-items: center; gap: 8px; margin: 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--destructive); }
+  .cutline::before, .cutline::after { content: ""; flex: 1; border-top: 1px dashed color-mix(in srgb, var(--destructive) 60%, transparent); }
+  .room { margin-top: 10px; padding: 8px 10px; border-radius: calc(var(--radius) - 2px); background: color-mix(in srgb, var(--success) 9%, transparent); font-size: 12px; }
+  .room + .room { margin-top: 6px; }
+  .room .row { justify-content: space-between; }
+  .room button, .item .act button, .wait button { white-space: nowrap; flex-shrink: 0; }
+
+  /* Why this? */
+  .why-summary { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .why-row { display: block; width: 100%; text-align: left; padding: 9px 10px; border: none; border-bottom: 1px solid var(--border); border-radius: 0; background: transparent; box-shadow: none; font-weight: 400; cursor: pointer; }
+  button.why-row:hover { background: var(--muted); }
+  div.why-row { cursor: default; }
+  .why-row:last-child { border-bottom: none; }
+  .why-top { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .why-top .name { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .why-top .rice { margin-left: auto; font-size: 12px; color: var(--muted-foreground); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .why-bottom { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 5px; font-size: 12px; color: var(--muted-foreground); }
+  .why-bottom .verdict { margin-left: auto; }
+  .caret { display: inline-block; width: 10px; color: var(--muted-foreground); transition: transform .15s; }
+  .why-row[aria-expanded="true"] .caret { transform: rotate(90deg); }
+  .linked { padding: 4px 10px 10px 28px; border-bottom: 1px solid var(--border); font-size: 12px; }
+  .linked div { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; }
+  .linked .t { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--foreground); }
+  .ask { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 210px); gap: 6px 12px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .ask:last-child { border-bottom: none; }
+  .ask .t { font-weight: 550; font-size: 13px; }
+  .ask select { padding: 5px 8px; font-size: 12px; }
+
+  /* Did it work? */
+  .bets-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .chart { width: 100%; max-width: 440px; height: auto; display: block; overflow: visible; }
+  .chart .grid { stroke: var(--border); stroke-width: 1; }
+  .chart .axis { fill: var(--muted-foreground); font-size: 10px; }
+  .chart .honest { stroke: var(--muted-foreground); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+  .chart .honest-label { fill: var(--muted-foreground); font-size: 10px; font-style: italic; }
+  .chart .gap { stroke-width: 1.5; stroke-dasharray: 2 3; }
+  .chart .dot-label { fill: var(--foreground); font-size: 10.5px; font-weight: 600; }
+  .chart .ok { fill: var(--success); stroke: var(--success); }
+  .chart .low { fill: var(--destructive); stroke: var(--destructive); }
+  .chart .high { fill: var(--info); stroke: var(--info); }
+  .chart .few { opacity: .45; }
+  .chart circle { fill-opacity: .85; stroke: var(--card); stroke-width: 2; }
+  .levels { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+  .level { display: flex; align-items: center; gap: 8px; font-size: 12.5px; }
+  .level i { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--muted-foreground); }
+  .level i.ok { background: var(--success); }
+  .level i.low { background: var(--destructive); }
+  .level i.high { background: var(--info); }
+  .level .few { opacity: .5; }
+  .wait { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .wait:last-child { border-bottom: none; }
+  .wait .t { font-weight: 600; font-size: 13px; }
+  .judged td { padding: 6px 8px; font-size: 12.5px; }
+  .judged td:first-child { padding-left: 0; }
+  .judged td.c { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted-foreground); }
+  .judged td.o { text-align: right; width: 1%; white-space: nowrap; padding-right: 0; }
+  .judged tr:last-child td { border-bottom: none; }
+
+  @media (max-width: 640px) {
+    .bets-top { grid-template-columns: 1fr; }
+    .ask { grid-template-columns: 1fr; }
+    .why-bottom .verdict { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Reality check</strong>
+  <div class="tabs" role="tablist" aria-label="Questions" id="tabs">
+    <button role="tab" id="tab-fit" data-tab="fit" aria-selected="true" aria-controls="fit">Will it fit?</button>
+    <button role="tab" id="tab-why" data-tab="why" aria-selected="false" aria-controls="why">Why this?</button>
+    <button role="tab" id="tab-bets" data-tab="bets" aria-selected="false" aria-controls="bets">Did it work?</button>
+  </div>
+</div>
+
+<div id="empty" class="empty-state" hidden>
+  <p id="emptyText"></p>
+  <button class="btn-sm" id="retry" hidden>Try again</button>
+</div>
+
+<div id="main" hidden>
+  <div class="notice err" id="notice" role="alert" hidden></div>
+  <section id="fit" role="tabpanel" aria-labelledby="tab-fit"></section>
+  <section id="why" role="tabpanel" aria-labelledby="tab-why" hidden></section>
+  <section id="bets" role="tabpanel" aria-labelledby="tab-bets" hidden></section>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var memory = {};
+  var store = {
+    get: function (k, d) { try { return window.hillnote ? hillnote.settings.get(k, d) : (k in memory ? memory[k] : d); } catch (e) { return d; } },
+    set: function (k, v) { try { if (window.hillnote) hillnote.settings.set(k, v); else memory[k] = v; } catch (e) { /* settings full or unavailable */ } }
+  };
+
+  var TABS = ['fit', 'why', 'bets'];
+  var DEFAULT_CAPACITY = { core: 12, growth: 10, platform: 10 };
+  var FALLBACK_CAPACITY = 10;
+  var NO_TEAM = 'No team';
+  var SCORE = { hit: 1, partial: 0.5, missed: 0 };
+  var OUTCOMES = ['Hit', 'Partial', 'Missed'];
+
+  var roadmap = null, rmCols = [], rmRows = [], rc = {}, fatal = '';
+  var feedback = null, fbCols = [], fbRows = [], fc = {}, fbError = '';
+  var rmSubscribed = false, fbSubscribed = false;
+  var tab = 'fit';
+  var busy = false;
+  var expanded = {};
+  var renderTimer = null;
+
+  // ------------------------------------------------------------ helpers
+  var lower = function (v) { return String(v == null ? '' : v).trim().toLowerCase(); };
+  function toNum(v) {
+    if (typeof v === 'number') return Number.isFinite(v) ? v : null;
+    if (typeof v === 'string' && v.trim() !== '' && Number.isFinite(Number(v))) return Number(v);
+    return null;
+  }
+  function fmt(n) {
+    if (n == null) return '';
+    var r = Math.round(n * 10) / 10;
+    return r.toLocaleString(undefined, { maximumFractionDigits: 1 });
+  }
+  function fmtConf(c) { return c == null ? '' : c.toFixed(Math.abs(Math.round(c * 10) - c * 10) < 1e-9 ? 1 : 2); }
+  function pct(r) { return Math.round(r * 100) + '%'; }
+  function joinNames(list) {
+    if (list.length <= 1) return list.join('');
+    return list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1];
+  }
+  function errText(err) { return err && err.message ? err.message : String(err || 'Unknown error'); }
+  function parseDay(v) {
+    if (!v) return null;
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(v));
+    var d = m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : new Date(String(v));
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function today() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+
+  function findCol(list, id, test) {
+    var byId = list.find(function (c) { return c && c.id === id; });
+    if (byId) return byId;
+    return list.find(function (c) { return c && test(c); }) || null;
+  }
+  function val(row, col) { return col ? row[col.type === 'title' ? 'title' : col.id] : undefined; }
+  function str(row, col) { var v = val(row, col); return v == null ? '' : String(v).trim(); }
+
+  function chip(col, value) {
+    if (!value) return '';
+    var st = col && col.optionStyles && col.optionStyles[value];
+    var style = st && st.bg ? ' style="background:' + esc(st.bg) + ';color:' + esc(st.fg || 'inherit') + '"' : '';
+    return '<span class="chip"' + style + '>' + esc(value) + '</span>';
+  }
+
+  // ------------------------------------------------------------ columns
+  function detectRoadmapCols() {
+    var list = rmCols;
+    var isNum = function (c) { return c.type === 'number' || c.type === 'formula'; };
+    rc = {
+      title: findCol(list, 'title', function (c) { return c.type === 'title'; }),
+      status: findCol(list, 'status', function (c) { return c.type === 'status'; }),
+      team: findCol(list, 'team', function (c) { return /team|squad/i.test(c.name || '') && (c.type === 'select' || c.type === 'text'); }),
+      effort: findCol(list, 'effort', function (c) { return isNum(c) && /effort|person/i.test(c.name || ''); }),
+      rice: findCol(list, 'rice', function (c) { return isNum(c) && /rice|score/i.test(c.name || ''); }),
+      confidence: findCol(list, 'confidence', function (c) { return isNum(c) && /confidence/i.test(c.name || ''); }),
+      objective: findCol(list, 'objective', function (c) { return /objective|goal|okr/i.test(c.name || '') && (c.type === 'select' || c.type === 'text'); }),
+      outcome: findCol(list, 'outcome', function (c) { return /outcome|result|verdict/i.test(c.name || '') && c.type === 'select'; }),
+      end: findCol(list, 'end', function (c) { return c.type === 'date' && (c.dateRole === 'end' || /end|ship|due/i.test(c.name || '')); })
+    };
+  }
+  function detectFeedbackCols() {
+    var list = fbCols;
+    fc = {
+      title: findCol(list, 'title', function (c) { return c.type === 'title'; }),
+      status: findCol(list, 'status', function (c) { return c.type === 'status'; }),
+      initiative: findCol(list, 'initiative', function (c) { return /initiative|roadmap|supports/i.test(c.name || '') && (c.type === 'text' || c.type === 'select'); }),
+      account: findCol(list, 'account', function (c) { return /account|customer|company/i.test(c.name || ''); }),
+      segment: findCol(list, 'segment', function (c) { return /segment|tier|plan/i.test(c.name || '') && c.type === 'select'; }),
+      votes: findCol(list, 'votes', function (c) { return (c.type === 'number' || c.type === 'formula') && /vote|count|asks/i.test(c.name || ''); })
+    };
+  }
+
+  // Status buckets: the options named Now, Next and Later, else the first
+  // three non-done options in order. Done = optionStates 'done'.
+  function statusInfo() {
+    var col = rc.status;
+    var opts = col && Array.isArray(col.options) ? col.options : [];
+    var states = (col && col.optionStates) || {};
+    var open = opts.filter(function (o) { return states[o] !== 'done' && states[o] !== 'archive'; });
+    var pick = function (name, i) { return opts.find(function (o) { return lower(o) === name; }) || open[i] || null; };
+    return { now: pick('now', 0), next: pick('next', 1), later: pick('later', 2), states: states };
+  }
+  function isShipped(row) {
+    if (!rc.status) return false;
+    var s = str(row, rc.status);
+    var st = statusInfo().states[s];
+    return st === 'done' || lower(s) === 'shipped';
+  }
+  function titleOf(row) { return String(row.title || '').trim() || 'Untitled'; }
+  function rice(row) { return toNum(val(row, rc.rice)); }
+  function effort(row) { var n = toNum(val(row, rc.effort)); return n != null && n > 0 ? n : null; }
+  function conf(row) {
+    var c = toNum(val(row, rc.confidence));
+    if (c == null || c <= 0) return null;
+    if (c > 1 && c <= 100) c = c / 100;
+    return c > 1 ? null : c;
+  }
+  function byRice(a, b) {
+    var ra = rice(a), rb = rice(b);
+    if (ra == null && rb == null) return titleOf(a).localeCompare(titleOf(b));
+    if (ra == null) return 1;
+    if (rb == null) return -1;
+    return rb - ra;
+  }
+
+  // ------------------------------------------------------------ render shell
+  function showEmpty(text, retry) {
+    $('main').hidden = true;
+    $('empty').hidden = false;
+    $('emptyText').textContent = text;
+    $('retry').hidden = !retry;
+  }
+  function setNotice(text) {
+    $('notice').hidden = !text;
+    $('notice').textContent = text || '';
+  }
+  function selectTab(t) {
+    if (TABS.indexOf(t) < 0) t = 'fit';
+    tab = t;
+    TABS.forEach(function (k) {
+      $('tab-' + k).setAttribute('aria-selected', k === t ? 'true' : 'false');
+      $(k).hidden = k !== t;
+    });
+  }
+  function schedule() { clearTimeout(renderTimer); renderTimer = setTimeout(render, 40); }
+
+  function render() {
+    if (fatal) { showEmpty(fatal, true); return; }
+    if (!roadmap) return;
+    $('empty').hidden = true;
+    $('main').hidden = false;
+    selectTab(tab);
+    if (tab === 'fit') renderFit();
+    else if (tab === 'why') renderWhy();
+    else renderBets();
+    if (busy) setBusy(true);
+  }
+
+  // ------------------------------------------------------------ Will it fit?
+  function capacityFor(team) {
+    var saved = store.get('capacity', {}) || {};
+    var n = toNum(saved[team]);
+    if (n != null && n >= 0) return n;
+    var d = DEFAULT_CAPACITY[lower(team)];
+    return d != null ? d : FALLBACK_CAPACITY;
+  }
+
+  function fitModel() {
+    var si = statusInfo();
+    var open = rmRows.filter(function (r) { return !isShipped(r); });
+    var teamOf = function (r) { return rc.team ? (str(r, rc.team) || NO_TEAM) : 'Everyone'; };
+    var order = rc.team && Array.isArray(rc.team.options) ? rc.team.options.slice() : [];
+    open.forEach(function (r) { var t = teamOf(r); if (order.indexOf(t) < 0) order.push(t); });
+    var teams = order.filter(function (t) { return open.some(function (r) { return teamOf(r) === t; }); });
+    return teams.map(function (t) {
+      var mine = open.filter(function (r) { return teamOf(r) === t; });
+      var now = mine.filter(function (r) { return si.now && str(r, rc.status) === si.now; }).sort(byRice);
+      var next = mine.filter(function (r) { return si.next && str(r, rc.status) === si.next; }).sort(byRice);
+      var later = mine.filter(function (r) { return si.later && str(r, rc.status) === si.later; });
+      var cap = capacityFor(t);
+      var cum = 0;
+      var items = [], unestimated = [];
+      now.map(function (r) { return { row: r, next: false }; }).concat(next.map(function (r) { return { row: r, next: true }; })).forEach(function (it) {
+        var e = effort(it.row);
+        if (e == null) { unestimated.push(it); return; }
+        it.start = cum; cum += e; it.end = cum; it.effort = e;
+        it.fits = it.end <= cap + 1e-9;
+        items.push(it);
+      });
+      var spare = Math.max(0, cap - cum);
+      var room = spare > 0 ? later.filter(function (r) { var e = effort(r); return e != null && e <= spare + 1e-9; }).sort(byRice).slice(0, 2) : [];
+      return { team: t, cap: cap, total: cum, over: Math.max(0, cum - cap), spare: spare, items: items, unestimated: unestimated, room: room, si: si };
+    });
+  }
+
+  function renderFit() {
+    var el = $('fit');
+    if (!rc.status) { el.innerHTML = colMessage('a Status column with Now, Next and Later', 'Add a status column to the Roadmap so the tool knows what is committed.'); return; }
+    if (!rc.effort) { el.innerHTML = colMessage('an Effort column', 'Add a number column called Effort to the Roadmap, in person-weeks, and estimate each initiative.'); return; }
+    var model = fitModel();
+    var committed = model.some(function (m) { return m.items.length || m.unestimated.length; });
+    var html = '<p class="lede">Effort is in person-weeks. Everything in Now and Next is what the team has committed to; the capacity is the build time each team really has.</p>';
+    if (!model.length || !committed) {
+      el.innerHTML = html + '<div class="card empty-state">Nothing is in Now or Next yet. Move initiatives there on the Board and this shows whether they fit.</div>';
+      return;
+    }
+    html += '<p class="headline">' + esc(fitHeadline(model)) + '</p><p class="sub" style="margin-bottom:12px">Change a capacity to see where the line falls. People times weeks of build time, after support and meetings.</p>';
+    html += '<div class="teams">' + model.map(teamCard).join('') + '</div>';
+    el.innerHTML = html;
+  }
+
+  function fitHeadline(model) {
+    var over = model.filter(function (m) { return m.over > 0; });
+    var room = model.filter(function (m) { return m.spare >= 1 && m.over === 0; });
+    var parts = [];
+    if (over.length === 1) {
+      var o = over[0];
+      var out = o.items.filter(function (it) { return !it.fits; }).map(function (it) { return titleOf(it.row); });
+      parts.push(o.team + ' is ' + fmt(o.over) + ' person-week' + (o.over === 1 ? '' : 's') + ' over' + (out.length ? ', so ' + joinNames(out) + (out.length === 1 ? ' falls' : ' fall') + ' below the line.' : '.'));
+    } else if (over.length > 1) {
+      parts.push(joinNames(over.map(function (m) { return m.team; })) + ' are over by ' + joinNames(over.map(function (m) { return fmt(m.over); })) + ' person-weeks.');
+    } else {
+      parts.push('Everything in Now and Next fits.');
+    }
+    if (room.length) parts.push(joinNames(room.map(function (m) { return m.team; })) + (room.length === 1 ? ' has' : ' have') + ' room.');
+    return parts.join(' ');
+  }
+
+  function teamCard(m) {
+    var scale = Math.max(m.cap, m.total, 1);
+    var w = function (n) { return (n / scale * 100).toFixed(3) + '%'; };
+    var bar = '<div class="bar" role="img" aria-label="' + esc(m.team + ': ' + fmt(m.total) + ' of ' + fmt(m.cap) + ' person-weeks') + '">';
+    bar += m.items.map(function (it) {
+      return '<span class="seg' + (it.next ? ' next' : '') + '" style="left:' + w(it.start) + ';width:' + w(it.effort) + '" title="' + esc(titleOf(it.row) + ', ' + fmt(it.effort) + ' pw') + '"></span>';
+    }).join('');
+    if (m.over > 0) bar += '<span class="over" style="left:' + w(m.cap) + ';width:' + w(m.over) + '"></span>';
+    bar += '<span class="mark" style="left:' + w(m.cap) + '" title="Capacity"></span></div>';
+
+    var sum = fmt(m.total) + ' of ' + fmt(m.cap) + ' person-weeks' + (m.over > 0 ? ' · ' + fmt(m.over) + ' over' : m.spare > 0 ? ' · ' + fmt(m.spare) + ' spare' : ' · exactly full');
+    var list = '';
+    var cutShown = false;
+    m.items.forEach(function (it) {
+      if (!it.fits && !cutShown) { list += '<div class="cutline">Capacity, ' + esc(fmt(m.cap)) + ' person-weeks</div>'; cutShown = true; }
+      list += itemRow(it, m);
+    });
+    m.unestimated.forEach(function (it) {
+      list += '<div class="item"><span class="sw none"></span><span class="name">' + esc(titleOf(it.row)) + '</span><span class="facts">Not estimated</span></div>';
+    });
+    var room = m.room.map(function (r) {
+      return '<div class="room"><div class="row"><span><strong>' + esc(titleOf(r)) + '</strong> · ' + fmt(effort(r)) + ' pw' + (rice(r) != null ? ' · RICE ' + fmt(rice(r)) : '') + ' fits in ' + esc(m.team) + '\'s spare ' + fmt(m.spare) + '</span>' +
+        (m.si.next ? '<button class="btn-sm" data-move="' + esc(r.id) + '" data-to="' + esc(m.si.next) + '">Move to ' + esc(m.si.next) + '</button>' : '') + '</div></div>';
+    }).join('');
+    return '<div class="card"><div class="team-head"><h3>' + esc(m.team) + '</h3>' +
+      '<label class="cap">Capacity <input type="number" min="0" step="1" inputmode="decimal" data-cap="' + esc(m.team) + '" value="' + esc(fmt(m.cap).replace(/,/g, '')) + '" aria-label="' + esc(m.team + ' capacity in person-weeks') + '"></label></div>' +
+      bar + '<p class="fit-sum num' + (m.over > 0 ? ' over' : '') + '">' + esc(sum) + '</p>' +
+      '<div class="items">' + list + '</div>' + room + '</div>';
+  }
+
+  function itemRow(it, m) {
+    var r = it.row;
+    var status = str(r, rc.status);
+    var facts = esc(status) + ' · ' + fmt(it.effort) + ' pw' + (rice(r) != null ? ' · RICE ' + fmt(rice(r)) : '');
+    var html = '<div class="item' + (it.fits ? '' : ' out') + '"><span class="sw' + (it.next ? ' next' : '') + '"></span><span class="name" title="' + esc(titleOf(r)) + '">' + esc(titleOf(r)) + '</span><span class="facts">' + facts + '</span>';
+    if (!it.fits) {
+      var spill = Math.min(it.effort, it.end - m.cap);
+      html += '<div class="act"><span>Doesn\'t fit' + (spill < it.effort ? ': ' + fmt(spill) + ' of its ' + fmt(it.effort) + ' pw spill over' : '') + '</span>' +
+        (m.si.later ? '<button class="btn-sm" data-move="' + esc(r.id) + '" data-to="' + esc(m.si.later) + '">Move to ' + esc(m.si.later) + '</button>' : '') + '</div>';
+    }
+    return html + '</div>';
+  }
+
+  function colMessage(what, how) {
+    return '<div class="card empty-state"><p><strong>This needs ' + esc(what) + '.</strong></p><p style="margin:0">' + esc(how) + '</p></div>';
+  }
+
+  // ------------------------------------------------------------ Why this?
+  function evidenceFor(title) {
+    var key = lower(title);
+    return fbRows.filter(function (f) { return !fbArchived(f) && lower(val(f, fc.initiative)) === key; });
+  }
+  function fbArchived(f) {
+    if (!fc.status) return false;
+    var states = fc.status.optionStates || {};
+    var s = str(f, fc.status);
+    return states[s] === 'archive' || lower(s) === "won't do";
+  }
+  function votes(f) { var n = toNum(val(f, fc.votes)); return n != null && n > 0 ? n : 0; }
+
+  function renderWhy() {
+    var el = $('why');
+    var lede = '<p class="lede">An initiative earns its place with customer evidence, a goal it moves, or both.</p>';
+    var open = rmRows.filter(function (r) { return !isShipped(r); }).sort(byRice);
+    if (!open.length) { el.innerHTML = lede + '<div class="card empty-state">No initiatives in Now, Next or Later yet. Add a row to the Roadmap.</div>'; return; }
+
+    var haveFb = !!feedback && !!fc.initiative;
+    var html = lede;
+    if (!feedback) {
+      html += '<div class="notice"><span>Allow access to Feedback to see who asked for each initiative. If you chose Deny, reopen the view to be asked again.' + (fbError ? ' (' + esc(fbError) + ')' : '') + '</span><button class="btn-sm" id="fbRetry">Retry</button></div>';
+    } else if (!fc.initiative) {
+      html += '<div class="notice"><span>Add a text column called Initiative to Feedback and type the initiative\'s name in it, so each request counts as evidence.</span></div>';
+    }
+
+    var counts = { both: 0, bet: 0, ask: 0, none: 0 };
+    var rows = open.map(function (r) {
+      var ev = haveFb ? evidenceFor(titleOf(r)) : [];
+      var obj = rc.objective ? str(r, rc.objective) : '';
+      var kind = haveFb ? (ev.length && obj ? 'both' : obj ? 'bet' : ev.length ? 'ask' : 'none') : null;
+      if (kind) counts[kind]++;
+      return { row: r, ev: ev, obj: obj, kind: kind };
+    });
+    var VERDICT = {
+      both: ['badge-success', 'Asked for and on goal'],
+      bet: ['badge-info', 'Strategy bet: nobody asked yet'],
+      ask: ['badge-warning', 'Customer ask: no objective'],
+      none: ['badge-danger', 'Neither: why is it here?']
+    };
+    if (haveFb) {
+      html += '<div class="why-summary">' + ['both', 'bet', 'ask', 'none'].filter(function (k) { return counts[k]; }).map(function (k) {
+        var label = { both: 'asked for and on goal', bet: counts.bet === 1 ? 'strategy bet' : 'strategy bets', ask: counts.ask === 1 ? 'customer ask' : 'customer asks', none: 'with neither' }[k];
+        return '<span class="badge ' + VERDICT[k][0] + '">' + counts[k] + ' ' + esc(label) + '</span>';
+      }).join('') + '</div>';
+    }
+    if (!rc.objective) html += '<p class="sub">Add a select column called Objective to the Roadmap to see which goal each initiative moves.</p>';
+
+    html += '<div class="card" style="padding:4px 4px">' + rows.map(function (x) {
+      var r = x.row;
+      var id = r.id;
+      var isOpen = !!expanded[id];
+      var accounts = {};
+      x.ev.forEach(function (f) { var a = lower(val(f, fc.account)); if (a) accounts[a] = 1; });
+      var nAcc = Object.keys(accounts).length;
+      var nVotes = x.ev.reduce(function (s, f) { return s + votes(f); }, 0);
+      var segs = [];
+      if (fc.segment) {
+        var segOrder = Array.isArray(fc.segment.options) ? fc.segment.options : [];
+        x.ev.forEach(function (f) { var s = str(f, fc.segment); if (s && segs.indexOf(s) < 0) segs.push(s); });
+        segs.sort(function (a, b) { return segOrder.indexOf(a) - segOrder.indexOf(b); });
+      }
+      var evidence = haveFb
+        ? (x.ev.length ? '<span>' + esc((nAcc ? plural(nAcc, 'account', 'accounts') : plural(x.ev.length, 'request', 'requests')) + (fc.votes ? ' · ' + plural(nVotes, 'vote', 'votes') : '')) + '</span>' + (segs.length ? '<span class="chips">' + segs.map(function (s) { return chip(fc.segment, s); }).join('') + '</span>' : '') : '<span>Nobody has asked</span>')
+        : '';
+      var objective = rc.objective ? (x.obj ? chip(rc.objective, x.obj) : '<span>No objective</span>') : '';
+      var verdict = x.kind ? '<span class="badge verdict ' + VERDICT[x.kind][0] + '">' + esc(VERDICT[x.kind][1]) + '</span>' : '';
+      var out = (haveFb ? '<button class="why-row" data-expand="' + esc(id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">' : '<div class="why-row">') +
+        '<div class="why-top">' + (haveFb ? '<span class="caret">&#9656;</span>' : '') + '<span class="name">' + esc(titleOf(r)) + '</span>' + chip(rc.status, str(r, rc.status)) +
+        '<span class="rice">' + (rice(r) != null ? 'RICE ' + fmt(rice(r)) : 'No RICE') + '</span></div>' +
+        '<div class="why-bottom">' + evidence + objective + verdict + '</div>' + (haveFb ? '</button>' : '</div>');
+      if (isOpen && haveFb) {
+        out += '<div class="linked">' + (x.ev.length ? x.ev.slice().sort(function (a, b) { return votes(b) - votes(a); }).map(function (f) {
+          var acc = str(f, fc.account);
+          return '<div><span class="t">' + esc(titleOf(f)) + '</span><span class="num">' + esc([acc, fc.votes ? plural(votes(f), 'vote', 'votes') : ''].filter(Boolean).join(' · ')) + '</span></div>';
+        }).join('') : '<div><span>No feedback is linked yet. Link a request below, or type this initiative\'s name in a Feedback row\'s Initiative column.</span></div>') + '</div>';
+      }
+      return out;
+    }).join('') + '</div>';
+
+    if (haveFb) html += unclaimedHtml(open);
+    el.innerHTML = html;
+  }
+
+  function unclaimedHtml(open) {
+    var known = {};
+    rmRows.forEach(function (r) { known[lower(titleOf(r))] = 1; });
+    var asks = fbRows.filter(function (f) {
+      if (fbArchived(f)) return false;
+      var i = lower(val(f, fc.initiative));
+      return !i || !known[i];
+    }).sort(function (a, b) { return votes(b) - votes(a); });
+    var html = '<h4 class="section-title">Unclaimed asks</h4>';
+    if (!asks.length) return html + '<p class="sub">Every open request is linked to an initiative.</p>';
+    html += '<p class="sub">Requests no initiative answers yet. Link one and it counts as evidence above.</p>';
+    var options = open.map(function (r) { return '<option value="' + esc(titleOf(r)) + '">' + esc(titleOf(r)) + '</option>'; }).join('');
+    html += '<div class="card" style="padding:4px 14px">' + asks.map(function (f) {
+      var points = str(f, fc.initiative);
+      var facts = [str(f, fc.account), fc.votes ? plural(votes(f), 'vote', 'votes') : ''].filter(Boolean).join(' · ');
+      return '<div class="ask"><div><div class="t">' + esc(titleOf(f)) + '</div><div class="sub">' + esc(facts) + (fc.segment ? ' ' + chip(fc.segment, str(f, fc.segment)) : '') +
+        (points ? '<div>Points at “' + esc(points) + '”, which isn\'t on the roadmap.</div>' : '') + '</div></div>' +
+        '<select data-link="' + esc(f.id) + '" aria-label="' + esc('Link ' + titleOf(f) + ' to an initiative') + '"><option value="">Link to…</option>' + options + '</select></div>';
+    }).join('') + '</div>';
+    return html;
+  }
+
+  // ------------------------------------------------------------ Did it work?
+  function outcomeOf(row) { return rc.outcome ? str(row, rc.outcome) : ''; }
+  function scoreOf(row) { var s = SCORE[lower(outcomeOf(row))]; return s == null ? null : s; }
+
+  function renderBets() {
+    var el = $('bets');
+    var lede = '<p class="lede">Every shipped initiative was a bet. Judge it once the numbers are in, and see how good your Confidence scores really are.</p>';
+    if (!rc.outcome) { el.innerHTML = lede + colMessage('an Outcome column', 'Add a select column called Outcome to the Roadmap with the options Hit, Partial and Missed, then set it on shipped initiatives.'); return; }
+    var shipped = rmRows.filter(isShipped);
+    if (!shipped.length) { el.innerHTML = lede + '<div class="card empty-state">Nothing has shipped yet. When an initiative moves to Shipped, it shows up here so you can judge the bet.</div>'; return; }
+
+    var judged = shipped.filter(function (r) { return scoreOf(r) != null; });
+    var waiting = shipped.filter(function (r) { return scoreOf(r) == null; });
+    var levels = {};
+    judged.forEach(function (r) {
+      var c = conf(r);
+      if (c == null) return;
+      var k = (Math.round(c * 100) / 100).toFixed(2);
+      (levels[k] = levels[k] || { c: Number(k), n: 0, sum: 0 }).n++;
+      levels[k].sum += scoreOf(r);
+    });
+    var lv = Object.keys(levels).map(function (k) { var l = levels[k]; l.rate = l.sum / l.n; l.kind = kindOf(l); return l; }).sort(function (a, b) { return b.c - a.c; });
+
+    var html = lede;
+    if (lv.length) {
+      html += '<p class="headline">' + esc(betsHeadline(lv, judged)) + '</p>';
+      html += '<div class="card" style="margin-top:10px"><div class="bets-top"><div>' + chartSvg(lv) + '</div><div><h4>By confidence</h4><div class="levels">' + lv.map(function (l) {
+        var verdict = l.n < 2 ? 'too few to tell' : { ok: 'about right', low: 'overconfident', high: 'underconfident' }[l.kind];
+        return '<div class="level"><i class="' + (l.n < 2 ? 'few' : l.kind) + '"></i><span class="num">' + esc(fmtConf(l.c) + ' · ' + plural(l.n, 'bet', 'bets') + ' · ' + pct(l.rate) + ' came true · ') + '<strong>' + esc(verdict) + '</strong></span></div>';
+      }).join('') + '</div><p class="sub" style="margin-top:10px">A hit counts as 1, a partial as half, a miss as 0. The dashed line is where an honest score lands: 0.8 bets come true 80% of the time.</p></div></div></div>';
+    } else {
+      html += '<div class="card empty-state">' + (judged.length ? 'The judged bets have no Confidence, so there is nothing to compare yet.' : 'No bet has a verdict yet. Judge a shipped initiative below to start the chart.') + '</div>';
+    }
+
+    html += '<h4 class="section-title">Waiting for a verdict</h4>';
+    if (!waiting.length) {
+      html += '<p class="sub">Every shipped initiative has been judged.</p>';
+    } else {
+      var opts = rc.outcome && Array.isArray(rc.outcome.options) && rc.outcome.options.length ? rc.outcome.options : OUTCOMES;
+      html += '<div class="card" style="padding:4px 14px">' + waiting.sort(byEndDesc).map(function (r) {
+        var bits = [];
+        if (conf(r) != null) bits.push('Confidence ' + fmtConf(conf(r)));
+        var ago = endedAgo(r);
+        if (ago) bits.push(ago);
+        var other = outcomeOf(r);
+        if (other) bits.push('Outcome “' + other + '”');
+        return '<div class="wait"><div><div class="t">' + esc(titleOf(r)) + '</div><div class="sub">' + esc(bits.join(' · ')) + '</div></div><div class="row">' +
+          opts.map(function (o) { return '<button class="btn-sm" data-judge="' + esc(r.id) + '" data-outcome="' + esc(o) + '">' + esc(o) + '</button>'; }).join('') + '</div></div>';
+      }).join('') + '</div>';
+    }
+
+    if (judged.length) {
+      html += '<h4 class="section-title">Judged bets</h4><div class="card" style="padding:4px 14px"><table class="judged"><tbody>' + judged.sort(byEndDesc).map(function (r) {
+        return '<tr><td>' + esc(titleOf(r)) + '</td><td class="c">' + esc(conf(r) != null ? fmtConf(conf(r)) : 'No confidence') + '</td><td class="o">' + chip(rc.outcome, outcomeOf(r)) + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+    }
+    el.innerHTML = html;
+  }
+
+  function kindOf(l) {
+    var d = l.rate - l.c;
+    return Math.abs(d) <= 0.15 + 1e-9 ? 'ok' : d < 0 ? 'low' : 'high';
+  }
+  function byEndDesc(a, b) {
+    var da = parseDay(val(a, rc.end)), db = parseDay(val(b, rc.end));
+    if (!da && !db) return titleOf(a).localeCompare(titleOf(b));
+    if (!da) return 1;
+    if (!db) return -1;
+    return db - da;
+  }
+  function endedAgo(r) {
+    var d = parseDay(val(r, rc.end));
+    if (!d) return '';
+    var days = Math.round((today() - d) / 86400000);
+    if (days < 0) return 'ends in ' + plural(-days, 'day', 'days');
+    if (days === 0) return 'ended today';
+    if (days < 7) return 'ended ' + plural(days, 'day', 'days') + ' ago';
+    var w = Math.round(days / 7);
+    return 'ended ' + plural(w, 'week', 'weeks') + ' ago';
+  }
+
+  function betsHeadline(lv, judged) {
+    var solid = lv.filter(function (l) { return l.n >= 2; });
+    var best = null;
+    solid.forEach(function (hi) {
+      solid.forEach(function (lo) {
+        if (lo.c < hi.c && lo.rate > hi.rate + 1e-9) {
+          if (!best || hi.c > best.hi.c || (hi.c === best.hi.c && lo.rate > best.lo.rate)) best = { hi: hi, lo: lo };
+        }
+      });
+    });
+    if (best) {
+      var worth = Math.round(best.hi.rate * 10) / 10;
+      return 'Your ' + fmtConf(best.lo.c) + ' bets beat your ' + fmtConf(best.hi.c) + ' bets. When you rank the roadmap, a ' + fmtConf(best.hi.c) + ' has been worth about ' + worth.toFixed(1) + '.';
+    }
+    var withConf = judged.filter(function (r) { return conf(r) != null; });
+    var total = withConf.reduce(function (s, r) { return s + scoreOf(r); }, 0);
+    var avg = withConf.reduce(function (s, r) { return s + conf(r); }, 0) / Math.max(1, withConf.length);
+    var x = Math.round(total * 2) / 2;
+    return 'Counting a partial as half, ' + fmt(x) + ' of ' + withConf.length + ' bets came true (' + pct(total / Math.max(1, withConf.length)) + '), against an average confidence of ' + pct(avg) + '.';
+  }
+
+  function chartSvg(lv) {
+    var W = 330, H = 230, L = 50, R = 14, T = 14, B = 34;
+    var pw = W - L - R, ph = H - T - B;
+    var X = function (c) { return L + c * pw; };
+    var Y = function (r) { return T + (1 - r) * ph; };
+    var s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Stated confidence against how often bets came true">';
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (t) {
+      s += '<line class="grid" x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(t) + '" y2="' + Y(t) + '"></line>';
+      s += '<line class="grid" y1="' + T + '" y2="' + (H - B) + '" x1="' + X(t) + '" x2="' + X(t) + '"></line>';
+    });
+    [0, 0.5, 1].forEach(function (t) {
+      s += '<text class="axis" x="' + (L - 6) + '" y="' + (Y(t) + 3) + '" text-anchor="end">' + pct(t) + '</text>';
+    });
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (t) {
+      s += '<text class="axis" x="' + X(t) + '" y="' + (H - B + 14) + '" text-anchor="middle">' + (t === 0 ? '0' : t.toFixed(t === 1 || t === 0.5 ? 1 : 2)) + '</text>';
+    });
+    s += '<text class="axis" x="' + (L + pw / 2) + '" y="' + (H - 4) + '" text-anchor="middle">Stated confidence</text>';
+    s += '<text class="axis" transform="translate(10 ' + (T + ph / 2) + ') rotate(-90)" text-anchor="middle">Came true</text>';
+    s += '<line class="honest" x1="' + X(0) + '" y1="' + Y(0) + '" x2="' + X(1) + '" y2="' + Y(1) + '"></line>';
+    var hx = X(0.1) + 4, hy = Y(0.1) - 5;
+    s += '<text class="honest-label" x="' + hx + '" y="' + hy + '" transform="rotate(-' + (Math.atan2(ph, pw) * 180 / Math.PI).toFixed(1) + ' ' + hx + ' ' + hy + ')">honest</text>';
+    lv.slice().sort(function (a, b) { return b.n - a.n; }).forEach(function (l) {
+      var cls = l.kind + (l.n < 2 ? ' few' : '');
+      var cx = X(l.c), cy = Y(l.rate), r = 5 + 3 * Math.sqrt(l.n);
+      if (Math.abs(l.rate - l.c) > 0.02) s += '<line class="gap ' + cls + '" x1="' + cx + '" x2="' + cx + '" y1="' + Y(l.c) + '" y2="' + cy + '"></line>';
+      s += '<circle class="' + cls + '" cx="' + cx + '" cy="' + cy + '" r="' + r.toFixed(1) + '"><title>' + esc(fmtConf(l.c) + ': ' + plural(l.n, 'bet', 'bets') + ', ' + pct(l.rate) + ' came true') + '</title></circle>';
+      var right = cx + r + 4 + 40 < W;
+      s += '<text class="dot-label" x="' + (right ? cx + r + 4 : cx - r - 4) + '" y="' + (cy + 4) + '" text-anchor="' + (right ? 'start' : 'end') + '">' + esc(plural(l.n, 'bet', 'bets')) + '</text>';
+    });
+    return s + '</svg>';
+  }
+
+  // ------------------------------------------------------------ writes
+  function setBusy(on) {
+    busy = on;
+    Array.prototype.forEach.call(document.querySelectorAll('#main button, #main select, #main input'), function (b) {
+      if (b.id === 'fbRetry' || b.dataset.expand) return;
+      b.disabled = on;
+    });
+  }
+  async function write(fn) {
+    if (busy) return;
+    setNotice('');
+    setBusy(true);
+    try {
+      await fn();
+    } catch (err) {
+      setNotice('Could not save: ' + errText(err));
+    }
+    await Promise.all([loadRoadmap(), feedback ? loadFeedback() : null]);
+    setBusy(false);
+    render();
+  }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('button') : null;
+    if (!t) return;
+    if (t.dataset.tab) { selectTab(t.dataset.tab); store.set('tab', tab); render(); return; }
+    if (t.id === 'fbRetry') { t.disabled = true; connectFeedback().then(render); return; }
+    if (t.dataset.move) {
+      var id = t.dataset.move, to = t.dataset.to;
+      write(function () { var p = {}; p[rc.status.id] = to; return roadmap.update(id, p); });
+      return;
+    }
+    if (t.dataset.judge) {
+      var jid = t.dataset.judge, o = t.dataset.outcome;
+      write(function () { var p = {}; p[rc.outcome.id] = o; return roadmap.update(jid, p); });
+      return;
+    }
+    if (t.dataset.expand) { expanded[t.dataset.expand] = !expanded[t.dataset.expand]; render(); }
+  });
+  document.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t.dataset && t.dataset.cap != null) {
+      var n = toNum(t.value);
+      var saved = Object.assign({}, store.get('capacity', {}) || {});
+      if (n == null || n < 0) delete saved[t.dataset.cap]; else saved[t.dataset.cap] = n;
+      store.set('capacity', saved);
+      render();
+      return;
+    }
+    if (t.dataset && t.dataset.link && t.value) {
+      var fid = t.dataset.link, title = t.value;
+      write(function () {
+        var p = {};
+        p[fc.initiative.id] = title;
+        var linked = fc.status && Array.isArray(fc.status.options) ? fc.status.options.find(function (o) { return lower(o) === 'linked'; }) : null;
+        if (linked) p[fc.status.id] = linked;
+        return feedback.update(fid, p);
+      });
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!e.target.closest || !e.target.closest('[role=tablist]')) return;
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    var i = TABS.indexOf(tab) + (e.key === 'ArrowRight' ? 1 : -1);
+    selectTab(TABS[(i + TABS.length) % TABS.length]);
+    store.set('tab', tab);
+    render();
+    $('tab-' + tab).focus();
+  });
+
+  // ------------------------------------------------------------ data
+  async function loadRoadmap() {
+    if (!roadmap) return;
+    try {
+      rmRows = (await roadmap.rows({ ignoreView: true, limit: 2000 })) || [];
+      fatal = '';
+    } catch (err) {
+      rmRows = [];
+      fatal = 'Could not read the Roadmap: ' + errText(err);
+    }
+  }
+  async function loadFeedback() {
+    if (!feedback) return;
+    try {
+      fbRows = (await feedback.rows({ ignoreView: true, limit: 2000 })) || [];
+    } catch (err) {
+      fbRows = [];
+      feedback = null;
+      fbError = errText(err);
+    }
+  }
+  async function connectRoadmap() {
+    try {
+      roadmap = await hillnote.data();
+    } catch (err) {
+      roadmap = null;
+      fatal = 'Could not open the Roadmap: ' + errText(err);
+      return;
+    }
+    rmCols = typeof roadmap.columns === 'function' ? (roadmap.columns() || []) : [];
+    detectRoadmapCols();
+    if (!rmSubscribed && typeof roadmap.onChange === 'function') { roadmap.onChange(function () { loadRoadmap().then(schedule); }); rmSubscribed = true; }
+    await loadRoadmap();
+  }
+  async function connectFeedback() {
+    if (typeof hillnote.database !== 'function') { fbError = 'This version of Hillnote cannot open a second database.'; return; }
+    try {
+      feedback = await hillnote.database('Feedback');
+      fbError = '';
+    } catch (err) {
+      feedback = null;
+      fbError = errText(err);
+      return;
+    }
+    fbCols = typeof feedback.columns === 'function' ? (feedback.columns() || []) : [];
+    detectFeedbackCols();
+    if (!fbSubscribed && typeof feedback.onChange === 'function') { feedback.onChange(function () { loadFeedback().then(schedule); }); fbSubscribed = true; }
+    await loadFeedback();
+  }
+
+  $('retry').addEventListener('click', async function () {
+    $('retry').disabled = true;
+    fatal = '';
+    if (roadmap) await loadRoadmap(); else await connectRoadmap();
+    $('retry').disabled = false;
+    render();
+  });
+
+  async function start() {
+    tab = store.get('tab', 'fit');
+    if (TABS.indexOf(tab) < 0) tab = 'fit';
+    selectTab(tab);
+    if (!window.hillnote || typeof hillnote.data !== 'function') {
+      showEmpty('Open this inside Hillnote, as the Reality check view of the Roadmap, to see whether the plan fits, who asked for it and how your bets did.', false);
+      return;
+    }
+    try { await hillnote.ready(); } catch (e) { /* render anyway */ }
+    await Promise.all([connectRoadmap(), connectFeedback()]);
+    render();
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

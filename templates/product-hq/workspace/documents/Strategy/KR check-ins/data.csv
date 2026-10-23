@@ -1,0 +1,36 @@
+Key result,Week,Value,Note,_hnid
+Weekly active dashboards,2026-10-05,1960,,r_d4219993-7c75-4aa7-a20f-56b22cb8f7e3
+Weekly active dashboards,2026-10-12,2140,Dashboard templates shipped,r_0fdc9e0e-692c-49a3-911f-00c59bcf4b41
+Weekly active dashboards,2026-10-19,2250,,r_581b66de-40b2-46e9-bd5f-1ba87399977a
+Weekly active dashboards,2026-10-26,2310,,r_3ad4823b-8577-48a5-b06e-31d3c150308f
+Weekly active dashboards,2026-11-02,2350,Growth is slowing as the templates bump wears off,r_eb0ddcb6-5c3c-4c96-a33c-fa7a3a35213d
+Accounts with a saved dashboard,2026-10-05,0,,r_485ae07c-6e7c-479c-8a44-fbbcf8226e79
+Accounts with a saved dashboard,2026-10-12,0,,r_e4a30540-1389-46c8-b230-ca3beab31096
+Accounts with a saved dashboard,2026-10-19,0,,r_e243787a-94b8-406c-ae40-e2b2975e1874
+Accounts with a saved dashboard,2026-10-26,0,,r_d8fab999-f95d-4d10-846c-3c1c1ef51ada
+Accounts with a saved dashboard,2026-11-02,0,Waits on Saved dashboards,r_87ba9e6b-c253-4529-8bfc-2f4defe471ed
+Login to first dashboard view,2026-10-05,40,,r_45c32201-4ff9-42d3-8d62-cb482d238944
+Login to first dashboard view,2026-10-12,32,Templates shipped: new accounts land on a dashboard,r_4456b8d1-e19d-4102-b77a-a7fc33320bc9
+Login to first dashboard view,2026-10-19,29,,r_3dc701b4-a34f-413e-a3b6-47a9b6967cdc
+Login to first dashboard view,2026-10-26,28,,r_ae5af667-dbeb-4444-abc8-eda2d01939a4
+Login to first dashboard view,2026-11-02,28,Query caching is live for 40% of accounts,r_2fa9247b-2c2f-450c-8835-b026a5350cf0
+Alerts muted within 7 days,2026-10-05,37,,r_c15d6d22-17bd-4649-8614-98290a82133a
+Alerts muted within 7 days,2026-10-12,36,,r_20de5c4a-4a6d-49b0-81f2-e4641f598722
+Alerts muted within 7 days,2026-10-19,35,,r_be5b0241-1481-4d28-a956-0d02e2387e61
+Alerts muted within 7 days,2026-10-26,34,,r_7d869a10-610e-48b4-8581-211e63773a41
+Alerts muted within 7 days,2026-11-02,33,Alert digests will batch the non-urgent ones,r_b3758b6f-af34-4f2c-86f2-b24885bb4b38
+Accounts on the weekly digest,2026-10-05,0,,r_eb79e423-0d53-4a7f-9e37-cd70dd3ae93f
+Accounts on the weekly digest,2026-10-12,0,,r_94d8a507-94e3-487b-94d2-11c110f1fcf7
+Accounts on the weekly digest,2026-10-19,0,,r_5ab36fa3-dbdc-4872-9e0c-21e6b155a2cc
+Accounts on the weekly digest,2026-10-26,0,,r_83b2b85a-fc23-405d-88ad-ae8b96b0a3c8
+Accounts on the weekly digest,2026-11-02,0,Waits on Alert digests,r_23c3ed84-16c4-4625-b083-e8527c8c6ecd
+Live dashboard on day 1,2026-10-05,34,,r_aa7e7ba0-270d-4e43-85c3-0dfeb6fded70
+Live dashboard on day 1,2026-10-12,37,Templates shipped,r_3673f312-c272-4162-851c-899ca63e18ff
+Live dashboard on day 1,2026-10-19,41,Onboarding checklist shipped,r_68df5350-df5b-490d-84b4-aaccb401ee8d
+Live dashboard on day 1,2026-10-26,44,,r_bc644703-af11-4da3-a0b2-693104923c26
+Live dashboard on day 1,2026-11-02,46,,r_8e3183a8-daf0-406d-b681-14fed5030dc8
+Large imports without support,2026-10-05,60,,r_606cee10-110a-43d2-aa12-f8eb1b1bf24f
+Large imports without support,2026-10-12,62,,r_1a11a002-a87d-4bca-9ce6-25fba68fc128
+Large imports without support,2026-10-19,61,Two imports failed above 50k rows,r_a8ace03c-6c57-4e0c-84e6-437fed536143
+Large imports without support,2026-10-26,61,,r_e01f52be-bcde-449a-ad7d-369e472d1366
+Large imports without support,2026-11-02,61,Nothing aimed at this is in Now,r_002310db-6fda-452a-9141-ea6c6fc12a18

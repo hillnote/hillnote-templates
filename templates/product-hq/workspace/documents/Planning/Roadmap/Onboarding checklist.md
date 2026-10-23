@@ -14,4 +14,6 @@ _emoji: ✅
 
 A five-step checklist on the home screen for new accounts.
 
-**Result:** accounts with a live dashboard on day 1 went from 34% to 46%.
+**The bet:** a checklist that ends with "pin your first dashboard" gets day-1 live dashboards from 34% to 50%.
+
+**So far:** 46%, two weeks after launch. Give it four weeks before calling it, then set **Outcome** (or use the Reality check view on the Roadmap).

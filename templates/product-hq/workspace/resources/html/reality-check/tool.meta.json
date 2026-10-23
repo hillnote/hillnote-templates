@@ -1,0 +1,21 @@
+{
+  "name": "reality-check",
+  "description": "Will the roadmap fit the team, who asked for each initiative, and how good your confidence scores really are",
+  "glyph": "🧪",
+  "entryPoint": "index.html",
+  "files": [
+    "index.html"
+  ],
+  "sheets": [],
+  "databases": [
+    {
+      "name": "Roadmap",
+      "path": "Planning/Roadmap",
+      "primary": true
+    },
+    {
+      "name": "Feedback",
+      "path": "Discovery/Feedback"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "formatVersion": 1,
   "id": "product-hq",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Product HQ",
-  "tagline": "Strategy, discovery, a RICE-ranked roadmap and specs, all in one place.",
-  "description": "A complete operating system for a product team, shown through a worked example: Lumen, a fictional analytics product planning its next quarter. Strategy sits at the top (vision, OKRs, personas), customer evidence underneath it (a feedback database and interview notes), and a roadmap ranked by RICE that you can see as a board, a timeline, a ranked table or an impact-versus-effort matrix.\n\nDelivery pages turn the roadmap into shipped work: a filled-in PRD, a launch plan and release notes, plus blank templates to duplicate. A weekly product review and a quarterly roadmap deck keep everyone honest.\n\nThree AI recipes draft PRDs, write the Monday status digest and cluster new feedback into themes. Two tools come with it: a priority matrix that lets you move initiatives between Now, Next and Later, and a market-sizing calculator.",
+  "tagline": "Strategy, discovery and a RICE-ranked roadmap that checks itself.",
+  "description": "A complete operating system for a product team, shown through a worked example: Lumen, a fictional analytics product planning its next quarter. Strategy sits at the top (vision, OKRs, personas), customer evidence underneath it (a feedback database and interview notes), and a roadmap ranked by RICE that you can see as a board, a timeline, a ranked table or an impact-versus-effort matrix.\n\nThe roadmap checks itself. A Reality check view shows whether Now and Next fit each team's capacity, which initiatives no customer asked for and no objective needs, and how often your confident bets came true last quarter, so your next RICE scores are more honest. Key results live in a scorecard with a one-click weekly check-in and a pace forecast to the end of the quarter.\n\nDelivery pages turn the roadmap into shipped work: a filled-in PRD, a launch plan and release notes, plus blank templates to duplicate. Five AI recipes draft PRDs, write the Monday status digest, triage feedback, run a pre-mortem on an initiative and help you say no to a request kindly.",
   "setups": [
     "product"
   ],
@@ -15,7 +15,8 @@
     "okrs",
     "feedback",
     "rice",
-    "planning"
+    "planning",
+    "capacity"
   ],
   "featured": true,
   "author": {
@@ -24,7 +25,7 @@
   },
   "license": "MIT",
   "open": "documents/Start here.md",
-  "overview": "Product team workspace: vision and OKRs, a customer feedback database, a RICE-ranked roadmap (board, timeline, matrix), PRDs, launch plans, release notes and a weekly review.",
+  "overview": "Product team workspace: vision, OKRs with a live scorecard, a customer feedback database, a RICE-ranked roadmap (board, timeline, matrix, reality check), PRDs, launch plans, release notes and a weekly review.",
   "color": "blue",
   "dateAnchor": "2026-11-02",
   "icon": "media/icon.webp",

@@ -27,7 +27,7 @@
       "path": "documents/Strategy/Personas.md",
       "type": "document",
       "emoji": "🧑‍💼",
-      "position": 2
+      "position": 4
     },
     {
       "name": "Customer interview - Brightwater Logistics",
@@ -142,6 +142,22 @@
       "type": "folder",
       "position": 0,
       "pinned": false
+    },
+    {
+      "name": "Key results",
+      "path": "documents/Strategy/Key results",
+      "type": "folder",
+      "position": 2,
+      "pinned": false,
+      "emoji": "📊"
+    },
+    {
+      "name": "KR check-ins",
+      "path": "documents/Strategy/KR check-ins",
+      "type": "folder",
+      "position": 3,
+      "pinned": false,
+      "emoji": "📈"
     }
   ]
 }

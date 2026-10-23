@@ -3,7 +3,7 @@
     {
       "id": "prd_draft",
       "when_user_asks_about": "drafting a PRD or spec for a roadmap initiative",
-      "override_instructions": "Draft a product requirements document for the roadmap initiative the user names (or the one linked from the current page). Read that initiative's row in the Roadmap database (documents/Planning/Roadmap) and every Feedback row it links to. Follow the headings of the PRD template exactly. Name the primary persona from Personas in the first paragraph. Quote customers word for word from the feedback, with the account name. Tie each success metric to a key result on the OKRs page. Where you don't know something, add it to Risks and open questions instead of inventing an answer. Keep it under 900 words.",
+      "override_instructions": "Draft a product requirements document for the roadmap initiative the user names (or the one linked from the current page). Read that initiative's row in the Roadmap database (documents/Planning/Roadmap) and every row in the Feedback database (documents/Discovery/Feedback) whose Initiative column names it. Follow the headings of the PRD template exactly. Name the primary persona from Personas in the first paragraph. Quote customers word for word from the feedback, with the account name. Tie each success metric to a row in the Key results database (documents/Strategy/Key results), using its current value as 'Today'. Fill in The bet line, and set Confidence honestly: 0.8 needs evidence from two or more accounts, otherwise 0.5. Where you don't know something, add it to Risks and open questions instead of inventing an answer. Keep it under 900 words.",
       "required_documents": [
         "documents/Templates/PRD template.md",
         "documents/Strategy/Personas.md",
@@ -17,7 +17,7 @@
     {
       "id": "status_digest",
       "when_user_asks_about": "a weekly status update or digest for the roadmap",
-      "override_instructions": "Write this week's product status digest. Read the Roadmap database (documents/Planning/Roadmap): every initiative in Now, anything that moved to Shipped, and anything whose end date has passed without shipping. Read the latest notes in the Weekly product review. Use the Status digest template's headings. Be specific and plain: one line per initiative, say on track, at risk or blocked and why. Put anything that needs a decision under Decisions needed. No hype, no adjectives.",
+      "override_instructions": "Write this week's product status digest. Read the Roadmap database (documents/Planning/Roadmap): every initiative in Now, anything that moved to Shipped, and anything whose end date has passed without shipping. Read the Key results database (documents/Strategy/Key results) and the last two weeks of the KR check-ins sheet (documents/Strategy/KR check-ins): give each key result's current value, which way it moved since last week, and name any that didn't move. Read the latest notes in the Weekly product review. Use the Status digest template's headings. Be specific and plain: one line per initiative, say on track, at risk or blocked and why. Put anything that needs a decision under Decisions needed. No hype, no adjectives.",
       "required_documents": [
         "documents/Templates/Status digest template.md",
         "documents/Planning/Weekly product review.md"
@@ -30,7 +30,7 @@
     {
       "id": "feedback_themes",
       "when_user_asks_about": "clustering or triaging customer feedback into themes",
-      "override_instructions": "Triage new customer feedback. Read every row with status New in the Feedback database (documents/Discovery/Feedback). Group them into themes, reusing the database's Theme options where they fit and proposing a new theme only when none does. For each theme: the rows in it, the strongest quote, the segments asking, and which Roadmap initiative it supports (documents/Planning/Roadmap), or 'no initiative yet'. End with up to three recommendations, each tied to an objective on the OKRs page.",
+      "override_instructions": "Triage new customer feedback. Read every row with status New in the Feedback database (documents/Discovery/Feedback). Group them into themes, reusing the database's Theme options where they fit and proposing a new theme only when none does. For each theme: the rows in it, the strongest quote, the segments asking, and the Roadmap initiative (documents/Planning/Roadmap) to put in each row's Initiative column, by its exact name, or 'no initiative yet'. Point out any initiative that gains its first customer evidence this way. End with up to three recommendations, each tied to an objective on the OKRs page.",
       "required_documents": [
         "documents/Strategy/OKRs.md"
       ],
@@ -38,6 +38,31 @@
         "documents/Strategy/Personas.md"
       ],
       "output_format": "A short themed list with quotes, then up to three recommendations"
+    },
+    {
+      "id": "premortem",
+      "when_user_asks_about": "a pre-mortem on a roadmap initiative before committing to it",
+      "override_instructions": "Run a pre-mortem on the roadmap initiative the user names (or the one on the current page). Assume it is six months from now and the initiative failed: it shipped late, nobody used it, or it didn't move its key result. Read its row in the Roadmap database (documents/Planning/Roadmap) and its PRD if one is linked; every Feedback row whose Initiative column names it (documents/Discovery/Feedback); the key results for its objective in the Key results database (documents/Strategy/Key results); and the Shipped initiatives whose Outcome is Missed or Partial, because their What happened and Learned lines show how this team's bets usually fail. Write the five most likely reasons it failed, most likely first. For each: the story in two sentences, the early warning sign you would see in the first two weeks, and the cheapest test that could rule it out this week. Use the team's own history and evidence, and say plainly where evidence is missing (no customer asked, no objective, a team already over capacity). Finish with a one-line verdict: commit, de-risk first (name the test), or rethink.",
+      "required_documents": [
+        "documents/Strategy/OKRs.md"
+      ],
+      "optional_documents": [
+        "documents/Strategy/Personas.md",
+        "documents/Strategy/Vision and strategy.md"
+      ],
+      "output_format": "Five numbered failure stories, each with an early warning sign and a cheap test, then a one-line verdict"
+    },
+    {
+      "id": "say_no",
+      "when_user_asks_about": "replying to a customer or stakeholder request we are not going to build now",
+      "override_instructions": "Draft a reply that says no, or not now, to a feature request: kind, specific and honest. The user pastes the request or names a Feedback row. Read the Feedback database (documents/Discovery/Feedback) for other accounts asking for the same thing, the Roadmap database (documents/Planning/Roadmap) for anything planned that solves part of the problem, and the What we won't do section of Vision and strategy. The reply: thank them for one specific detail of their request; say plainly that it isn't planned and give the one real reason, in their terms, never 'it's not a priority right now'; offer what helps today (a workaround, or a planned initiative that covers part of it, without promising dates); and say what would change the answer. Under 150 words, warm, no corporate phrases. Then, under a horizontal rule, a one-line note for the Feedback row: the Status to set (Won't do or Triaged) and the Initiative to put in its Initiative column, if any.",
+      "required_documents": [
+        "documents/Strategy/Vision and strategy.md"
+      ],
+      "optional_documents": [
+        "documents/Strategy/Personas.md"
+      ],
+      "output_format": "A reply under 150 words, then a horizontal rule and a one-line triage note"
     }
   ]
 }

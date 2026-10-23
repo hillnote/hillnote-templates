@@ -1,0 +1,103 @@
+{
+  "name": "Key results",
+  "folderKind": "goals",
+  "columns": [
+    {
+      "id": "title",
+      "name": "Key result",
+      "type": "title",
+      "width": 300
+    },
+    {
+      "id": "objective",
+      "name": "Objective",
+      "type": "select",
+      "options": [
+        "O1 First screen",
+        "O2 Trusted alerts",
+        "O3 First value"
+      ],
+      "optionColors": {
+        "O1 First screen": "blue",
+        "O2 Trusted alerts": "rose",
+        "O3 First value": "teal"
+      }
+    },
+    {
+      "id": "owner",
+      "name": "Owner",
+      "type": "select",
+      "options": [
+        "Product",
+        "Growth",
+        "Platform"
+      ],
+      "optionColors": {
+        "Product": "purple",
+        "Growth": "lime",
+        "Platform": "darkGray"
+      }
+    },
+    {
+      "id": "baseline",
+      "name": "Baseline",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "current",
+      "name": "Current",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "target",
+      "name": "Target",
+      "type": "number",
+      "width": 90
+    },
+    {
+      "id": "unit",
+      "name": "Unit",
+      "type": "text",
+      "width": 70
+    },
+    {
+      "id": "progress",
+      "name": "Progress %",
+      "type": "formula",
+      "formulaMode": "formula",
+      "formula": "ROUND(({Current} - {Baseline}) / ({Target} - {Baseline}) * 100, 0)",
+      "resultType": "number",
+      "width": 110
+    },
+    {
+      "id": "due",
+      "name": "Due",
+      "type": "date"
+    }
+  ],
+  "views": [
+    {
+      "id": "default",
+      "name": "Scorecard",
+      "type": "tool",
+      "toolPath": "resources/html/okr-scorecard/index.html",
+      "filters": [],
+      "sorts": []
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "type": "table",
+      "filters": [],
+      "sorts": [
+        {
+          "column": "objective",
+          "direction": "asc"
+        }
+      ]
+    }
+  ],
+  "defaultView": "default"
+}
